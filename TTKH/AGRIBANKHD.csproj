@@ -94,6 +94,7 @@
     <Compile Include="DAL\giaynhannoDAL.cs" />
     <Compile Include="DAL\hopdongvayDAL.cs" />
     <Compile Include="DAL\khachhangvayDAL.cs" />
+    <Compile Include="DAL\PhatHanhTheGhiNoDAL.cs" />
     <Compile Include="DAL\phongbanDAL.cs" />
     <Compile Include="DAL\phonggiaodichDAL.cs" />
     <Compile Include="DAL\rtbcontentDAL.cs" />

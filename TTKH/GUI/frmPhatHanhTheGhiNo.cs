@@ -45,5 +45,28 @@ namespace AGRIBANKHD.GUI
         {
 
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            Entities.Khachhang kh = null;
+            try {
+                kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txbSoCMT.Text);
+                if (kh == null) { 
+                    
+                }
+            }
+            catch{
+                DAL.ErrorMessageDAL.DataAccessError();
+            }
+        }
+
+
+        void KhongTimThayKH() { 
+            
+        }
+
+        void SetTextBoxStatus_TTKH(bool status) { 
+            
+        }
     }
 }

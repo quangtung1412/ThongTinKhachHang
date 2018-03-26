@@ -74,6 +74,13 @@ namespace AGRIBANKHD.Entities
             set { _di_dong = value; }
         }
 
+        private string _email;
+
+        public string email {
+            get { return _email; }
+            set { _email = value; }
+        }
+
         private string _dia_chi;
 
         public string dia_chi
@@ -87,7 +94,7 @@ namespace AGRIBANKHD.Entities
 
         }
 
-        public Khachhang(string ma_KH, string ho_ten, string cmt, DateTime ngay_cap, string noi_cap, string quoc_tich, string co_dinh, string di_dong, string dia_chi)
+        public Khachhang(string ma_KH, string ho_ten, string cmt, DateTime ngay_cap, string noi_cap, string quoc_tich, string co_dinh, string di_dong, string email,string dia_chi)
         {
             this._ma_KH = ma_KH;
             this._ho_ten = ho_ten;
@@ -97,6 +104,7 @@ namespace AGRIBANKHD.Entities
             this._quoc_tich=quoc_tich;
             this._co_dinh=co_dinh;
             this._di_dong=di_dong;
+            this._email = email;
             this._dia_chi=dia_chi;
         }
 
@@ -111,6 +119,7 @@ namespace AGRIBANKHD.Entities
             this._quoc_tich = row["quoc_tich"].ToString();
             this._co_dinh = row["co_dinh"].ToString();
             this._di_dong = row["di_dong"].ToString();
+            this._email = row["email"].ToString();
             this._dia_chi = row["dia_chi"].ToString();
         }
 
