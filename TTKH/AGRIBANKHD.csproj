@@ -91,6 +91,7 @@
     <Compile Include="DAL\chinhanhDAL.cs" />
     <Compile Include="DAL\DataAccess.cs" />
     <Compile Include="DAL\diemgiaodichDAL.cs" />
+    <Compile Include="DAL\ErrorMessageDAL.cs" />
     <Compile Include="DAL\giaynhannoDAL.cs" />
     <Compile Include="DAL\hopdongvayDAL.cs" />
     <Compile Include="DAL\khachhangvayDAL.cs" />
