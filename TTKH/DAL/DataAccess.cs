@@ -11,7 +11,7 @@ namespace AGRIBANKHD.DAL
 {
     class DataAccess
     {
-        public static SqlConnection conn = new SqlConnection(@"Server=DESKTOP-7D188FO\SQLEXPRESS;Database=AGRIBANKHD;User Id=sa;Password=123456;");
+        public static SqlConnection conn = new SqlConnection(@"Server=localhost\SQLEXPRESS;Database=AGRIBANKHD;User Id=sa;Password=123456a@;");
         //public static SqlConnection conn = new SqlConnection(@"Server=10.14.0.30\SQLEXPRESS;Database=AGRIBANKHD;User Id=sa;Password=123456a@;"); 
 
         private static SqlCommand cmd = new SqlCommand (); 

@@ -116,5 +116,13 @@ namespace AGRIBANKHD.GUI
             frm.Show();
             frm.BringToFront();
         }
+
+        private void phátHànhThẻDebitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPhatHanhTheGhiNo frm = new frmPhatHanhTheGhiNo();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
     }
 }

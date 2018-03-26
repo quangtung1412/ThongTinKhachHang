@@ -44,6 +44,10 @@
             this.tsmnQuan_tri_he_thong = new System.Windows.Forms.ToolStripMenuItem();
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hệThốngỨngDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dịchVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doanhNghiệpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phátHànhThẻDebitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +57,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
             this.aboutToolStripMenuItem,
-            this.tsmnQuan_tri_he_thong});
+            this.tsmnQuan_tri_he_thong,
+            this.dịchVToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(963, 24);
@@ -164,24 +169,55 @@
             this.tsmnQuan_tri_he_thong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem,
             this.hệThốngỨngDụngToolStripMenuItem});
-            this.tsmnQuan_tri_he_thong.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tsmnQuan_tri_he_thong.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.tsmnQuan_tri_he_thong.Name = "tsmnQuan_tri_he_thong";
-            this.tsmnQuan_tri_he_thong.Size = new System.Drawing.Size(117, 20);
+            this.tsmnQuan_tri_he_thong.Size = new System.Drawing.Size(134, 20);
             this.tsmnQuan_tri_he_thong.Text = "Quản trị hệ thống";
             // 
             // khaiBáoĐiểmGiaoDịchToolStripMenuItem
             // 
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Name = "khaiBáoĐiểmGiaoDịchToolStripMenuItem";
-            this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Text = "Khai báo điểm giao dịch";
             // 
             // hệThốngỨngDụngToolStripMenuItem
             // 
             this.hệThốngỨngDụngToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.hệThốngỨngDụngToolStripMenuItem.Name = "hệThốngỨngDụngToolStripMenuItem";
-            this.hệThốngỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.hệThốngỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.hệThốngỨngDụngToolStripMenuItem.Text = "Hệ thống ứng dụng";
+            // 
+            // dịchVToolStripMenuItem
+            // 
+            this.dịchVToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cáNhânToolStripMenuItem,
+            this.doanhNghiệpToolStripMenuItem});
+            this.dịchVToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dịchVToolStripMenuItem.Name = "dịchVToolStripMenuItem";
+            this.dịchVToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.dịchVToolStripMenuItem.Text = "Dịch vụ";
+            // 
+            // cáNhânToolStripMenuItem
+            // 
+            this.cáNhânToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.phátHànhThẻDebitToolStripMenuItem});
+            this.cáNhânToolStripMenuItem.Name = "cáNhânToolStripMenuItem";
+            this.cáNhânToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.cáNhânToolStripMenuItem.Text = "Cá nhân";
+            // 
+            // doanhNghiệpToolStripMenuItem
+            // 
+            this.doanhNghiệpToolStripMenuItem.Name = "doanhNghiệpToolStripMenuItem";
+            this.doanhNghiệpToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.doanhNghiệpToolStripMenuItem.Text = "Doanh nghiệp";
+            // 
+            // phátHànhThẻDebitToolStripMenuItem
+            // 
+            this.phátHànhThẻDebitToolStripMenuItem.Name = "phátHànhThẻDebitToolStripMenuItem";
+            this.phátHànhThẻDebitToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.phátHànhThẻDebitToolStripMenuItem.Text = "Phát hành thẻ Debit";
+            this.phátHànhThẻDebitToolStripMenuItem.Click += new System.EventHandler(this.phátHànhThẻDebitToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -220,5 +256,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmnQuan_tri_he_thong;
         private System.Windows.Forms.ToolStripMenuItem khaiBáoĐiểmGiaoDịchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hệThốngỨngDụngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dịchVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cáNhânToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phátHànhThẻDebitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doanhNghiệpToolStripMenuItem;
     }
 }

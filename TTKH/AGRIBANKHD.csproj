@@ -159,6 +159,12 @@
     <Compile Include="GUI\frmNhap_thong_tin_kh_vay.designer.cs">
       <DependentUpon>frmNhap_thong_tin_kh_vay.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmPhatHanhTheGhiNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPhatHanhTheGhiNo.Designer.cs">
+      <DependentUpon>frmPhatHanhTheGhiNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmTai_san_the_chap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmNhap_thong_tin_kh_vay.resx">
       <DependentUpon>frmNhap_thong_tin_kh_vay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmPhatHanhTheGhiNo.resx">
+      <DependentUpon>frmPhatHanhTheGhiNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmTai_san_the_chap.resx">
       <DependentUpon>frmTai_san_the_chap.cs</DependentUpon>
