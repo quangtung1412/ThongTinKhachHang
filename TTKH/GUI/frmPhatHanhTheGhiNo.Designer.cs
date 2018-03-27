@@ -30,16 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhatHanhTheGhiNo));
             this.gbThongTinKH = new System.Windows.Forms.GroupBox();
+            this.btnXoaTTKH = new System.Windows.Forms.Button();
+            this.btnSuaTTKH = new System.Windows.Forms.Button();
+            this.btnLuuTTKH = new System.Windows.Forms.Button();
             this.lbDiaChi = new System.Windows.Forms.Label();
             this.txbDiaChi = new System.Windows.Forms.TextBox();
             this.lbEmail = new System.Windows.Forms.Label();
             this.txbEmail = new System.Windows.Forms.TextBox();
             this.lbSoDienThoai = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbSoDienThoai = new System.Windows.Forms.TextBox();
             this.lbQuocTich = new System.Windows.Forms.Label();
             this.txbQuocTich = new System.Windows.Forms.TextBox();
-            this.mtxbNgaySinh = new System.Windows.Forms.MaskedTextBox();
-            this.mtxbNgayCap = new System.Windows.Forms.MaskedTextBox();
+            this.txbNgaySinh = new System.Windows.Forms.MaskedTextBox();
+            this.txbNgayCap = new System.Windows.Forms.MaskedTextBox();
             this.txbNoiCap = new System.Windows.Forms.TextBox();
             this.lbNoiCap = new System.Windows.Forms.Label();
             this.lbNgayCap = new System.Windows.Forms.Label();
@@ -81,9 +84,6 @@
             this.ckbLapNghiep = new System.Windows.Forms.CheckBox();
             this.ckbGhiNoNoiDia = new System.Windows.Forms.CheckBox();
             this.lbLoaiThe = new System.Windows.Forms.Label();
-            this.btnLuuTTKH = new System.Windows.Forms.Button();
-            this.btnSuaTTKH = new System.Windows.Forms.Button();
-            this.btnXoaTTKH = new System.Windows.Forms.Button();
             this.btnLuuHoSo = new System.Windows.Forms.Button();
             this.btnInHoSo = new System.Windows.Forms.Button();
             this.gbThongTinKH.SuspendLayout();
@@ -102,11 +102,11 @@
             this.gbThongTinKH.Controls.Add(this.lbEmail);
             this.gbThongTinKH.Controls.Add(this.txbEmail);
             this.gbThongTinKH.Controls.Add(this.lbSoDienThoai);
-            this.gbThongTinKH.Controls.Add(this.textBox1);
+            this.gbThongTinKH.Controls.Add(this.txbSoDienThoai);
             this.gbThongTinKH.Controls.Add(this.lbQuocTich);
             this.gbThongTinKH.Controls.Add(this.txbQuocTich);
-            this.gbThongTinKH.Controls.Add(this.mtxbNgaySinh);
-            this.gbThongTinKH.Controls.Add(this.mtxbNgayCap);
+            this.gbThongTinKH.Controls.Add(this.txbNgaySinh);
+            this.gbThongTinKH.Controls.Add(this.txbNgayCap);
             this.gbThongTinKH.Controls.Add(this.txbNoiCap);
             this.gbThongTinKH.Controls.Add(this.lbNoiCap);
             this.gbThongTinKH.Controls.Add(this.lbNgayCap);
@@ -130,6 +130,36 @@
             this.gbThongTinKH.TabStop = false;
             this.gbThongTinKH.Text = "Thông tin khách hàng";
             this.gbThongTinKH.Enter += new System.EventHandler(this.gbThongTinKH_Enter);
+            // 
+            // btnXoaTTKH
+            // 
+            this.btnXoaTTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaTTKH.Location = new System.Drawing.Point(538, 156);
+            this.btnXoaTTKH.Name = "btnXoaTTKH";
+            this.btnXoaTTKH.Size = new System.Drawing.Size(107, 23);
+            this.btnXoaTTKH.TabIndex = 33;
+            this.btnXoaTTKH.Text = "Xóa";
+            this.btnXoaTTKH.UseVisualStyleBackColor = true;
+            // 
+            // btnSuaTTKH
+            // 
+            this.btnSuaTTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaTTKH.Location = new System.Drawing.Point(340, 156);
+            this.btnSuaTTKH.Name = "btnSuaTTKH";
+            this.btnSuaTTKH.Size = new System.Drawing.Size(107, 23);
+            this.btnSuaTTKH.TabIndex = 32;
+            this.btnSuaTTKH.Text = "Sửa";
+            this.btnSuaTTKH.UseVisualStyleBackColor = true;
+            // 
+            // btnLuuTTKH
+            // 
+            this.btnLuuTTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuTTKH.Location = new System.Drawing.Point(147, 156);
+            this.btnLuuTTKH.Name = "btnLuuTTKH";
+            this.btnLuuTTKH.Size = new System.Drawing.Size(107, 23);
+            this.btnLuuTTKH.TabIndex = 31;
+            this.btnLuuTTKH.Text = "Lưu";
+            this.btnLuuTTKH.UseVisualStyleBackColor = true;
             // 
             // lbDiaChi
             // 
@@ -181,14 +211,14 @@
             this.lbSoDienThoai.Text = "Số điện thoại:";
             this.lbSoDienThoai.Click += new System.EventHandler(this.lbSoDienThoai_Click);
             // 
-            // textBox1
+            // txbSoDienThoai
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(100, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 20);
-            this.textBox1.TabIndex = 25;
+            this.txbSoDienThoai.Enabled = false;
+            this.txbSoDienThoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSoDienThoai.Location = new System.Drawing.Point(100, 96);
+            this.txbSoDienThoai.Name = "txbSoDienThoai";
+            this.txbSoDienThoai.Size = new System.Drawing.Size(113, 20);
+            this.txbSoDienThoai.TabIndex = 25;
             // 
             // lbQuocTich
             // 
@@ -209,27 +239,27 @@
             this.txbQuocTich.Size = new System.Drawing.Size(165, 20);
             this.txbQuocTich.TabIndex = 23;
             // 
-            // mtxbNgaySinh
+            // txbNgaySinh
             // 
-            this.mtxbNgaySinh.Enabled = false;
-            this.mtxbNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxbNgaySinh.Location = new System.Drawing.Point(306, 70);
-            this.mtxbNgaySinh.Mask = "00/00/0000";
-            this.mtxbNgaySinh.Name = "mtxbNgaySinh";
-            this.mtxbNgaySinh.Size = new System.Drawing.Size(75, 20);
-            this.mtxbNgaySinh.TabIndex = 22;
-            this.mtxbNgaySinh.ValidatingType = typeof(System.DateTime);
+            this.txbNgaySinh.Enabled = false;
+            this.txbNgaySinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNgaySinh.Location = new System.Drawing.Point(306, 70);
+            this.txbNgaySinh.Mask = "00/00/0000";
+            this.txbNgaySinh.Name = "txbNgaySinh";
+            this.txbNgaySinh.Size = new System.Drawing.Size(75, 20);
+            this.txbNgaySinh.TabIndex = 22;
+            this.txbNgaySinh.ValidatingType = typeof(System.DateTime);
             // 
-            // mtxbNgayCap
+            // txbNgayCap
             // 
-            this.mtxbNgayCap.Enabled = false;
-            this.mtxbNgayCap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxbNgayCap.Location = new System.Drawing.Point(306, 17);
-            this.mtxbNgayCap.Mask = "00/00/0000";
-            this.mtxbNgayCap.Name = "mtxbNgayCap";
-            this.mtxbNgayCap.Size = new System.Drawing.Size(75, 20);
-            this.mtxbNgayCap.TabIndex = 21;
-            this.mtxbNgayCap.ValidatingType = typeof(System.DateTime);
+            this.txbNgayCap.Enabled = false;
+            this.txbNgayCap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNgayCap.Location = new System.Drawing.Point(306, 17);
+            this.txbNgayCap.Mask = "00/00/0000";
+            this.txbNgayCap.Name = "txbNgayCap";
+            this.txbNgayCap.Size = new System.Drawing.Size(75, 20);
+            this.txbNgayCap.TabIndex = 21;
+            this.txbNgayCap.ValidatingType = typeof(System.DateTime);
             // 
             // txbNoiCap
             // 
@@ -366,9 +396,12 @@
             // 
             this.txbSoCMT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSoCMT.Location = new System.Drawing.Point(100, 17);
+            this.txbSoCMT.MaxLength = 15;
             this.txbSoCMT.Name = "txbSoCMT";
             this.txbSoCMT.Size = new System.Drawing.Size(116, 20);
             this.txbSoCMT.TabIndex = 1;
+            this.txbSoCMT.TextChanged += new System.EventHandler(this.txbSoCMT_TextChanged);
+            this.txbSoCMT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSoCMT_KeyPress);
             // 
             // lbSoCMT
             // 
@@ -657,36 +690,6 @@
             this.lbLoaiThe.TabIndex = 0;
             this.lbLoaiThe.Text = "Loại thẻ:";
             // 
-            // btnLuuTTKH
-            // 
-            this.btnLuuTTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuTTKH.Location = new System.Drawing.Point(147, 156);
-            this.btnLuuTTKH.Name = "btnLuuTTKH";
-            this.btnLuuTTKH.Size = new System.Drawing.Size(107, 23);
-            this.btnLuuTTKH.TabIndex = 31;
-            this.btnLuuTTKH.Text = "Lưu";
-            this.btnLuuTTKH.UseVisualStyleBackColor = true;
-            // 
-            // btnSuaTTKH
-            // 
-            this.btnSuaTTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaTTKH.Location = new System.Drawing.Point(340, 156);
-            this.btnSuaTTKH.Name = "btnSuaTTKH";
-            this.btnSuaTTKH.Size = new System.Drawing.Size(107, 23);
-            this.btnSuaTTKH.TabIndex = 32;
-            this.btnSuaTTKH.Text = "Sửa";
-            this.btnSuaTTKH.UseVisualStyleBackColor = true;
-            // 
-            // btnXoaTTKH
-            // 
-            this.btnXoaTTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaTTKH.Location = new System.Drawing.Point(538, 156);
-            this.btnXoaTTKH.Name = "btnXoaTTKH";
-            this.btnXoaTTKH.Size = new System.Drawing.Size(107, 23);
-            this.btnXoaTTKH.TabIndex = 33;
-            this.btnXoaTTKH.Text = "Xóa";
-            this.btnXoaTTKH.UseVisualStyleBackColor = true;
-            // 
             // btnLuuHoSo
             // 
             this.btnLuuHoSo.Enabled = false;
@@ -752,14 +755,14 @@
         private System.Windows.Forms.TextBox txbNoiCap;
         private System.Windows.Forms.Label lbNoiCap;
         private System.Windows.Forms.Label lbNgayCap;
-        private System.Windows.Forms.MaskedTextBox mtxbNgayCap;
-        private System.Windows.Forms.MaskedTextBox mtxbNgaySinh;
+        private System.Windows.Forms.MaskedTextBox txbNgayCap;
+        private System.Windows.Forms.MaskedTextBox txbNgaySinh;
         private System.Windows.Forms.Label lbQuocTich;
         private System.Windows.Forms.TextBox txbQuocTich;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.Label lbSoDienThoai;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbSoDienThoai;
         private System.Windows.Forms.Label lbDiaChi;
         private System.Windows.Forms.TextBox txbDiaChi;
         private System.Windows.Forms.GroupBox gbThongTinPhatHanhThe;

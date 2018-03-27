@@ -107,6 +107,7 @@
     <Compile Include="Entities\Giaynhanno.cs" />
     <Compile Include="Entities\Hopdongvay.cs" />
     <Compile Include="Entities\Khachhang.cs" />
+    <Compile Include="Entities\KhachHangDV.cs" />
     <Compile Include="Entities\Khachhangvay.cs" />
     <Compile Include="Entities\Phongban.cs" />
     <Compile Include="Entities\Phonggiaodich.cs" />

@@ -48,25 +48,101 @@ namespace AGRIBANKHD.GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            Entities.Khachhang kh = null;
-            try {
-                kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txbSoCMT.Text);
-                if (kh == null) { 
-                    
+            if (string.IsNullOrEmpty(txbSoCMT.Text))
+                MessageBox.Show("Vui lòng nhập số CMND", "Thông báo", MessageBoxButtons.OK);
+            else
+            {
+                Entities.KhachHangDV kh = null;
+                try
+                {
+                    kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txbSoCMT.Text);
+                    if (kh == null)
+                    {
+                        KhongTimThayKH();
+                    }
+                    else
+                    {
+                        TimThayKH(kh);
+                    }
+                }
+                catch
+                {
+                    DAL.ErrorMessageDAL.DataAccessError();
                 }
             }
-            catch{
-                DAL.ErrorMessageDAL.DataAccessError();
+        }
+
+
+        void KhongTimThayKH() {
+            MessageBox.Show(@"Không tìm thấy khách hàng!\n Hãy nhập thông tin khách hàng!", "Thông báo", MessageBoxButtons.OK);
+            SetTextBoxStatus_TTKH(true);
+            ClearAllTextBox();
+        }
+
+        void TimThayKH(Entities.KhachHangDV kh) {
+            SetTextBoxStatus_TTKH(false);
+            txbNgayCap.Text = kh.ngay_cap.ToString("MM/dd/yyyy");
+            txbNoiCap.Text = kh.noi_cap;
+            txbMaKH.Text = kh.ma_KH;
+            txbHoTen.Text = kh.ho_ten;
+            txbNgaySinh.Text = kh.ngay_sinh.ToString("MM/dd/yyyy");
+            txbSoDienThoai.Text = kh.dien_thoai;
+            txbEmail.Text = kh.email;
+            txbDiaChi.Text = kh.dia_chi;
+            if (kh.gioi_tinh)
+            {
+                cbGioiTinh.SelectedIndex = 0;
+            }
+            else {
+                cbGioiTinh.SelectedIndex = 1;
             }
         }
 
-
-        void KhongTimThayKH() { 
-            
+        void SetTextBoxStatus_TTKH(bool status) {
+            txbNgayCap.Enabled = status;
+            txbNoiCap.Enabled = status;
+            txbMaKH.Enabled = status;
+            txbHoTen.Enabled = status;
+            txbQuocTich.Enabled = status;
+            txbSoTaiKhoan.Enabled = status;
+            txbNgaySinh.Enabled = status;
+            txbEmail.Enabled = status;
+            txbDiaChi.Enabled = status;
+            cbGioiTinh.Enabled = status;
+            txbSoDienThoai.Enabled = status;
         }
 
-        void SetTextBoxStatus_TTKH(bool status) { 
-            
+        void ClearAllTextBox() {
+            txbNgayCap.Text = "";
+            txbNoiCap.Text = "";
+            txbMaKH.Text="";
+            txbHoTen.Text = "";
+            txbQuocTich.Text = "";
+            txbSoTaiKhoan.Text ="";
+            txbNgaySinh.Text = "";
+            txbEmail.Text = "";
+            txbDiaChi.Text = "";
+            cbGioiTinh.SelectedItem = null;
+            txbSoDienThoai.Text = "";
+        }
+
+        private void txbSoCMT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbSoCMT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

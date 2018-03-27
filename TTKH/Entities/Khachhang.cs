@@ -58,6 +58,13 @@ namespace AGRIBANKHD.Entities
             set { _quoc_tich = value; }
         }
 
+        private DateTime _ngay_sinh;
+
+        public DateTime ngay_sinh{
+            get{ return _ngay_sinh; }
+            set { _ngay_sinh = value; }
+        }
+
         private string _co_dinh;
 
         public string co_dinh
@@ -94,7 +101,7 @@ namespace AGRIBANKHD.Entities
 
         }
 
-        public Khachhang(string ma_KH, string ho_ten, string cmt, DateTime ngay_cap, string noi_cap, string quoc_tich, string co_dinh, string di_dong, string email,string dia_chi)
+        public Khachhang(string ma_KH, string ho_ten, string cmt, DateTime ngay_cap, string noi_cap, string quoc_tich, string co_dinh, string di_dong, string email,string dia_chi, DateTime ngaysinh)
         {
             this._ma_KH = ma_KH;
             this._ho_ten = ho_ten;
@@ -106,6 +113,7 @@ namespace AGRIBANKHD.Entities
             this._di_dong=di_dong;
             this._email = email;
             this._dia_chi=dia_chi;
+            this._ngay_sinh = ngaysinh;
         }
 
         public Khachhang(DataRow row)
