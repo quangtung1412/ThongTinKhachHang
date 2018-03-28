@@ -144,5 +144,10 @@ namespace AGRIBANKHD.GUI
                 e.Handled = true;
             }
         }
+
+        private void ckbLapNghiep1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

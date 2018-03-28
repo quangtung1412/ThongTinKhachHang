@@ -58,7 +58,11 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txbSoCMT = new System.Windows.Forms.TextBox();
             this.lbSoCMT = new System.Windows.Forms.Label();
-            this.gbThongTinPhatHanhThe = new System.Windows.Forms.GroupBox();
+            this.btnLuuHoSo = new System.Windows.Forms.Button();
+            this.btnInHoSo = new System.Windows.Forms.Button();
+            this.tCtrDichVu = new System.Windows.Forms.TabControl();
+            this.tpPhatHanhTheGhiNo = new System.Windows.Forms.TabPage();
+            this.tpPhatHanhLai = new System.Windows.Forms.TabPage();
             this.gbDangKyDichVu = new System.Windows.Forms.GroupBox();
             this.lbDong = new System.Windows.Forms.Label();
             this.txbHanMucGiaoDich = new System.Windows.Forms.TextBox();
@@ -68,7 +72,7 @@
             this.ckbBaoHieuChuThe = new System.Windows.Forms.CheckBox();
             this.ckbGiaoDichInternet = new System.Windows.Forms.CheckBox();
             this.ckbSMSBanking = new System.Windows.Forms.CheckBox();
-            this.gbDangKyPhatHanhThe = new System.Windows.Forms.GroupBox();
+            this.gbThongTinThe = new System.Windows.Forms.GroupBox();
             this.ckbTaiNhaRieng = new System.Windows.Forms.CheckBox();
             this.ckbTaiNganHang = new System.Windows.Forms.CheckBox();
             this.lbHinhThucNhanThe = new System.Windows.Forms.Label();
@@ -84,12 +88,44 @@
             this.ckbLapNghiep = new System.Windows.Forms.CheckBox();
             this.ckbGhiNoNoiDia = new System.Windows.Forms.CheckBox();
             this.lbLoaiThe = new System.Windows.Forms.Label();
-            this.btnLuuHoSo = new System.Windows.Forms.Button();
-            this.btnInHoSo = new System.Windows.Forms.Button();
+            this.tpHopDong = new System.Windows.Forms.TabPage();
+            this.tpGiayHen = new System.Windows.Forms.TabPage();
+            this.gbDangKyDichVu1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.gbThongTinThe1 = new System.Windows.Forms.GroupBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.ckbLienKetThuongHieu1 = new System.Windows.Forms.CheckBox();
+            this.ckbLapNghiep1 = new System.Windows.Forms.CheckBox();
+            this.ckbGhiNoNoiDia1 = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.ckbTheSinhVien = new System.Windows.Forms.CheckBox();
+            this.ckb = new System.Windows.Forms.CheckBox();
+            this.ckbTheTinDung1 = new System.Windows.Forms.CheckBox();
+            this.ckbJCB = new System.Windows.Forms.CheckBox();
+            this.ckbBachKim = new System.Windows.Forms.CheckBox();
             this.gbThongTinKH.SuspendLayout();
-            this.gbThongTinPhatHanhThe.SuspendLayout();
+            this.tCtrDichVu.SuspendLayout();
+            this.tpPhatHanhTheGhiNo.SuspendLayout();
+            this.tpPhatHanhLai.SuspendLayout();
             this.gbDangKyDichVu.SuspendLayout();
-            this.gbDangKyPhatHanhThe.SuspendLayout();
+            this.gbThongTinThe.SuspendLayout();
+            this.gbDangKyDichVu1.SuspendLayout();
+            this.gbThongTinThe1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbThongTinKH
@@ -414,18 +450,67 @@
             this.lbSoCMT.Text = "(*)Số chứng minh:";
             this.lbSoCMT.Click += new System.EventHandler(this.label1_Click);
             // 
-            // gbThongTinPhatHanhThe
+            // btnLuuHoSo
             // 
-            this.gbThongTinPhatHanhThe.Controls.Add(this.gbDangKyDichVu);
-            this.gbThongTinPhatHanhThe.Controls.Add(this.gbDangKyPhatHanhThe);
-            this.gbThongTinPhatHanhThe.Enabled = false;
-            this.gbThongTinPhatHanhThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbThongTinPhatHanhThe.Location = new System.Drawing.Point(13, 210);
-            this.gbThongTinPhatHanhThe.Name = "gbThongTinPhatHanhThe";
-            this.gbThongTinPhatHanhThe.Size = new System.Drawing.Size(794, 256);
-            this.gbThongTinPhatHanhThe.TabIndex = 1;
-            this.gbThongTinPhatHanhThe.TabStop = false;
-            this.gbThongTinPhatHanhThe.Text = "Thông tin phát hành thẻ";
+            this.btnLuuHoSo.Enabled = false;
+            this.btnLuuHoSo.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuHoSo.Location = new System.Drawing.Point(160, 484);
+            this.btnLuuHoSo.Name = "btnLuuHoSo";
+            this.btnLuuHoSo.Size = new System.Drawing.Size(140, 29);
+            this.btnLuuHoSo.TabIndex = 2;
+            this.btnLuuHoSo.Text = "Lưu hồ sơ";
+            this.btnLuuHoSo.UseVisualStyleBackColor = true;
+            // 
+            // btnInHoSo
+            // 
+            this.btnInHoSo.Enabled = false;
+            this.btnInHoSo.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInHoSo.Location = new System.Drawing.Point(494, 484);
+            this.btnInHoSo.Name = "btnInHoSo";
+            this.btnInHoSo.Size = new System.Drawing.Size(140, 29);
+            this.btnInHoSo.TabIndex = 3;
+            this.btnInHoSo.Text = "In hồ sơ";
+            this.btnInHoSo.UseVisualStyleBackColor = true;
+            // 
+            // tCtrDichVu
+            // 
+            this.tCtrDichVu.Controls.Add(this.tpPhatHanhTheGhiNo);
+            this.tCtrDichVu.Controls.Add(this.tpPhatHanhLai);
+            this.tCtrDichVu.Controls.Add(this.tpHopDong);
+            this.tCtrDichVu.Controls.Add(this.tpGiayHen);
+            this.tCtrDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tCtrDichVu.Location = new System.Drawing.Point(13, 211);
+            this.tCtrDichVu.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.tCtrDichVu.Name = "tCtrDichVu";
+            this.tCtrDichVu.SelectedIndex = 0;
+            this.tCtrDichVu.Size = new System.Drawing.Size(794, 267);
+            this.tCtrDichVu.TabIndex = 4;
+            // 
+            // tpPhatHanhTheGhiNo
+            // 
+            this.tpPhatHanhTheGhiNo.Controls.Add(this.gbDangKyDichVu);
+            this.tpPhatHanhTheGhiNo.Controls.Add(this.gbThongTinThe);
+            this.tpPhatHanhTheGhiNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpPhatHanhTheGhiNo.Location = new System.Drawing.Point(4, 22);
+            this.tpPhatHanhTheGhiNo.Name = "tpPhatHanhTheGhiNo";
+            this.tpPhatHanhTheGhiNo.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPhatHanhTheGhiNo.Size = new System.Drawing.Size(786, 241);
+            this.tpPhatHanhTheGhiNo.TabIndex = 0;
+            this.tpPhatHanhTheGhiNo.Text = "Phát hành thẻ ghi nợ";
+            this.tpPhatHanhTheGhiNo.UseVisualStyleBackColor = true;
+            // 
+            // tpPhatHanhLai
+            // 
+            this.tpPhatHanhLai.Controls.Add(this.gbDangKyDichVu1);
+            this.tpPhatHanhLai.Controls.Add(this.gbThongTinThe1);
+            this.tpPhatHanhLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpPhatHanhLai.Location = new System.Drawing.Point(4, 22);
+            this.tpPhatHanhLai.Name = "tpPhatHanhLai";
+            this.tpPhatHanhLai.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPhatHanhLai.Size = new System.Drawing.Size(786, 241);
+            this.tpPhatHanhLai.TabIndex = 1;
+            this.tpPhatHanhLai.Text = "Phát hành lại thẻ";
+            this.tpPhatHanhLai.UseVisualStyleBackColor = true;
             // 
             // gbDangKyDichVu
             // 
@@ -438,10 +523,10 @@
             this.gbDangKyDichVu.Controls.Add(this.ckbGiaoDichInternet);
             this.gbDangKyDichVu.Controls.Add(this.ckbSMSBanking);
             this.gbDangKyDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDangKyDichVu.Location = new System.Drawing.Point(7, 160);
+            this.gbDangKyDichVu.Location = new System.Drawing.Point(3, 145);
             this.gbDangKyDichVu.Name = "gbDangKyDichVu";
             this.gbDangKyDichVu.Size = new System.Drawing.Size(781, 90);
-            this.gbDangKyDichVu.TabIndex = 1;
+            this.gbDangKyDichVu.TabIndex = 3;
             this.gbDangKyDichVu.TabStop = false;
             this.gbDangKyDichVu.Text = "Đăng ký dịch vụ";
             // 
@@ -490,7 +575,7 @@
             // 
             this.ckbBaoHieuChuThe.AutoSize = true;
             this.ckbBaoHieuChuThe.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ckbBaoHieuChuThe.Location = new System.Drawing.Point(6, 66);
+            this.ckbBaoHieuChuThe.Location = new System.Drawing.Point(7, 66);
             this.ckbBaoHieuChuThe.Name = "ckbBaoHieuChuThe";
             this.ckbBaoHieuChuThe.Size = new System.Drawing.Size(109, 17);
             this.ckbBaoHieuChuThe.TabIndex = 2;
@@ -519,30 +604,30 @@
             this.ckbSMSBanking.Text = "SMS Banking";
             this.ckbSMSBanking.UseVisualStyleBackColor = true;
             // 
-            // gbDangKyPhatHanhThe
+            // gbThongTinThe
             // 
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbTaiNhaRieng);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbTaiNganHang);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.lbHinhThucNhanThe);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbPhatHanhNhanh);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbPhatHanhThuong);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.lbHinhThucPhatHanh);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbVang);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbChuan);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.lbHangThe);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbMasterCard);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbVisa);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbLienKetThuongHieu);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbLapNghiep);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.ckbGhiNoNoiDia);
-            this.gbDangKyPhatHanhThe.Controls.Add(this.lbLoaiThe);
-            this.gbDangKyPhatHanhThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDangKyPhatHanhThe.Location = new System.Drawing.Point(7, 20);
-            this.gbDangKyPhatHanhThe.Name = "gbDangKyPhatHanhThe";
-            this.gbDangKyPhatHanhThe.Size = new System.Drawing.Size(781, 133);
-            this.gbDangKyPhatHanhThe.TabIndex = 0;
-            this.gbDangKyPhatHanhThe.TabStop = false;
-            this.gbDangKyPhatHanhThe.Text = "Đăng ký phát hành thẻ";
+            this.gbThongTinThe.Controls.Add(this.ckbTaiNhaRieng);
+            this.gbThongTinThe.Controls.Add(this.ckbTaiNganHang);
+            this.gbThongTinThe.Controls.Add(this.lbHinhThucNhanThe);
+            this.gbThongTinThe.Controls.Add(this.ckbPhatHanhNhanh);
+            this.gbThongTinThe.Controls.Add(this.ckbPhatHanhThuong);
+            this.gbThongTinThe.Controls.Add(this.lbHinhThucPhatHanh);
+            this.gbThongTinThe.Controls.Add(this.ckbVang);
+            this.gbThongTinThe.Controls.Add(this.ckbChuan);
+            this.gbThongTinThe.Controls.Add(this.lbHangThe);
+            this.gbThongTinThe.Controls.Add(this.ckbMasterCard);
+            this.gbThongTinThe.Controls.Add(this.ckbVisa);
+            this.gbThongTinThe.Controls.Add(this.ckbLienKetThuongHieu);
+            this.gbThongTinThe.Controls.Add(this.ckbLapNghiep);
+            this.gbThongTinThe.Controls.Add(this.ckbGhiNoNoiDia);
+            this.gbThongTinThe.Controls.Add(this.lbLoaiThe);
+            this.gbThongTinThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbThongTinThe.Location = new System.Drawing.Point(3, 5);
+            this.gbThongTinThe.Name = "gbThongTinThe";
+            this.gbThongTinThe.Size = new System.Drawing.Size(781, 133);
+            this.gbThongTinThe.TabIndex = 2;
+            this.gbThongTinThe.TabStop = false;
+            this.gbThongTinThe.Text = "Thông tin thẻ";
             // 
             // ckbTaiNhaRieng
             // 
@@ -690,36 +775,331 @@
             this.lbLoaiThe.TabIndex = 0;
             this.lbLoaiThe.Text = "Loại thẻ:";
             // 
-            // btnLuuHoSo
+            // tpHopDong
             // 
-            this.btnLuuHoSo.Enabled = false;
-            this.btnLuuHoSo.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuHoSo.Location = new System.Drawing.Point(160, 484);
-            this.btnLuuHoSo.Name = "btnLuuHoSo";
-            this.btnLuuHoSo.Size = new System.Drawing.Size(140, 29);
-            this.btnLuuHoSo.TabIndex = 2;
-            this.btnLuuHoSo.Text = "Lưu hồ sơ";
-            this.btnLuuHoSo.UseVisualStyleBackColor = true;
+            this.tpHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpHopDong.Location = new System.Drawing.Point(4, 22);
+            this.tpHopDong.Name = "tpHopDong";
+            this.tpHopDong.Size = new System.Drawing.Size(786, 241);
+            this.tpHopDong.TabIndex = 2;
+            this.tpHopDong.Text = "Hợp đồng phát hành thẻ";
+            this.tpHopDong.UseVisualStyleBackColor = true;
             // 
-            // btnInHoSo
+            // tpGiayHen
             // 
-            this.btnInHoSo.Enabled = false;
-            this.btnInHoSo.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInHoSo.Location = new System.Drawing.Point(494, 484);
-            this.btnInHoSo.Name = "btnInHoSo";
-            this.btnInHoSo.Size = new System.Drawing.Size(140, 29);
-            this.btnInHoSo.TabIndex = 3;
-            this.btnInHoSo.Text = "In hồ sơ";
-            this.btnInHoSo.UseVisualStyleBackColor = true;
+            this.tpGiayHen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tpGiayHen.Location = new System.Drawing.Point(4, 22);
+            this.tpGiayHen.Name = "tpGiayHen";
+            this.tpGiayHen.Size = new System.Drawing.Size(786, 241);
+            this.tpGiayHen.TabIndex = 3;
+            this.tpGiayHen.Text = "Giấy hẹn";
+            this.tpGiayHen.UseVisualStyleBackColor = true;
+            // 
+            // gbDangKyDichVu1
+            // 
+            this.gbDangKyDichVu1.Controls.Add(this.label1);
+            this.gbDangKyDichVu1.Controls.Add(this.textBox1);
+            this.gbDangKyDichVu1.Controls.Add(this.label2);
+            this.gbDangKyDichVu1.Controls.Add(this.textBox2);
+            this.gbDangKyDichVu1.Controls.Add(this.label3);
+            this.gbDangKyDichVu1.Controls.Add(this.checkBox1);
+            this.gbDangKyDichVu1.Controls.Add(this.checkBox2);
+            this.gbDangKyDichVu1.Controls.Add(this.checkBox3);
+            this.gbDangKyDichVu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDangKyDichVu1.Location = new System.Drawing.Point(3, 145);
+            this.gbDangKyDichVu1.Name = "gbDangKyDichVu1";
+            this.gbDangKyDichVu1.Size = new System.Drawing.Size(781, 90);
+            this.gbDangKyDichVu1.TabIndex = 5;
+            this.gbDangKyDichVu1.TabStop = false;
+            this.gbDangKyDichVu1.Text = "Đăng ký dịch vụ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(428, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "(đồng)";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(299, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(123, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(168, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Hạn mức giao dịch ngày:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(299, 17);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(123, 20);
+            this.textBox2.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(236, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Số ĐTDĐ:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox1.Location = new System.Drawing.Point(7, 66);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(109, 17);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "Bảo hiểm chủ thẻ";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox2.Location = new System.Drawing.Point(6, 43);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(110, 17);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "Giao dịch Internet";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox3.Location = new System.Drawing.Point(25, 20);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(91, 17);
+            this.checkBox3.TabIndex = 0;
+            this.checkBox3.Text = "SMS Banking";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // gbThongTinThe1
+            // 
+            this.gbThongTinThe1.Controls.Add(this.ckbBachKim);
+            this.gbThongTinThe1.Controls.Add(this.ckbJCB);
+            this.gbThongTinThe1.Controls.Add(this.ckbTheTinDung1);
+            this.gbThongTinThe1.Controls.Add(this.ckb);
+            this.gbThongTinThe1.Controls.Add(this.ckbTheSinhVien);
+            this.gbThongTinThe1.Controls.Add(this.label8);
+            this.gbThongTinThe1.Controls.Add(this.checkBox6);
+            this.gbThongTinThe1.Controls.Add(this.checkBox7);
+            this.gbThongTinThe1.Controls.Add(this.label5);
+            this.gbThongTinThe1.Controls.Add(this.checkBox8);
+            this.gbThongTinThe1.Controls.Add(this.checkBox9);
+            this.gbThongTinThe1.Controls.Add(this.label6);
+            this.gbThongTinThe1.Controls.Add(this.checkBox10);
+            this.gbThongTinThe1.Controls.Add(this.checkBox11);
+            this.gbThongTinThe1.Controls.Add(this.ckbLienKetThuongHieu1);
+            this.gbThongTinThe1.Controls.Add(this.ckbLapNghiep1);
+            this.gbThongTinThe1.Controls.Add(this.ckbGhiNoNoiDia1);
+            this.gbThongTinThe1.Controls.Add(this.label7);
+            this.gbThongTinThe1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbThongTinThe1.Location = new System.Drawing.Point(3, 5);
+            this.gbThongTinThe1.Name = "gbThongTinThe1";
+            this.gbThongTinThe1.Size = new System.Drawing.Size(781, 133);
+            this.gbThongTinThe1.TabIndex = 4;
+            this.gbThongTinThe1.TabStop = false;
+            this.gbThongTinThe1.Text = "Thông tin thẻ";
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(314, 109);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(108, 17);
+            this.checkBox6.TabIndex = 11;
+            this.checkBox6.Text = "Phát hành nhanh";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(169, 109);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(111, 17);
+            this.checkBox7.TabIndex = 10;
+            this.checkBox7.Text = "Phát hành thường";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Hình thức phát hành:";
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(314, 87);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(51, 17);
+            this.checkBox8.TabIndex = 8;
+            this.checkBox8.Text = "Vàng";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(169, 87);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(57, 17);
+            this.checkBox9.TabIndex = 7;
+            this.checkBox9.Text = "Chuẩn";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Hạng thẻ:";
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(314, 66);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(80, 17);
+            this.checkBox10.TabIndex = 5;
+            this.checkBox10.Text = "MasterCard";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(169, 66);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(46, 17);
+            this.checkBox11.TabIndex = 4;
+            this.checkBox11.Text = "Visa";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            // 
+            // ckbLienKetThuongHieu1
+            // 
+            this.ckbLienKetThuongHieu1.AutoSize = true;
+            this.ckbLienKetThuongHieu1.Location = new System.Drawing.Point(633, 19);
+            this.ckbLienKetThuongHieu1.Name = "ckbLienKetThuongHieu1";
+            this.ckbLienKetThuongHieu1.Size = new System.Drawing.Size(123, 17);
+            this.ckbLienKetThuongHieu1.TabIndex = 3;
+            this.ckbLienKetThuongHieu1.Text = "Liên kết thương hiệu";
+            this.ckbLienKetThuongHieu1.UseVisualStyleBackColor = true;
+            // 
+            // ckbLapNghiep1
+            // 
+            this.ckbLapNghiep1.AutoSize = true;
+            this.ckbLapNghiep1.Location = new System.Drawing.Point(314, 19);
+            this.ckbLapNghiep1.Name = "ckbLapNghiep1";
+            this.ckbLapNghiep1.Size = new System.Drawing.Size(79, 17);
+            this.ckbLapNghiep1.TabIndex = 2;
+            this.ckbLapNghiep1.Text = "Lập nghiệp";
+            this.ckbLapNghiep1.UseVisualStyleBackColor = true;
+            this.ckbLapNghiep1.CheckedChanged += new System.EventHandler(this.ckbLapNghiep1_CheckedChanged);
+            // 
+            // ckbGhiNoNoiDia1
+            // 
+            this.ckbGhiNoNoiDia1.AutoSize = true;
+            this.ckbGhiNoNoiDia1.Location = new System.Drawing.Point(169, 19);
+            this.ckbGhiNoNoiDia1.Name = "ckbGhiNoNoiDia1";
+            this.ckbGhiNoNoiDia1.Size = new System.Drawing.Size(77, 17);
+            this.ckbGhiNoNoiDia1.TabIndex = 1;
+            this.ckbGhiNoNoiDia1.Text = "Thẻ ghi nợ";
+            this.ckbGhiNoNoiDia1.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Thẻ nội địa:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Thẻ quốc tế:";
+            // 
+            // ckbTheSinhVien
+            // 
+            this.ckbTheSinhVien.AutoSize = true;
+            this.ckbTheSinhVien.Location = new System.Drawing.Point(467, 19);
+            this.ckbTheSinhVien.Name = "ckbTheSinhVien";
+            this.ckbTheSinhVien.Size = new System.Drawing.Size(93, 17);
+            this.ckbTheSinhVien.TabIndex = 16;
+            this.ckbTheSinhVien.Text = "Thẻ Sinh Viên";
+            this.ckbTheSinhVien.UseVisualStyleBackColor = true;
+            // 
+            // ckb
+            // 
+            this.ckb.AutoSize = true;
+            this.ckb.Location = new System.Drawing.Point(169, 43);
+            this.ckb.Name = "ckb";
+            this.ckb.Size = new System.Drawing.Size(77, 17);
+            this.ckb.TabIndex = 17;
+            this.ckb.Text = "Thẻ ghi nợ";
+            this.ckb.UseVisualStyleBackColor = true;
+            // 
+            // ckbTheTinDung1
+            // 
+            this.ckbTheTinDung1.AutoSize = true;
+            this.ckbTheTinDung1.Location = new System.Drawing.Point(314, 43);
+            this.ckbTheTinDung1.Name = "ckbTheTinDung1";
+            this.ckbTheTinDung1.Size = new System.Drawing.Size(88, 17);
+            this.ckbTheTinDung1.TabIndex = 18;
+            this.ckbTheTinDung1.Text = "Thẻ tín dụng";
+            this.ckbTheTinDung1.UseVisualStyleBackColor = true;
+            // 
+            // ckbJCB
+            // 
+            this.ckbJCB.AutoSize = true;
+            this.ckbJCB.Location = new System.Drawing.Point(467, 66);
+            this.ckbJCB.Name = "ckbJCB";
+            this.ckbJCB.Size = new System.Drawing.Size(45, 17);
+            this.ckbJCB.TabIndex = 19;
+            this.ckbJCB.Text = "JCB";
+            this.ckbJCB.UseVisualStyleBackColor = true;
+            // 
+            // ckbBachKim
+            // 
+            this.ckbBachKim.AutoSize = true;
+            this.ckbBachKim.Location = new System.Drawing.Point(467, 87);
+            this.ckbBachKim.Name = "ckbBachKim";
+            this.ckbBachKim.Size = new System.Drawing.Size(70, 17);
+            this.ckbBachKim.TabIndex = 20;
+            this.ckbBachKim.Text = "Bạch kim";
+            this.ckbBachKim.UseVisualStyleBackColor = true;
             // 
             // frmPhatHanhTheGhiNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 525);
+            this.Controls.Add(this.tCtrDichVu);
             this.Controls.Add(this.btnInHoSo);
             this.Controls.Add(this.btnLuuHoSo);
-            this.Controls.Add(this.gbThongTinPhatHanhThe);
             this.Controls.Add(this.gbThongTinKH);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPhatHanhTheGhiNo";
@@ -728,11 +1108,17 @@
             this.Load += new System.EventHandler(this.frmPhatHanhTheGhiNo_Load);
             this.gbThongTinKH.ResumeLayout(false);
             this.gbThongTinKH.PerformLayout();
-            this.gbThongTinPhatHanhThe.ResumeLayout(false);
+            this.tCtrDichVu.ResumeLayout(false);
+            this.tpPhatHanhTheGhiNo.ResumeLayout(false);
+            this.tpPhatHanhLai.ResumeLayout(false);
             this.gbDangKyDichVu.ResumeLayout(false);
             this.gbDangKyDichVu.PerformLayout();
-            this.gbDangKyPhatHanhThe.ResumeLayout(false);
-            this.gbDangKyPhatHanhThe.PerformLayout();
+            this.gbThongTinThe.ResumeLayout(false);
+            this.gbThongTinThe.PerformLayout();
+            this.gbDangKyDichVu1.ResumeLayout(false);
+            this.gbDangKyDichVu1.PerformLayout();
+            this.gbThongTinThe1.ResumeLayout(false);
+            this.gbThongTinThe1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -765,36 +1151,68 @@
         private System.Windows.Forms.TextBox txbSoDienThoai;
         private System.Windows.Forms.Label lbDiaChi;
         private System.Windows.Forms.TextBox txbDiaChi;
-        private System.Windows.Forms.GroupBox gbThongTinPhatHanhThe;
-        private System.Windows.Forms.GroupBox gbDangKyPhatHanhThe;
-        private System.Windows.Forms.Label lbLoaiThe;
-        private System.Windows.Forms.CheckBox ckbGhiNoNoiDia;
-        private System.Windows.Forms.CheckBox ckbLienKetThuongHieu;
-        private System.Windows.Forms.CheckBox ckbLapNghiep;
-        private System.Windows.Forms.Label lbHangThe;
-        private System.Windows.Forms.CheckBox ckbMasterCard;
-        private System.Windows.Forms.CheckBox ckbVisa;
-        private System.Windows.Forms.CheckBox ckbVang;
-        private System.Windows.Forms.CheckBox ckbChuan;
-        private System.Windows.Forms.CheckBox ckbPhatHanhNhanh;
-        private System.Windows.Forms.CheckBox ckbPhatHanhThuong;
-        private System.Windows.Forms.Label lbHinhThucPhatHanh;
-        private System.Windows.Forms.CheckBox ckbTaiNhaRieng;
-        private System.Windows.Forms.CheckBox ckbTaiNganHang;
-        private System.Windows.Forms.Label lbHinhThucNhanThe;
-        private System.Windows.Forms.GroupBox gbDangKyDichVu;
-        private System.Windows.Forms.CheckBox ckbSMSBanking;
-        private System.Windows.Forms.CheckBox ckbGiaoDichInternet;
-        private System.Windows.Forms.CheckBox ckbBaoHieuChuThe;
-        private System.Windows.Forms.Label lbSoDiDong;
-        private System.Windows.Forms.TextBox txbSoDiDong;
-        private System.Windows.Forms.Label lbHanMucGiaoDich;
-        private System.Windows.Forms.TextBox txbHanMucGiaoDich;
-        private System.Windows.Forms.Label lbDong;
         private System.Windows.Forms.Button btnLuuTTKH;
         private System.Windows.Forms.Button btnXoaTTKH;
         private System.Windows.Forms.Button btnSuaTTKH;
         private System.Windows.Forms.Button btnLuuHoSo;
         private System.Windows.Forms.Button btnInHoSo;
+        private System.Windows.Forms.TabControl tCtrDichVu;
+        private System.Windows.Forms.TabPage tpPhatHanhTheGhiNo;
+        private System.Windows.Forms.GroupBox gbDangKyDichVu;
+        private System.Windows.Forms.Label lbDong;
+        private System.Windows.Forms.TextBox txbHanMucGiaoDich;
+        private System.Windows.Forms.Label lbHanMucGiaoDich;
+        private System.Windows.Forms.TextBox txbSoDiDong;
+        private System.Windows.Forms.Label lbSoDiDong;
+        private System.Windows.Forms.CheckBox ckbBaoHieuChuThe;
+        private System.Windows.Forms.CheckBox ckbGiaoDichInternet;
+        private System.Windows.Forms.CheckBox ckbSMSBanking;
+        private System.Windows.Forms.GroupBox gbThongTinThe;
+        private System.Windows.Forms.CheckBox ckbTaiNhaRieng;
+        private System.Windows.Forms.CheckBox ckbTaiNganHang;
+        private System.Windows.Forms.Label lbHinhThucNhanThe;
+        private System.Windows.Forms.CheckBox ckbPhatHanhNhanh;
+        private System.Windows.Forms.CheckBox ckbPhatHanhThuong;
+        private System.Windows.Forms.Label lbHinhThucPhatHanh;
+        private System.Windows.Forms.CheckBox ckbVang;
+        private System.Windows.Forms.CheckBox ckbChuan;
+        private System.Windows.Forms.Label lbHangThe;
+        private System.Windows.Forms.CheckBox ckbMasterCard;
+        private System.Windows.Forms.CheckBox ckbVisa;
+        private System.Windows.Forms.CheckBox ckbLienKetThuongHieu;
+        private System.Windows.Forms.CheckBox ckbLapNghiep;
+        private System.Windows.Forms.CheckBox ckbGhiNoNoiDia;
+        private System.Windows.Forms.Label lbLoaiThe;
+        private System.Windows.Forms.TabPage tpPhatHanhLai;
+        private System.Windows.Forms.TabPage tpHopDong;
+        private System.Windows.Forms.TabPage tpGiayHen;
+        private System.Windows.Forms.GroupBox gbDangKyDichVu1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.GroupBox gbThongTinThe1;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox ckbLienKetThuongHieu1;
+        private System.Windows.Forms.CheckBox ckbLapNghiep1;
+        private System.Windows.Forms.CheckBox ckbGhiNoNoiDia1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox ckbTheSinhVien;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox ckbJCB;
+        private System.Windows.Forms.CheckBox ckbTheTinDung1;
+        private System.Windows.Forms.CheckBox ckb;
+        private System.Windows.Forms.CheckBox ckbBachKim;
     }
 }
