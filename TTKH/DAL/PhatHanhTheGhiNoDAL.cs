@@ -26,5 +26,15 @@ namespace AGRIBANKHD.DAL
                 return kh;
             }
         }
+
+        public static DataTable TimSoTK(string cmnd) {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[]
+            {
+            new SqlParameter("@cmnd", cmnd)
+            };
+            DataTable dt = db.dt("TimSoTK", Params);
+            return dt;
+        }
     }
 }

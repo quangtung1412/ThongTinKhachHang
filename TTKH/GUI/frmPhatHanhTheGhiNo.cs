@@ -11,51 +11,29 @@ namespace AGRIBANKHD.GUI
 {
     public partial class frmPhatHanhTheGhiNo : Form
     {
+        private List<TextBox> listTxtNotNull;
+
         public frmPhatHanhTheGhiNo()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+        void MyInit() {
+            listTxtNotNull = new List<TextBox>();
+            //listTxtNotNull.Add(txt)
         }
 
-        private void frmPhatHanhTheGhiNo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gbThongTinKH_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbNgayCap_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbSoDienThoai_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txbSoCMT.Text))
+            if (string.IsNullOrEmpty(txtCMT.Text))
                 MessageBox.Show("Vui lòng nhập số CMND", "Thông báo", MessageBoxButtons.OK);
             else
             {
                 Entities.KhachHangDV kh = null;
                 try
                 {
-                    kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txbSoCMT.Text);
+                    kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txtCMT.Text);
                     if (kh == null)
                     {
                         KhongTimThayKH();
@@ -76,19 +54,21 @@ namespace AGRIBANKHD.GUI
         void KhongTimThayKH() {
             MessageBox.Show(@"Không tìm thấy khách hàng!\n Hãy nhập thông tin khách hàng!", "Thông báo", MessageBoxButtons.OK);
             SetTextBoxStatus_TTKH(true);
+            tCtrDichVu.Enabled = false;
             ClearAllTextBox();
         }
 
         void TimThayKH(Entities.KhachHangDV kh) {
             SetTextBoxStatus_TTKH(false);
-            txbNgayCap.Text = kh.ngay_cap.ToString("MM/dd/yyyy");
-            txbNoiCap.Text = kh.noi_cap;
-            txbMaKH.Text = kh.ma_KH;
-            txbHoTen.Text = kh.ho_ten;
-            txbNgaySinh.Text = kh.ngay_sinh.ToString("MM/dd/yyyy");
-            txbSoDienThoai.Text = kh.dien_thoai;
-            txbEmail.Text = kh.email;
-            txbDiaChi.Text = kh.dia_chi;
+            tCtrDichVu.Enabled = true;
+            txtNgayCap.Text = kh.ngay_cap.ToString("MM/dd/yyyy");
+            txtNoiCap.Text = kh.noi_cap;
+            txtMaKH.Text = kh.ma_KH;
+            txtHoTen.Text = kh.ho_ten;
+            txtNgaySinh.Text = kh.ngay_sinh.ToString("MM/dd/yyyy");
+            txtSoDienThoai.Text = kh.dien_thoai;
+            txtEmail.Text = kh.email;
+            txtDiaChi.Text = kh.dia_chi;
             if (kh.gioi_tinh)
             {
                 cbGioiTinh.SelectedIndex = 0;
@@ -96,41 +76,55 @@ namespace AGRIBANKHD.GUI
             else {
                 cbGioiTinh.SelectedIndex = 1;
             }
+
+            //Lay cac so TK cua KH
+            try
+            {
+                DataTable dt = DAL.PhatHanhTheGhiNoDAL.TimSoTK(kh.cmt);
+
+                for (int i = 0; i < dt.Rows.Count; i++) {
+                    cbSoTK.Items.Add(dt.Rows[i]["SOTK"]);
+                }
+                if (cbSoTK.Items.Count > 0)
+                    cbSoTK.SelectedIndex = 0;
+                if (cbSoTK.Items.Count > 1)
+                    cbSoTK.Enabled = true;
+            }
+            catch {
+                DAL.ErrorMessageDAL.DataAccessError();
+            }
+
         }
 
         void SetTextBoxStatus_TTKH(bool status) {
-            txbNgayCap.Enabled = status;
-            txbNoiCap.Enabled = status;
-            txbMaKH.Enabled = status;
-            txbHoTen.Enabled = status;
-            txbQuocTich.Enabled = status;
-            txbSoTaiKhoan.Enabled = status;
-            txbNgaySinh.Enabled = status;
-            txbEmail.Enabled = status;
-            txbDiaChi.Enabled = status;
+            txtNgayCap.Enabled = status;
+            txtNoiCap.Enabled = status;
+            txtMaKH.Enabled = status;
+            txtHoTen.Enabled = status;
+            txtQuocTich.Enabled = status;
+            cbSoTK.Enabled = status;
+            txtNgaySinh.Enabled = status;
+            txtEmail.Enabled = status;
+            txtDiaChi.Enabled = status;
             cbGioiTinh.Enabled = status;
-            txbSoDienThoai.Enabled = status;
+            txtSoDienThoai.Enabled = status;
         }
 
         void ClearAllTextBox() {
-            txbNgayCap.Text = "";
-            txbNoiCap.Text = "";
-            txbMaKH.Text="";
-            txbHoTen.Text = "";
-            txbQuocTich.Text = "";
-            txbSoTaiKhoan.Text ="";
-            txbNgaySinh.Text = "";
-            txbEmail.Text = "";
-            txbDiaChi.Text = "";
+            txtNgayCap.Text = "";
+            txtNoiCap.Text = "";
+            txtMaKH.Text="";
+            txtHoTen.Text = "";
+            txtQuocTich.Text = "";
+            cbSoTK.SelectedItem = null;
+            txtNgaySinh.Text = "";
+            txtEmail.Text = "";
+            txtDiaChi.Text = "";
             cbGioiTinh.SelectedItem = null;
-            txbSoDienThoai.Text = "";
+            txtSoDienThoai.Text = "";
         }
 
-        private void txbSoCMT_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Menu Thong tin khach hang
         private void txbSoCMT_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -145,9 +139,142 @@ namespace AGRIBANKHD.GUI
             }
         }
 
-        private void ckbLapNghiep1_CheckedChanged(object sender, EventArgs e)
+        private void txtSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
 
+            // only allow one decimal point
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
+
+        private void txtSoTaiKhoan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cbSoTK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+       
+        //Menu tab Phat hanh moi the ghi no
+        private void clbND_Moi_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbND_Moi.Items.Count; ++ix)
+                if (ix != e.Index) clbND_Moi.SetItemChecked(ix, false);
+        }
+
+        private void clbQT_Moi_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbQT_Moi.Items.Count; ++ix)
+                if (ix != e.Index) clbQT_Moi.SetItemChecked(ix, false);
+        }
+
+        private void clbHangThe_Moi_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbHangThe_Moi.Items.Count; ++ix)
+                if (ix != e.Index) clbHangThe_Moi.SetItemChecked(ix, false);
+        }
+
+        private void clbHTPhatHanh_Moi_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbHTPhatHanh_Moi.Items.Count; ++ix)
+                if (ix != e.Index) clbHTPhatHanh_Moi.SetItemChecked(ix, false);
+        }
+
+        private void clbHTNhanThe_Moi_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbHTNhanThe_Moi.Items.Count; ++ix)
+                if (ix != e.Index) clbHTNhanThe_Moi.SetItemChecked(ix, false);
+        }
+
+        private void ckbSMS_Moi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbSMS_Moi.Checked) txtDTDD_SMS_Moi.Enabled = true;
+            else txtDTDD_SMS_Moi.Enabled = false;
+        }
+
+        private void ckbInternet_Moi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbInternet_Moi.Checked) txtHMGD_Moi.Enabled = true;
+            else txtHMGD_Moi.Enabled = false;
+        }
+
+        //Menu tab phat hanh lai the ghi no
+        private void clbND_Lai_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbND_Lai.Items.Count; ++ix)
+                if (ix != e.Index) clbND_Lai.SetItemChecked(ix, false);
+        }
+
+        private void clbQT_Lai_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbQT_Lai.Items.Count; ++ix)
+                if (ix != e.Index) clbQT_Lai.SetItemChecked(ix, false);
+        }
+
+        private void clbHangThe_Lai_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbHangThe_Lai.Items.Count; ++ix)
+                if (ix != e.Index) clbHangThe_Lai.SetItemChecked(ix, false);
+        }
+
+        private void clbHTPhatHanh_Lai_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            for (int ix = 0; ix < clbHTPhatHanh_Lai.Items.Count; ++ix)
+                if (ix != e.Index) clbHTPhatHanh_Lai.SetItemChecked(ix, false);
+        }
+
+        private void ckbSMS_Lai_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbSMS_Lai.Checked) txtDTDD_SMS_Lai.Enabled = true;
+            else txtDTDD_SMS_Lai.Enabled = false;
+        }
+
+        private void ckbInternet_Lai_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbInternet_Lai.Checked) txtHMGD_Lai.Enabled = true;
+            else txtHMGD_Lai.Enabled = false;
+        }
+
+        
+
+       
+
+        
+
+        
+
+        
+
+        
+
+
+        
     }
 }
