@@ -262,6 +262,23 @@ namespace AGRIBANKHD.GUI
             else txtHMGD_Lai.Enabled = false;
         }
 
+        private void btnLuuHoSo_Click(object sender, EventArgs e)
+        {
+            //Phat hanh moi the ghi no
+            switch (tCtrDichVu.SelectedIndex) { 
+                case 0: //Phat hanh moi 
+
+                    break;
+                case 1: //Phat hanh lai
+                    break;
+                case 2: //Hop dong
+                    break;
+                case 3: //Giay hen
+                    break;
+                default: break;
+            }
+        }
+
         
 
        

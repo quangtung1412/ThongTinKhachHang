@@ -746,6 +746,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Chi nhánh";
             // 
+            // savefileTao_xoa_the_chap
+            // 
+            // 
             // frmTao_ho_so_vay
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;

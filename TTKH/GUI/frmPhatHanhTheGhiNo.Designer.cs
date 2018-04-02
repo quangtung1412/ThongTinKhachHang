@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhatHanhTheGhiNo));
             this.gbThongTinKH = new System.Windows.Forms.GroupBox();
+            this.cbSoTK = new System.Windows.Forms.ComboBox();
             this.btnXoaTTKH = new System.Windows.Forms.Button();
             this.btnSuaTTKH = new System.Windows.Forms.Button();
             this.btnLuuTTKH = new System.Windows.Forms.Button();
@@ -131,7 +132,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tpGiayHen = new System.Windows.Forms.TabPage();
-            this.cbSoTK = new System.Windows.Forms.ComboBox();
             this.btnInHoSo = new System.Windows.Forms.Button();
             this.btnLuuHoSo = new System.Windows.Forms.Button();
             this.gbThongTinKH.SuspendLayout();
@@ -184,6 +184,16 @@
             this.gbThongTinKH.TabIndex = 0;
             this.gbThongTinKH.TabStop = false;
             this.gbThongTinKH.Text = "Thông tin khách hàng";
+            // 
+            // cbSoTK
+            // 
+            this.cbSoTK.Enabled = false;
+            this.cbSoTK.FormattingEnabled = true;
+            this.cbSoTK.Location = new System.Drawing.Point(623, 43);
+            this.cbSoTK.Name = "cbSoTK";
+            this.cbSoTK.Size = new System.Drawing.Size(164, 21);
+            this.cbSoTK.TabIndex = 34;
+            this.cbSoTK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSoTK_KeyPress);
             // 
             // btnXoaTTKH
             // 
@@ -737,7 +747,7 @@
             this.tpPhatHanhLai.Location = new System.Drawing.Point(4, 22);
             this.tpPhatHanhLai.Name = "tpPhatHanhLai";
             this.tpPhatHanhLai.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPhatHanhLai.Size = new System.Drawing.Size(786, 289);
+            this.tpPhatHanhLai.Size = new System.Drawing.Size(786, 238);
             this.tpPhatHanhLai.TabIndex = 1;
             this.tpPhatHanhLai.Text = "Phát hành lại thẻ";
             this.tpPhatHanhLai.UseVisualStyleBackColor = true;
@@ -969,7 +979,7 @@
             this.tpHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpHopDong.Location = new System.Drawing.Point(4, 22);
             this.tpHopDong.Name = "tpHopDong";
-            this.tpHopDong.Size = new System.Drawing.Size(786, 241);
+            this.tpHopDong.Size = new System.Drawing.Size(786, 238);
             this.tpHopDong.TabIndex = 2;
             this.tpHopDong.Text = "Hợp đồng phát hành thẻ";
             this.tpHopDong.UseVisualStyleBackColor = true;
@@ -1277,20 +1287,10 @@
             this.tpGiayHen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpGiayHen.Location = new System.Drawing.Point(4, 22);
             this.tpGiayHen.Name = "tpGiayHen";
-            this.tpGiayHen.Size = new System.Drawing.Size(786, 241);
+            this.tpGiayHen.Size = new System.Drawing.Size(786, 238);
             this.tpGiayHen.TabIndex = 3;
             this.tpGiayHen.Text = "Giấy hẹn";
             this.tpGiayHen.UseVisualStyleBackColor = true;
-            // 
-            // cbSoTK
-            // 
-            this.cbSoTK.Enabled = false;
-            this.cbSoTK.FormattingEnabled = true;
-            this.cbSoTK.Location = new System.Drawing.Point(623, 43);
-            this.cbSoTK.Name = "cbSoTK";
-            this.cbSoTK.Size = new System.Drawing.Size(164, 21);
-            this.cbSoTK.TabIndex = 34;
-            this.cbSoTK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSoTK_KeyPress);
             // 
             // btnInHoSo
             // 
@@ -1313,6 +1313,7 @@
             this.btnLuuHoSo.TabIndex = 6;
             this.btnLuuHoSo.Text = "Lưu hồ sơ";
             this.btnLuuHoSo.UseVisualStyleBackColor = true;
+            this.btnLuuHoSo.Click += new System.EventHandler(this.btnLuuHoSo_Click);
             // 
             // frmPhatHanhTheGhiNo
             // 
