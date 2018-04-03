@@ -134,6 +134,10 @@
             this.tpGiayHen = new System.Windows.Forms.TabPage();
             this.btnInHoSo = new System.Windows.Forms.Button();
             this.btnLuuHoSo = new System.Windows.Forms.Button();
+            this.saveFilePhatHanhTheGhiNo = new System.Windows.Forms.SaveFileDialog();
+            this.saveFilePhatHanhLai = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileHopDong = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileGiayHen = new System.Windows.Forms.SaveFileDialog();
             this.gbThongTinKH.SuspendLayout();
             this.tCtrDichVu.SuspendLayout();
             this.tpPhatHanhTheGhiNo.SuspendLayout();
@@ -1457,5 +1461,9 @@
         private System.Windows.Forms.ComboBox cbSoTK;
         private System.Windows.Forms.Button btnInHoSo;
         private System.Windows.Forms.Button btnLuuHoSo;
+        private System.Windows.Forms.SaveFileDialog saveFilePhatHanhTheGhiNo;
+        private System.Windows.Forms.SaveFileDialog saveFilePhatHanhLai;
+        private System.Windows.Forms.SaveFileDialog saveFileHopDong;
+        private System.Windows.Forms.SaveFileDialog saveFileGiayHen;
     }
 }

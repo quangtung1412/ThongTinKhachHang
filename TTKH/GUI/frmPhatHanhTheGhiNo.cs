@@ -13,9 +13,31 @@ namespace AGRIBANKHD.GUI
     {
         private List<TextBox> listTxtNotNull;
 
+        private List<string>
+            ttchung_nguon,
+            ttchung_dich,
+            phat_hanh_moi_nguon,
+            phat_hanh_moi_dich,
+            phat_hanh_lai_nguon,
+            phat_hanh_lai_dich,
+            hop_dong_nguon,
+            hop_dong_dich,
+            giay_hen_nguon,
+            giay_hen_dich;
+
         public frmPhatHanhTheGhiNo()
         {
             InitializeComponent();
+            ttchung_dich = new List<string>();
+            ttchung_nguon = new List<string>();
+            phat_hanh_moi_dich = new List<string>();
+            phat_hanh_moi_nguon = new List<string>();
+            phat_hanh_lai_dich = new List<string>();
+            phat_hanh_lai_nguon = new List<string>();
+            hop_dong_dich = new List<string>();
+            hop_dong_nguon = new List<string>();
+            giay_hen_dich = new List<string>();
+            giay_hen_nguon = new List<string>();
         }
 
         void MyInit() {
@@ -279,19 +301,130 @@ namespace AGRIBANKHD.GUI
             }
         }
 
-        
+        private void KhoiTaoTTChung() {
+            ttchung_nguon.Add(txtCMT.Text);
+            ttchung_nguon.Add(txtHoTen.Text);
+            ttchung_nguon.Add(txtMaKH.Text);
+            ttchung_nguon.Add(txtEmail.Text);
+            ttchung_nguon.Add(txtDiaChi.Text);
+            ttchung_nguon.Add(txtNgaySinh.Text);
+            ttchung_nguon.Add(txtNgayCap.Text);
+            ttchung_nguon.Add(txtNoiCap.Text);
+            ttchung_nguon.Add(txtQuocTich.Text);
+            ttchung_nguon.Add(cbSoTK.SelectedText);
 
-       
+            ttchung_dich.Add("<CMND>");
+            ttchung_dich.Add("<HO_TEN>");
+            ttchung_dich.Add("<MA_KH>");
+            ttchung_dich.Add("<EMAIL>");
+            ttchung_dich.Add("<DIA_CHI>");
+            ttchung_dich.Add("<NGAY_SINH>");
+            ttchung_dich.Add("<NGAY_CAP>");
+            ttchung_dich.Add("<NOI_CAP>");
+            ttchung_dich.Add("<QUOC_TICH>");
+            ttchung_dich.Add("SO_TK");
 
-        
+            if (cbGioiTinh.SelectedIndex == 0) { //gioi tinh NAM
+                ttchung_nguon.Add("0x2611");
+                ttchung_dich.Add("<GT_0>");
+                ttchung_nguon.Add("0x2610");
+                ttchung_dich.Add("<GT_1>");
+            }
+            else if (cbGioiTinh.SelectedIndex == 1) { //gioi tinh NU
+                ttchung_nguon.Add("0x2611");
+                ttchung_dich.Add("<GT_1>");
+                ttchung_nguon.Add("0x2610");
+                ttchung_dich.Add("<GT_0>");
+            }
+        }
 
-        
+        private void KhoiTaoPhatHanhMoi() {
+            phat_hanh_moi_dich.Add("<GN>"); //Ghi no noi dia
+            phat_hanh_moi_dich.Add("<LN>"); //Lap nghiep
+            phat_hanh_moi_dich.Add("<LKTH>"); //Lien ket thuong hieu
+            phat_hanh_moi_dich.Add("<VS>"); //Visa
+            phat_hanh_moi_dich.Add("<MC>"); //MasterCard
+            phat_hanh_moi_dich.Add("<C>"); //Chuan
+            phat_hanh_moi_dich.Add("<V>"); //Vang
+            phat_hanh_moi_dich.Add("<PHT>"); //Phat hanh thuong
+            phat_hanh_moi_dich.Add("<PHN>"); //Phat hanh nhanh
+            phat_hanh_moi_dich.Add("<TNH>"); //Tai ngan hang
+            phat_hanh_moi_dich.Add("<TNR>"); //Tai nha rieng
+            phat_hanh_moi_dich.Add("<SMS>"); //SMS
+            phat_hanh_moi_dich.Add("<SMS_DTDD>");
+            phat_hanh_moi_dich.Add("INTERNET");
+            phat_hanh_moi_dich.Add("HMGD"); //Han muc giao dich
+            phat_hanh_moi_dich.Add("<HMGD_BANG_CHU>");
+            phat_hanh_moi_dich.Add("<OTP_DTDD>");
+            phat_hanh_moi_dich.Add("<OTP_EMAIL>");
 
-        
+            //Noi dia
+            if (clbND_Moi.SelectedIndex == 2) {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2611");
+            }
+            else if (clbND_Moi.SelectedIndex == 1)
+            {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add("0x2610");
+            }
+            else
+            {
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2610");
+            }
+            
+            //Quoc te
+            if (clbQT_Moi.SelectedIndex == 1)
+            {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2611");
+            }
+            else {
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add("0x2610");
+            }
 
-        
+            //Hang the
+            if (clbHangThe_Moi.SelectedIndex == 1)
+            {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2611");
+            }
+            else
+            {
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add("0x2610");
+            }
 
+            //Hinh thuc phat hanh
+            if (clbHTPhatHanh_Moi.SelectedIndex == 1)
+            {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2611");
+            }
+            else
+            {
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add("0x2610");
+            }
 
-        
+            //Hinh thuc nhan the
+            if (clbHTNhanThe_Moi.SelectedIndex == 1)
+            {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("0x2611");
+            }
+            else
+            {
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add("0x2610");
+            }
+
+            //SMS
+        }
     }
 }
