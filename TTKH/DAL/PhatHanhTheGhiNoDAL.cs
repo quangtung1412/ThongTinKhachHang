@@ -15,7 +15,7 @@ namespace AGRIBANKHD.DAL
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[]
             {
-            new SqlParameter("@soCmnd", soCmnd)
+            new SqlParameter("@cmnd", soCmnd)
             };
             DataTable dt = db.dt("PhatHanhTheGhiNo_TimKiemKH", Params);
             if (dt.Rows.Count == 0)
@@ -35,6 +35,49 @@ namespace AGRIBANKHD.DAL
             };
             DataTable dt = db.dt("TimSoTK", Params);
             return dt;
+        }
+
+        public static void ThemKH(KhachHangDV kh, string so_tk) {
+            DataAccess db = new DataAccess();
+
+            SqlParameter[] Params = new SqlParameter[]
+            {
+            new SqlParameter("@cmnd", kh.cmt),
+            new SqlParameter("@hoten", kh.ho_ten),
+            new SqlParameter("@makh", kh.ma_KH),
+            new SqlParameter("@dienthoai", kh.dien_thoai),
+            new SqlParameter("@email", kh.email),
+            new SqlParameter("@diachi", kh.dia_chi),
+            new SqlParameter("@ngaysinh", kh.ngay_sinh.ToString("dd/MM/yyyy")),
+            new SqlParameter("@ngaycap", kh.ngay_cap.ToString("dd/MM/yyyy")),
+            new SqlParameter("@noicap", kh.noi_cap),
+            new SqlParameter("@quoctich", kh.quoc_tich),
+            new SqlParameter("@sotk", so_tk),
+            new SqlParameter("@gioitinh", kh.gioi_tinh)
+            };
+            db.dt("ThemKH", Params);
+        }
+
+        public static void SuaKH(KhachHangDV kh, string so_tk)
+        {
+            DataAccess db = new DataAccess();
+
+            SqlParameter[] Params = new SqlParameter[]
+            {
+            new SqlParameter("@cmnd", kh.cmt),
+            new SqlParameter("@hoten", kh.ho_ten),
+            new SqlParameter("@makh", kh.ma_KH),
+            new SqlParameter("@dienthoai", kh.dien_thoai),
+            new SqlParameter("@email", kh.email),
+            new SqlParameter("@diachi", kh.dia_chi),
+            new SqlParameter("@ngaysinh", kh.ngay_sinh.ToString("dd/MM/yyyy")),
+            new SqlParameter("@ngaycap", kh.ngay_cap.ToString("dd/MM/yyyy")),
+            new SqlParameter("@noicap", kh.noi_cap),
+            new SqlParameter("@quoctich", kh.quoc_tich),
+            new SqlParameter("@sotk", so_tk),
+            new SqlParameter("@gioitinh", kh.gioi_tinh)
+            };
+            db.dt("SuaKH", Params);
         }
     }
 }

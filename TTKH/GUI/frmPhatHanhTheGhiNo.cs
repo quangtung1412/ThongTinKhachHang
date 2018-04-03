@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -38,6 +39,12 @@ namespace AGRIBANKHD.GUI
             hop_dong_nguon = new List<string>();
             giay_hen_dich = new List<string>();
             giay_hen_nguon = new List<string>();
+
+            clbND_Moi.SetItemChecked(0, true);
+            clbQT_Moi.SetItemChecked(0, true);
+            clbHangThe_Moi.SetItemChecked(0, true);
+            clbHTPhatHanh_Moi.SetItemChecked(0, true);
+            clbHTNhanThe_Moi.SetItemChecked(0, true);
         }
 
         void MyInit() {
@@ -82,7 +89,8 @@ namespace AGRIBANKHD.GUI
 
         void TimThayKH(Entities.KhachHangDV kh) {
             SetTextBoxStatus_TTKH(false);
-            tCtrDichVu.Enabled = true;
+            SetTabControlStatus(true);
+
             txtNgayCap.Text = kh.ngay_cap.ToString("MM/dd/yyyy");
             txtNoiCap.Text = kh.noi_cap;
             txtMaKH.Text = kh.ma_KH;
@@ -116,6 +124,12 @@ namespace AGRIBANKHD.GUI
                 DAL.ErrorMessageDAL.DataAccessError();
             }
 
+        }
+
+        void SetTabControlStatus(bool status) {
+            tCtrDichVu.Enabled = status;
+            btnInHoSo.Enabled = status;
+            btnLuuHoSo.Enabled = status;
         }
 
         void SetTextBoxStatus_TTKH(bool status) {
@@ -197,10 +211,58 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as TextBox).Text.IndexOf('.') > -1))
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
+        }
+
+
+        private void btnLuuTTKH_Click(object sender, EventArgs e)
+        {
+            bool gt = true;
+            if (cbGioiTinh.SelectedIndex != 0) gt = false;
+
+            Entities.KhachHangDV kh = new Entities.KhachHangDV(
+                txtMaKH.Text,
+                txtHoTen.Text,
+                txtCMT.Text,
+                DateTime.ParseExact(txtNgayCap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                txtNoiCap.Text,
+                txtQuocTich.Text,
+                txtSoDienThoai.Text,
+                txtEmail.Text,
+                txtDiaChi.Text,
+                DateTime.ParseExact(txtNgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                gt);
+            if (DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txtCMT.Text) != null)
+                try
+                {
+                    DAL.PhatHanhTheGhiNoDAL.SuaKH(kh, cbSoTK.SelectedItem.ToString());
+                    MessageBox.Show("Sửa thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                catch {
+                    DAL.ErrorMessageDAL.DataAccessError();
+                }
+            else
+                try
+                {
+                    DAL.PhatHanhTheGhiNoDAL.ThemKH(kh, cbSoTK.SelectedItem.ToString());
+                    MessageBox.Show("Thêm thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                catch {
+                    DAL.ErrorMessageDAL.DataAccessError();
+                }
+        }
+
+        private void btnSuaTTKH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoaTTKH_Click(object sender, EventArgs e)
+        {
+
         }
 
        
@@ -286,10 +348,11 @@ namespace AGRIBANKHD.GUI
 
         private void btnLuuHoSo_Click(object sender, EventArgs e)
         {
+            KhoiTaoTTChung();
             //Phat hanh moi the ghi no
             switch (tCtrDichVu.SelectedIndex) { 
                 case 0: //Phat hanh moi 
-
+                    KhoiTaoPhatHanhMoi();
                     break;
                 case 1: //Phat hanh lai
                     break;
@@ -302,9 +365,13 @@ namespace AGRIBANKHD.GUI
         }
 
         private void KhoiTaoTTChung() {
+            ttchung_nguon.Clear();
+            ttchung_dich.Clear();
+
             ttchung_nguon.Add(txtCMT.Text);
             ttchung_nguon.Add(txtHoTen.Text);
             ttchung_nguon.Add(txtMaKH.Text);
+            ttchung_nguon.Add(txtSoDienThoai.Text);
             ttchung_nguon.Add(txtEmail.Text);
             ttchung_nguon.Add(txtDiaChi.Text);
             ttchung_nguon.Add(txtNgaySinh.Text);
@@ -316,6 +383,7 @@ namespace AGRIBANKHD.GUI
             ttchung_dich.Add("<CMND>");
             ttchung_dich.Add("<HO_TEN>");
             ttchung_dich.Add("<MA_KH>");
+            ttchung_dich.Add("<DIEN_THOAI>");
             ttchung_dich.Add("<EMAIL>");
             ttchung_dich.Add("<DIA_CHI>");
             ttchung_dich.Add("<NGAY_SINH>");
@@ -339,6 +407,9 @@ namespace AGRIBANKHD.GUI
         }
 
         private void KhoiTaoPhatHanhMoi() {
+            phat_hanh_moi_nguon.Clear();
+            phat_hanh_moi_dich.Clear();
+
             phat_hanh_moi_dich.Add("<GN>"); //Ghi no noi dia
             phat_hanh_moi_dich.Add("<LN>"); //Lap nghiep
             phat_hanh_moi_dich.Add("<LKTH>"); //Lien ket thuong hieu
@@ -357,14 +428,16 @@ namespace AGRIBANKHD.GUI
             phat_hanh_moi_dich.Add("<HMGD_BANG_CHU>");
             phat_hanh_moi_dich.Add("<OTP_DTDD>");
             phat_hanh_moi_dich.Add("<OTP_EMAIL>");
+            phat_hanh_moi_dich.Add("<BAO_HIEM>");
+
 
             //Noi dia
-            if (clbND_Moi.SelectedIndex == 2) {
+            if (clbND_Moi.GetItemChecked(2)) {
                 phat_hanh_moi_nguon.Add("0x2610");
                 phat_hanh_moi_nguon.Add("0x2610");
                 phat_hanh_moi_nguon.Add("0x2611");
             }
-            else if (clbND_Moi.SelectedIndex == 1)
+            else if (clbND_Moi.GetItemChecked(1))
             {
                 phat_hanh_moi_nguon.Add("0x2610");
                 phat_hanh_moi_nguon.Add("0x2611");
@@ -378,7 +451,7 @@ namespace AGRIBANKHD.GUI
             }
             
             //Quoc te
-            if (clbQT_Moi.SelectedIndex == 1)
+            if (clbQT_Moi.GetItemChecked(1))
             {
                 phat_hanh_moi_nguon.Add("0x2610");
                 phat_hanh_moi_nguon.Add("0x2611");
@@ -389,7 +462,7 @@ namespace AGRIBANKHD.GUI
             }
 
             //Hang the
-            if (clbHangThe_Moi.SelectedIndex == 1)
+            if (clbHangThe_Moi.GetItemChecked(1))
             {
                 phat_hanh_moi_nguon.Add("0x2610");
                 phat_hanh_moi_nguon.Add("0x2611");
@@ -401,7 +474,7 @@ namespace AGRIBANKHD.GUI
             }
 
             //Hinh thuc phat hanh
-            if (clbHTPhatHanh_Moi.SelectedIndex == 1)
+            if (clbHTPhatHanh_Moi.GetItemChecked(1))
             {
                 phat_hanh_moi_nguon.Add("0x2610");
                 phat_hanh_moi_nguon.Add("0x2611");
@@ -413,7 +486,7 @@ namespace AGRIBANKHD.GUI
             }
 
             //Hinh thuc nhan the
-            if (clbHTNhanThe_Moi.SelectedIndex == 1)
+            if (clbHTNhanThe_Moi.GetItemChecked(1))
             {
                 phat_hanh_moi_nguon.Add("0x2610");
                 phat_hanh_moi_nguon.Add("0x2611");
@@ -425,6 +498,55 @@ namespace AGRIBANKHD.GUI
             }
 
             //SMS
+            if (ckbSMS_Moi.Checked) {
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add(txtDTDD_SMS_Moi.Text);
+            }
+            else
+            {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("");
+            }
+
+            //Internet
+            if (ckbInternet_Moi.Checked)
+            {
+                phat_hanh_moi_nguon.Add("0x2611");
+                phat_hanh_moi_nguon.Add(txtHMGD_Moi.Text);
+                phat_hanh_moi_nguon.Add(Utilities.CommonMethods.ChuyenSoSangChu(txtHMGD_Moi.Text));
+            }
+            else
+            {
+                phat_hanh_moi_nguon.Add("0x2610");
+                phat_hanh_moi_nguon.Add("");
+                phat_hanh_moi_nguon.Add("");
+            }
+
+            //Bao hiem
+            if (ckbBaoHiem_Moi.Checked)
+                phat_hanh_moi_nguon.Add("0x2611");
+            else phat_hanh_moi_nguon.Add("0x2610");
         }
+
+        private void cbSoTK_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbSoTK_TextUpdate(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cbSoTK_Validated(object sender, EventArgs e)
+        {
+            foreach (var c in cbSoTK.Items) {
+                if (c.ToString() == cbSoTK.Text) return;
+            }
+            cbSoTK.Items.Add(cbSoTK.Text);
+            cbSoTK.SelectedIndex = cbSoTK.Items.Count - 1;
+        }
+
+        
     }
 }

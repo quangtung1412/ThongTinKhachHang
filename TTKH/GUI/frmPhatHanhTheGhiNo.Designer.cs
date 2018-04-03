@@ -197,7 +197,10 @@
             this.cbSoTK.Name = "cbSoTK";
             this.cbSoTK.Size = new System.Drawing.Size(164, 21);
             this.cbSoTK.TabIndex = 34;
+            this.cbSoTK.TextUpdate += new System.EventHandler(this.cbSoTK_TextUpdate);
+            this.cbSoTK.TextChanged += new System.EventHandler(this.cbSoTK_TextChanged);
             this.cbSoTK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSoTK_KeyPress);
+            this.cbSoTK.Validated += new System.EventHandler(this.cbSoTK_Validated);
             // 
             // btnXoaTTKH
             // 
@@ -208,6 +211,7 @@
             this.btnXoaTTKH.TabIndex = 33;
             this.btnXoaTTKH.Text = "Xóa";
             this.btnXoaTTKH.UseVisualStyleBackColor = true;
+            this.btnXoaTTKH.Click += new System.EventHandler(this.btnXoaTTKH_Click);
             // 
             // btnSuaTTKH
             // 
@@ -218,6 +222,7 @@
             this.btnSuaTTKH.TabIndex = 32;
             this.btnSuaTTKH.Text = "Sửa";
             this.btnSuaTTKH.UseVisualStyleBackColor = true;
+            this.btnSuaTTKH.Click += new System.EventHandler(this.btnSuaTTKH_Click);
             // 
             // btnLuuTTKH
             // 
@@ -228,6 +233,7 @@
             this.btnLuuTTKH.TabIndex = 31;
             this.btnLuuTTKH.Text = "Lưu";
             this.btnLuuTTKH.UseVisualStyleBackColor = true;
+            this.btnLuuTTKH.Click += new System.EventHandler(this.btnLuuTTKH_Click);
             // 
             // lbDiaChi
             // 
