@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AGRIBANKHD.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,13 @@ namespace AGRIBANKHD.GUI
     public partial class frmPhatHanhTheGhiNo : Form
     {
         private List<TextBox> listTxtNotNull;
+        private bool canSaveTTKH = false;
+
+        private const string fileNamePhatHanhMoi = "PHAT_HANH_MOI";
+        private const string fileNamePhatHanhLai = "PHAT_HANH_LAI";
+        private const string fileNameHopDong = "HOP_DONG";
+        private const string fileNameGiayHen = "GIAY_HEN";
+
 
         private List<string>
             ttchung_nguon,
@@ -45,6 +53,8 @@ namespace AGRIBANKHD.GUI
             clbHangThe_Moi.SetItemChecked(0, true);
             clbHTPhatHanh_Moi.SetItemChecked(0, true);
             clbHTNhanThe_Moi.SetItemChecked(0, true);
+
+            clbND_Moi.BackColor = Color.Empty;
         }
 
         void MyInit() {
@@ -55,6 +65,16 @@ namespace AGRIBANKHD.GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            TimKiemKH();
+        }
+
+        private void txtCMT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+                TimKiemKH();
+        }
+
+        void TimKiemKH() {
             if (string.IsNullOrEmpty(txtCMT.Text))
                 MessageBox.Show("Vui lòng nhập số CMND", "Thông báo", MessageBoxButtons.OK);
             else
@@ -85,17 +105,19 @@ namespace AGRIBANKHD.GUI
             SetTextBoxStatus_TTKH(true);
             tCtrDichVu.Enabled = false;
             ClearAllTextBox();
+            canSaveTTKH = true;
         }
 
         void TimThayKH(Entities.KhachHangDV kh) {
+            cbSoTK.Items.Clear();
             SetTextBoxStatus_TTKH(false);
             SetTabControlStatus(true);
 
-            txtNgayCap.Text = kh.ngay_cap.ToString("MM/dd/yyyy");
+            txtNgayCap.Text = kh.ngay_cap.ToString("dd/MM/yyyy");
             txtNoiCap.Text = kh.noi_cap;
             txtMaKH.Text = kh.ma_KH;
             txtHoTen.Text = kh.ho_ten;
-            txtNgaySinh.Text = kh.ngay_sinh.ToString("MM/dd/yyyy");
+            txtNgaySinh.Text = kh.ngay_sinh.ToString("dd/MM/yyyy");
             txtSoDienThoai.Text = kh.dien_thoai;
             txtEmail.Text = kh.email;
             txtDiaChi.Text = kh.dia_chi;
@@ -220,6 +242,7 @@ namespace AGRIBANKHD.GUI
 
         private void btnLuuTTKH_Click(object sender, EventArgs e)
         {
+            if (!canSaveTTKH) return;
             bool gt = true;
             if (cbGioiTinh.SelectedIndex != 0) gt = false;
 
@@ -240,6 +263,8 @@ namespace AGRIBANKHD.GUI
                 {
                     DAL.PhatHanhTheGhiNoDAL.SuaKH(kh, cbSoTK.SelectedItem.ToString());
                     MessageBox.Show("Sửa thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                    canSaveTTKH = false;
+                    SetTextBoxStatus_TTKH(false);
                 }
                 catch {
                     DAL.ErrorMessageDAL.DataAccessError();
@@ -249,6 +274,8 @@ namespace AGRIBANKHD.GUI
                 {
                     DAL.PhatHanhTheGhiNoDAL.ThemKH(kh, cbSoTK.SelectedItem.ToString());
                     MessageBox.Show("Thêm thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                    canSaveTTKH = false;
+                    SetTextBoxStatus_TTKH(false);
                 }
                 catch {
                     DAL.ErrorMessageDAL.DataAccessError();
@@ -257,7 +284,8 @@ namespace AGRIBANKHD.GUI
 
         private void btnSuaTTKH_Click(object sender, EventArgs e)
         {
-
+            SetTextBoxStatus_TTKH(true);
+            canSaveTTKH = true;
         }
 
         private void btnXoaTTKH_Click(object sender, EventArgs e)
@@ -265,6 +293,15 @@ namespace AGRIBANKHD.GUI
 
         }
 
+        private void cbSoTK_Validated(object sender, EventArgs e)
+        {
+            foreach (var c in cbSoTK.Items)
+            {
+                if (c.ToString() == cbSoTK.Text) return;
+            }
+            cbSoTK.Items.Add(cbSoTK.Text);
+            cbSoTK.SelectedIndex = cbSoTK.Items.Count - 1;
+        }
        
         //Menu tab Phat hanh moi the ghi no
         private void clbND_Moi_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -308,6 +345,8 @@ namespace AGRIBANKHD.GUI
             if (ckbInternet_Moi.Checked) txtHMGD_Moi.Enabled = true;
             else txtHMGD_Moi.Enabled = false;
         }
+
+
 
         //Menu tab phat hanh lai the ghi no
         private void clbND_Lai_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -353,6 +392,7 @@ namespace AGRIBANKHD.GUI
             switch (tCtrDichVu.SelectedIndex) { 
                 case 0: //Phat hanh moi 
                     KhoiTaoPhatHanhMoi();
+
                     break;
                 case 1: //Phat hanh lai
                     break;
@@ -528,23 +568,16 @@ namespace AGRIBANKHD.GUI
             else phat_hanh_moi_nguon.Add("0x2610");
         }
 
-        private void cbSoTK_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
-        private void cbSoTK_TextUpdate(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void cbSoTK_Validated(object sender, EventArgs e)
-        {
-            foreach (var c in cbSoTK.Items) {
-                if (c.ToString() == cbSoTK.Text) return;
+        void PhatHanhMoi() {
+            saveFilePhatHanhMoi.Filter = "Word Documents|*.docx";
+            if (saveFilePhatHanhMoi.ShowDialog() == DialogResult.OK)
+            {
+                string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DICHVU\CA_NHAN\" + fileNamePhatHanhMoi + DateTime.Now.ToString("dd-MM-yyyy")+ ".docx");
+                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFilePhatHanhMoi.FileName, ttchung_dich , ttchung_nguon);
+                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhMoi.FileName, "Tạo file thành công");
             }
-            cbSoTK.Items.Add(cbSoTK.Text);
-            cbSoTK.SelectedIndex = cbSoTK.Items.Count - 1;
         }
 
         

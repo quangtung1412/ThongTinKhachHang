@@ -134,7 +134,7 @@
             this.tpGiayHen = new System.Windows.Forms.TabPage();
             this.btnInHoSo = new System.Windows.Forms.Button();
             this.btnLuuHoSo = new System.Windows.Forms.Button();
-            this.saveFilePhatHanhTheGhiNo = new System.Windows.Forms.SaveFileDialog();
+            this.saveFilePhatHanhMoi = new System.Windows.Forms.SaveFileDialog();
             this.saveFilePhatHanhLai = new System.Windows.Forms.SaveFileDialog();
             this.saveFileHopDong = new System.Windows.Forms.SaveFileDialog();
             this.saveFileGiayHen = new System.Windows.Forms.SaveFileDialog();
@@ -197,8 +197,6 @@
             this.cbSoTK.Name = "cbSoTK";
             this.cbSoTK.Size = new System.Drawing.Size(164, 21);
             this.cbSoTK.TabIndex = 34;
-            this.cbSoTK.TextUpdate += new System.EventHandler(this.cbSoTK_TextUpdate);
-            this.cbSoTK.TextChanged += new System.EventHandler(this.cbSoTK_TextChanged);
             this.cbSoTK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSoTK_KeyPress);
             this.cbSoTK.Validated += new System.EventHandler(this.cbSoTK_Validated);
             // 
@@ -465,6 +463,7 @@
             this.txtCMT.Name = "txtCMT";
             this.txtCMT.Size = new System.Drawing.Size(116, 20);
             this.txtCMT.TabIndex = 1;
+            this.txtCMT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCMT_KeyDown);
             this.txtCMT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSoCMT_KeyPress);
             // 
             // lbSoCMT
@@ -1467,7 +1466,7 @@
         private System.Windows.Forms.ComboBox cbSoTK;
         private System.Windows.Forms.Button btnInHoSo;
         private System.Windows.Forms.Button btnLuuHoSo;
-        private System.Windows.Forms.SaveFileDialog saveFilePhatHanhTheGhiNo;
+        private System.Windows.Forms.SaveFileDialog saveFilePhatHanhMoi;
         private System.Windows.Forms.SaveFileDialog saveFilePhatHanhLai;
         private System.Windows.Forms.SaveFileDialog saveFileHopDong;
         private System.Windows.Forms.SaveFileDialog saveFileGiayHen;

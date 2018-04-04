@@ -39,6 +39,8 @@ namespace AGRIBANKHD.DAL
 
         public static void ThemKH(KhachHangDV kh, string so_tk) {
             DataAccess db = new DataAccess();
+            int gt = 0;
+            if (kh.gioi_tinh) gt = 1;
 
             SqlParameter[] Params = new SqlParameter[]
             {
@@ -48,12 +50,12 @@ namespace AGRIBANKHD.DAL
             new SqlParameter("@dienthoai", kh.dien_thoai),
             new SqlParameter("@email", kh.email),
             new SqlParameter("@diachi", kh.dia_chi),
-            new SqlParameter("@ngaysinh", kh.ngay_sinh.ToString("dd/MM/yyyy")),
-            new SqlParameter("@ngaycap", kh.ngay_cap.ToString("dd/MM/yyyy")),
+            new SqlParameter("@ngaysinh", kh.ngay_sinh),
+            new SqlParameter("@ngaycap", kh.ngay_cap),
             new SqlParameter("@noicap", kh.noi_cap),
             new SqlParameter("@quoctich", kh.quoc_tich),
             new SqlParameter("@sotk", so_tk),
-            new SqlParameter("@gioitinh", kh.gioi_tinh)
+            new SqlParameter("@gioitinh", gt)
             };
             db.dt("ThemKH", Params);
         }
@@ -62,6 +64,9 @@ namespace AGRIBANKHD.DAL
         {
             DataAccess db = new DataAccess();
 
+            int gt = 0;
+            if (kh.gioi_tinh) gt = 1;
+
             SqlParameter[] Params = new SqlParameter[]
             {
             new SqlParameter("@cmnd", kh.cmt),
@@ -70,12 +75,12 @@ namespace AGRIBANKHD.DAL
             new SqlParameter("@dienthoai", kh.dien_thoai),
             new SqlParameter("@email", kh.email),
             new SqlParameter("@diachi", kh.dia_chi),
-            new SqlParameter("@ngaysinh", kh.ngay_sinh.ToString("dd/MM/yyyy")),
-            new SqlParameter("@ngaycap", kh.ngay_cap.ToString("dd/MM/yyyy")),
+            new SqlParameter("@ngaysinh", kh.ngay_sinh),
+            new SqlParameter("@ngaycap", kh.ngay_cap),
             new SqlParameter("@noicap", kh.noi_cap),
             new SqlParameter("@quoctich", kh.quoc_tich),
             new SqlParameter("@sotk", so_tk),
-            new SqlParameter("@gioitinh", kh.gioi_tinh)
+            new SqlParameter("@gioitinh", gt)
             };
             db.dt("SuaKH", Params);
         }
