@@ -66,9 +66,9 @@ namespace AGRIBANKHD.BUS
             return dal.Xoa_CBTD(ten_dang_nhap);
         }
 
-        public bool Xac_thuc_dang_nhap(string ma_cn, string ten_dang_nhap, string mat_khau)
+        public bool Xac_thuc_dang_nhap( string ten_dang_nhap, string mat_khau)
         {
-            return dal.Xac_thuc_dang_nhap(ma_cn, ten_dang_nhap, mat_khau);
+            return dal.Xac_thuc_dang_nhap(ten_dang_nhap, mat_khau);
         }
 
         public bool DOI_MAT_KHAU_CBTD(string ten_dang_nhap, string mat_khau)

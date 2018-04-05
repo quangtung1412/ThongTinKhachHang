@@ -76,13 +76,13 @@ namespace AGRIBANKHD.GUI
 
         void TimKiemKH() {
             if (string.IsNullOrEmpty(txtCMT.Text))
-                MessageBox.Show("Vui lòng nhập số CMND", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng nhập mã khách hàng!", "Thông báo", MessageBoxButtons.OK);
             else
             {
                 Entities.KhachHangDV kh = null;
                 try
                 {
-                    kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txtCMT.Text);
+                    kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txtMaKH.Text);
                     if (kh == null)
                     {
                         KhongTimThayKH();
@@ -395,6 +395,8 @@ namespace AGRIBANKHD.GUI
                     PhatHanhMoi();
                     break;
                 case 1: //Phat hanh lai
+                    KhoiTaoPhatHanhLai();
+                    PhatHanhLai();
                     break;
                 case 2: //Hop dong
                     break;
@@ -408,6 +410,9 @@ namespace AGRIBANKHD.GUI
             ttchung_nguon.Clear();
             ttchung_dich.Clear();
 
+            ttchung_nguon.Add(DateTime.Now.Day.ToString());
+            ttchung_nguon.Add(DateTime.Now.Month.ToString());
+            ttchung_nguon.Add(DateTime.Now.Year.ToString());
             ttchung_nguon.Add(Utilities.Thong_tin_dang_nhap.ten_cn);
             ttchung_nguon.Add(txtCMT.Text);
             ttchung_nguon.Add(txtHoTen.Text);
@@ -421,6 +426,9 @@ namespace AGRIBANKHD.GUI
             ttchung_nguon.Add(txtQuocTich.Text);
             ttchung_nguon.Add(cbSoTK.SelectedText);
 
+            ttchung_dich.Add("<NGAY>");
+            ttchung_dich.Add("<THANG>");
+            ttchung_dich.Add("<NAM>");
             ttchung_dich.Add("<CHI_NHANH>");
             ttchung_dich.Add("<CMND>");
             ttchung_dich.Add("<HO_TEN>");
@@ -579,7 +587,7 @@ namespace AGRIBANKHD.GUI
             phat_hanh_lai_dich.Clear();
 
             // Ghi no noi dia
-            phat_hanh_lai_dich.Add("<GDND>");
+            phat_hanh_lai_dich.Add("<GNND>");
             phat_hanh_lai_dich.Add("<LN>");
             phat_hanh_lai_dich.Add("<SV>");
             phat_hanh_lai_dich.Add("<LKTH>");
@@ -613,7 +621,7 @@ namespace AGRIBANKHD.GUI
             }
 
             //Ghi no quoc te
-            phat_hanh_lai_dich.Add("<GDQT>");
+            phat_hanh_lai_dich.Add("<GNQT>");
             phat_hanh_lai_dich.Add("<TDQT>");
             phat_hanh_lai_dich.Add("<VS>");
             phat_hanh_lai_dich.Add("<MC>");
@@ -663,15 +671,25 @@ namespace AGRIBANKHD.GUI
             //Hang The
             phat_hanh_lai_dich.Add("<C>");
             phat_hanh_lai_dich.Add("<V>");
+            phat_hanh_lai_dich.Add("<BK>");
 
-            if (clbHangThe_Lai.GetItemChecked(0))
+            if (clbHangThe_Lai.GetItemChecked(2))
             {
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
+                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
+            }
+            else if (clbHangThe_Lai.GetItemChecked(1))
+            {
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
                 phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
                 phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
             }
-            else {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
+            else
+            {
                 phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
             }
 
             //Hinh thuc phat hanh
@@ -691,19 +709,42 @@ namespace AGRIBANKHD.GUI
 
             //Dang ky dich vu
             phat_hanh_lai_dich.Add("<SMS>");
-            phat_hanh_lai_dich.Add("<INTERNET>");
-            phat_hanh_lai_dich.Add("<BAO_HIEM>");
             phat_hanh_lai_dich.Add("<DTDD_OTP>");
             phat_hanh_lai_dich.Add("<EMAIL_OTP>");
+            phat_hanh_lai_dich.Add("<INTERNET>");
             phat_hanh_lai_dich.Add("<HMGD>");
             phat_hanh_lai_dich.Add("<BANG_CHU>");
+            phat_hanh_lai_dich.Add("<BAO_HIEM>");
 
-            if (ckbSMS_Lai.Checked) {
+
+            if (ckbSMS_Lai.Checked)
+            {
                 phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-
+                phat_hanh_lai_nguon.Add(txtDTDD_SMS_Lai.Text);
+                phat_hanh_lai_nguon.Add(txtEmail.Text);
+            }
+            else {
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
+                phat_hanh_lai_nguon.Add("");
+                phat_hanh_lai_nguon.Add("");
             }
 
+            if (ckbInternet_Lai.Checked)
+            {
+                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
+                phat_hanh_lai_nguon.Add(txtHMGD_Lai.Text);
+                phat_hanh_lai_nguon.Add(Utilities.CommonMethods.ChuyenSoSangChu(txtHMGD_Lai.Text));
+            }
+            else {
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
+                phat_hanh_lai_nguon.Add("");
+                phat_hanh_lai_nguon.Add("");
+            }
 
+            if(ckbBaoHiem_Lai.Checked)
+                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
+            else
+                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
 
         }
 
@@ -719,8 +760,37 @@ namespace AGRIBANKHD.GUI
                 CommonMethods.CreateWordDocument(TemplateFileLocation, saveFilePhatHanhMoi.FileName, listDich , listNguon);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhMoi.FileName, "Tạo file thành công");
             }
+            OpenFileWord(saveFilePhatHanhMoi.FileName);
+
         }
 
-        
+        void PhatHanhLai()
+        {
+            var listNguon = ttchung_nguon;
+            listNguon.AddRange(phat_hanh_lai_nguon);
+            var listDich = ttchung_dich;
+            listDich.AddRange(phat_hanh_lai_dich);
+            saveFilePhatHanhLai.Filter = "Word Documents|*.docx";
+            if (saveFilePhatHanhLai.ShowDialog() == DialogResult.OK)
+            {
+                string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNamePhatHanhLai + ".docx");
+                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFilePhatHanhLai.FileName, listDich, listNguon);
+                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhLai.FileName, "Tạo file thành công");
+            }
+            OpenFileWord(saveFilePhatHanhLai.FileName);
+        }
+
+
+        void OpenFileWord(string fileLocation)
+        {
+            Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+            Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
+            ap.Visible = true;
+        }
+
+        private void gbThongTinKH_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

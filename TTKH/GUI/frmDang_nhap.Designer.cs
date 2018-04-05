@@ -34,9 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtTen_dang_nhap = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cboxChi_nhanh = new System.Windows.Forms.ComboBox();
-            this.txtMa_cn = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnDang_nhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,19 +48,16 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtTen_dang_nhap);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cboxChi_nhanh);
-            this.groupBox1.Controls.Add(this.txtMa_cn);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(26, 343);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(469, 123);
+            this.groupBox1.Size = new System.Drawing.Size(469, 103);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // txtMat_khau
             // 
-            this.txtMat_khau.Location = new System.Drawing.Point(121, 87);
+            this.txtMat_khau.Location = new System.Drawing.Point(121, 57);
             this.txtMat_khau.Name = "txtMat_khau";
             this.txtMat_khau.PasswordChar = '*';
             this.txtMat_khau.Size = new System.Drawing.Size(342, 22);
@@ -73,7 +67,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 93);
+            this.label3.Location = new System.Drawing.Point(6, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 5;
@@ -82,7 +76,7 @@
             // txtTen_dang_nhap
             // 
             this.txtTen_dang_nhap.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTen_dang_nhap.Location = new System.Drawing.Point(121, 54);
+            this.txtTen_dang_nhap.Location = new System.Drawing.Point(121, 24);
             this.txtTen_dang_nhap.Name = "txtTen_dang_nhap";
             this.txtTen_dang_nhap.Size = new System.Drawing.Size(342, 22);
             this.txtTen_dang_nhap.TabIndex = 4;
@@ -91,44 +85,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 60);
+            this.label2.Location = new System.Drawing.Point(6, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tên đăng nhập";
             // 
-            // cboxChi_nhanh
-            // 
-            this.cboxChi_nhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxChi_nhanh.FormattingEnabled = true;
-            this.cboxChi_nhanh.Location = new System.Drawing.Point(195, 19);
-            this.cboxChi_nhanh.Name = "cboxChi_nhanh";
-            this.cboxChi_nhanh.Size = new System.Drawing.Size(268, 24);
-            this.cboxChi_nhanh.TabIndex = 2;
-            this.cboxChi_nhanh.SelectedIndexChanged += new System.EventHandler(this.cboxChi_nhanh_SelectedIndexChanged_1);
-            // 
-            // txtMa_cn
-            // 
-            this.txtMa_cn.Location = new System.Drawing.Point(121, 21);
-            this.txtMa_cn.Name = "txtMa_cn";
-            this.txtMa_cn.ReadOnly = true;
-            this.txtMa_cn.Size = new System.Drawing.Size(68, 22);
-            this.txtMa_cn.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Chi nhánh";
-            // 
             // btnDang_nhap
             // 
             this.btnDang_nhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDang_nhap.Location = new System.Drawing.Point(160, 475);
+            this.btnDang_nhap.Location = new System.Drawing.Point(160, 466);
             this.btnDang_nhap.Name = "btnDang_nhap";
             this.btnDang_nhap.Size = new System.Drawing.Size(97, 28);
             this.btnDang_nhap.TabIndex = 1;
@@ -139,7 +105,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(263, 475);
+            this.btnThoat.Location = new System.Drawing.Point(263, 466);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(97, 28);
             this.btnThoat.TabIndex = 2;
@@ -198,9 +164,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboxChi_nhanh;
-        private System.Windows.Forms.TextBox txtMa_cn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTen_dang_nhap;
         private System.Windows.Forms.Label label2;

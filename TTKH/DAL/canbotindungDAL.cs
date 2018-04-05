@@ -187,17 +187,16 @@ namespace AGRIBANKHD.DAL
             return count > 0;
         }
 
-        public bool Xac_thuc_dang_nhap(string ma_cn, string ten_dang_nhap, string mat_khau)
+        public bool Xac_thuc_dang_nhap(string ten_dang_nhap, string mat_khau)
         {
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[]
             {
-                new SqlParameter("@ma_cn", ma_cn),
-                new SqlParameter("@ten_dang_nhap", ten_dang_nhap),
-                new SqlParameter("@mat_khau", mat_khau)
+                new SqlParameter("@user_id", ten_dang_nhap),
+                new SqlParameter("@user_pass", mat_khau)
             };
 
-            DataTable dt = db.dt("Xac_thuc_dang_nhap", Params);
+            DataTable dt = db.dt("XAC_THUC_USER", Params);
 
             return dt.Rows.Count > 0;
         }

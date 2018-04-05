@@ -21,10 +21,6 @@ namespace AGRIBANKHD.GUI
             InitializeComponent();
             List<Chinhanh> dschinhanh = new List<Chinhanh>();
             dschinhanh = AGRIBANKHD.BUS.ChinhanhBUS.DanhsachCN();
-            cboxChi_nhanh.DataSource = dschinhanh;
-            cboxChi_nhanh.DisplayMember = "ten_CN";
-            cboxChi_nhanh.ValueMember = "ma_CN";
-            txtMa_cn.Text = cboxChi_nhanh.SelectedValue.ToString();
             this.AcceptButton = btnDang_nhap;
         }
 
@@ -35,7 +31,7 @@ namespace AGRIBANKHD.GUI
 
         private void btnDang_nhap_Click(object sender, EventArgs e)
         {
-            if (!cbbus.Xac_thuc_dang_nhap(txtMa_cn.Text, txtTen_dang_nhap.Text, txtMat_khau.Text))
+            if (!cbbus.Xac_thuc_dang_nhap(txtTen_dang_nhap.Text, txtMat_khau.Text))
             {
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu. Đề nghị kiểm tra lại!");
                 return;
@@ -60,9 +56,5 @@ namespace AGRIBANKHD.GUI
             }
         }
 
-        private void cboxChi_nhanh_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            txtMa_cn.Text = cboxChi_nhanh.SelectedValue.ToString();
-        }
     }
 }
