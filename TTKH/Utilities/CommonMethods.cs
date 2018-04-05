@@ -25,6 +25,7 @@ namespace AGRIBANKHD.Utilities
     class CommonMethods
     {
         private static string server_add = "127.0.0.1";
+
         //private static string server_add = "10.14.0.12";
         //Xóa dữ liệu toàn bộ các textbox
         public static void ClearTextBoxes(Control control, string[] name_of_textbox)
@@ -451,8 +452,14 @@ namespace AGRIBANKHD.Utilities
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath)+@"\Word_template\";
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath) + @"\\127.0.0.1\Word_template\";
             //string thu_muc_goc = @"\\" + server_add + @"\Word_template\";
-            string thu_muc_goc = @"F:\Work\Agribank\ThongTinKhachHang\TTKH\Word_template\";
+            string thu_muc_goc = @"D:\Agribank\ThongTinKhachHang\TTKH\Word_template\";
             return thu_muc_goc + file_location;
+        }
+
+        public static string SaveFileLocation(string fileName)
+        {
+            string thu_muc_goc = @"C:\TTKH\";
+            return thu_muc_goc + fileName;
         }
 
         //Chữ in hoa ký tự đầu tiên của chuỗi

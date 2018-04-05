@@ -86,6 +86,7 @@
     <Compile Include="BUS\rtbcontentBUS.cs" />
     <Compile Include="BUS\TaisanthechapBUS.cs" />
     <Compile Include="BUS\ThechapBUS.cs" />
+    <Compile Include="BUS\UserBUS.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DAL\canbotindungDAL.cs" />
     <Compile Include="DAL\chinhanhDAL.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="DAL\rtbcontentDAL.cs" />
     <Compile Include="DAL\taisanthechapDAL.cs" />
     <Compile Include="DAL\thechapDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Entities\Canbotindung.cs" />
     <Compile Include="Entities\Chinhanh.cs" />
     <Compile Include="Entities\Diemgiaodich.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Entities\RtbContent.cs" />
     <Compile Include="Entities\Taisanthechap.cs" />
     <Compile Include="Entities\Thechap.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="GUI\frmDang_nhap.cs">
       <SubType>Form</SubType>
     </Compile>

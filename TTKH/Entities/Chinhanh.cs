@@ -74,16 +74,24 @@ namespace AGRIBANKHD.Entities
             set { _ma_khtx = value; }
         }
 
+        private string _sdt;
+        public string sdt
+        {
+            get { return _sdt; }
+            set { _sdt = value; }
+        }
+
         public Chinhanh(DataRow row)
         {
-            this._ma_CN = row["MA_CN"].ToString();
-            this._ten_CN = row["TEN_CN"].ToString();
+            this._ma_CN = row["MACN"].ToString();
+            this._ten_CN = row["TENCN"].ToString();
             this._ten_cn_day_du = row["TEN_CN_DAY_DU"].ToString();
-            this._dia_chi = row["DIA_CHI"].ToString();
+            this._dia_chi = row["DIACHI"].ToString();
             this._mst = row["MST"].ToString();
             this._dkkd = row["DKKD"].ToString();
             this._guq = row["GUQ"].ToString();
             this._ma_khtx = row["MA_KHTX"].ToString();
+            this._sdt = row["SDT"].ToString();
         }
 
         public Chinhanh(string ma_cn, string ten_cn, string ten_cn_day_du, string dia_chi, string mst, string dkkd, string guq, string ma_khtx)

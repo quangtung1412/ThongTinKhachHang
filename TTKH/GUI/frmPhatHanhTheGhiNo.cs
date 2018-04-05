@@ -75,7 +75,7 @@ namespace AGRIBANKHD.GUI
         }
 
         void TimKiemKH() {
-            if (string.IsNullOrEmpty(txtCMT.Text))
+            if (string.IsNullOrEmpty(txtMaKH.Text))
                 MessageBox.Show("Vui lòng nhập mã khách hàng!", "Thông báo", MessageBoxButtons.OK);
             else
             {
@@ -102,7 +102,7 @@ namespace AGRIBANKHD.GUI
 
         void KhongTimThayKH() {
             MessageBox.Show(@"Không tìm thấy khách hàng!\n Hãy nhập thông tin khách hàng!", "Thông báo", MessageBoxButtons.OK);
-            SetTextBoxStatus_TTKH(true);
+            //SetTextBoxStatus_TTKH(true);
             tCtrDichVu.Enabled = false;
             ClearAllTextBox();
             canSaveTTKH = true;
@@ -112,7 +112,6 @@ namespace AGRIBANKHD.GUI
             cbSoTK.Items.Clear();
             SetTextBoxStatus_TTKH(false);
             SetTabControlStatus(true);
-
             txtNgayCap.Text = kh.ngay_cap.ToString("dd/MM/yyyy");
             txtNoiCap.Text = kh.noi_cap;
             txtMaKH.Text = kh.ma_KH;
@@ -157,7 +156,7 @@ namespace AGRIBANKHD.GUI
         void SetTextBoxStatus_TTKH(bool status) {
             txtNgayCap.Enabled = status;
             txtNoiCap.Enabled = status;
-            txtMaKH.Enabled = status;
+            //txtMaKH.Enabled = status;
             txtHoTen.Enabled = status;
             txtQuocTich.Enabled = status;
             cbSoTK.Enabled = status;
@@ -171,10 +170,12 @@ namespace AGRIBANKHD.GUI
         void ClearAllTextBox() {
             txtNgayCap.Text = "";
             txtNoiCap.Text = "";
-            txtMaKH.Text="";
+            //txtMaKH.Text="";
+            txtCMT.Text = "";
             txtHoTen.Text = "";
             txtQuocTich.Text = "";
             cbSoTK.SelectedItem = null;
+            cbSoTK.Items.Clear();
             txtNgaySinh.Text = "";
             txtEmail.Text = "";
             txtDiaChi.Text = "";
@@ -754,14 +755,18 @@ namespace AGRIBANKHD.GUI
             var listDich = ttchung_dich;
             listDich.AddRange(phat_hanh_moi_dich);
             saveFilePhatHanhMoi.Filter = "Word Documents|*.docx";
-            if (saveFilePhatHanhMoi.ShowDialog() == DialogResult.OK)
+            try
             {
                 string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNamePhatHanhMoi + ".docx");
-                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFilePhatHanhMoi.FileName, listDich , listNguon);
+                string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNamePhatHanhMoi +"_"+ DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
+                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhMoi.FileName, "Tạo file thành công");
+                OpenFileWord(saveFilePhatHanhMoi.FileName);
             }
-            OpenFileWord(saveFilePhatHanhMoi.FileName);
-
+            catch
+            {
+                MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
 
         void PhatHanhLai()
@@ -771,13 +776,18 @@ namespace AGRIBANKHD.GUI
             var listDich = ttchung_dich;
             listDich.AddRange(phat_hanh_lai_dich);
             saveFilePhatHanhLai.Filter = "Word Documents|*.docx";
-            if (saveFilePhatHanhLai.ShowDialog() == DialogResult.OK)
+            try
             {
                 string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNamePhatHanhLai + ".docx");
-                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFilePhatHanhLai.FileName, listDich, listNguon);
+                string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNamePhatHanhMoi + "_"+ DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
+                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhLai.FileName, "Tạo file thành công");
+                OpenFileWord(saveFilePhatHanhLai.FileName);
             }
-            OpenFileWord(saveFilePhatHanhLai.FileName);
+            catch
+            {
+                MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
+            }
         }
 
 

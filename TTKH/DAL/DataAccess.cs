@@ -14,333 +14,318 @@ namespace AGRIBANKHD.DAL
         public static SqlConnection conn = new SqlConnection(@"Server=113.160.131.24,28200;Database=CRM;User Id=sa;Password=123456a@;");
         //public static SqlConnection conn = new SqlConnection(@"Server=10.14.0.30\SQLEXPRESS;Database=AGRIBANKHD;User Id=sa;Password=123456a@;"); 
 
-        private static SqlCommand cmd = new SqlCommand (); 
-// <summary> 
-// Open the database connection. 
-// </ Summary> 
+        private static SqlCommand cmd = new SqlCommand();
+        // <summary> 
+        // Open the database connection. 
+        // </ Summary> 
 
-        public void OpenConnection() 
+        public void OpenConnection()
+        {
+            if (conn.State == System.Data.ConnectionState.Closed)
+                conn.Open();
+        }
 
-        { 
-        if (conn.State == System.Data.ConnectionState.Closed)
-                        conn.Open();
-        } 
 
+        // <summary> 
+        // Close the connection to the database. 
+        // </ Summary> 
 
-// <summary> 
-// Close the connection to the database. 
-// </ Summary> 
+        public void CloseConnection()
+        {
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
 
-        public void CloseConnection() 
+        }
 
-{ 
- if (conn.State == System.Data.ConnectionState.Open)
- conn.Close();
 
-} 
+        private static void PrepareCommand(string procName, SqlTransaction trans, SqlParameter[] parms)
+        {
 
+            cmd.Connection = conn;
 
-        private static void PrepareCommand (string procName, SqlTransaction trans, SqlParameter[] parms) 
+            cmd.CommandText = procName;
 
-{ 
+            if (trans != null)
 
-cmd.Connection = conn; 
+                cmd.Transaction = trans;
 
-cmd.CommandText = procName; 
+            cmd.CommandType = CommandType.StoredProcedure;
 
-if (trans != null) 
+            if (parms != null)
+            {
 
-cmd.Transaction = trans; 
+                foreach (SqlParameter parm in parms)
 
-cmd.CommandType = CommandType.StoredProcedure; 
+                    cmd.Parameters.Add(parm);
 
-if (parms != null) 
+            }
 
-{ 
+        }
 
-foreach (SqlParameter parm in parms) 
 
-cmd.Parameters.Add (parm); 
+        #region to execute the query and returns the first column of the first row returned by the query result set, additional columns or rows are ignored, ExecuteScalar.
 
-} 
+        // <summary> 
+        // Execute the query and returns the first column of the first row returned by the query result set, additional columns or rows are ignored. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
+        // <returns> ExecuteScalar </ returns> 
 
-} 
+        public object cmdExecScalarProc(string procName, SqlParameter[] parms)
+        {
 
+            Object obj = new Object();
 
-#region to execute the query and returns the first column of the first row returned by the query result set, additional columns or rows are ignored, ExecuteScalar. 
+            PrepareCommand(procName, null, parms);
 
-// <summary> 
-// Execute the query and returns the first column of the first row returned by the query result set, additional columns or rows are ignored. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
-// <returns> ExecuteScalar </ returns> 
+            OpenConnection();
 
-public object cmdExecScalarProc (string procName, SqlParameter[] parms) 
+            obj = cmd.ExecuteScalar();
 
-{ 
+            CloseConnection();
 
-Object obj = new Object (); 
+            cmd.Parameters.Clear();
 
-PrepareCommand (procName, null, parms); 
+            return obj;
 
-OpenConnection (); 
+        }
 
-obj = cmd.ExecuteScalar (); 
 
-CloseConnection();
+        // <summary> 
+        // Execute the query and returns the first column of the first row returned by the query result set, additional columns or rows are ignored. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
+        // The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
+        // <returns> ExecuteScalar </ returns> 
 
-cmd.Parameters.Clear (); 
+        public object cmdExecScalarProc(string procName, SqlParameter[] parms, SqlTransaction trans)
+        {
 
-return obj; 
+            Object obj = new Object();
 
-} 
+            PrepareCommand(procName, trans, parms);
 
+            OpenConnection();
 
-// <summary> 
-// Execute the query and returns the first column of the first row returned by the query result set, additional columns or rows are ignored. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
-// The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
-// <returns> ExecuteScalar </ returns> 
+            obj = cmd.ExecuteScalar();
 
-public object cmdExecScalarProc (string procName, SqlParameter[] parms, SqlTransaction trans) 
+            CloseConnection();
 
-{ 
+            cmd.Parameters.Clear();
 
-Object obj = new Object (); 
+            return obj;
 
-PrepareCommand (procName, trans, parms); 
+        }
 
-OpenConnection (); 
+        # endregion
 
-obj = cmd.ExecuteScalar (); 
 
-CloseConnection (); 
+        #region Transact-SQL statements performed on the connection, ExecuteNonQuery.
 
-cmd.Parameters.Clear (); 
+        // <summary> 
+        // Transact-SQL statements performed on the connection. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
 
-return obj; 
+        public int cmdExecNonQueryProc(string procName, SqlParameter[] parms)
+        {
+            int i = new int();
+            PrepareCommand(procName, null, parms);
+            OpenConnection();
+            i = cmd.ExecuteNonQuery();
+            CloseConnection();
+            cmd.Parameters.Clear();
+            return i;
+        }
 
-} 
 
-# endregion 
+        // <summary> 
+        // Transact-SQL statements performed on the connection. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
+        // The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
 
+        public int cmdExecNonQueryProc(string procName, SqlParameter[] parms, SqlTransaction trans)
+        {
+            int i = new int();
 
-#region Transact-SQL statements performed on the connection, ExecuteNonQuery. 
+            PrepareCommand(procName, trans, parms);
 
-// <summary> 
-// Transact-SQL statements performed on the connection. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
+            OpenConnection();
 
-public int cmdExecNonQueryProc (string procName, SqlParameter[] parms) 
+            i = cmd.ExecuteNonQuery();
 
-{
-int i = new int();
-PrepareCommand (procName, null, parms); 
-OpenConnection (); 
-i = cmd.ExecuteNonQuery(); 
-CloseConnection (); 
-cmd.Parameters.Clear ();
-return i;
-} 
+            CloseConnection();
 
+            cmd.Parameters.Clear();
 
-// <summary> 
-// Transact-SQL statements performed on the connection. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
-// The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
+            return i;
 
-public int cmdExecNonQueryProc (string procName, SqlParameter[] parms, SqlTransaction trans) 
+        }
 
-{ 
-int i = new int();
+        # endregion
 
-PrepareCommand (procName, trans, parms); 
 
-OpenConnection (); 
+        # region Back SqlDataReader.
 
-i  = cmd.ExecuteNonQuery(); 
+        // <summary> 
+        // Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
+        // <returns> SqlDataReader object </ returns> 
 
-CloseConnection (); 
+        public SqlDataReader DataReader(string ProcName)
+        {
 
-cmd.Parameters.Clear ();
+            SqlDataReader dr = null;
 
-return i;
+            PrepareCommand(ProcName, null, null);
 
-} 
+            OpenConnection();
 
-# endregion 
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
+            return dr;
 
-# region Back SqlDataReader. 
+        }
 
-// <summary> 
-// Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
-// <returns> SqlDataReader object </ returns> 
 
-public SqlDataReader DataReader (string ProcName) 
+        // <summary> 
+        // Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
+        // <returns> SqlDataReader object </ returns> 
 
-{ 
+        public SqlDataReader DataReader(string procName, SqlParameter[] parms)
+        {
 
-SqlDataReader dr = null; 
+            SqlDataReader dr = null;
 
-PrepareCommand (ProcName, null, null); 
+            PrepareCommand(procName, null, parms);
 
-OpenConnection (); 
+            OpenConnection();
 
-dr = cmd.ExecuteReader (CommandBehavior.CloseConnection); 
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-return dr; 
+            cmd.Parameters.Clear();
 
-} 
+            return dr;
 
+        }
 
-// <summary> 
-// Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
-// <returns> SqlDataReader object </ returns> 
 
-public SqlDataReader DataReader (string procName, SqlParameter[] parms) 
+        // <summary> 
+        // Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
+        // <returns> SqlDataReader object </ returns> 
 
-{ 
+        public SqlDataReader DataReader(string procName, SqlTransaction trans)
+        {
 
-SqlDataReader dr = null; 
+            SqlDataReader dr = null;
 
-PrepareCommand (procName, null, parms); 
+            PrepareCommand(procName, trans, null);
 
-OpenConnection (); 
+            OpenConnection();
 
-dr = cmd.ExecuteReader (CommandBehavior.CloseConnection); 
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-cmd.Parameters.Clear (); 
+            return dr;
 
-return dr; 
+        }
 
-} 
 
+        // <summary> 
+        // Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
+        // The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
+        // <returns> SqlDataReader object </ returns> 
 
-// <summary> 
-// Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
-// <returns> SqlDataReader object </ returns> 
+        public SqlDataReader DataReader(string procName, SqlParameter[] parms, SqlTransaction trans)
+        {
 
-public SqlDataReader DataReader (string procName, SqlTransaction trans) 
+            SqlDataReader dr = null;
 
-{ 
+            PrepareCommand(procName, trans, parms);
 
-SqlDataReader dr = null; 
+            OpenConnection();
 
-PrepareCommand (procName, trans, null); 
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-OpenConnection (); 
+            cmd.Parameters.Clear();
 
-dr = cmd.ExecuteReader (CommandBehavior.CloseConnection); 
+            return dr;
 
-return dr; 
+        }
 
-} 
+        # endregion
 
 
-// <summary> 
-// Return SqlDataReader, after use, please turn off the object, at the same time automatically to call CloseConnection () to close the database connection. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
-// The the <param name="trans"> SQL Server database processing Transact-SQL transaction </ param> 
-// <returns> SqlDataReader object </ returns> 
+        # region return to the memory data in a table, DataTable.
 
-public SqlDataReader DataReader (string procName, SqlParameter [] parms, SqlTransaction trans) 
+        // <summary> 
+        // Returns a table in the memory data. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <returns> DataTable </ returns> 
 
-{ 
+        public DataTable dt(string ProcName)
+        {
 
-SqlDataReader dr = null; 
+            SqlDataAdapter da = new SqlDataAdapter(ProcName, conn);
 
-PrepareCommand (procName, trans, parms); 
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-OpenConnection (); 
+            DataTable dt = new DataTable();
 
-dr = cmd.ExecuteReader (CommandBehavior.CloseConnection); 
+            da.Fill(dt);
 
-cmd.Parameters.Clear (); 
+            return dt;
 
-return dr; 
+        }
 
-} 
 
-# endregion 
+        // <summary> 
+        // Returns a table in the memory data. 
+        // </ Summary> 
+        // <param Name="procName"> stored procedure </ param> 
+        // <param Name="parms"> SqlParameter array </ param> 
+        // <returns> DataTable </ returns> 
 
+        public DataTable dt(string procName, SqlParameter[] parms)
+        {
 
-# region return to the memory data in a table, DataTable. 
+            SqlDataAdapter da = new SqlDataAdapter(procName, conn);
 
-// <summary> 
-// Returns a table in the memory data. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <returns> DataTable </ returns> 
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-public DataTable dt(string ProcName) 
+            DataTable dt = new DataTable();
 
-{ 
+            for (int i = 0; i < parms.Length; i++)
+            {
 
-SqlDataAdapter da = new SqlDataAdapter(ProcName, conn); 
+                da.SelectCommand.Parameters.Add(parms[i]);
 
-da.SelectCommand.CommandType = CommandType.StoredProcedure; 
+            }
 
-DataTable dt = new DataTable (); 
+            da.Fill(dt);
 
-da.Fill (dt); 
+            cmd.Parameters.Clear();
 
-return dt; 
+            return dt;
 
-} 
+        }
 
-
-// <summary> 
-// Returns a table in the memory data. 
-// </ Summary> 
-// <param Name="procName"> stored procedure </ param> 
-// <param Name="parms"> SqlParameter array </ param> 
-// <returns> DataTable </ returns> 
-
-public DataTable dt (string procName, SqlParameter [] parms) 
-
-{ 
-
-SqlDataAdapter da = new SqlDataAdapter (procName, conn); 
-
-da.SelectCommand.CommandType = CommandType.StoredProcedure; 
-
-DataTable dt = new DataTable (); 
-
-for (int i = 0; i <parms.Length; i++) 
-
-{ 
-
-da.SelectCommand.Parameters.Add (parms [i]); 
-
-} 
-
-da.Fill (dt); 
-
-cmd.Parameters.Clear (); 
-
-return dt; 
-
-} 
-
-# endregion 
+        # endregion
     }
 }
