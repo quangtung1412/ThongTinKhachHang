@@ -932,7 +932,7 @@
             this.clbND_Lai.ColumnWidth = 150;
             this.clbND_Lai.FormattingEnabled = true;
             this.clbND_Lai.Items.AddRange(new object[] {
-            "Ghi nợ",
+            "Thẻ ghi nợ",
             "Lập nghiệp",
             "Sinh Viên",
             "Liên kết thương hiệu"});

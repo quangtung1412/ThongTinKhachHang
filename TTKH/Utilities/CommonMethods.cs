@@ -362,7 +362,13 @@ namespace AGRIBANKHD.Utilities
                 //document.ReplaceText("^p^p", "^p");
 	            // Save changes made to this document.
 	            //document.Save();
-                document.SaveAs(output_location);
+                try
+                {
+                    document.SaveAs(output_location);
+                }
+                catch {
+                    MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
+                }
 	        } // Release this document from memory.
 	    }
 
@@ -388,7 +394,13 @@ namespace AGRIBANKHD.Utilities
                 //document.ReplaceText("^p^p", "^p");
                 // Save changes made to this document.
                 //document.Save();
-                document.SaveAs(output_location);
+                try
+                {
+                    document.SaveAs(output_location);
+                }
+                catch {
+                    MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
+                }
             } // Release this document from memory.
         }
 
@@ -415,7 +427,13 @@ namespace AGRIBANKHD.Utilities
                 }
                 // Save changes made to this document.
                 //document.Save();
-                document.SaveAs(output_location);
+                try
+                {
+                    document.SaveAs(output_location);
+                }
+                catch {
+                    MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
+                }
             } // Release this document from memory.
         }
 
@@ -432,8 +450,8 @@ namespace AGRIBANKHD.Utilities
             //string thu_muc_goc = @"C:\Word_template\";
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath)+@"\Word_template\";
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath) + @"\\127.0.0.1\Word_template\";
-            string thu_muc_goc = @"\\" + server_add + @"\Word_template\";
-            //string thu_muc_goc = @"Word_template\";
+            //string thu_muc_goc = @"\\" + server_add + @"\Word_template\";
+            string thu_muc_goc = @"F:\Work\Agribank\ThongTinKhachHang\TTKH\Word_template\";
             return thu_muc_goc + file_location;
         }
 
