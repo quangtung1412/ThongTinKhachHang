@@ -451,8 +451,8 @@ namespace AGRIBANKHD.Utilities
             //string thu_muc_goc = @"C:\Word_template\";
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath)+@"\Word_template\";
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath) + @"\\127.0.0.1\Word_template\";
-            //string thu_muc_goc = @"\\" + server_add + @"\Word_template\";
-            string thu_muc_goc = @"D:\Agribank\ThongTinKhachHang\TTKH\Word_template\";
+            string thu_muc_goc = @"\\" + server_add + @"\Word_template\";
+            //string thu_muc_goc = Directory.GetCurrentDirectory() + @"\Word_template\";
             return thu_muc_goc + file_location;
         }
 

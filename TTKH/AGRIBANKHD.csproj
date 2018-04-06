@@ -364,10 +364,18 @@
     <None Include="Word_template\DTC\~%24C_HO_GIA_DINH_BDS_TSGL_CTXD.docx" />
     <None Include="Word_template\DTC\~%24C_HO_GIA_DINH_BDS_TSGL_KHAC.docx" />
     <None Include="Word_template\DTC\~%24C_HO_GIA_DINH_BDS_TSGL_NHA.docx" />
-    <None Include="Word_template\DV\GIAY_HEN.docx" />
-    <None Include="Word_template\DV\HOP_DONG.docx" />
-    <None Include="Word_template\DV\PHAT_HANH_LAI.docx" />
-    <None Include="Word_template\DV\PHAT_HANH_MOI.docx" />
+    <None Include="Word_template\DV\GIAY_HEN.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Word_template\DV\HOP_DONG.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Word_template\DV\PHAT_HANH_LAI.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Word_template\DV\PHAT_HANH_MOI.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Word_template\DXGN\BAO_CAO_DE_XUAT_GIAI_NGAN.docx" />
     <None Include="Word_template\GNN\GIAY NHAN NO LAN 16.doc" />
     <None Include="Word_template\GNN\GIAY_NHAN_NO.docx" />
