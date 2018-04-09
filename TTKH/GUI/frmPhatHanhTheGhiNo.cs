@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AGRIBANKHD.Entities;
 
 namespace AGRIBANKHD.GUI
 {
@@ -21,6 +22,7 @@ namespace AGRIBANKHD.GUI
         private const string fileNameHopDong = "HOP_DONG";
         private const string fileNameGiayHen = "GIAY_HEN";
 
+        private NguoiDaiDien[] dsNguoiDaiDien;
 
         private List<string>
             ttchung_nguon,
@@ -48,13 +50,29 @@ namespace AGRIBANKHD.GUI
             giay_hen_dich = new List<string>();
             giay_hen_nguon = new List<string>();
 
+            //Phat hanh moi
             clbND_Moi.SetItemChecked(0, true);
             clbQT_Moi.SetItemChecked(0, true);
             clbHangThe_Moi.SetItemChecked(0, true);
             clbHTPhatHanh_Moi.SetItemChecked(0, true);
             clbHTNhanThe_Moi.SetItemChecked(0, true);
 
-            clbND_Moi.BackColor = Color.Empty;
+            //Phat hanh lai
+            clbND_Lai.SetItemChecked(0, true);
+            clbQT_Lai.SetItemChecked(0, true);
+            clbHangThe_Lai.SetItemChecked(0, true);
+            clbHTPhatHanh_Lai.SetItemChecked(0, true);
+
+            //Hop dong
+            //Lay thong tin nguoi dai dien
+            dsNguoiDaiDien = DAL.PhatHanhTheGhiNoDAL.DanhSachNguoiDaiDien(Thong_tin_dang_nhap.ma_cn);
+            if (dsNguoiDaiDien != null) { 
+                for (int i = 0; i < dsNguoiDaiDien.Length; i++)
+                {
+                    cbNguoiDaiDien_BenA.Items.Add(dsNguoiDaiDien[i].hoTen);
+                }
+                cbNguoiDaiDien_BenA.SelectedIndex = 0;
+            }
         }
 
         void MyInit() {
@@ -400,6 +418,8 @@ namespace AGRIBANKHD.GUI
                     PhatHanhLai();
                     break;
                 case 2: //Hop dong
+                    KhoiTaoHopDong();
+                    HopDong();
                     break;
                 case 3: //Giay hen
                     break;
@@ -407,6 +427,20 @@ namespace AGRIBANKHD.GUI
             }
         }
 
+
+        //Events Hop Dong
+        private void cbNguoiDaiDien_BenA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbNguoiDaiDien_BenA.SelectedIndex;
+            txtChucVu_BenA.Text = dsNguoiDaiDien[index].chucVu;
+            txtDienThoai_BenA.Text = dsNguoiDaiDien[index].Sdt;
+            txtFax_BenA.Text = dsNguoiDaiDien[index].Fax;
+            txtDiaChi_BenA.Text = dsNguoiDaiDien[index].diaChi;
+            txtGiayUyQuyen_BenA.Text = dsNguoiDaiDien[index].giayUQ;
+        }
+
+
+        //Procedures
         private void KhoiTaoTTChung() {
             ttchung_nguon.Clear();
             ttchung_dich.Clear();
@@ -414,6 +448,7 @@ namespace AGRIBANKHD.GUI
             ttchung_nguon.Add(DateTime.Now.Day.ToString());
             ttchung_nguon.Add(DateTime.Now.Month.ToString());
             ttchung_nguon.Add(DateTime.Now.Year.ToString());
+            ttchung_nguon.Add(DateTime.Now.ToString("dd/MM/yyyy"));
             ttchung_nguon.Add(Utilities.Thong_tin_dang_nhap.ten_cn);
             ttchung_nguon.Add(txtCMT.Text);
             ttchung_nguon.Add(txtHoTen.Text);
@@ -430,6 +465,7 @@ namespace AGRIBANKHD.GUI
             ttchung_dich.Add("<NGAY>");
             ttchung_dich.Add("<THANG>");
             ttchung_dich.Add("<NAM>");
+            ttchung_dich.Add("<HOM_NAY>");
             ttchung_dich.Add("<CHI_NHANH>");
             ttchung_dich.Add("<CMND>");
             ttchung_dich.Add("<HO_TEN>");
@@ -749,6 +785,49 @@ namespace AGRIBANKHD.GUI
 
         }
 
+        private void KhoiTaoHopDong()
+        {
+            hop_dong_nguon.Clear();
+            hop_dong_dich.Clear();
+
+            //Ben A
+            hop_dong_dich.Add("<DAI_DIEN>");
+            hop_dong_nguon.Add(cbNguoiDaiDien_BenA.SelectedItem.ToString());
+
+            hop_dong_dich.Add("<CHUC_VU>");
+            hop_dong_nguon.Add(txtChucVu_BenA.Text);
+
+            hop_dong_dich.Add("<SDT_CN>");
+            hop_dong_nguon.Add(txtDienThoai_BenA.Text);
+
+            hop_dong_dich.Add("<FAX>");
+            hop_dong_nguon.Add(txtFax_BenA.Text);
+
+            hop_dong_dich.Add("<DIACHI_CN>");
+            hop_dong_nguon.Add(txtDienThoai_BenA.Text);
+
+            hop_dong_dich.Add("<UY_QUYEN>");
+            hop_dong_nguon.Add(txtGiayUyQuyen_BenA.Text);
+
+            //Ben B
+            hop_dong_dich.Add("<HOTEN_KH>");
+            hop_dong_nguon.Add(txtHoTen_BenB.Text);
+
+            hop_dong_dich.Add("<DIACHI_KH>");
+            hop_dong_nguon.Add(txtDiaChi_BenB.Text);
+
+            hop_dong_dich.Add("<CMND_KH>");
+            hop_dong_nguon.Add(txtCMT_BenB.Text);
+
+            hop_dong_dich.Add("<NGAY_CAP_KH>");
+            hop_dong_nguon.Add(txtNgayCap_BenB.Text);
+
+            hop_dong_dich.Add("<NOI_CAP_KH>");
+            hop_dong_nguon.Add(txtNoiCap_BenB.Text);
+
+            hop_dong_dich.Add("<NGAY_DE_NGHI>");
+            hop_dong_nguon.Add(txtNgayDeNghi_BenB.Text);
+        }
         void PhatHanhMoi() {
             var listNguon = ttchung_nguon;
             listNguon.AddRange(phat_hanh_moi_nguon);
@@ -790,6 +869,26 @@ namespace AGRIBANKHD.GUI
             }
         }
 
+        void HopDong()
+        {
+            var listNguon = ttchung_nguon;
+            listNguon.AddRange(hop_dong_nguon);
+            var listDich = ttchung_dich;
+            listDich.AddRange(hop_dong_dich);
+            saveFileHopDong.Filter = "Word Documents|*.docx";
+            try
+            {
+                string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNameHopDong + ".docx");
+                string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNameHopDong + "_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
+                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
+                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileHopDong.FileName, "Tạo file thành công");
+                OpenFileWord(saveFileHopDong.FileName);
+            }
+            catch
+            {
+                MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
+            }
+        }
 
         void OpenFileWord(string fileLocation)
         {
@@ -798,9 +897,6 @@ namespace AGRIBANKHD.GUI
             ap.Visible = true;
         }
 
-        private void gbThongTinKH_Enter(object sender, EventArgs e)
-        {
 
-        }
     }
 }

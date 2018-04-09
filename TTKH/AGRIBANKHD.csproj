@@ -111,6 +111,7 @@
     <Compile Include="Entities\Khachhang.cs" />
     <Compile Include="Entities\KhachHangDV.cs" />
     <Compile Include="Entities\Khachhangvay.cs" />
+    <Compile Include="Entities\NguoiDaiDien.cs" />
     <Compile Include="Entities\Phongban.cs" />
     <Compile Include="Entities\Phonggiaodich.cs" />
     <Compile Include="Entities\RtbContent.cs" />

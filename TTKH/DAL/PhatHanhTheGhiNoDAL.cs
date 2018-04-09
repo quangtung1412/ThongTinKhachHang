@@ -84,5 +84,29 @@ namespace AGRIBANKHD.DAL
             };
             db.dt("SuaKH", Params);
         }
+
+        public static NguoiDaiDien[] DanhSachNguoiDaiDien(string macn)
+        {
+            try
+            {
+                DataAccess db = new DataAccess();
+                SqlParameter[] Params = new SqlParameter[]{
+                new SqlParameter("@macn", macn)
+                };
+                DataTable dt = db.dt("DS_NGUOI_DAI_DIEN", Params);
+                NguoiDaiDien[] dsNguoiDaiDien = new NguoiDaiDien[dt.Rows.Count];
+                for (int i = 0; i < dsNguoiDaiDien.Length; i++)
+                {
+                    dsNguoiDaiDien[i] = new NguoiDaiDien(dt.Rows[i]);
+                }
+                return dsNguoiDaiDien;
+            }
+            catch
+            {
+                DAL.ErrorMessageDAL.DataAccessError();
+                return null;
+            }
+
+        }
     }
 }
