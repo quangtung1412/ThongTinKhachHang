@@ -14,13 +14,12 @@ namespace AGRIBANKHD.GUI
 {
     public partial class frmPhatHanhTheGhiNo : Form
     {
-        private List<TextBox> listTxtNotNull;
-        private bool canSaveTTKH = false;
-
         private const string fileNamePhatHanhMoi = "PHAT_HANH_MOI";
         private const string fileNamePhatHanhLai = "PHAT_HANH_LAI";
         private const string fileNameHopDong = "HOP_DONG";
         private const string fileNameGiayHen = "GIAY_HEN";
+
+        private List<TextBox> listTxtNotNull;
 
         private NguoiDaiDien[] dsNguoiDaiDien;
 
@@ -73,6 +72,9 @@ namespace AGRIBANKHD.GUI
                 }
                 cbNguoiDaiDien_BenA.SelectedIndex = 0;
             }
+
+            //TTKH
+            cbTimKiem.SelectedIndex = 0;
         }
 
         void MyInit() {
@@ -93,14 +95,17 @@ namespace AGRIBANKHD.GUI
         }
 
         void TimKiemKH() {
-            if (string.IsNullOrEmpty(txtMaKH.Text))
-                MessageBox.Show("Vui lòng nhập mã khách hàng!", "Thông báo", MessageBoxButtons.OK);
+            if (string.IsNullOrEmpty(txtTimKiem.Text))
+                MessageBox.Show("Vui lòng nhập thông tin tìm kiếm!", "Thông báo", MessageBoxButtons.OK);
             else
             {
                 Entities.KhachHangDV kh = null;
                 try
                 {
-                    kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txtMaKH.Text);
+                    if (cbTimKiem.SelectedIndex == 0)
+                        kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH_TheoMaKH(txtTimKiem.Text);
+                    else
+                        kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH_TheoCMND(txtTimKiem.Text);
                     if (kh == null)
                     {
                         KhongTimThayKH();
@@ -119,20 +124,18 @@ namespace AGRIBANKHD.GUI
 
 
         void KhongTimThayKH() {
-            MessageBox.Show(@"Không tìm thấy khách hàng!\n Hãy nhập thông tin khách hàng!", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show(@"Không tìm thấy khách hàng!", "Thông báo", MessageBoxButtons.OK);
             //SetTextBoxStatus_TTKH(true);
             tCtrDichVu.Enabled = false;
             ClearAllTextBox();
-            canSaveTTKH = true;
         }
 
         void TimThayKH(Entities.KhachHangDV kh) {
             cbSoTK.Items.Clear();
             SetTextBoxStatus_TTKH(false);
-            SetTabControlStatus(true);
             txtNgayCap.Text = kh.ngay_cap.ToString("dd/MM/yyyy");
             txtNoiCap.Text = kh.noi_cap;
-            txtMaKH.Text = kh.ma_KH;
+            txtTimKiem.Text = kh.ma_KH;
             txtHoTen.Text = kh.ho_ten;
             txtNgaySinh.Text = kh.ngay_sinh.ToString("dd/MM/yyyy");
             txtSoDienThoai.Text = kh.dien_thoai;
@@ -150,12 +153,16 @@ namespace AGRIBANKHD.GUI
             try
             {
                 DataTable dt = DAL.PhatHanhTheGhiNoDAL.TimSoTK(kh.cmt);
-
                 for (int i = 0; i < dt.Rows.Count; i++) {
                     cbSoTK.Items.Add(dt.Rows[i]["SOTK"]);
                 }
                 if (cbSoTK.Items.Count > 0)
+                {
+                    SetTabControlStatus(true);
                     cbSoTK.SelectedIndex = 0;
+                }
+                else
+                    MessageBox.Show("Khách hàng chưa có số tài khoản!\nLiên hệ bộ phận Kế toán để có thêm thông tin!", "Thông báo", MessageBoxButtons.OK);
                 if (cbSoTK.Items.Count > 1)
                     cbSoTK.Enabled = true;
             }
@@ -167,7 +174,6 @@ namespace AGRIBANKHD.GUI
 
         void SetTabControlStatus(bool status) {
             tCtrDichVu.Enabled = status;
-            btnInHoSo.Enabled = status;
             btnLuuHoSo.Enabled = status;
         }
 
@@ -258,60 +264,6 @@ namespace AGRIBANKHD.GUI
             }
         }
 
-
-        private void btnLuuTTKH_Click(object sender, EventArgs e)
-        {
-            if (!canSaveTTKH) return;
-            bool gt = true;
-            if (cbGioiTinh.SelectedIndex != 0) gt = false;
-
-            Entities.KhachHangDV kh = new Entities.KhachHangDV(
-                txtMaKH.Text,
-                txtHoTen.Text,
-                txtCMT.Text,
-                DateTime.ParseExact(txtNgayCap.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
-                txtNoiCap.Text,
-                txtQuocTich.Text,
-                txtSoDienThoai.Text,
-                txtEmail.Text,
-                txtDiaChi.Text,
-                DateTime.ParseExact(txtNgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture),
-                gt);
-            if (DAL.PhatHanhTheGhiNoDAL.TimKiemKH(txtCMT.Text) != null)
-                try
-                {
-                    DAL.PhatHanhTheGhiNoDAL.SuaKH(kh, cbSoTK.SelectedItem.ToString());
-                    MessageBox.Show("Sửa thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK);
-                    canSaveTTKH = false;
-                    SetTextBoxStatus_TTKH(false);
-                }
-                catch {
-                    DAL.ErrorMessageDAL.DataAccessError();
-                }
-            else
-                try
-                {
-                    DAL.PhatHanhTheGhiNoDAL.ThemKH(kh, cbSoTK.SelectedItem.ToString());
-                    MessageBox.Show("Thêm thông tin khách hàng thành công", "Thông báo", MessageBoxButtons.OK);
-                    canSaveTTKH = false;
-                    SetTextBoxStatus_TTKH(false);
-                }
-                catch {
-                    DAL.ErrorMessageDAL.DataAccessError();
-                }
-        }
-
-        private void btnSuaTTKH_Click(object sender, EventArgs e)
-        {
-            SetTextBoxStatus_TTKH(true);
-            canSaveTTKH = true;
-        }
-
-        private void btnXoaTTKH_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbSoTK_Validated(object sender, EventArgs e)
         {
             foreach (var c in cbSoTK.Items)
@@ -365,6 +317,33 @@ namespace AGRIBANKHD.GUI
             else txtHMGD_Moi.Enabled = false;
         }
 
+        private void txtDTDD_SMS_Moi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtHMGD_Moi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
 
 
         //Menu tab phat hanh lai the ghi no
@@ -404,11 +383,96 @@ namespace AGRIBANKHD.GUI
             else txtHMGD_Lai.Enabled = false;
         }
 
+        
+
+        private void txtDTDD_SMS_Lai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtHMGD_Lai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        
+        //EMenu tab Hop Dong
+        private void cbNguoiDaiDien_BenA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbNguoiDaiDien_BenA.SelectedIndex;
+            txtChucVu_BenA.Text = dsNguoiDaiDien[index].chucVu;
+            txtDienThoai_BenA.Text = dsNguoiDaiDien[index].Sdt;
+            txtFax_BenA.Text = dsNguoiDaiDien[index].Fax;
+            txtDiaChi_BenA.Text = dsNguoiDaiDien[index].diaChi;
+            txtGiayUyQuyen_BenA.Text = dsNguoiDaiDien[index].giayUQ;
+        }
+
+        private void txtCMT_BenB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNgayCap_BenB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNgayDeNghi_BenB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Luu ho so
         private void btnLuuHoSo_Click(object sender, EventArgs e)
         {
             KhoiTaoTTChung();
             //Phat hanh moi the ghi no
-            switch (tCtrDichVu.SelectedIndex) { 
+            switch (tCtrDichVu.SelectedIndex)
+            {
                 case 0: //Phat hanh moi 
                     KhoiTaoPhatHanhMoi();
                     PhatHanhMoi();
@@ -427,19 +491,6 @@ namespace AGRIBANKHD.GUI
             }
         }
 
-
-        //Events Hop Dong
-        private void cbNguoiDaiDien_BenA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = cbNguoiDaiDien_BenA.SelectedIndex;
-            txtChucVu_BenA.Text = dsNguoiDaiDien[index].chucVu;
-            txtDienThoai_BenA.Text = dsNguoiDaiDien[index].Sdt;
-            txtFax_BenA.Text = dsNguoiDaiDien[index].Fax;
-            txtDiaChi_BenA.Text = dsNguoiDaiDien[index].diaChi;
-            txtGiayUyQuyen_BenA.Text = dsNguoiDaiDien[index].giayUQ;
-        }
-
-
         //Procedures
         private void KhoiTaoTTChung() {
             ttchung_nguon.Clear();
@@ -452,7 +503,7 @@ namespace AGRIBANKHD.GUI
             ttchung_nguon.Add(Utilities.Thong_tin_dang_nhap.ten_cn);
             ttchung_nguon.Add(txtCMT.Text);
             ttchung_nguon.Add(txtHoTen.Text);
-            ttchung_nguon.Add(txtMaKH.Text);
+            ttchung_nguon.Add(txtTimKiem.Text);
             ttchung_nguon.Add(txtSoDienThoai.Text);
             ttchung_nguon.Add(txtEmail.Text);
             ttchung_nguon.Add(txtDiaChi.Text);
@@ -519,71 +570,15 @@ namespace AGRIBANKHD.GUI
 
 
             //Noi dia
-            if (clbND_Moi.GetItemChecked(2)) {
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-            }
-            else if (clbND_Moi.GetItemChecked(1))
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-            }
-            else
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-            }
-            
+            CheckedListBoxToString(clbND_Moi, phat_hanh_moi_nguon);
             //Quoc te
-            if (clbQT_Moi.GetItemChecked(1))
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-            }
-            else {
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-            }
-
+            CheckedListBoxToString(clbQT_Moi, phat_hanh_moi_nguon);
             //Hang the
-            if (clbHangThe_Moi.GetItemChecked(1))
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-            }
-            else
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-            }
-
+            CheckedListBoxToString(clbHangThe_Moi, phat_hanh_moi_nguon);
             //Hinh thuc phat hanh
-            if (clbHTPhatHanh_Moi.GetItemChecked(1))
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-            }
-            else
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-            }
-
+            CheckedListBoxToString(clbHTPhatHanh_Moi, phat_hanh_moi_nguon);
             //Hinh thuc nhan the
-            if (clbHTNhanThe_Moi.GetItemChecked(1))
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-            }
-            else
-            {
-                phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
-            }
-
+            CheckedListBoxToString(clbHTNhanThe_Moi, phat_hanh_moi_nguon);
             //SMS
             if (ckbSMS_Moi.Checked) {
                 phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
@@ -629,34 +624,7 @@ namespace AGRIBANKHD.GUI
             phat_hanh_lai_dich.Add("<SV>");
             phat_hanh_lai_dich.Add("<LKTH>");
 
-            if (clbND_Lai.GetItemChecked(3)) {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-            }
-            else if (clbND_Lai.GetItemChecked(2))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-            else if (clbND_Lai.GetItemChecked(1))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-            else 
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-
+            CheckedListBoxToString(clbND_Lai, phat_hanh_lai_nguon);
             //Ghi no quoc te
             phat_hanh_lai_dich.Add("<GNQT>");
             phat_hanh_lai_dich.Add("<TDQT>");
@@ -664,85 +632,18 @@ namespace AGRIBANKHD.GUI
             phat_hanh_lai_dich.Add("<MC>");
             phat_hanh_lai_dich.Add("<JCB>");
 
-            if (clbQT_Lai.GetItemChecked(4))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-            }
-            else if (clbQT_Lai.GetItemChecked(3))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-            else if (clbQT_Lai.GetItemChecked(2))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-            else if (clbQT_Lai.GetItemChecked(1))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-            else
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-
+            CheckedListBoxToString(clbQT_Lai, phat_hanh_lai_nguon);
             //Hang The
             phat_hanh_lai_dich.Add("<C>");
             phat_hanh_lai_dich.Add("<V>");
             phat_hanh_lai_dich.Add("<BK>");
 
-            if (clbHangThe_Lai.GetItemChecked(2))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-            }
-            else if (clbHangThe_Lai.GetItemChecked(1))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-            else
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-
+            CheckedListBoxToString(clbHangThe_Lai, phat_hanh_lai_nguon);
             //Hinh thuc phat hanh
             phat_hanh_lai_dich.Add("<PHT>");
             phat_hanh_lai_dich.Add("<PHN>");
 
-            if (clbHangThe_Lai.GetItemChecked(0))
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-            }
-            else
-            {
-                phat_hanh_lai_nguon.Add(((char)0x2610).ToString());
-                phat_hanh_lai_nguon.Add(((char)0x2611).ToString());
-            }
+            CheckedListBoxToString(clbHTPhatHanh_Lai, phat_hanh_lai_nguon);
 
             //Dang ky dich vu
             phat_hanh_lai_dich.Add("<SMS>");
@@ -790,6 +691,9 @@ namespace AGRIBANKHD.GUI
             hop_dong_nguon.Clear();
             hop_dong_dich.Clear();
 
+            hop_dong_dich.Add("<CHI_NHANH_0>");
+            hop_dong_nguon.Add(Thong_tin_dang_nhap.ten_cn.ToUpper());
+
             //Ben A
             hop_dong_dich.Add("<DAI_DIEN>");
             hop_dong_nguon.Add(cbNguoiDaiDien_BenA.SelectedItem.ToString());
@@ -829,6 +733,8 @@ namespace AGRIBANKHD.GUI
             hop_dong_nguon.Add(txtNgayDeNghi_BenB.Text);
         }
         void PhatHanhMoi() {
+            if (CheckNullPhatHanhMoi()) return;
+
             var listNguon = ttchung_nguon;
             listNguon.AddRange(phat_hanh_moi_nguon);
             var listDich = ttchung_dich;
@@ -850,6 +756,8 @@ namespace AGRIBANKHD.GUI
 
         void PhatHanhLai()
         {
+            if (CheckNullPhatHanhLai()) return;
+
             var listNguon = ttchung_nguon;
             listNguon.AddRange(phat_hanh_lai_nguon);
             var listDich = ttchung_dich;
@@ -871,6 +779,8 @@ namespace AGRIBANKHD.GUI
 
         void HopDong()
         {
+            if (CheckNullHopDong()) return;
+
             var listNguon = ttchung_nguon;
             listNguon.AddRange(hop_dong_nguon);
             var listDich = ttchung_dich;
@@ -897,6 +807,87 @@ namespace AGRIBANKHD.GUI
             ap.Visible = true;
         }
 
+        void CheckedListBoxToString(CheckedListBox clb, List<string> lNguon)
+        {
+            for (int i = 0; i < clb.Items.Count; i++)
+            {
+                if (clb.GetItemChecked(i))
+                {
+                    lNguon.Add(((char)0x2611).ToString());
+                }
+                else
+                    lNguon.Add(((char)0x2610).ToString());
+            }
+        }
+
+        bool CheckNullPhatHanhMoi()
+        {
+            if (ckbSMS_Moi.Checked && string.IsNullOrEmpty(txtDTDD_SMS_Moi.Text))
+            {
+                MessageBox.Show("Vui Lòng nhập số điện thoại nhận SMS!", "Thông báo", MessageBoxButtons.OK);
+                txtDTDD_SMS_Moi.Focus();
+                return true;
+            }
+
+            if (ckbInternet_Moi.Checked && string.IsNullOrEmpty(txtHMGD_Moi.Text))
+            {
+                MessageBox.Show("Vui Lòng nhập hạn mức giao dịch trên Internet!", "Thông báo", MessageBoxButtons.OK);
+                txtHMGD_Moi.Focus();
+                return true;
+            }
+
+            return false;
+        }
+
+        bool CheckNullPhatHanhLai()
+        {
+            if (ckbSMS_Moi.Checked && string.IsNullOrEmpty(txtDTDD_SMS_Moi.Text))
+            {
+                MessageBox.Show("Vui Lòng nhập số điện thoại nhận SMS!", "Thông báo", MessageBoxButtons.OK);
+                txtDTDD_SMS_Moi.Focus();
+                return true;
+            }
+
+            if (ckbInternet_Moi.Checked && string.IsNullOrEmpty(txtHMGD_Moi.Text))
+            {
+                MessageBox.Show("Vui Lòng nhập hạn mức giao dịch trên Internet!", "Thông báo", MessageBoxButtons.OK);
+                txtHMGD_Moi.Focus();
+                return true;
+            }
+            return false;
+        }
+
+        bool CheckNullHopDong()
+        {
+            if (string.IsNullOrEmpty(txtHoTen_BenB.Text))
+            {
+                MessageBox.Show("Vui lòng nhập tên khách hàng!");
+                txtHoTen_BenB.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(txtCMT_BenB.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số CMND!");
+                txtCMT_BenB.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(txtNgayCap_BenB.Text))
+            {
+                MessageBox.Show("Vui lòng nhập ngày cấp CMND!");
+                txtNgayCap_BenB.Focus();
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(txtNoiCap_BenB.Text))
+            {
+                MessageBox.Show("Vui lòng nhập nơi cấp CMND!");
+                txtNoiCap_BenB.Focus();
+                return true;
+            }
+            return false;
+        }
 
     }
 }

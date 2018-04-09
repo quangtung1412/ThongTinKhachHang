@@ -11,13 +11,30 @@ namespace AGRIBANKHD.DAL
 {
     class PhatHanhTheGhiNoDAL
     {
-        public static KhachHangDV TimKiemKH(string makh) {
+        public static KhachHangDV TimKiemKH_TheoMaKH(string makh) {
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[]
             {
             new SqlParameter("@makh", makh)
             };
-            DataTable dt = db.dt("DV_TimKiemKH", Params);
+            DataTable dt = db.dt("DV_TimKiemKH_TheoMaKH", Params);
+            if (dt.Rows.Count == 0)
+                return null;
+            else
+            {
+                KhachHangDV kh = new KhachHangDV(dt.Rows[0]);
+                return kh;
+            }
+        }
+
+        public static KhachHangDV TimKiemKH_TheoCMND(string cmnd)
+        {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[]
+            {
+            new SqlParameter("@cmnd", cmnd)
+            };
+            DataTable dt = db.dt("DV_TimKiemKH_TheoCMND", Params);
             if (dt.Rows.Count == 0)
                 return null;
             else
