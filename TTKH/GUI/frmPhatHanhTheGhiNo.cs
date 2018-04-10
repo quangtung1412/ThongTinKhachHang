@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AGRIBANKHD.Entities;
+using System.Threading;
 
 namespace AGRIBANKHD.GUI
 {
@@ -38,6 +39,8 @@ namespace AGRIBANKHD.GUI
         public frmPhatHanhTheGhiNo()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+
             ttchung_dich = new List<string>();
             ttchung_nguon = new List<string>();
             phat_hanh_moi_dich = new List<string>();
@@ -65,7 +68,20 @@ namespace AGRIBANKHD.GUI
             //Hop dong
             //Lay thong tin nguoi dai dien
             dsNguoiDaiDien = DAL.PhatHanhTheGhiNoDAL.DanhSachNguoiDaiDien(Thong_tin_dang_nhap.ma_cn);
-            if (dsNguoiDaiDien != null) { 
+            
+            if (dsNguoiDaiDien != null)
+            {
+                //sap xep dsNguoiDaiDien
+                for (int i = 0; i < dsNguoiDaiDien.Length; i++)
+                {
+                    var temp = dsNguoiDaiDien[0];
+                    if (dsNguoiDaiDien[i].chucVu == "Branch General Manager")
+                    {
+                        dsNguoiDaiDien[0] = dsNguoiDaiDien[i];
+                        dsNguoiDaiDien[i] = temp;
+                    }
+                }
+
                 for (int i = 0; i < dsNguoiDaiDien.Length; i++)
                 {
                     cbNguoiDaiDien_BenA.Items.Add(dsNguoiDaiDien[i].hoTen);
@@ -75,6 +91,7 @@ namespace AGRIBANKHD.GUI
 
             //TTKH
             cbTimKiem.SelectedIndex = 0;
+            txtTimKiem.Focus();
         }
 
         void MyInit() {
@@ -152,9 +169,12 @@ namespace AGRIBANKHD.GUI
             //Lay cac so TK cua KH
             try
             {
-                DataTable dt = DAL.PhatHanhTheGhiNoDAL.TimSoTK(kh.cmt);
+                DataTable dt = DAL.PhatHanhTheGhiNoDAL.TimSoTK(kh.ma_KH);
                 for (int i = 0; i < dt.Rows.Count; i++) {
-                    cbSoTK.Items.Add(dt.Rows[i]["SOTK"]);
+                    string soTK = dt.Rows[i]["SOTK"].ToString();
+                    char loaiTK = soTK[4];
+                    if (loaiTK == '1' || loaiTK == '2')
+                        cbSoTK.Items.Add(soTK);
                 }
                 if (cbSoTK.Items.Count > 0)
                 {
@@ -325,7 +345,7 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -339,7 +359,7 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -383,8 +403,6 @@ namespace AGRIBANKHD.GUI
             else txtHMGD_Lai.Enabled = false;
         }
 
-        
-
         private void txtDTDD_SMS_Lai_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -393,7 +411,7 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -407,7 +425,7 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -417,7 +435,9 @@ namespace AGRIBANKHD.GUI
         private void cbNguoiDaiDien_BenA_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cbNguoiDaiDien_BenA.SelectedIndex;
-            txtChucVu_BenA.Text = dsNguoiDaiDien[index].chucVu;
+            if (dsNguoiDaiDien[index].chucVu == "Branch General Manager")
+                txtChucVu_BenA.Text = "Giám đốc";
+            else txtChucVu_BenA.Text = "Phó giám đốc";
             txtDienThoai_BenA.Text = dsNguoiDaiDien[index].Sdt;
             txtFax_BenA.Text = dsNguoiDaiDien[index].Fax;
             txtDiaChi_BenA.Text = dsNguoiDaiDien[index].diaChi;
@@ -432,7 +452,7 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -446,7 +466,7 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -460,7 +480,7 @@ namespace AGRIBANKHD.GUI
             }
 
             // only allow one decimal point
-            if (((sender as ComboBox).Text.IndexOf('.') > -1))
+            if (((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -475,15 +495,18 @@ namespace AGRIBANKHD.GUI
             {
                 case 0: //Phat hanh moi 
                     KhoiTaoPhatHanhMoi();
-                    PhatHanhMoi();
+                    Thread tMoi = new Thread(PhatHanhMoi);
+                    tMoi.Start();
                     break;
                 case 1: //Phat hanh lai
                     KhoiTaoPhatHanhLai();
-                    PhatHanhLai();
+                    Thread tLai = new Thread(PhatHanhLai);
+                    tLai.Start();
                     break;
                 case 2: //Hop dong
                     KhoiTaoHopDong();
-                    HopDong();
+                    Thread tHD = new Thread(HopDong);
+                    tHD.Start();
                     break;
                 case 3: //Giay hen
                     break;
@@ -544,7 +567,8 @@ namespace AGRIBANKHD.GUI
             }
         }
 
-        private void KhoiTaoPhatHanhMoi() {
+        private void KhoiTaoPhatHanhMoi()
+        {
             phat_hanh_moi_nguon.Clear();
             phat_hanh_moi_dich.Clear();
 
@@ -567,6 +591,10 @@ namespace AGRIBANKHD.GUI
             phat_hanh_moi_dich.Add("<OTP_DTDD>");
             phat_hanh_moi_dich.Add("<OTP_EMAIL>");
             phat_hanh_moi_dich.Add("<BAO_HIEM>");
+            for (int i = 0; i < 26; i++) //Ten in the
+            {
+                phat_hanh_moi_dich.Add("<" + (i+1) + ">");
+            }
 
 
             //Noi dia
@@ -580,7 +608,8 @@ namespace AGRIBANKHD.GUI
             //Hinh thuc nhan the
             CheckedListBoxToString(clbHTNhanThe_Moi, phat_hanh_moi_nguon);
             //SMS
-            if (ckbSMS_Moi.Checked) {
+            if (ckbSMS_Moi.Checked)
+            {
                 phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
                 phat_hanh_moi_nguon.Add(txtDTDD_SMS_Moi.Text);
             }
@@ -611,6 +640,21 @@ namespace AGRIBANKHD.GUI
             if (ckbBaoHiem_Moi.Checked)
                 phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
             else phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
+
+            //Ten in the
+            string sTenInThe = CommonMethods.RemoveUnicode(txtHoTen.Text);
+            sTenInThe = sTenInThe.ToUpper();
+            char[] cTenInThe = new char[26];
+            for (int i = 0; i < sTenInThe.Length; i++)
+                cTenInThe[i] = sTenInThe[i];
+            for (int i = 0; i < cTenInThe.Length; i++)
+            {
+                if(cTenInThe[i] != '\0'){
+                    phat_hanh_moi_nguon.Add(cTenInThe[i].ToString());
+                }
+                else
+                    phat_hanh_moi_nguon.Add("");
+            }
         }
 
         private void KhoiTaoPhatHanhLai() 
@@ -734,7 +778,6 @@ namespace AGRIBANKHD.GUI
         }
         void PhatHanhMoi() {
             if (CheckNullPhatHanhMoi()) return;
-
             var listNguon = ttchung_nguon;
             listNguon.AddRange(phat_hanh_moi_nguon);
             var listDich = ttchung_dich;
@@ -745,8 +788,9 @@ namespace AGRIBANKHD.GUI
                 string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNamePhatHanhMoi + ".docx");
                 string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNamePhatHanhMoi +"_"+ DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
                 CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
+                Thread.Sleep(500);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhMoi.FileName, "Tạo file thành công");
-                OpenFileWord(saveFilePhatHanhMoi.FileName);
+                OpenFileWord(saveFileLocation);
             }
             catch
             {
@@ -757,7 +801,6 @@ namespace AGRIBANKHD.GUI
         void PhatHanhLai()
         {
             if (CheckNullPhatHanhLai()) return;
-
             var listNguon = ttchung_nguon;
             listNguon.AddRange(phat_hanh_lai_nguon);
             var listDich = ttchung_dich;
@@ -768,6 +811,7 @@ namespace AGRIBANKHD.GUI
                 string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNamePhatHanhLai + ".docx");
                 string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNamePhatHanhMoi + "_"+ DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
                 CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
+                Thread.Sleep(500);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhLai.FileName, "Tạo file thành công");
                 OpenFileWord(saveFilePhatHanhLai.FileName);
             }
@@ -780,7 +824,6 @@ namespace AGRIBANKHD.GUI
         void HopDong()
         {
             if (CheckNullHopDong()) return;
-
             var listNguon = ttchung_nguon;
             listNguon.AddRange(hop_dong_nguon);
             var listDich = ttchung_dich;
@@ -792,6 +835,7 @@ namespace AGRIBANKHD.GUI
                 string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNameHopDong + "_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
                 CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileHopDong.FileName, "Tạo file thành công");
+                Thread.Sleep(500);
                 OpenFileWord(saveFileHopDong.FileName);
             }
             catch

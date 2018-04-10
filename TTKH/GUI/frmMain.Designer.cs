@@ -36,11 +36,12 @@
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dịchVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phátHànhThẻDebitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMenuPhatHanhThe = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhNghiệpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmnQuan_tri_he_thong = new System.Windows.Forms.ToolStripMenuItem();
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hệThốngỨngDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.liênHệToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Thong_tin_kh_vayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hợpĐồngVayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,17 +114,17 @@
             // cáNhânToolStripMenuItem
             // 
             this.cáNhânToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.phátHànhThẻDebitToolStripMenuItem});
+            this.tsMenuPhatHanhThe});
             this.cáNhânToolStripMenuItem.Name = "cáNhânToolStripMenuItem";
             this.cáNhânToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.cáNhânToolStripMenuItem.Text = "Cá nhân";
             // 
-            // phátHànhThẻDebitToolStripMenuItem
+            // tsMenuPhatHanhThe
             // 
-            this.phátHànhThẻDebitToolStripMenuItem.Name = "phátHànhThẻDebitToolStripMenuItem";
-            this.phátHànhThẻDebitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.phátHànhThẻDebitToolStripMenuItem.Text = "Phát hành thẻ";
-            this.phátHànhThẻDebitToolStripMenuItem.Click += new System.EventHandler(this.phátHànhThẻDebitToolStripMenuItem_Click);
+            this.tsMenuPhatHanhThe.Name = "tsMenuPhatHanhThe";
+            this.tsMenuPhatHanhThe.Size = new System.Drawing.Size(168, 22);
+            this.tsMenuPhatHanhThe.Text = "Phát hành thẻ";
+            this.tsMenuPhatHanhThe.Click += new System.EventHandler(this.tsMenuPhatHanhThe_Click);
             // 
             // doanhNghiệpToolStripMenuItem
             // 
@@ -135,7 +136,8 @@
             // 
             this.tsmnQuan_tri_he_thong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem,
-            this.hệThốngỨngDụngToolStripMenuItem});
+            this.hệThốngỨngDụngToolStripMenuItem,
+            this.liênHệToolStripMenuItem});
             this.tsmnQuan_tri_he_thong.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.tsmnQuan_tri_he_thong.Name = "tsmnQuan_tri_he_thong";
             this.tsmnQuan_tri_he_thong.Size = new System.Drawing.Size(134, 20);
@@ -143,17 +145,24 @@
             // 
             // khaiBáoĐiểmGiaoDịchToolStripMenuItem
             // 
-            this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Name = "khaiBáoĐiểmGiaoDịchToolStripMenuItem";
-            this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem.Text = "Khai báo điểm giao dịch";
             // 
             // hệThốngỨngDụngToolStripMenuItem
             // 
-            this.hệThốngỨngDụngToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.hệThốngỨngDụngToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.hệThốngỨngDụngToolStripMenuItem.Name = "hệThốngỨngDụngToolStripMenuItem";
-            this.hệThốngỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.hệThốngỨngDụngToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.hệThốngỨngDụngToolStripMenuItem.Text = "Hệ thống ứng dụng";
+            // 
+            // liênHệToolStripMenuItem
+            // 
+            this.liênHệToolStripMenuItem.Name = "liênHệToolStripMenuItem";
+            this.liênHệToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.liênHệToolStripMenuItem.Text = "Liên hệ";
+            this.liênHệToolStripMenuItem.Click += new System.EventHandler(this.liênHệToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -232,7 +241,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmMain";
-            this.Text = "Phần mềm hỗ trợ nghiệp vụ - Agribank tỉnh Hải Dương -  Phiên bản 1.2.3";
+            this.Text = "Phần mềm hỗ trợ nghiệp vụ - Agribank tỉnh Hải Dương -  Beta 0.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -260,7 +269,8 @@
         private System.Windows.Forms.ToolStripMenuItem hệThốngỨngDụngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dịchVToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cáNhânToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem phátHànhThẻDebitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuPhatHanhThe;
         private System.Windows.Forms.ToolStripMenuItem doanhNghiệpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem liênHệToolStripMenuItem;
     }
 }

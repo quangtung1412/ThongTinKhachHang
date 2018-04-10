@@ -320,7 +320,6 @@ F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Debug\AGRIBANKHD.exe
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Debug\AGRIBANKHD.pdb
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Debug\DocX.dll
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Debug\TextBoxPrice.dll
-F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Debug\AGRIBANKHD.csprojResolveAssemblyReference.cache
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Debug\AGRIBANKHD.GUI.frmDang_nhap.resources
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Debug\AGRIBANKHD.GUI.frmDoi_mat_khau.resources
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Debug\AGRIBANKHD.GUI.frmGNN_DXGN_KBTT.resources
@@ -345,3 +344,4 @@ D:\Agribank\ThongTinKhachHang\TTKH\bin\Debug\Word_template\DV\GIAY_HEN.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Debug\Word_template\DV\HOP_DONG.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Debug\Word_template\DV\PHAT_HANH_LAI.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Debug\Word_template\DV\PHAT_HANH_MOI.docx
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Debug\AGRIBANKHD.GUI.frmLienHe.resources

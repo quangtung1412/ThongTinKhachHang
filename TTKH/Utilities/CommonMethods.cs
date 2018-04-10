@@ -24,9 +24,9 @@ namespace AGRIBANKHD.Utilities
 {
     class CommonMethods
     {
-        private static string server_add = "127.0.0.1";
+        //private static string server_add = "127.0.0.1";
 
-        //private static string server_add = "10.14.0.12";
+        private static string server_add = "10.14.0.12";
         //Xóa dữ liệu toàn bộ các textbox
         public static void ClearTextBoxes(Control control, string[] name_of_textbox)
         {
@@ -51,7 +51,7 @@ namespace AGRIBANKHD.Utilities
         public static void ClearTextBoxesInGroupBox(GroupBox grb)
         {
             foreach (Control c in grb.Controls)
-                if (c is TextBox )
+                if (c is TextBox)
                 {
                     ((TextBox)c).Clear();
                 }
@@ -62,7 +62,7 @@ namespace AGRIBANKHD.Utilities
                 else if (c is RichTextBox)
                 {
                     ((RichTextBox)c).Clear();
-                }    
+                }
                 else if (c is GroupBox)
                 {
                     foreach (Control c1 in c.Controls)
@@ -127,7 +127,7 @@ namespace AGRIBANKHD.Utilities
                     ((MaskedTextBox)c).Enabled = false;
                 }
         }
-        
+
         //Khóa toàn bộ các combo box trong groupbox
         public static void DisableAllComboBoxInGroupBox(GroupBox grb)
         {
@@ -191,7 +191,7 @@ namespace AGRIBANKHD.Utilities
         //Tách năm hiện tại ở phía trước mã hợp đồng vay
         public static string TachMaHopDong(string ma_hd_vay)
         {
-            return ma_hd_vay.Substring(4,ma_hd_vay.Length-4);
+            return ma_hd_vay.Substring(4, ma_hd_vay.Length - 4);
         }
 
         //Sử dụng Microsoft.Office.Interop.Word để tạo file word từ template
@@ -346,10 +346,10 @@ namespace AGRIBANKHD.Utilities
 
         //Sử dụng docx dll để tạo file word từ template
         public static void CreateWordDocument(string file_location, string output_location, List<string> list_nguon, List<string> list_dich)
-	    {
-	        // Load the document.
-	        using (DocX document = DocX.Load(file_location))
-	        {
+        {
+            // Load the document.
+            using (DocX document = DocX.Load(file_location))
+            {
                 if (list_nguon.Count == list_dich.Count)
                 {
                     for (int i = 0; i < list_nguon.Count; i++)
@@ -361,17 +361,18 @@ namespace AGRIBANKHD.Utilities
                 //Remove empty paragraph
                 //document.RemoveParagraphAt
                 //document.ReplaceText("^p^p", "^p");
-	            // Save changes made to this document.
-	            //document.Save();
+                // Save changes made to this document.
+                //document.Save();
                 try
                 {
                     document.SaveAs(output_location);
                 }
-                catch {
+                catch
+                {
                     MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
                 }
-	        } // Release this document from memory.
-	    }
+            } // Release this document from memory.
+        }
 
         public static void CreateWordDocument(string file_location, string output_location, List<string> list_nguon, List<string> list_dich, List<int> empty_para_index)
         {
@@ -399,7 +400,8 @@ namespace AGRIBANKHD.Utilities
                 {
                     document.SaveAs(output_location);
                 }
-                catch {
+                catch
+                {
                     MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
                 }
             } // Release this document from memory.
@@ -432,7 +434,8 @@ namespace AGRIBANKHD.Utilities
                 {
                     document.SaveAs(output_location);
                 }
-                catch {
+                catch
+                {
                     MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
                 }
             } // Release this document from memory.
@@ -440,10 +443,12 @@ namespace AGRIBANKHD.Utilities
 
         public static bool FileExist(string file_name)
         {
-            FileInfo myFile = new FileInfo(@"\\"+server_add+@"\Word_template\"+file_name);
+            FileInfo myFile = new FileInfo(@"\\" + server_add + @"\Word_template\" + file_name);
             bool exists = myFile.Exists;
             return exists;
         }
+
+       
         public static string TemplateFileLocation(string file_location)
         {
             //var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
@@ -459,6 +464,10 @@ namespace AGRIBANKHD.Utilities
         public static string SaveFileLocation(string fileName)
         {
             string thu_muc_goc = @"C:\TTKH\";
+            if(!Directory.Exists(thu_muc_goc))
+            {
+                Directory.CreateDirectory(thu_muc_goc);
+            }
             return thu_muc_goc + fileName;
         }
 
@@ -466,7 +475,7 @@ namespace AGRIBANKHD.Utilities
         public static string FirstCharToUpper(string input)
         {
             if (String.IsNullOrEmpty(input))
-            throw new ArgumentException("ARGH!");
+                throw new ArgumentException("ARGH!");
             return input.First().ToString().ToUpper() + input.Substring(1);
         }
 
@@ -590,16 +599,40 @@ namespace AGRIBANKHD.Utilities
 
         //Kiểm tra kết nối đến cơ sở dữ liệu
         public static bool IsServerConnected()
-         {
-                try
-                {
-                    DAL.DataAccess.conn.Open();
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
-          }
+        {
+            try
+            {
+                DAL.DataAccess.conn.Open();
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+
+        public static string RemoveUnicode(string text)
+        {
+            string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",  
+    "đ",  
+    "é","è","ẻ","ẽ","ẹ","ê","ế","ề","ể","ễ","ệ",  
+    "í","ì","ỉ","ĩ","ị",  
+    "ó","ò","ỏ","õ","ọ","ô","ố","ồ","ổ","ỗ","ộ","ơ","ớ","ờ","ở","ỡ","ợ",  
+    "ú","ù","ủ","ũ","ụ","ư","ứ","ừ","ử","ữ","ự",  
+    "ý","ỳ","ỷ","ỹ","ỵ",};
+            string[] arr2 = new string[] { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",  
+    "d",  
+    "e","e","e","e","e","e","e","e","e","e","e",  
+    "i","i","i","i","i",  
+    "o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o",  
+    "u","u","u","u","u","u","u","u","u","u","u",  
+    "y","y","y","y","y",};
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                text = text.Replace(arr1[i], arr2[i]);
+                text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
+            }
+            return text;
+        }
     }
 }
