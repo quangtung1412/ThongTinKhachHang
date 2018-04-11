@@ -345,3 +345,4 @@ D:\Agribank\ThongTinKhachHang\TTKH\bin\Debug\Word_template\DV\HOP_DONG.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Debug\Word_template\DV\PHAT_HANH_LAI.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Debug\Word_template\DV\PHAT_HANH_MOI.docx
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Debug\AGRIBANKHD.GUI.frmLienHe.resources
+F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Debug\BSS.exe.config

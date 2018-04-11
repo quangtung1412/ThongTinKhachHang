@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject>PhanMemHoTroNghiepVu</subject>
+		<subject>##ID_STRING4##</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -340,7 +340,7 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>AGRIBANKHD.exe</td><td>{A595B976-F5AA-40FD-B5E3-47C8D9DFA311}</td><td>INSTALLDIR</td><td>2</td><td/><td>agribankhd.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BSS.exe</td><td>{92E71E56-80B2-416F-A0C5-476E39F416D2}</td><td>INSTALLDIR</td><td>2</td><td/><td>bss.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1049,7 +1049,7 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>INSTALLDIR</td><td>AGRIBANKHD.exe</td></row>
+		<row><td>INSTALLDIR</td><td>BSS.exe</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1170,6 +1170,7 @@
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
 		<row><td>agriba_1_agribank_hd</td><td>ProgramMenuFolder</td><td>AGRIBA~1|Agribank HD</td><td/><td>1</td><td/></row>
+		<row><td>bss</td><td>agriba_1_agribank_hd</td><td>BSS</td><td/><td>1</td><td/></row>
 		<row><td>phanme_1_phanmemhotronghiepvu</td><td>agriba_1_agribank_hd</td><td>PHANME~1|PhanMemHoTroNghiepVu</td><td/><td>1</td><td/></row>
 	</table>
 
@@ -1862,7 +1863,7 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>AlwaysInstall</td><td>AGRIBANKHD.exe</td></row>
+		<row><td>AlwaysInstall</td><td>BSS.exe</td></row>
 	</table>
 
 	<table name="File">
@@ -1877,7 +1878,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>agribankhd.exe</td><td>AGRIBANKHD.exe</td><td>AGRIBA~1.EXE|AGRIBANKHD.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\AGRIBANKHD.exe</td><td>1</td><td/></row>
+		<row><td>bss.exe</td><td>BSS.exe</td><td>BSS.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2019,7 +2020,7 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>AGRIBANKHD.exe</td><td/><td/><td>_48CD3C02_622E_4C48_B544_08D15B820EFF_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BSS.exe</td><td/><td/><td>_41A7BB2F_3016_48F4_B3B9_419D4CAFB921_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2325,8 +2326,8 @@
 		<col key="yes" def="s72">ISProductConfiguration_</col>
 		<col key="yes" def="s72">Property</col>
 		<col def="L255">Value</col>
-		<row><td>Express</td><td>MSIPackageFileName</td><td>PhamMemHoTroNghiepVu</td></row>
-		<row><td>Express</td><td>SetupFileName</td><td>PhamMemHoTroNghiepVu</td></row>
+		<row><td>Express</td><td>MSIPackageFileName</td><td>BSS</td></row>
+		<row><td>Express</td><td>SetupFileName</td><td>BSS</td></row>
 	</table>
 
 	<table name="ISRelease">
@@ -3423,6 +3424,8 @@
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>1378274097</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>1378274097</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>LAUNCH~1.EXE|Launch AGRIBANKHD.exe</td><td>0</td><td/><td>1378267985</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>LAUNCH~1.EXE|Launch Business Support Software (BSS).exe</td><td>0</td><td/><td>1512481896</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>BSS.exe</td><td>0</td><td/><td>1512451432</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>1378274097</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>1378274097</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1378274097</td></row>
@@ -3714,6 +3717,9 @@
 		<row><td>ID_STRING1</td><td>1033</td><td>http://www.AgribankHD.com</td><td>0</td><td/><td>1378276145</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>Agribank HD</td><td>0</td><td/><td>1378276145</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>LAUNCH~1.EXE|Launch AGRIBANKHD.exe</td><td>0</td><td/><td>1378274129</td></row>
+		<row><td>ID_STRING4</td><td>1033</td><td>Business Support Software</td><td>0</td><td/><td>1512493256</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>LAUNCH~1.EXE|Launch Business Support Software (BSS).exe</td><td>0</td><td/><td>1512483944</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>BSS.exe</td><td>0</td><td/><td>1512451432</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1378274097</td></row>
 	</table>
 
@@ -3830,6 +3836,10 @@
 		<row><td>AGRIBANKHD.exe1_C7D7048FB1BB482EAABF1ED2BC7BECE7.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\AGRIBANKHD.exe</td><td>0</td></row>
 		<row><td>AGRIBANKHD.exe_158436DCF08D4B4F879B5EC1CCD6CB7A.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\AGRIBANKHD.exe</td><td>0</td></row>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>BSS.exe1_835B83F8603A46BBB348EB189A3806BC.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe</td><td>0</td></row>
+		<row><td>BSS.exe_D74D6B28177C4E459CCE3001735E3274.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe</td><td>0</td></row>
+		<row><td>Business_Support_S_C1B0319B2A734253AE9B779B6FAA71F5.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Business Support Software (BSS).exe</td><td>0</td></row>
+		<row><td>Business_Support_S_E64EBFBE460F433493FA1141AC4B5A1F.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Business Support Software (BSS).exe</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3962,7 +3972,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{BD3CDE62-D770-465A-B9F0-657455246768}</td></row>
 		<row><td>ISUSSignature</td><td>{AB11F59E-F985-4F03-A390-9E52C324F7CE}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewRelease</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewRelease,viewProject,viewAppFiles,viewShortcuts,viewSystemSearch</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4336,7 +4346,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{0B6A6C0F-2A66-499F-9B5D-DD40FEFC6DF7}</td><td/></row>
-		<row><td>ProductName</td><td>PhanMemHoTroNghiepVu</td><td/></row>
+		<row><td>ProductName</td><td>BSS</td><td/></row>
 		<row><td>ProductVersion</td><td>0.1</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
@@ -4413,9 +4423,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>AGRIBANKHD.exe</td><td>AGRIBANKHD.exe</td><td/><td>phanme_1_phanmemhotronghiepvu</td><td>2</td></row>
-		<row><td>FileKey1</td><td>AGRIBANKHD.exe</td><td/><td>agriba_1_agribank_hd</td><td>2</td></row>
-		<row><td>FileKey2</td><td>AGRIBANKHD.exe</td><td/><td>phanme_1_phanmemhotronghiepvu</td><td>2</td></row>
+		<row><td>BSS.exe</td><td>BSS.exe</td><td/><td>bss</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4501,8 +4509,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>AGRIBANKHD.exe</td><td>phanme_1_phanmemhotronghiepvu</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>AGRIBANKHD.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>AGRIBANKHD.exe_158436DCF08D4B4F879B5EC1CCD6CB7A.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>AGRIBANKHD.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>AGRIBANKHD.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>AGRIBANKHD.exe1_C7D7048FB1BB482EAABF1ED2BC7BECE7.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>BSS.exe</td><td>bss</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>BSS.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>BSS.exe_D74D6B28177C4E459CCE3001735E3274.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>BSS.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>BSS.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>BSS.exe1_835B83F8603A46BBB348EB189A3806BC.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

@@ -27,7 +27,7 @@ namespace AGRIBANKHD.Entities
             _chiNhanh = Thong_tin_dang_nhap.ten_cn;
             _diaChi = Thong_tin_dang_nhap.dia_chi_cn;
             _Sdt = row["SDT"].ToString();
-            //_Fax = row["FAX"].ToString();
+            _Fax = row["FAX"].ToString();
         }
 
         public string hoTen

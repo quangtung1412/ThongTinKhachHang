@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using AGRIBANKHD.Entities;
 using System.Threading;
+using System.IO;
 
 namespace AGRIBANKHD.GUI
 {
@@ -105,11 +106,7 @@ namespace AGRIBANKHD.GUI
             TimKiemKH();
         }
 
-        private void txtCMT_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) 
-                TimKiemKH();
-        }
+       
 
         void TimKiemKH() {
             if (string.IsNullOrEmpty(txtTimKiem.Text))
@@ -119,7 +116,7 @@ namespace AGRIBANKHD.GUI
                 Entities.KhachHangDV kh = null;
                 try
                 {
-                    if (cbTimKiem.SelectedIndex == 0)
+                    if (cbTimKiem.SelectedIndex == 1)
                         kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH_TheoMaKH(txtTimKiem.Text);
                     else
                         kh = DAL.PhatHanhTheGhiNoDAL.TimKiemKH_TheoCMND(txtTimKiem.Text);
@@ -145,19 +142,30 @@ namespace AGRIBANKHD.GUI
             //SetTextBoxStatus_TTKH(true);
             tCtrDichVu.Enabled = false;
             ClearAllTextBox();
+
         }
 
         void TimThayKH(Entities.KhachHangDV kh) {
             cbSoTK.Items.Clear();
-            SetTextBoxStatus_TTKH(false);
+            //Thong tin chung
             txtNgayCap.Text = kh.ngay_cap.ToString("dd/MM/yyyy");
+            txtCMT.Text = kh.cmt;
             txtNoiCap.Text = kh.noi_cap;
-            txtTimKiem.Text = kh.ma_KH;
+            txtMaKH.Text = kh.ma_KH;
             txtHoTen.Text = kh.ho_ten;
             txtNgaySinh.Text = kh.ngay_sinh.ToString("dd/MM/yyyy");
             txtSoDienThoai.Text = kh.dien_thoai;
             txtEmail.Text = kh.email;
             txtDiaChi.Text = kh.dia_chi;
+
+            //Thong tin ben B
+            txtHoTen_BenB.Text = kh.ho_ten;
+            txtCMT_BenB.Text = kh.cmt;
+            txtDiaChi_BenB.Text = kh.dia_chi;
+            txtNgayCap_BenB.Text = kh.ngay_cap.ToString("dd/MM/yyyy");
+            txtNoiCap_BenB.Text = kh.noi_cap;
+            txtNgayDeNghi_BenB.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
             if (kh.gioi_tinh)
             {
                 cbGioiTinh.SelectedIndex = 0;
@@ -228,6 +236,14 @@ namespace AGRIBANKHD.GUI
         }
 
         //Menu Thong tin khach hang
+        private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TimKiemKH();
+            }
+        }
+
         private void txbSoCMT_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -783,18 +799,20 @@ namespace AGRIBANKHD.GUI
             var listDich = ttchung_dich;
             listDich.AddRange(phat_hanh_moi_dich);
             saveFilePhatHanhMoi.Filter = "Word Documents|*.docx";
-            try
+
+            string subFolder = @"PhatHanhMoi\";
+            if (!CommonMethods.SubFolderExist(subFolder))
+                CommonMethods.CreateSubFolder(subFolder);
+
+            string TemplateFileLocation = CommonMethods.TemplateFileLocation(fileNamePhatHanhMoi + ".docx");
+            string saveFileLocation = CommonMethods.SaveFileLocation(subFolder + fileNamePhatHanhMoi + "_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
+
+
+            if (CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon))
             {
-                string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNamePhatHanhMoi + ".docx");
-                string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNamePhatHanhMoi +"_"+ DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
-                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
                 Thread.Sleep(500);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhMoi.FileName, "Tạo file thành công");
                 OpenFileWord(saveFileLocation);
-            }
-            catch
-            {
-                MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
             }
         }
 
@@ -806,19 +824,23 @@ namespace AGRIBANKHD.GUI
             var listDich = ttchung_dich;
             listDich.AddRange(phat_hanh_lai_dich);
             saveFilePhatHanhLai.Filter = "Word Documents|*.docx";
-            try
+
+            string subFolder = @"PhatHanhLai\";
+            if (!CommonMethods.SubFolderExist(subFolder))
+                CommonMethods.CreateSubFolder(subFolder);
+
+            string TemplateFileLocation = CommonMethods.TemplateFileLocation(fileNamePhatHanhLai + ".docx");
+            string saveFileLocation = CommonMethods.SaveFileLocation(subFolder + fileNamePhatHanhMoi + "_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
+
+            
+
+            if (CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon))
             {
-                string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNamePhatHanhLai + ".docx");
-                string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNamePhatHanhMoi + "_"+ DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
-                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
                 Thread.Sleep(500);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhLai.FileName, "Tạo file thành công");
                 OpenFileWord(saveFilePhatHanhLai.FileName);
             }
-            catch
-            {
-                MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
-            }
+
         }
 
         void HopDong()
@@ -829,18 +851,21 @@ namespace AGRIBANKHD.GUI
             var listDich = ttchung_dich;
             listDich.AddRange(hop_dong_dich);
             saveFileHopDong.Filter = "Word Documents|*.docx";
-            try
+
+            string subFolder = @"HopDong\";
+            if (!CommonMethods.SubFolderExist(subFolder))
+                CommonMethods.CreateSubFolder(subFolder);
+
+            string TemplateFileLocation = CommonMethods.TemplateFileLocation(fileNameHopDong + ".docx");
+            string saveFileLocation = CommonMethods.SaveFileLocation(subFolder + fileNameHopDong + "_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
+
+
+            if (CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon))
             {
-                string TemplateFileLocation = CommonMethods.TemplateFileLocation(@"DV\" + fileNameHopDong + ".docx");
-                string saveFileLocation = CommonMethods.SaveFileLocation(@"DV\" + fileNameHopDong + "_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".docx");
-                CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileHopDong.FileName, "Tạo file thành công");
                 Thread.Sleep(500);
                 OpenFileWord(saveFileHopDong.FileName);
-            }
-            catch
-            {
-                MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
+
             }
         }
 

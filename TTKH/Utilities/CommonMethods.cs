@@ -24,9 +24,9 @@ namespace AGRIBANKHD.Utilities
 {
     class CommonMethods
     {
-        //private static string server_add = "127.0.0.1";
+        private static string server_add = "127.0.0.1";
 
-        private static string server_add = "10.14.0.12";
+        //private static string server_add = "10.14.0.12";
         //Xóa dữ liệu toàn bộ các textbox
         public static void ClearTextBoxes(Control control, string[] name_of_textbox)
         {
@@ -345,11 +345,13 @@ namespace AGRIBANKHD.Utilities
         //
 
         //Sử dụng docx dll để tạo file word từ template
-        public static void CreateWordDocument(string file_location, string output_location, List<string> list_nguon, List<string> list_dich)
+        public static bool CreateWordDocument(string file_location, string output_location, List<string> list_nguon, List<string> list_dich)
         {
             // Load the document.
-            using (DocX document = DocX.Load(file_location))
+            DocX document = null;
+            try
             {
+                document = DocX.Load(file_location);
                 if (list_nguon.Count == list_dich.Count)
                 {
                     for (int i = 0; i < list_nguon.Count; i++)
@@ -366,19 +368,27 @@ namespace AGRIBANKHD.Utilities
                 try
                 {
                     document.SaveAs(output_location);
+                    return true;
                 }
                 catch
                 {
-                    MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
                 }
-            } // Release this document from memory.
+            }
+            catch
+            {
+                MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
+            }// Release this document from memory.
+            return false;
         }
 
         public static void CreateWordDocument(string file_location, string output_location, List<string> list_nguon, List<string> list_dich, List<int> empty_para_index)
         {
             // Load the document.
-            using (DocX document = DocX.Load(file_location))
+            DocX document = null;
+            try
             {
+                document = DocX.Load(file_location);
                 if (list_nguon.Count == list_dich.Count)
                 {
                     for (int i = 0; i < list_nguon.Count; i++)
@@ -392,19 +402,21 @@ namespace AGRIBANKHD.Utilities
                 {
                     document.RemoveParagraphAt(empty_para_index[j]);
                 }
-                //document.RemoveParagraphAt
-                //document.ReplaceText("^p^p", "^p");
-                // Save changes made to this document.
-                //document.Save();
+                
                 try
                 {
                     document.SaveAs(output_location);
                 }
                 catch
                 {
-                    MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không thể tạo file!", "Thông báo", MessageBoxButtons.OK);
                 }
-            } // Release this document from memory.
+            }
+            catch
+            {
+                MessageBox.Show("File đang được sử dụng!", "Thông báo", MessageBoxButtons.OK);
+            }
+            
         }
 
         public static void CreateWordDocument2(string file_location, string output_location, List<string> list_nguon1, List<string> list_dich1, List<string> list_nguon2, List<string> list_dich2)
@@ -456,19 +468,31 @@ namespace AGRIBANKHD.Utilities
             //string thu_muc_goc = @"C:\Word_template\";
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath)+@"\Word_template\";
             //string thu_muc_goc = Path.GetDirectoryName(Application.ExecutablePath) + @"\\127.0.0.1\Word_template\";
-            string thu_muc_goc = @"\\" + server_add + @"\Word_template\";
+            string thu_muc_goc = @"\\" + server_add + @"\Word_template\DV\";
             //string thu_muc_goc = Directory.GetCurrentDirectory() + @"\Word_template\";
             return thu_muc_goc + file_location;
         }
 
         public static string SaveFileLocation(string fileName)
         {
-            string thu_muc_goc = @"C:\TTKH\";
+            string thu_muc_goc = @"C:\TTKH\DV\";
             if(!Directory.Exists(thu_muc_goc))
             {
                 Directory.CreateDirectory(thu_muc_goc);
             }
             return thu_muc_goc + fileName;
+        }
+
+        public static void CreateSubFolder(string folderPath)
+        {
+            string thu_muc_goc = @"C:\TTKH\DV\";
+            Directory.CreateDirectory(thu_muc_goc + folderPath);
+        }
+
+        public static bool SubFolderExist(string folder)
+        {
+            string thu_muc_goc = @"C:\TTKH\DV\";
+            return Directory.Exists(thu_muc_goc + folder);
         }
 
         //Chữ in hoa ký tự đầu tiên của chuỗi
