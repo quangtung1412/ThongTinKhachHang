@@ -768,7 +768,7 @@ namespace AGRIBANKHD.GUI
             hop_dong_nguon.Add(txtFax_BenA.Text);
 
             hop_dong_dich.Add("<DIACHI_CN>");
-            hop_dong_nguon.Add(txtDienThoai_BenA.Text);
+            hop_dong_nguon.Add(txtDiaChi_BenA.Text);
 
             hop_dong_dich.Add("<UY_QUYEN>");
             hop_dong_nguon.Add(txtGiayUyQuyen_BenA.Text);

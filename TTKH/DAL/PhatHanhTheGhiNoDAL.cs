@@ -125,5 +125,7 @@ namespace AGRIBANKHD.DAL
             }
 
         }
+
+        //public static void DangKyThe(string maKH, string soTK, string loaiThe, )
     }
 }

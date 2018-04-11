@@ -102,6 +102,7 @@
     <Compile Include="DAL\rtbcontentDAL.cs" />
     <Compile Include="DAL\taisanthechapDAL.cs" />
     <Compile Include="DAL\thechapDAL.cs" />
+    <Compile Include="DAL\TheDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Entities\Canbotindung.cs" />
     <Compile Include="Entities\Chinhanh.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Entities\Phonggiaodich.cs" />
     <Compile Include="Entities\RtbContent.cs" />
     <Compile Include="Entities\Taisanthechap.cs" />
+    <Compile Include="Entities\The.cs" />
     <Compile Include="Entities\Thechap.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="GUI\frmDang_nhap.cs">
@@ -177,6 +179,12 @@
     </Compile>
     <Compile Include="GUI\frmPhatHanhTheGhiNo.Designer.cs">
       <DependentUpon>frmPhatHanhTheGhiNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmQuanLyThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmQuanLyThe.Designer.cs">
+      <DependentUpon>frmQuanLyThe.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmTai_san_the_chap.cs">
       <SubType>Form</SubType>
@@ -255,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmPhatHanhTheGhiNo.resx">
       <DependentUpon>frmPhatHanhTheGhiNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmQuanLyThe.resx">
+      <DependentUpon>frmQuanLyThe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmTai_san_the_chap.resx">
       <DependentUpon>frmTai_san_the_chap.cs</DependentUpon>

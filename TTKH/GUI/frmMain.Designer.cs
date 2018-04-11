@@ -49,6 +49,7 @@
             this.taToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýThẻToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,7 +115,8 @@
             // cáNhânToolStripMenuItem
             // 
             this.cáNhânToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsMenuPhatHanhThe});
+            this.tsMenuPhatHanhThe,
+            this.quảnLýThẻToolStripMenuItem});
             this.cáNhânToolStripMenuItem.Name = "cáNhânToolStripMenuItem";
             this.cáNhânToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.cáNhânToolStripMenuItem.Text = "Cá nhân";
@@ -230,6 +232,13 @@
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Text = "Giấy nhận nợ - Báo cáo đề xuất giải ngân";
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Click += new System.EventHandler(this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem_Click);
             // 
+            // quảnLýThẻToolStripMenuItem
+            // 
+            this.quảnLýThẻToolStripMenuItem.Name = "quảnLýThẻToolStripMenuItem";
+            this.quảnLýThẻToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.quảnLýThẻToolStripMenuItem.Text = "Quản lý thẻ";
+            this.quảnLýThẻToolStripMenuItem.Click += new System.EventHandler(this.quảnLýThẻToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,5 +281,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsMenuPhatHanhThe;
         private System.Windows.Forms.ToolStripMenuItem doanhNghiệpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem liênHệToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýThẻToolStripMenuItem;
     }
 }

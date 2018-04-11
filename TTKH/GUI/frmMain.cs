@@ -139,5 +139,23 @@ namespace AGRIBANKHD.GUI
         {
             MessageBox.Show("Bộ phận Điện toán\nPhòng Kế toán và Ngân quỹ\nAgribank tỉnh Hải Dương\nĐiện thoại: 02203.890.972", "Liên Hệ", MessageBoxButtons.OK);
         }
+
+        private void quảnLýThẻToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmQuanLyThe))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmQuanLyThe frm = new frmQuanLyThe();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
     }
 }
