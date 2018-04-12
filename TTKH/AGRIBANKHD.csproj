@@ -204,6 +204,12 @@
     <Compile Include="GUI\frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmThongTinThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmThongTinThe.Designer.cs">
+      <DependentUpon>frmThongTinThe.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmThong_tin_can_bo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmTest.resx">
       <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmThongTinThe.resx">
+      <DependentUpon>frmThongTinThe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmThong_tin_can_bo.resx">
       <DependentUpon>frmThong_tin_can_bo.cs</DependentUpon>

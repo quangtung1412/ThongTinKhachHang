@@ -60,6 +60,7 @@
             // dtpDenNgay
             // 
             this.dtpDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpDenNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDenNgay.Location = new System.Drawing.Point(485, 18);
             this.dtpDenNgay.Name = "dtpDenNgay";
@@ -69,6 +70,7 @@
             // dtpTuNgay
             // 
             this.dtpTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpTuNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpTuNgay.Location = new System.Drawing.Point(307, 18);
             this.dtpTuNgay.Name = "dtpTuNgay";
@@ -121,9 +123,15 @@
             // 
             // dgvThongTinThe
             // 
+            this.dgvThongTinThe.AllowUserToAddRows = false;
+            this.dgvThongTinThe.AllowUserToDeleteRows = false;
+            this.dgvThongTinThe.AllowUserToResizeRows = false;
             this.dgvThongTinThe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongTinThe.Location = new System.Drawing.Point(12, 78);
+            this.dgvThongTinThe.MultiSelect = false;
             this.dgvThongTinThe.Name = "dgvThongTinThe";
+            this.dgvThongTinThe.ReadOnly = true;
+            this.dgvThongTinThe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvThongTinThe.Size = new System.Drawing.Size(799, 439);
             this.dgvThongTinThe.TabIndex = 2;
             // 
@@ -136,8 +144,9 @@
             this.Controls.Add(this.gbTimKiem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmQuanLyThe";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Thẻ";
             this.gbTimKiem.ResumeLayout(false);
             this.gbTimKiem.PerformLayout();

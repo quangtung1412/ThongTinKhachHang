@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using AGRIBANKHD.Entities;
 using System.Threading;
 using System.IO;
+using AGRIBANKHD.DAL;
 
 namespace AGRIBANKHD.GUI
 {
@@ -105,8 +106,6 @@ namespace AGRIBANKHD.GUI
         {
             TimKiemKH();
         }
-
-       
 
         void TimKiemKH() {
             if (string.IsNullOrEmpty(txtTimKiem.Text))
@@ -344,13 +343,20 @@ namespace AGRIBANKHD.GUI
         private void ckbSMS_Moi_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbSMS_Moi.Checked) txtDTDD_SMS_Moi.Enabled = true;
-            else txtDTDD_SMS_Moi.Enabled = false;
+            else { 
+                txtDTDD_SMS_Moi.Enabled = false;
+                txtDTDD_SMS_Moi.Text = "";
+            }
         }
 
         private void ckbInternet_Moi_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbInternet_Moi.Checked) txtHMGD_Moi.Enabled = true;
-            else txtHMGD_Moi.Enabled = false;
+            else
+            {
+                txtHMGD_Moi.Enabled = false;
+                txtHMGD_Moi.Text = "";
+            }
         }
 
         private void txtDTDD_SMS_Moi_KeyPress(object sender, KeyPressEventArgs e)
@@ -510,16 +516,100 @@ namespace AGRIBANKHD.GUI
             switch (tCtrDichVu.SelectedIndex)
             {
                 case 0: //Phat hanh moi 
+                    if (CheckNullPhatHanhMoi()) return;
+
+                    //Phat hanh the noi dia
+                    if (clbND_Moi.CheckedItems.Count > 0 && clbQT_Moi.CheckedItems.Count == 0) //The noi dia
+                    {
+                        if (!LuuPhatHanhMoiTheNoiDia()) return;
+                    }
+                    //Phat hanh the quoc te
+                    if (clbQT_Moi.CheckedItems.Count > 0 && clbND_Moi.CheckedItems.Count == 0)
+                    {
+                        if (!LuuPhatHanhMoiTheQuocTe()) return;
+                    }
+
+                    //Phat hanh the noi dia + quoc te
+                    if (clbQT_Moi.CheckedItems.Count > 0 && clbND_Moi.CheckedItems.Count > 0)
+                    {
+                        string soTK = cbSoTK.SelectedItem.ToString();
+                        string loaiTheND = StringConverter(clbND_Moi.CheckedItems[0].ToString());
+                        string loaiTheQT = StringConverter(clbQT_Moi.CheckedItems[0].ToString());
+
+                        if (PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheND).Rows.Count > 0 &&
+                            PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheQT).Rows.Count == 0)
+                        {
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheND + "!", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }
+
+                        else if (PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheND).Rows.Count == 0 &&
+                                 PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheQT).Rows.Count > 0)
+                        {
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheQT + "!", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }
+                        else if (PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheND).Rows.Count > 0 &&
+                                 PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheQT).Rows.Count > 0)
+                        {
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheND + "!", "Thông báo", MessageBoxButtons.OK);
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheQT + "!", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }
+                        else
+                        {
+                            LuuPhatHanhMoiTheNoiDia();
+                            LuuPhatHanhMoiTheQuocTe();
+                        }
+                    }
+
+                    //Tao file word
                     KhoiTaoPhatHanhMoi();
                     Thread tMoi = new Thread(PhatHanhMoi);
                     tMoi.Start();
                     break;
                 case 1: //Phat hanh lai
+                    if (CheckNullPhatHanhLai()) return;
+
+                    if (clbQT_Lai.CheckedItems.Count > 0 && clbND_Lai.CheckedItems.Count > 0)
+                    {
+                        string soTK = cbSoTK.SelectedItem.ToString();
+                        string loaiTheND = StringConverter(clbND_Lai.CheckedItems[0].ToString());
+                        string loaiTheQT = StringConverter(clbQT_Lai.CheckedItems[0].ToString());
+
+                        if (PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheND).Rows.Count > 0 &&
+                            PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheQT).Rows.Count == 0)
+                        {
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheND + "!", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }
+
+                        else if (PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheND).Rows.Count == 0 &&
+                                 PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheQT).Rows.Count > 0)
+                        {
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheQT + "!", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }
+                        else if (PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheND).Rows.Count > 0 &&
+                                 PhatHanhTheGhiNoDAL.TimThe(soTK, loaiTheQT).Rows.Count > 0)
+                        {
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheND + "!", "Thông báo", MessageBoxButtons.OK);
+                            MessageBox.Show("Số tài khoản " + soTK + " đã đăng ký loại thẻ " + loaiTheQT + "!", "Thông báo", MessageBoxButtons.OK);
+                            return;
+                        }
+                        else
+                        {
+                            LuuPhatHanhMoiTheNoiDia();
+                            LuuPhatHanhMoiTheQuocTe();
+                        }
+                    }
+
                     KhoiTaoPhatHanhLai();
                     Thread tLai = new Thread(PhatHanhLai);
                     tLai.Start();
                     break;
                 case 2: //Hop dong
+                    if (CheckNullHopDong()) return;
                     KhoiTaoHopDong();
                     Thread tHD = new Thread(HopDong);
                     tHD.Start();
@@ -793,7 +883,6 @@ namespace AGRIBANKHD.GUI
             hop_dong_nguon.Add(txtNgayDeNghi_BenB.Text);
         }
         void PhatHanhMoi() {
-            if (CheckNullPhatHanhMoi()) return;
             var listNguon = ttchung_nguon;
             listNguon.AddRange(phat_hanh_moi_nguon);
             var listDich = ttchung_dich;
@@ -811,14 +900,15 @@ namespace AGRIBANKHD.GUI
             if (CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon))
             {
                 Thread.Sleep(500);
-                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhMoi.FileName, "Tạo file thành công");
+                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileLocation, "Tạo file thành công");
                 OpenFileWord(saveFileLocation);
             }
+
+            
         }
 
         void PhatHanhLai()
         {
-            if (CheckNullPhatHanhLai()) return;
             var listNguon = ttchung_nguon;
             listNguon.AddRange(phat_hanh_lai_nguon);
             var listDich = ttchung_dich;
@@ -837,7 +927,7 @@ namespace AGRIBANKHD.GUI
             if (CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon))
             {
                 Thread.Sleep(500);
-                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFilePhatHanhLai.FileName, "Tạo file thành công");
+                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileLocation, "Tạo file thành công");
                 OpenFileWord(saveFilePhatHanhLai.FileName);
             }
 
@@ -845,7 +935,6 @@ namespace AGRIBANKHD.GUI
 
         void HopDong()
         {
-            if (CheckNullHopDong()) return;
             var listNguon = ttchung_nguon;
             listNguon.AddRange(hop_dong_nguon);
             var listDich = ttchung_dich;
@@ -862,7 +951,7 @@ namespace AGRIBANKHD.GUI
 
             if (CommonMethods.CreateWordDocument(TemplateFileLocation, saveFileLocation, listDich, listNguon))
             {
-                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileHopDong.FileName, "Tạo file thành công");
+                MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileLocation, "Tạo file thành công");
                 Thread.Sleep(500);
                 OpenFileWord(saveFileHopDong.FileName);
 
@@ -905,6 +994,12 @@ namespace AGRIBANKHD.GUI
                 return true;
             }
 
+            if (clbQT_Moi.CheckedItems.Count == 0 && clbND_Moi.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Vui Lòng chọn ít nhất 1 loại thẻ!", "Thông báo", MessageBoxButtons.OK);
+                return true;
+            }
+
             return false;
         }
 
@@ -921,6 +1016,12 @@ namespace AGRIBANKHD.GUI
             {
                 MessageBox.Show("Vui Lòng nhập hạn mức giao dịch trên Internet!", "Thông báo", MessageBoxButtons.OK);
                 txtHMGD_Moi.Focus();
+                return true;
+            }
+
+            if (clbQT_Lai.CheckedItems.Count == 0 && clbND_Lai.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("Vui Lòng chọn ít nhất 1 loại thẻ!", "Thông báo", MessageBoxButtons.OK);
                 return true;
             }
             return false;
@@ -958,5 +1059,97 @@ namespace AGRIBANKHD.GUI
             return false;
         }
 
+        private void cbSoTK_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        bool LuuPhatHanhMoiTheNoiDia()
+        {
+            string sotk = cbSoTK.SelectedItem.ToString();
+            string loaithe = StringConverter(clbND_Moi.CheckedItems[0].ToString());
+            string hangthe = StringConverter(clbHangThe_Moi.CheckedItems[0].ToString());
+            string htPhatHanh = StringConverter(clbHTPhatHanh_Moi.CheckedItems[0].ToString());
+            string htNhanThe = StringConverter(clbHTNhanThe_Moi.CheckedItems[0].ToString());
+            string dtdd = txtDTDD_SMS_Moi.Text;
+            int hmgd = 0;
+            if (!string.IsNullOrEmpty(txtHMGD_Moi.Text)) hmgd = int.Parse(txtHMGD_Moi.Text);
+
+            try //Luu thong tin the noi dia
+            {
+                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd);
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Số tài khoản " + sotk + " đã đăng ký loại thẻ " + loaithe + "!", "Thông báo", MessageBoxButtons.OK);
+                return false;
+            }
+
+        }
+
+        bool LuuPhatHanhMoiTheQuocTe()
+        {
+            string sotk = cbSoTK.SelectedItem.ToString();
+            string loaithe = StringConverter(clbQT_Moi.CheckedItems[0].ToString());
+            string hangthe = StringConverter(clbHangThe_Moi.CheckedItems[0].ToString());
+            string htPhatHanh = StringConverter(clbHTPhatHanh_Moi.CheckedItems[0].ToString());
+            string htNhanThe = StringConverter(clbHTNhanThe_Moi.CheckedItems[0].ToString());
+            string dtdd = txtDTDD_SMS_Moi.Text;
+            int hmgd = 0;
+            if (!string.IsNullOrEmpty(txtHMGD_Moi.Text)) hmgd = int.Parse(txtHMGD_Moi.Text);
+
+            try //Luu thong tin the noi dia
+            {
+                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd);
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Số tài khoản " + sotk + " đã đăng ký loại thẻ " + loaithe + "!", "Thông báo", MessageBoxButtons.OK);
+                return false;
+            }
+
+        }
+
+        string StringConverter(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return "";
+            switch (s)
+            {
+                case "Ghi nợ NĐ":
+                    return "GNND";
+                case "Lập nghiệp":
+                    return "LN";
+                case "Sinh viên":
+                    return "SV";
+                case "Liên kết thương hiệu":
+                    return "LKTH";
+                case "Ghi nợ QT":
+                    return "GNQT";
+                case "Tín dụng QT":
+                    return "TDQT";
+                case "Visa":
+                    return "VISA";
+                case "MasterCard":
+                    return "MC";
+                case "Phát hành thường":
+                    return "PHT";
+                case "Phát hành nhanh":
+                    return "PHN";
+                case "Tại ngân hàng":
+                    return "TNH";
+                case "Tại nhà riêng":
+                    return "TNR";
+                case "Chuẩn":
+                    return "C";
+                case "Vàng":
+                    return "V";
+                case "Bạch kim":
+                    return "BK";
+                default:
+                    return s;
+            }
+        }
     }
 }

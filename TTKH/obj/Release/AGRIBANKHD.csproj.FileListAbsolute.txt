@@ -207,3 +207,6 @@ D:\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmThong_tin_kh_va
 D:\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.Properties.Resources.resources
 D:\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.csproj.GenerateResource.Cache
 D:\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmQuanLyThe.resources
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.csprojResolveAssemblyReference.cache
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmQuanLyThe.resources
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmThongTinThe.resources

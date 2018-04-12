@@ -24,21 +24,63 @@ namespace AGRIBANKHD.GUI
             switch (cbTieuChi.SelectedIndex)
             {
                 case 0:
+                    DSTheChuaNhan();
                     break;
-                case 1: 
+                case 1:
+                    DSTheDaNhanChuaGiao();
                     break;
                 case 2:
+                    DSTheDaGiao();
                     break;
                 default: break;
             }
         }
 
-        void TheChuaNhan()
+        void DSTheChuaNhan()
         {
             try
             {
                 DataTable dt = TheDAL.TheChuaNhan(dtpTuNgay.Text, dtpDenNgay.Text);
-                dgvThongTinThe.DataSource = dt;
+                BindingSource bindS = new BindingSource();
+                bindS.DataSource = dt;
+                dgvThongTinThe.DataSource = bindS;
+                dgvThongTinThe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvThongTinThe.Columns[0].Width = 30;
+            }
+            catch
+            {
+                ErrorMessageDAL.DataAccessError();
+            }
+        }
+
+        void DSTheDaNhanChuaGiao()
+        {
+            try
+            {
+                DataTable dt = TheDAL.TheDaNhanChuaGiao(dtpTuNgay.Text, dtpDenNgay.Text);
+                BindingSource bindS = new BindingSource();
+                bindS.DataSource = dt;
+                dgvThongTinThe.DataSource = bindS;
+                dgvThongTinThe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvThongTinThe.Columns[0].Width = 30;
+
+            }
+            catch
+            {
+                ErrorMessageDAL.DataAccessError();
+            }
+        }
+
+        void DSTheDaGiao()
+        {
+            try
+            {
+                DataTable dt = TheDAL.TheDaGiao(dtpTuNgay.Text, dtpDenNgay.Text);
+                BindingSource bindS = new BindingSource();
+                bindS.DataSource = dt;
+                dgvThongTinThe.DataSource = bindS;
+                dgvThongTinThe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvThongTinThe.Columns[0].Width = 30;
             }
             catch
             {

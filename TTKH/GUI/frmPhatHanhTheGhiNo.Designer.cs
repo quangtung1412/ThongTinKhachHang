@@ -220,6 +220,7 @@
             this.cbSoTK.Name = "cbSoTK";
             this.cbSoTK.Size = new System.Drawing.Size(150, 21);
             this.cbSoTK.TabIndex = 3;
+            this.cbSoTK.SelectedIndexChanged += new System.EventHandler(this.cbSoTK_SelectedIndexChanged);
             this.cbSoTK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSoTK_KeyPress);
             this.cbSoTK.Validated += new System.EventHandler(this.cbSoTK_Validated);
             // 
@@ -673,7 +674,7 @@
             this.clbND_Moi.ColumnWidth = 200;
             this.clbND_Moi.FormattingEnabled = true;
             this.clbND_Moi.Items.AddRange(new object[] {
-            "Ghi nợ",
+            "Ghi nợ NĐ",
             "Lập nghiệp",
             "Liên kết thương hiệu"});
             this.clbND_Moi.Location = new System.Drawing.Point(140, 16);
@@ -896,8 +897,8 @@
             this.clbQT_Lai.ColumnWidth = 150;
             this.clbQT_Lai.FormattingEnabled = true;
             this.clbQT_Lai.Items.AddRange(new object[] {
-            "Thẻ ghi nợ",
-            "Thẻ tín dụng",
+            "Ghi nợ QT",
+            "Tín dụng QT",
             "Visa",
             "MasterCard",
             "JCB"});
@@ -916,7 +917,7 @@
             this.clbND_Lai.ColumnWidth = 150;
             this.clbND_Lai.FormattingEnabled = true;
             this.clbND_Lai.Items.AddRange(new object[] {
-            "Thẻ ghi nợ",
+            "Ghi nợ NĐ",
             "Lập nghiệp",
             "Sinh Viên",
             "Liên kết thương hiệu"});
