@@ -1073,11 +1073,13 @@ namespace AGRIBANKHD.GUI
             string htNhanThe = StringConverter(clbHTNhanThe_Moi.CheckedItems[0].ToString());
             string dtdd = txtDTDD_SMS_Moi.Text;
             int hmgd = 0;
+            int baoHiem = 0;
             if (!string.IsNullOrEmpty(txtHMGD_Moi.Text)) hmgd = int.Parse(txtHMGD_Moi.Text);
+            if (ckbBaoHiem_Moi.Checked) baoHiem = 1;
 
             try //Luu thong tin the noi dia
             {
-                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd);
+                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd, baoHiem);
                 return true;
             }
             catch
@@ -1097,11 +1099,12 @@ namespace AGRIBANKHD.GUI
             string htNhanThe = StringConverter(clbHTNhanThe_Moi.CheckedItems[0].ToString());
             string dtdd = txtDTDD_SMS_Moi.Text;
             int hmgd = 0;
+            int baoHiem = 0;
             if (!string.IsNullOrEmpty(txtHMGD_Moi.Text)) hmgd = int.Parse(txtHMGD_Moi.Text);
-
-            try //Luu thong tin the noi dia
+            if (ckbBaoHiem_Moi.Checked) baoHiem = 1;
+            try //Luu thong tin the quoc te
             {
-                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd);
+                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd, baoHiem);
                 return true;
             }
             catch

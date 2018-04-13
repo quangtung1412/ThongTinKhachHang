@@ -126,7 +126,7 @@ namespace AGRIBANKHD.DAL
 
         }
 
-        public static void DangKyThe(string soTK, string loaiThe, string hangThe, string hinhThucPhatHanh, string hinhThucNhanThe, string dtdd, int hmgd)
+        public static void DangKyThe(string soTK, string loaiThe, string hangThe, string hinhThucPhatHanh, string hinhThucNhanThe, string dtdd, int hmgd, int baoHiem)
         {
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[]{
@@ -136,7 +136,8 @@ namespace AGRIBANKHD.DAL
                     new SqlParameter("@hinhthucphathanh", hinhThucPhatHanh),
                     new SqlParameter("@hinhthucnhanthe", hinhThucNhanThe),
                     new SqlParameter("@dtdd", dtdd),
-                    new SqlParameter("@hmgd", hmgd)
+                    new SqlParameter("@hmgd", hmgd),
+                    new SqlParameter("@baohiem", baoHiem)
                 };
             db.dt("DV_INSERT_THEODOITHE", Params);
         }

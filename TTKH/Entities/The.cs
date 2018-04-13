@@ -12,6 +12,12 @@ namespace AGRIBANKHD.Entities
         private string _hoTen;
         private string _soTK;
         private string _loaiThe;
+        private string _hangThe;
+        private string _hinhThucPhatHanh;
+        private string _hinhThucNhanThe;
+        private string _dtdd;
+        private int _hmgd;
+        private bool _baoHiem;
         private DateTime _ngayDK;
         private DateTime _ngayNhan;
         private DateTime _ngayGiao;
@@ -22,9 +28,18 @@ namespace AGRIBANKHD.Entities
             _hoTen = row["HOTEN"].ToString();
             _soTK = row["SOTK"].ToString();
             _loaiThe = row["LOAITHE"].ToString();
-            _ngayDK = (DateTime)row["NGAYDANGKY"];
-            _ngayNhan = (DateTime)row["NGAYNHANTHE"];
-            _ngayGiao = (DateTime)row["NGAYGIAOTHE"];
+            _hangThe = row["HANGTHE"].ToString();
+            _hinhThucPhatHanh = row["HINHTHUCPHATHANH"].ToString();
+            _hinhThucNhanThe = row["HINHTHUCNHANTHE"].ToString();
+            _dtdd = row["DTDDSMS"].ToString();
+            _hmgd = (int)row["HMGD"];
+            _baoHiem = (bool)row["BAOHIEM"];
+            if (!string.IsNullOrEmpty(row["NGAYDANGKY"].ToString()))
+                _ngayDK = (DateTime)row["NGAYDANGKY"];
+            if (!string.IsNullOrEmpty(row["NGAYNHANTHE"].ToString()))
+                _ngayNhan = (DateTime)row["NGAYNHANTHE"];
+            if (!string.IsNullOrEmpty(row["NGAYGIAOTHE"].ToString()))
+                _ngayGiao = (DateTime)row["NGAYGIAOTHE"];
         }
 
         public string soThe
@@ -49,6 +64,42 @@ namespace AGRIBANKHD.Entities
         {
             get { return _loaiThe; }
             set { _loaiThe = value; }
+        }
+
+        public string hangThe
+        {
+            get { return _hangThe; }
+            set { _hangThe = value; }
+        }
+
+        public string hinhThucPhatHanh
+        {
+            get { return _hinhThucPhatHanh; }
+            set { _hinhThucPhatHanh = value; }
+        }
+
+        public string hinhThucNhanThe
+        {
+            get { return _hinhThucNhanThe; }
+            set { _hinhThucNhanThe = value; }
+        }
+
+        public string dtdd
+        {
+            get { return _dtdd; }
+            set { _dtdd = value; }
+        }
+
+        public int hmgd
+        {
+            get { return _hmgd; }
+            set { _hmgd = value; }
+        }
+
+        public bool baoHiem
+        {
+            get { return _baoHiem; }
+            set { _baoHiem = value; }
         }
 
         public DateTime ngayDK

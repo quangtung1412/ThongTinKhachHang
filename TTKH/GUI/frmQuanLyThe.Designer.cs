@@ -134,6 +134,7 @@
             this.dgvThongTinThe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvThongTinThe.Size = new System.Drawing.Size(799, 439);
             this.dgvThongTinThe.TabIndex = 2;
+            this.dgvThongTinThe.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTinThe_CellDoubleClick);
             // 
             // frmQuanLyThe
             // 

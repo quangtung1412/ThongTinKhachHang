@@ -103,6 +103,7 @@
     <Compile Include="DAL\taisanthechapDAL.cs" />
     <Compile Include="DAL\thechapDAL.cs" />
     <Compile Include="DAL\TheDAL.cs" />
+    <Compile Include="DAL\ThongTinTheDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Entities\Canbotindung.cs" />
     <Compile Include="Entities\Chinhanh.cs" />

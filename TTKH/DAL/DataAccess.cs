@@ -40,7 +40,6 @@ namespace AGRIBANKHD.DAL
 
         private static void PrepareCommand(string procName, SqlTransaction trans, SqlParameter[] parms)
         {
-
             cmd.Connection = conn;
 
             cmd.CommandText = procName;

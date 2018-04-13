@@ -87,5 +87,16 @@ namespace AGRIBANKHD.GUI
                 ErrorMessageDAL.DataAccessError();
             }
         }
+
+        private void dgvThongTinThe_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmThongTinThe frm = new frmThongTinThe(
+                dgvThongTinThe.Rows[e.RowIndex].Cells[2].Value.ToString(),
+                dgvThongTinThe.Rows[e.RowIndex].Cells[4].Value.ToString()
+                );
+            //frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
     }
 }
