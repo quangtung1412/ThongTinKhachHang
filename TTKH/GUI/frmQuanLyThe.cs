@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using AGRIBANKHD.DAL;
 using AGRIBANKHD.Entities;
+using AGRIBANKHD.Utilities;
 
 namespace AGRIBANKHD.GUI
 {
@@ -206,19 +207,40 @@ namespace AGRIBANKHD.GUI
         private void btnDeleteThe_Click(object sender, EventArgs e)
         {
             string soThe = dgvThongTinThe.SelectedRows[0].Cells[3].Value.ToString();
-            if (string.IsNullOrEmpty(soThe))
+            string soTK = dgvThongTinThe.SelectedRows[0].Cells[2].Value.ToString();
+            string loaiThe = dgvThongTinThe.SelectedRows[0].Cells[4].Value.ToString();
+
+            try
             {
-                MessageBox.Show("Thẻ chưa được phát hành!", "Thông báo", MessageBoxButtons.OK);
+                The the = new The(ThongTinTheDAL.LayThongTinThe(soTK, loaiThe));
+
+                if (Thong_tin_dang_nhap.ma_pb != the.maPB)
+                {
+                    MessageBox.Show("Không có quyền xóa thẻ này!\nLiên hệ chi nhánh phát hành thẻ để được hỗ trợ!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            catch
+            {
+                ErrorMessageDAL.DataAccessError();
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Có chắc chắn xóa thẻ " + soThe + "?", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Có chắc chắn xóa thẻ này?", "Thông báo", MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 try
                 {
-                    TheDAL.DeleteThe(soThe);
+                    if (string.IsNullOrEmpty(soThe))
+                    {
+                        TheDAL.XoaThe_TheoSoTK_LoaiThe(soTK, loaiThe);
+                    }
+                    else
+                    {
+                        TheDAL.XoaThe_TheoSoThe(soThe);
+                    }
                     MessageBox.Show("Xóa thẻ "+ soThe + " thành công!","Thông báo", MessageBoxButtons.OK);
+                    TimKiem_TheoThongTin();
                 }
                 catch
                 {

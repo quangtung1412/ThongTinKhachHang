@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinThe));
             this.gbThongTinThe = new System.Windows.Forms.GroupBox();
+            this.txtNoiPhatHanh = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtNgayGiaoThe = new System.Windows.Forms.MaskedTextBox();
             this.txtNgayNhanThe = new System.Windows.Forms.MaskedTextBox();
             this.txtNgayDangKy = new System.Windows.Forms.MaskedTextBox();
@@ -62,10 +66,9 @@
             this.txtDTDD = new System.Windows.Forms.TextBox();
             this.ckbSMS = new System.Windows.Forms.CheckBox();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtNoiPhatHanh = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.gbThongTinThe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tHEODOITHEBindingSource6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tHEODOITHEBindingSource1)).BeginInit();
@@ -100,14 +103,47 @@
             this.gbThongTinThe.Controls.Add(this.label1);
             this.gbThongTinThe.Location = new System.Drawing.Point(13, 13);
             this.gbThongTinThe.Name = "gbThongTinThe";
-            this.gbThongTinThe.Size = new System.Drawing.Size(309, 360);
+            this.gbThongTinThe.Size = new System.Drawing.Size(321, 360);
             this.gbThongTinThe.TabIndex = 18;
             this.gbThongTinThe.TabStop = false;
             this.gbThongTinThe.Text = "Thông tin thẻ";
             // 
+            // txtNoiPhatHanh
+            // 
+            this.txtNoiPhatHanh.Location = new System.Drawing.Point(181, 227);
+            this.txtNoiPhatHanh.Multiline = true;
+            this.txtNoiPhatHanh.Name = "txtNoiPhatHanh";
+            this.txtNoiPhatHanh.Size = new System.Drawing.Size(133, 40);
+            this.txtNoiPhatHanh.TabIndex = 39;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 240);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Nơi phát hành:";
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(182, 201);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(133, 20);
+            this.txtUser.TabIndex = 37;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 204);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "User phát hành:";
+            // 
             // txtNgayGiaoThe
             // 
-            this.txtNgayGiaoThe.Location = new System.Drawing.Point(162, 325);
+            this.txtNgayGiaoThe.Location = new System.Drawing.Point(181, 325);
             this.txtNgayGiaoThe.Mask = "00/00/0000";
             this.txtNgayGiaoThe.Name = "txtNgayGiaoThe";
             this.txtNgayGiaoThe.Size = new System.Drawing.Size(133, 20);
@@ -116,7 +152,7 @@
             // 
             // txtNgayNhanThe
             // 
-            this.txtNgayNhanThe.Location = new System.Drawing.Point(162, 299);
+            this.txtNgayNhanThe.Location = new System.Drawing.Point(181, 299);
             this.txtNgayNhanThe.Mask = "00/00/0000";
             this.txtNgayNhanThe.Name = "txtNgayNhanThe";
             this.txtNgayNhanThe.Size = new System.Drawing.Size(133, 20);
@@ -125,7 +161,7 @@
             // 
             // txtNgayDangKy
             // 
-            this.txtNgayDangKy.Location = new System.Drawing.Point(162, 273);
+            this.txtNgayDangKy.Location = new System.Drawing.Point(181, 273);
             this.txtNgayDangKy.Mask = "00/00/0000";
             this.txtNgayDangKy.Name = "txtNgayDangKy";
             this.txtNgayDangKy.Size = new System.Drawing.Size(133, 20);
@@ -161,7 +197,7 @@
             // 
             // txtHTNT
             // 
-            this.txtHTNT.Location = new System.Drawing.Point(163, 175);
+            this.txtHTNT.Location = new System.Drawing.Point(182, 175);
             this.txtHTNT.Name = "txtHTNT";
             this.txtHTNT.Size = new System.Drawing.Size(133, 20);
             this.txtHTNT.TabIndex = 27;
@@ -177,7 +213,7 @@
             // 
             // txtHTPH
             // 
-            this.txtHTPH.Location = new System.Drawing.Point(163, 149);
+            this.txtHTPH.Location = new System.Drawing.Point(182, 149);
             this.txtHTPH.Name = "txtHTPH";
             this.txtHTPH.Size = new System.Drawing.Size(133, 20);
             this.txtHTPH.TabIndex = 25;
@@ -193,7 +229,7 @@
             // 
             // txtHangThe
             // 
-            this.txtHangThe.Location = new System.Drawing.Point(163, 123);
+            this.txtHangThe.Location = new System.Drawing.Point(182, 123);
             this.txtHangThe.Name = "txtHangThe";
             this.txtHangThe.Size = new System.Drawing.Size(133, 20);
             this.txtHangThe.TabIndex = 23;
@@ -209,7 +245,7 @@
             // 
             // txtLoaiThe
             // 
-            this.txtLoaiThe.Location = new System.Drawing.Point(163, 97);
+            this.txtLoaiThe.Location = new System.Drawing.Point(182, 97);
             this.txtLoaiThe.Name = "txtLoaiThe";
             this.txtLoaiThe.Size = new System.Drawing.Size(133, 20);
             this.txtLoaiThe.TabIndex = 21;
@@ -225,7 +261,7 @@
             // 
             // txtSoThe
             // 
-            this.txtSoThe.Location = new System.Drawing.Point(163, 71);
+            this.txtSoThe.Location = new System.Drawing.Point(182, 71);
             this.txtSoThe.Name = "txtSoThe";
             this.txtSoThe.Size = new System.Drawing.Size(133, 20);
             this.txtSoThe.TabIndex = 19;
@@ -242,7 +278,7 @@
             // 
             // txtSoTK
             // 
-            this.txtSoTK.Location = new System.Drawing.Point(163, 45);
+            this.txtSoTK.Location = new System.Drawing.Point(182, 45);
             this.txtSoTK.Name = "txtSoTK";
             this.txtSoTK.Size = new System.Drawing.Size(133, 20);
             this.txtSoTK.TabIndex = 17;
@@ -258,7 +294,7 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(163, 19);
+            this.txtHoTen.Location = new System.Drawing.Point(182, 19);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(133, 20);
             this.txtHoTen.TabIndex = 15;
@@ -282,6 +318,9 @@
             // 
             // gbDichVu
             // 
+            this.gbDichVu.Controls.Add(this.label17);
+            this.gbDichVu.Controls.Add(this.label16);
+            this.gbDichVu.Controls.Add(this.label15);
             this.gbDichVu.Controls.Add(this.ckbBaoHiem);
             this.gbDichVu.Controls.Add(this.label9);
             this.gbDichVu.Controls.Add(this.txtHMGD);
@@ -291,7 +330,7 @@
             this.gbDichVu.Controls.Add(this.ckbSMS);
             this.gbDichVu.Location = new System.Drawing.Point(12, 379);
             this.gbDichVu.Name = "gbDichVu";
-            this.gbDichVu.Size = new System.Drawing.Size(309, 99);
+            this.gbDichVu.Size = new System.Drawing.Size(322, 99);
             this.gbDichVu.TabIndex = 19;
             this.gbDichVu.TabStop = false;
             this.gbDichVu.Text = "Dịch vụ";
@@ -302,17 +341,16 @@
             this.ckbBaoHiem.AutoSize = true;
             this.ckbBaoHiem.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ckbBaoHiem.Enabled = false;
-            this.ckbBaoHiem.Location = new System.Drawing.Point(40, 69);
+            this.ckbBaoHiem.Location = new System.Drawing.Point(103, 68);
             this.ckbBaoHiem.Name = "ckbBaoHiem";
-            this.ckbBaoHiem.Size = new System.Drawing.Size(70, 17);
+            this.ckbBaoHiem.Size = new System.Drawing.Size(15, 14);
             this.ckbBaoHiem.TabIndex = 34;
-            this.ckbBaoHiem.Text = "Bảo hiểm";
             this.ckbBaoHiem.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(116, 47);
+            this.label9.Location = new System.Drawing.Point(135, 46);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 13);
             this.label9.TabIndex = 33;
@@ -321,7 +359,7 @@
             // txtHMGD
             // 
             this.txtHMGD.Enabled = false;
-            this.txtHMGD.Location = new System.Drawing.Point(163, 44);
+            this.txtHMGD.Location = new System.Drawing.Point(182, 43);
             this.txtHMGD.Name = "txtHMGD";
             this.txtHMGD.Size = new System.Drawing.Size(133, 20);
             this.txtHMGD.TabIndex = 32;
@@ -331,17 +369,16 @@
             this.ckbInternet.AutoSize = true;
             this.ckbInternet.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ckbInternet.Enabled = false;
-            this.ckbInternet.Location = new System.Drawing.Point(6, 46);
+            this.ckbInternet.Location = new System.Drawing.Point(103, 45);
             this.ckbInternet.Name = "ckbInternet";
-            this.ckbInternet.Size = new System.Drawing.Size(104, 17);
+            this.ckbInternet.Size = new System.Drawing.Size(15, 14);
             this.ckbInternet.TabIndex = 31;
-            this.ckbInternet.Text = "Internet Banking";
             this.ckbInternet.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(116, 21);
+            this.label8.Location = new System.Drawing.Point(135, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 30;
@@ -350,7 +387,7 @@
             // txtDTDD
             // 
             this.txtDTDD.Enabled = false;
-            this.txtDTDD.Location = new System.Drawing.Point(163, 18);
+            this.txtDTDD.Location = new System.Drawing.Point(182, 17);
             this.txtDTDD.Name = "txtDTDD";
             this.txtDTDD.Size = new System.Drawing.Size(133, 20);
             this.txtDTDD.TabIndex = 29;
@@ -360,11 +397,10 @@
             this.ckbSMS.AutoSize = true;
             this.ckbSMS.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ckbSMS.Enabled = false;
-            this.ckbSMS.Location = new System.Drawing.Point(19, 20);
+            this.ckbSMS.Location = new System.Drawing.Point(103, 22);
             this.ckbSMS.Name = "ckbSMS";
-            this.ckbSMS.Size = new System.Drawing.Size(91, 17);
+            this.ckbSMS.Size = new System.Drawing.Size(15, 14);
             this.ckbSMS.TabIndex = 0;
-            this.ckbSMS.Text = "SMS Banking";
             this.ckbSMS.UseVisualStyleBackColor = true;
             // 
             // btnLuu
@@ -378,49 +414,44 @@
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // txtUser
+            // label15
             // 
-            this.txtUser.Location = new System.Drawing.Point(163, 201);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(133, 20);
-            this.txtUser.TabIndex = 37;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 21);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 13);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "SMS Banking:";
             // 
-            // label13
+            // label16
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 204);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(83, 13);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "User phát hành:";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(9, 43);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(88, 13);
+            this.label16.TabIndex = 41;
+            this.label16.Text = "Internet Banking:";
             // 
-            // txtNoiPhatHanh
+            // label17
             // 
-            this.txtNoiPhatHanh.Location = new System.Drawing.Point(162, 227);
-            this.txtNoiPhatHanh.Multiline = true;
-            this.txtNoiPhatHanh.Name = "txtNoiPhatHanh";
-            this.txtNoiPhatHanh.Size = new System.Drawing.Size(133, 40);
-            this.txtNoiPhatHanh.TabIndex = 39;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 240);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 13);
-            this.label14.TabIndex = 38;
-            this.label14.Text = "Nơi phát hành:";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(9, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 13);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "Bảo hiểm:";
             // 
             // frmThongTinThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 521);
+            this.ClientSize = new System.Drawing.Size(346, 521);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.gbDichVu);
             this.Controls.Add(this.gbThongTinThe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.Name = "frmThongTinThe";
             this.Text = "Thông tin thẻ";
@@ -473,6 +504,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
 
     }
 }
