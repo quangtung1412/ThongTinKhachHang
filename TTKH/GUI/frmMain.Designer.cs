@@ -37,6 +37,7 @@
             this.dịchVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuPhatHanhThe = new System.Windows.Forms.ToolStripMenuItem();
+            this.quảnLýThẻToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhNghiệpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmnQuan_tri_he_thong = new System.Windows.Forms.ToolStripMenuItem();
             this.khaiBáoĐiểmGiaoDịchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,6 @@
             this.taToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýThẻToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,6 +127,13 @@
             this.tsMenuPhatHanhThe.Size = new System.Drawing.Size(168, 22);
             this.tsMenuPhatHanhThe.Text = "Phát hành thẻ";
             this.tsMenuPhatHanhThe.Click += new System.EventHandler(this.tsMenuPhatHanhThe_Click);
+            // 
+            // quảnLýThẻToolStripMenuItem
+            // 
+            this.quảnLýThẻToolStripMenuItem.Name = "quảnLýThẻToolStripMenuItem";
+            this.quảnLýThẻToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.quảnLýThẻToolStripMenuItem.Text = "Quản lý thẻ";
+            this.quảnLýThẻToolStripMenuItem.Click += new System.EventHandler(this.quảnLýThẻToolStripMenuItem_Click);
             // 
             // doanhNghiệpToolStripMenuItem
             // 
@@ -232,23 +239,16 @@
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Text = "Giấy nhận nợ - Báo cáo đề xuất giải ngân";
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Click += new System.EventHandler(this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem_Click);
             // 
-            // quảnLýThẻToolStripMenuItem
-            // 
-            this.quảnLýThẻToolStripMenuItem.Name = "quảnLýThẻToolStripMenuItem";
-            this.quảnLýThẻToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.quảnLýThẻToolStripMenuItem.Text = "Quản lý thẻ";
-            this.quảnLýThẻToolStripMenuItem.Click += new System.EventHandler(this.quảnLýThẻToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 733);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Phần mềm hỗ trợ nghiệp vụ - Agribank tỉnh Hải Dương -  Beta 0.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

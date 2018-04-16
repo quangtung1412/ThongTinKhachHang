@@ -31,8 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinThe));
             this.gbThongTinThe = new System.Windows.Forms.GroupBox();
+            this.txtNgayGiaoThe = new System.Windows.Forms.MaskedTextBox();
+            this.txtNgayNhanThe = new System.Windows.Forms.MaskedTextBox();
+            this.txtNgayDangKy = new System.Windows.Forms.MaskedTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtHTNT = new System.Windows.Forms.TextBox();
-            this.tHEODOITHEBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.txtHTPH = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,10 +48,11 @@
             this.txtSoThe = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSoTK = new System.Windows.Forms.TextBox();
-            this.tHEODOITHEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tHEODOITHEBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.tHEODOITHEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gbDichVu = new System.Windows.Forms.GroupBox();
             this.ckbBaoHiem = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,12 +62,10 @@
             this.txtDTDD = new System.Windows.Forms.TextBox();
             this.ckbSMS = new System.Windows.Forms.CheckBox();
             this.btnLuu = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtNgayDangKy = new System.Windows.Forms.MaskedTextBox();
-            this.txtNgayNhanThe = new System.Windows.Forms.MaskedTextBox();
-            this.txtNgayGiaoThe = new System.Windows.Forms.MaskedTextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtNoiPhatHanh = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.gbThongTinThe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tHEODOITHEBindingSource6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tHEODOITHEBindingSource1)).BeginInit();
@@ -70,6 +74,10 @@
             // 
             // gbThongTinThe
             // 
+            this.gbThongTinThe.Controls.Add(this.txtNoiPhatHanh);
+            this.gbThongTinThe.Controls.Add(this.label14);
+            this.gbThongTinThe.Controls.Add(this.txtUser);
+            this.gbThongTinThe.Controls.Add(this.label13);
             this.gbThongTinThe.Controls.Add(this.txtNgayGiaoThe);
             this.gbThongTinThe.Controls.Add(this.txtNgayNhanThe);
             this.gbThongTinThe.Controls.Add(this.txtNgayDangKy);
@@ -92,10 +100,64 @@
             this.gbThongTinThe.Controls.Add(this.label1);
             this.gbThongTinThe.Location = new System.Drawing.Point(13, 13);
             this.gbThongTinThe.Name = "gbThongTinThe";
-            this.gbThongTinThe.Size = new System.Drawing.Size(309, 286);
+            this.gbThongTinThe.Size = new System.Drawing.Size(309, 360);
             this.gbThongTinThe.TabIndex = 18;
             this.gbThongTinThe.TabStop = false;
             this.gbThongTinThe.Text = "Thông tin thẻ";
+            // 
+            // txtNgayGiaoThe
+            // 
+            this.txtNgayGiaoThe.Location = new System.Drawing.Point(162, 325);
+            this.txtNgayGiaoThe.Mask = "00/00/0000";
+            this.txtNgayGiaoThe.Name = "txtNgayGiaoThe";
+            this.txtNgayGiaoThe.Size = new System.Drawing.Size(133, 20);
+            this.txtNgayGiaoThe.TabIndex = 35;
+            this.txtNgayGiaoThe.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtNgayNhanThe
+            // 
+            this.txtNgayNhanThe.Location = new System.Drawing.Point(162, 299);
+            this.txtNgayNhanThe.Mask = "00/00/0000";
+            this.txtNgayNhanThe.Name = "txtNgayNhanThe";
+            this.txtNgayNhanThe.Size = new System.Drawing.Size(133, 20);
+            this.txtNgayNhanThe.TabIndex = 34;
+            this.txtNgayNhanThe.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtNgayDangKy
+            // 
+            this.txtNgayDangKy.Location = new System.Drawing.Point(162, 273);
+            this.txtNgayDangKy.Mask = "00/00/0000";
+            this.txtNgayDangKy.Name = "txtNgayDangKy";
+            this.txtNgayDangKy.Size = new System.Drawing.Size(133, 20);
+            this.txtNgayDangKy.TabIndex = 33;
+            this.txtNgayDangKy.ValidatingType = typeof(System.DateTime);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 328);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 13);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Ngày giao thẻ:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 302);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Ngày nhận thẻ:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 276);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 13);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Ngày đăng ký:";
             // 
             // txtHTNT
             // 
@@ -103,10 +165,6 @@
             this.txtHTNT.Name = "txtHTNT";
             this.txtHTNT.Size = new System.Drawing.Size(133, 20);
             this.txtHTNT.TabIndex = 27;
-            // 
-            // tHEODOITHEBindingSource6
-            // 
-            this.tHEODOITHEBindingSource6.DataMember = "THEODOITHE";
             // 
             // label7
             // 
@@ -189,10 +247,6 @@
             this.txtSoTK.Size = new System.Drawing.Size(133, 20);
             this.txtSoTK.TabIndex = 17;
             // 
-            // tHEODOITHEBindingSource1
-            // 
-            this.tHEODOITHEBindingSource1.DataMember = "THEODOITHE";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -218,6 +272,14 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Họ tên:";
             // 
+            // tHEODOITHEBindingSource6
+            // 
+            this.tHEODOITHEBindingSource6.DataMember = "THEODOITHE";
+            // 
+            // tHEODOITHEBindingSource1
+            // 
+            this.tHEODOITHEBindingSource1.DataMember = "THEODOITHE";
+            // 
             // gbDichVu
             // 
             this.gbDichVu.Controls.Add(this.ckbBaoHiem);
@@ -227,7 +289,7 @@
             this.gbDichVu.Controls.Add(this.label8);
             this.gbDichVu.Controls.Add(this.txtDTDD);
             this.gbDichVu.Controls.Add(this.ckbSMS);
-            this.gbDichVu.Location = new System.Drawing.Point(13, 305);
+            this.gbDichVu.Location = new System.Drawing.Point(12, 379);
             this.gbDichVu.Name = "gbDichVu";
             this.gbDichVu.Size = new System.Drawing.Size(309, 99);
             this.gbDichVu.TabIndex = 19;
@@ -308,7 +370,7 @@
             // btnLuu
             // 
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(120, 410);
+            this.btnLuu.Location = new System.Drawing.Point(119, 484);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(88, 28);
             this.btnLuu.TabIndex = 20;
@@ -316,65 +378,44 @@
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // label10
+            // txtUser
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 204);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 13);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "Ngày đăng ký:";
+            this.txtUser.Location = new System.Drawing.Point(163, 201);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(133, 20);
+            this.txtUser.TabIndex = 37;
             // 
-            // label11
+            // label13
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 230);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Ngày nhận thẻ:";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 204);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "User phát hành:";
             // 
-            // label12
+            // txtNoiPhatHanh
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 256);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 13);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Ngày giao thẻ:";
+            this.txtNoiPhatHanh.Location = new System.Drawing.Point(162, 227);
+            this.txtNoiPhatHanh.Multiline = true;
+            this.txtNoiPhatHanh.Name = "txtNoiPhatHanh";
+            this.txtNoiPhatHanh.Size = new System.Drawing.Size(133, 40);
+            this.txtNoiPhatHanh.TabIndex = 39;
             // 
-            // txtNgayDangKy
+            // label14
             // 
-            this.txtNgayDangKy.Location = new System.Drawing.Point(163, 201);
-            this.txtNgayDangKy.Mask = "00/00/0000";
-            this.txtNgayDangKy.Name = "txtNgayDangKy";
-            this.txtNgayDangKy.Size = new System.Drawing.Size(133, 20);
-            this.txtNgayDangKy.TabIndex = 33;
-            this.txtNgayDangKy.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtNgayNhanThe
-            // 
-            this.txtNgayNhanThe.Location = new System.Drawing.Point(163, 227);
-            this.txtNgayNhanThe.Mask = "00/00/0000";
-            this.txtNgayNhanThe.Name = "txtNgayNhanThe";
-            this.txtNgayNhanThe.Size = new System.Drawing.Size(133, 20);
-            this.txtNgayNhanThe.TabIndex = 34;
-            this.txtNgayNhanThe.ValidatingType = typeof(System.DateTime);
-            // 
-            // txtNgayGiaoThe
-            // 
-            this.txtNgayGiaoThe.Location = new System.Drawing.Point(163, 253);
-            this.txtNgayGiaoThe.Mask = "00/00/0000";
-            this.txtNgayGiaoThe.Name = "txtNgayGiaoThe";
-            this.txtNgayGiaoThe.Size = new System.Drawing.Size(133, 20);
-            this.txtNgayGiaoThe.TabIndex = 35;
-            this.txtNgayGiaoThe.ValidatingType = typeof(System.DateTime);
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 240);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 13);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Nơi phát hành:";
             // 
             // frmThongTinThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 448);
+            this.ClientSize = new System.Drawing.Size(333, 521);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.gbDichVu);
             this.Controls.Add(this.gbThongTinThe);
@@ -428,6 +469,10 @@
         private System.Windows.Forms.MaskedTextBox txtNgayGiaoThe;
         private System.Windows.Forms.MaskedTextBox txtNgayNhanThe;
         private System.Windows.Forms.MaskedTextBox txtNgayDangKy;
+        private System.Windows.Forms.TextBox txtNoiPhatHanh;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.Label label13;
 
     }
 }

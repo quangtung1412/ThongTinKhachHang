@@ -6,6 +6,7 @@ using AGRIBANKHD.Entities;
 using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
+using AGRIBANKHD.Utilities;
 
 namespace AGRIBANKHD.DAL
 {
@@ -102,13 +103,13 @@ namespace AGRIBANKHD.DAL
             db.dt("SuaKH", Params);
         }
 
-        public static NguoiDaiDien[] DanhSachNguoiDaiDien(string macn)
+        public static NguoiDaiDien[] DanhSachNguoiDaiDien(string mapb)
         {
             try
             {
                 DataAccess db = new DataAccess();
                 SqlParameter[] Params = new SqlParameter[]{
-                new SqlParameter("@macn", macn)
+                new SqlParameter("@mapb", mapb)
                 };
                 DataTable dt = db.dt("DS_NGUOI_DAI_DIEN", Params);
                 NguoiDaiDien[] dsNguoiDaiDien = new NguoiDaiDien[dt.Rows.Count];
@@ -126,7 +127,7 @@ namespace AGRIBANKHD.DAL
 
         }
 
-        public static void DangKyThe(string soTK, string loaiThe, string hangThe, string hinhThucPhatHanh, string hinhThucNhanThe, string dtdd, int hmgd, int baoHiem)
+        public static void DangKyThe(string soTK, string loaiThe, string hangThe, string hinhThucPhatHanh, string hinhThucNhanThe, string dtdd, int hmgd, int baoHiem, string user, string mapb)
         {
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[]{
@@ -137,7 +138,9 @@ namespace AGRIBANKHD.DAL
                     new SqlParameter("@hinhthucnhanthe", hinhThucNhanThe),
                     new SqlParameter("@dtdd", dtdd),
                     new SqlParameter("@hmgd", hmgd),
-                    new SqlParameter("@baohiem", baoHiem)
+                    new SqlParameter("@baohiem", baoHiem),
+                    new SqlParameter("@userid", user),
+                    new SqlParameter("@mapb", mapb)
                 };
             db.dt("DV_INSERT_THEODOITHE", Params);
         }
@@ -152,5 +155,28 @@ namespace AGRIBANKHD.DAL
             DataTable dt = db.dt("DV_TIMTHE", Params);
             return dt;
         }
+
+
+        public static string LayTenPhongBan(string maPb)
+        {
+            try
+            {
+                DataAccess db = new DataAccess();
+                SqlParameter[] Params = new SqlParameter[]{
+                    new SqlParameter("@mapb", maPb)
+                };
+                DataTable dt = db.dt("DV_LAYTENPHONGBAN", Params);
+                if (dt.Rows.Count > 0)
+                {
+                    return dt.Rows[0]["TENPB"].ToString();
+                }
+                return Thong_tin_dang_nhap.ten_cn;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
     }
 }

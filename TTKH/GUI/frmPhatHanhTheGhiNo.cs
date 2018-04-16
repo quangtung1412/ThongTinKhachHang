@@ -69,7 +69,7 @@ namespace AGRIBANKHD.GUI
 
             //Hop dong
             //Lay thong tin nguoi dai dien
-            dsNguoiDaiDien = DAL.PhatHanhTheGhiNoDAL.DanhSachNguoiDaiDien(Thong_tin_dang_nhap.ma_cn);
+            dsNguoiDaiDien = DAL.PhatHanhTheGhiNoDAL.DanhSachNguoiDaiDien(Thong_tin_dang_nhap.ma_pb);
             
             if (dsNguoiDaiDien != null)
             {
@@ -77,7 +77,7 @@ namespace AGRIBANKHD.GUI
                 for (int i = 0; i < dsNguoiDaiDien.Length; i++)
                 {
                     var temp = dsNguoiDaiDien[0];
-                    if (dsNguoiDaiDien[i].chucVu == "Branch General Manager")
+                    if (dsNguoiDaiDien[i].chucVu == "Giám đốc")
                     {
                         dsNguoiDaiDien[0] = dsNguoiDaiDien[i];
                         dsNguoiDaiDien[i] = temp;
@@ -88,7 +88,8 @@ namespace AGRIBANKHD.GUI
                 {
                     cbNguoiDaiDien_BenA.Items.Add(dsNguoiDaiDien[i].hoTen);
                 }
-                cbNguoiDaiDien_BenA.SelectedIndex = 0;
+                if (cbNguoiDaiDien_BenA.Items.Count > 0)
+                    cbNguoiDaiDien_BenA.SelectedIndex = 0;
             }
 
             //TTKH
@@ -457,9 +458,9 @@ namespace AGRIBANKHD.GUI
         private void cbNguoiDaiDien_BenA_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cbNguoiDaiDien_BenA.SelectedIndex;
-            if (dsNguoiDaiDien[index].chucVu == "Branch General Manager")
-                txtChucVu_BenA.Text = "Giám đốc";
-            else txtChucVu_BenA.Text = "Phó giám đốc";
+            //if (dsNguoiDaiDien[index].chucVu == "Branch General Manager")
+            //    txtChucVu_BenA.Text = "Giám đốc";
+            //else txtChucVu_BenA.Text = "Phó giám đốc";
             txtDienThoai_BenA.Text = dsNguoiDaiDien[index].Sdt;
             txtFax_BenA.Text = dsNguoiDaiDien[index].Fax;
             txtDiaChi_BenA.Text = dsNguoiDaiDien[index].diaChi;
@@ -629,7 +630,7 @@ namespace AGRIBANKHD.GUI
             ttchung_nguon.Add(DateTime.Now.Month.ToString());
             ttchung_nguon.Add(DateTime.Now.Year.ToString());
             ttchung_nguon.Add(DateTime.Now.ToString("dd/MM/yyyy"));
-            ttchung_nguon.Add(Utilities.Thong_tin_dang_nhap.ten_cn);
+            ttchung_nguon.Add(PhatHanhTheGhiNoDAL.LayTenPhongBan(Thong_tin_dang_nhap.ma_pb));
             ttchung_nguon.Add(txtCMT.Text);
             ttchung_nguon.Add(txtHoTen.Text);
             ttchung_nguon.Add(txtTimKiem.Text);
@@ -697,6 +698,9 @@ namespace AGRIBANKHD.GUI
             phat_hanh_moi_dich.Add("<OTP_DTDD>");
             phat_hanh_moi_dich.Add("<OTP_EMAIL>");
             phat_hanh_moi_dich.Add("<BAO_HIEM>");
+            phat_hanh_moi_dich.Add("<DONG_Y>");
+            phat_hanh_moi_dich.Add("<KHONG_DONG_Y>");
+
             for (int i = 0; i < 26; i++) //Ten in the
             {
                 phat_hanh_moi_dich.Add("<" + (i+1) + ">");
@@ -746,6 +750,9 @@ namespace AGRIBANKHD.GUI
             if (ckbBaoHiem_Moi.Checked)
                 phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
             else phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
+
+            phat_hanh_moi_nguon.Add(((char)0x2611).ToString());
+            phat_hanh_moi_nguon.Add(((char)0x2610).ToString());
 
             //Ten in the
             string sTenInThe = CommonMethods.RemoveUnicode(txtHoTen.Text);
@@ -1079,7 +1086,7 @@ namespace AGRIBANKHD.GUI
 
             try //Luu thong tin the noi dia
             {
-                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd, baoHiem);
+                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd, baoHiem,Thong_tin_dang_nhap.ten_dang_nhap, Thong_tin_dang_nhap.ma_pb);
                 return true;
             }
             catch
@@ -1104,7 +1111,7 @@ namespace AGRIBANKHD.GUI
             if (ckbBaoHiem_Moi.Checked) baoHiem = 1;
             try //Luu thong tin the quoc te
             {
-                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd, baoHiem);
+                PhatHanhTheGhiNoDAL.DangKyThe(sotk, loaithe, hangthe, htPhatHanh, htNhanThe, dtdd, hmgd, baoHiem,Thong_tin_dang_nhap.ten_dang_nhap, Thong_tin_dang_nhap.ma_pb);
                 return true;
             }
             catch

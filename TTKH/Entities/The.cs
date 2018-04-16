@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AGRIBANKHD.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace AGRIBANKHD.Entities
         private string _dtdd;
         private int _hmgd;
         private bool _baoHiem;
+        private string _userPhatHanh;
+        private string _maPB;
         private DateTime _ngayDK;
         private DateTime _ngayNhan;
         private DateTime _ngayGiao;
@@ -34,6 +37,8 @@ namespace AGRIBANKHD.Entities
             _dtdd = row["DTDDSMS"].ToString();
             _hmgd = (int)row["HMGD"];
             _baoHiem = (bool)row["BAOHIEM"];
+            _userPhatHanh = row["USERID"].ToString();
+            _maPB = row["MAPB"].ToString();
             if (!string.IsNullOrEmpty(row["NGAYDANGKY"].ToString()))
                 _ngayDK = (DateTime)row["NGAYDANGKY"];
             if (!string.IsNullOrEmpty(row["NGAYNHANTHE"].ToString()))
@@ -100,6 +105,18 @@ namespace AGRIBANKHD.Entities
         {
             get { return _baoHiem; }
             set { _baoHiem = value; }
+        }
+
+        public string userPhatHanh
+        {
+            get { return _userPhatHanh; }
+            set { _userPhatHanh = value; }
+        }
+
+        public string maPB
+        {
+            get { return _maPB; }
+            set { _maPB = value; }
         }
 
         public DateTime ngayDK

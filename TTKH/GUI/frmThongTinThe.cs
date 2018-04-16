@@ -31,6 +31,8 @@ namespace AGRIBANKHD.GUI
                 txtHTPH.Text = the.hinhThucPhatHanh;
                 txtHTNT.Text = the.hinhThucNhanThe;
                 txtDTDD.Text = the.dtdd;
+                txtUser.Text = the.userPhatHanh;
+                txtNoiPhatHanh.Text = DAL.PhatHanhTheGhiNoDAL.LayTenPhongBan(the.maPB);
                 if (the.hmgd != 0)
                     txtHMGD.Text = the.hmgd.ToString();
                 txtNgayDangKy.Text = the.ngayDK.ToString("dd/MM/yyyy");
@@ -75,6 +77,7 @@ namespace AGRIBANKHD.GUI
             catch
             {
                 ErrorMessageDAL.DataAccessError();
+                this.Close();
             }
 
         }
@@ -151,6 +154,7 @@ namespace AGRIBANKHD.GUI
                 try
                 {
                     ThongTinTheDAL.GiaoThe(the);
+                    this.Close();
                 }
                 catch
                 {
@@ -168,6 +172,7 @@ namespace AGRIBANKHD.GUI
                 try
                 {
                     ThongTinTheDAL.NhanThe(the);
+                    this.Close();
                 }
                 catch
                 {

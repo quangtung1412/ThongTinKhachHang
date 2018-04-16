@@ -29,7 +29,7 @@ namespace AGRIBANKHD.DAL
             new SqlParameter("@sotk", the.soTK),
             new SqlParameter("@loaithe", the.loaiThe),
             new SqlParameter("@sothe", the.soThe),
-            new SqlParameter("@ngaynhanthe", the.ngayNhan)
+            new SqlParameter("@ngaynhan", the.ngayNhan)
             };
 
             db.dt("DV_NHANTHE", Params);
