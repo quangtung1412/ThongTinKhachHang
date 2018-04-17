@@ -33,6 +33,10 @@ namespace AGRIBANKHD.GUI
                 txtDTDD.Text = the.dtdd;
                 txtUser.Text = the.userPhatHanh;
                 txtNoiPhatHanh.Text = DAL.PhatHanhTheGhiNoDAL.LayTenPhongBan(the.maPB);
+
+                if (the.maPB != Thong_tin_dang_nhap.ma_pb)
+                    btnLuu.Enabled = false;
+
                 if (the.hmgd != 0)
                     txtHMGD.Text = the.hmgd.ToString();
                 txtNgayDangKy.Text = the.ngayDK.ToString("dd/MM/yyyy");

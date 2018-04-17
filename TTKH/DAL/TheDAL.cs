@@ -84,8 +84,7 @@ namespace AGRIBANKHD.DAL
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[]
             {
-            new SqlParameter("@makh", maKH),
-            new SqlParameter("@mapb", Thong_tin_dang_nhap.ma_pb)
+            new SqlParameter("@makh", maKH)
             };
             DataTable dt = db.dt("DV_THETHEOMAKH", Params);
 
@@ -97,21 +96,30 @@ namespace AGRIBANKHD.DAL
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[]
             {
-            new SqlParameter("@cmnd", cmnd),
-            new SqlParameter("@mapb", Thong_tin_dang_nhap.ma_pb)
+            new SqlParameter("@cmnd", cmnd)
             };
             DataTable dt = db.dt("DV_THETHEOCMND", Params);
 
             return dt;
         }
 
-        public static void DeleteThe(string soThe)
+        public static void XoaThe_TheoSoThe(string soThe)
         {
             DataAccess db = new DataAccess();
             SqlParameter[] Params = new SqlParameter[] { 
             new SqlParameter("@sothe", soThe)
             };
-            db.dt("DV_XOATHE", Params);
+            db.dt("DV_XOATHE_THEOSOTHE", Params);
+        }
+
+        public static void XoaThe_TheoSoTK_LoaiThe(string soTK, string loaiThe)
+        {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[] { 
+            new SqlParameter("@sotk", soTK),
+            new SqlParameter("@loaithe", loaiThe)
+            };
+            db.dt("DV_XOATHE_THEOSOTK_LOAITHE", Params);
         }
     }
 }
