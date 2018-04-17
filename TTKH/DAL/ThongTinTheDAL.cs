@@ -46,5 +46,22 @@ namespace AGRIBANKHD.DAL
 
             db.dt("DV_GIAOTHE", Params);
         }
+
+        public static DataRow LayPhongBan(string maPB) {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[] { 
+            new SqlParameter("@mapb", maPB)
+            };
+            return db.dt("DV_LAYPHONGBAN", Params).Rows[0];
+        }
+
+        public static string LayTenChiNhanh(string maPb)
+        {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[] { 
+            new SqlParameter("@mapb", maPb)
+            };
+            return db.dt("DV_LAYTENCN_THONGTINTHE", Params).Rows[0]["TENCN"].ToString();
+        }
     }
 }

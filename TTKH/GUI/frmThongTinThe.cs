@@ -32,7 +32,12 @@ namespace AGRIBANKHD.GUI
                 txtHTNT.Text = the.hinhThucNhanThe;
                 txtDTDD.Text = the.dtdd;
                 txtUser.Text = the.userPhatHanh;
-                txtNoiPhatHanh.Text = DAL.PhatHanhTheGhiNoDAL.LayTenPhongBan(the.maPB);
+
+                DataRow rPb = ThongTinTheDAL.LayPhongBan(the.maPB);
+                if (!(bool)rPb["HS"])
+                    txtNoiPhatHanh.Text = rPb["TENPB"].ToString();
+                else
+                    txtNoiPhatHanh.Text = ThongTinTheDAL.LayTenChiNhanh(the.maPB);
 
                 if (the.maPB != Thong_tin_dang_nhap.ma_pb)
                     btnLuu.Enabled = false;
