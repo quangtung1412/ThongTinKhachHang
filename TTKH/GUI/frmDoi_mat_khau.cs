@@ -15,7 +15,7 @@ namespace AGRIBANKHD.GUI
 {
     public partial class frmDoi_mat_khau : Form
     {
-        CanbotindungBUS cbbus = new CanbotindungBUS();
+        UserBUS uBUS = new UserBUS();
         public frmDoi_mat_khau()
         {
             InitializeComponent();
@@ -30,22 +30,27 @@ namespace AGRIBANKHD.GUI
 
         private void btnDoi_mat_khau_Click(object sender, EventArgs e)
         {
-            //Kiểm tra mật khẩu mới và xác nhận mật khẩu mới có giống nhau không
-            if (txtMat_khau_moi.Text != txtXac_nhan_mat_khau_moi.Text)
-            {
-                MessageBox.Show("Mật khẩu mới và xác nhận mật khẩu mới không trùng nhau. Đề nghị kiểm tra lại!");
-                return;
-            }
-            if (cbbus.DOI_MAT_KHAU_CBTD(txtTen_dang_nhap.Text, txtMat_khau_moi.Text))
-            {
-                MessageBox.Show("Đổi mật khẩu thành công. Đề nghị đăng nhập lại bằng mật khẩu mới!");
-                //this.Close();
-                Application.Exit();
-            }
-            else
-            {
-                MessageBox.Show("Có lỗi xảy ra trong quá trình đổi mật khẩu");
-            }
+                //kiểm tra mật khẩu mới và xác nhận mật khẩu mới có giống nhau không
+                if (txtMat_khau_moi.Text != txtXac_nhan_mat_khau_moi.Text)
+                {
+                    MessageBox.Show("Mật khẩu mới và xác nhận mật khẩu mới không trùng nhau. Đề nghị kiểm tra lại!");
+                    return;
+                }
+                if (uBUS.DOI_MAT_KHAU(txtTen_dang_nhap.Text, txtMat_khau_moi.Text))
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công. đề nghị đăng nhập lại bằng mật khẩu mới!");
+                    //this.close();
+                    Application.Exit();
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra trong quá trình đổi mật khẩu");
+                }
         }
+
+        //private void btnDoi_mat_khau_Click(object sender, EventArgs e)
+        //{
+        //    
+        //}
     }
 }

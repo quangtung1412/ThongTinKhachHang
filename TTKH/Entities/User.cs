@@ -85,6 +85,11 @@ namespace AGRIBANKHD.Entities
 
         #endregion Instance Properties
 
+
+        public User()
+        {
+
+        }
         public User(DataRow row)
         {
             this._user_id = row["USER_ID"].ToString();

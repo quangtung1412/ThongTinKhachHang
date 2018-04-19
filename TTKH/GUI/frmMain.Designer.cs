@@ -92,7 +92,6 @@
             this.quaToolStripMenuItem.Name = "quaToolStripMenuItem";
             this.quaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quaToolStripMenuItem.Text = "Quản lý NSD";
-            this.quaToolStripMenuItem.Click += new System.EventHandler(this.quaToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
@@ -196,7 +195,6 @@
             this.Thong_tin_kh_vayToolStripMenuItem.Name = "Thong_tin_kh_vayToolStripMenuItem";
             this.Thong_tin_kh_vayToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
             this.Thong_tin_kh_vayToolStripMenuItem.Text = "Khách hàng";
-            this.Thong_tin_kh_vayToolStripMenuItem.Click += new System.EventHandler(this.tuToolStripMenuItem_Click);
             // 
             // hợpĐồngVayToolStripMenuItem
             // 
@@ -204,7 +202,6 @@
             this.hợpĐồngVayToolStripMenuItem.Name = "hợpĐồngVayToolStripMenuItem";
             this.hợpĐồngVayToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
             this.hợpĐồngVayToolStripMenuItem.Text = "Hợp đồng vay";
-            this.hợpĐồngVayToolStripMenuItem.Click += new System.EventHandler(this.hợpĐồngVayToolStripMenuItem_Click);
             // 
             // Tai_san_tcToolStripMenuItem
             // 
@@ -212,7 +209,6 @@
             this.Tai_san_tcToolStripMenuItem.Name = "Tai_san_tcToolStripMenuItem";
             this.Tai_san_tcToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
             this.Tai_san_tcToolStripMenuItem.Text = "Tài sản thế chấp";
-            this.Tai_san_tcToolStripMenuItem.Click += new System.EventHandler(this.longToolStripMenuItem_Click);
             // 
             // taToolStripMenuItem
             // 
@@ -220,7 +216,6 @@
             this.taToolStripMenuItem.Name = "taToolStripMenuItem";
             this.taToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
             this.taToolStripMenuItem.Text = "Tạo hồ sơ vay vốn";
-            this.taToolStripMenuItem.Click += new System.EventHandler(this.taToolStripMenuItem_Click);
             // 
             // testToolStripMenuItem
             // 
@@ -229,7 +224,6 @@
             this.testToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
             this.testToolStripMenuItem.Text = "Nhập thông tin cho RTB";
             this.testToolStripMenuItem.Visible = false;
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem
             // 
@@ -237,7 +231,6 @@
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Name = "giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem";
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
             this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Text = "Giấy nhận nợ - Báo cáo đề xuất giải ngân";
-            this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem.Click += new System.EventHandler(this.giấyNhậnNợĐềXuấtGiảiNgânKhaiBáoThôngInToolStripMenuItem_Click);
             // 
             // frmMain
             // 

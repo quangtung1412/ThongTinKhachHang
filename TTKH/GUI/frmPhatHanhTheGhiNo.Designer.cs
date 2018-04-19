@@ -1098,7 +1098,7 @@
             this.txtDiaChi_BenB.Enabled = false;
             this.txtDiaChi_BenB.Location = new System.Drawing.Point(118, 39);
             this.txtDiaChi_BenB.Name = "txtDiaChi_BenB";
-            this.txtDiaChi_BenB.Size = new System.Drawing.Size(403, 20);
+            this.txtDiaChi_BenB.Size = new System.Drawing.Size(656, 20);
             this.txtDiaChi_BenB.TabIndex = 2;
             // 
             // label25
@@ -1137,7 +1137,7 @@
             this.txtDiaChi_BenA.Enabled = false;
             this.txtDiaChi_BenA.Location = new System.Drawing.Point(118, 65);
             this.txtDiaChi_BenA.Name = "txtDiaChi_BenA";
-            this.txtDiaChi_BenA.Size = new System.Drawing.Size(403, 20);
+            this.txtDiaChi_BenA.Size = new System.Drawing.Size(656, 20);
             this.txtDiaChi_BenA.TabIndex = 17;
             // 
             // label4

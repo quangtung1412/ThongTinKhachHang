@@ -461,6 +461,7 @@ namespace AGRIBANKHD.GUI
             //if (dsNguoiDaiDien[index].chucVu == "Branch General Manager")
             //    txtChucVu_BenA.Text = "Giám đốc";
             //else txtChucVu_BenA.Text = "Phó giám đốc";
+            txtChucVu_BenA.Text = dsNguoiDaiDien[index].chucVu;
             txtDienThoai_BenA.Text = dsNguoiDaiDien[index].Sdt;
             txtFax_BenA.Text = dsNguoiDaiDien[index].Fax;
             txtDiaChi_BenA.Text = dsNguoiDaiDien[index].diaChi;

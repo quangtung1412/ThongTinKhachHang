@@ -111,7 +111,7 @@ namespace AGRIBANKHD.DAL
                 SqlParameter[] Params = new SqlParameter[]{
                 new SqlParameter("@mapb", mapb)
                 };
-                DataTable dt = db.dt("DS_NGUOI_DAI_DIEN", Params);
+                DataTable dt = db.dt("DV_NGUOIDAIDIEN", Params);
                 NguoiDaiDien[] dsNguoiDaiDien = new NguoiDaiDien[dt.Rows.Count];
                 for (int i = 0; i < dsNguoiDaiDien.Length; i++)
                 {
