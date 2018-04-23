@@ -198,4 +198,6 @@ D:\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmQuanLyThe.resou
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmQuanLyThe.resources
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmThongTinThe.resources
 D:\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmThongTinThe.resources
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmTiepQuy.resources
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmKiemQuy.resources
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.csprojResolveAssemblyReference.cache

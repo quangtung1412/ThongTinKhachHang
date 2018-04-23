@@ -97,5 +97,23 @@ namespace AGRIBANKHD.GUI
             frm.Show();
             frm.BringToFront();
         }
+
+        private void kiểmQuỹToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmKiemQuy))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmKiemQuy frm = new frmKiemQuy();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
     }
 }

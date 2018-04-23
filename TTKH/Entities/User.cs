@@ -83,6 +83,14 @@ namespace AGRIBANKHD.Entities
             set { _kichhoat = value; }
         }
 
+        private bool _gioiTinh;
+
+        public bool gioiTinh
+        {
+            get { return _gioiTinh; }
+            set { _gioiTinh = value; }
+        }
+
         #endregion Instance Properties
 
 
