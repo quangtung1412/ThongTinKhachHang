@@ -146,7 +146,6 @@ namespace AGRIBANKHD.Utilities
             bool isValidNumeric = false;
             isValidNumeric = Int64.TryParse(chkNumeric, out intOutVal);
             return isValidNumeric;
-
         }
 
         public static bool KiemTraNhapSo_Int32(string chkNumeric)
@@ -657,6 +656,24 @@ namespace AGRIBANKHD.Utilities
                 text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
             }
             return text;
+        }
+
+        public static string ThemDauPhay(string source)
+        {
+            string goal = source;
+            int index = 0;
+            if (source.Length <= 3)
+                return source;
+            else
+            {
+                for (int i = 0; i < source.Length; i++)
+                    if ((source.Length - i) % 3 == 0 && i != 0)
+                    {
+                        goal = goal.Insert(i + index, ",");
+                        index++;
+                    }
+                return goal;
+            }
         }
     }
 }

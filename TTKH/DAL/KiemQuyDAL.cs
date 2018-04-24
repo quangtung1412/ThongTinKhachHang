@@ -17,5 +17,7 @@ namespace AGRIBANKHD.DAL
             };
             return db.dt("DV_DSNHANVIEN_MACN", Params);
         }
+
+
     }
 }

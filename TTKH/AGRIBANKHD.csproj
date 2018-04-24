@@ -205,18 +205,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Word_template\DV\BIEN_BAN_KIEM_QUY.docx" />
     <None Include="Word_template\DV\GIAY_HEN.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Word_template\DV\HOP_DONG.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Word_template\DV\Mau 49 Giay de nghi tiep quy ATM.docx" />
     <None Include="Word_template\DV\PHAT_HANH_LAI.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Word_template\DV\PHAT_HANH_MOI.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Word_template\DV\QĐ thanh lap to van chuyen tien theo 4106.doc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
