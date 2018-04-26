@@ -68,6 +68,11 @@ namespace AGRIBANKHD.GUI
             }
         }
 
+        void XoaCanBoKiemQuy()
+        {
+
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (cbCanBo.SelectedIndex < 0) return;
@@ -349,6 +354,11 @@ namespace AGRIBANKHD.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            //Luu CSDL
+
+
+
+            //Tao file
             KhoiTaoKiemQuy();
             Thread th = new Thread(TaoFileKiemQuy);
             th.Start();
@@ -390,6 +400,19 @@ namespace AGRIBANKHD.GUI
                 (demB500 + demCC500 + demCL500) * 10
                 );
             txtThuaThieu.Text = Math.Abs(demTong - fimiCETong).ToString();
+        }
+
+        private void txtCanBoKiemQuy_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
         }
 
     

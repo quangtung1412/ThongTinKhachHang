@@ -108,12 +108,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.saveFileKiemQuy = new System.Windows.Forms.SaveFileDialog();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
-            this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
-            this.label26 = new System.Windows.Forms.Label();
             this.cbATMID = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
+            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -132,6 +133,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnXoa);
             this.groupBox1.Controls.Add(this.btnThem);
             this.groupBox1.Controls.Add(this.txtCanBoKiemQuy);
             this.groupBox1.Controls.Add(this.cbCanBo);
@@ -148,7 +150,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(274, 16);
+            this.btnThem.Location = new System.Drawing.Point(262, 16);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 3;
@@ -158,11 +160,13 @@
             // 
             // txtCanBoKiemQuy
             // 
+            this.txtCanBoKiemQuy.Enabled = false;
             this.txtCanBoKiemQuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCanBoKiemQuy.Location = new System.Drawing.Point(116, 44);
             this.txtCanBoKiemQuy.Name = "txtCanBoKiemQuy";
-            this.txtCanBoKiemQuy.Size = new System.Drawing.Size(675, 20);
+            this.txtCanBoKiemQuy.Size = new System.Drawing.Size(594, 20);
             this.txtCanBoKiemQuy.TabIndex = 1;
+            this.txtCanBoKiemQuy.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCanBoKiemQuy_KeyDown);
             // 
             // cbCanBo
             // 
@@ -232,7 +236,7 @@
             // txtNguyenNhan
             // 
             this.txtNguyenNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNguyenNhan.Location = new System.Drawing.Point(156, 47);
+            this.txtNguyenNhan.Location = new System.Drawing.Point(119, 15);
             this.txtNguyenNhan.Multiline = true;
             this.txtNguyenNhan.Name = "txtNguyenNhan";
             this.txtNguyenNhan.Size = new System.Drawing.Size(636, 45);
@@ -925,6 +929,7 @@
             this.groupBox14.Controls.Add(this.dtpTuNgay);
             this.groupBox14.Controls.Add(this.label25);
             this.groupBox14.Controls.Add(this.label24);
+            this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox14.Location = new System.Drawing.Point(13, 13);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(797, 46);
@@ -932,57 +937,74 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Chu kỳ kiểm quỹ";
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(113, 19);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(49, 13);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Từ ngày:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(291, 19);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(56, 13);
-            this.label25.TabIndex = 1;
-            this.label25.Text = "Đến ngày:";
-            // 
-            // dtpTuNgay
-            // 
-            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTuNgay.Location = new System.Drawing.Point(168, 16);
-            this.dtpTuNgay.Name = "dtpTuNgay";
-            this.dtpTuNgay.Size = new System.Drawing.Size(88, 20);
-            this.dtpTuNgay.TabIndex = 0;
-            // 
-            // dtpDenNgay
-            // 
-            this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDenNgay.Location = new System.Drawing.Point(353, 16);
-            this.dtpDenNgay.Name = "dtpDenNgay";
-            this.dtpDenNgay.Size = new System.Drawing.Size(88, 20);
-            this.dtpDenNgay.TabIndex = 2;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(483, 19);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(47, 13);
-            this.label26.TabIndex = 3;
-            this.label26.Text = "ATM ID:";
-            // 
             // cbATMID
             // 
+            this.cbATMID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbATMID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbATMID.FormattingEnabled = true;
             this.cbATMID.Location = new System.Drawing.Point(536, 16);
             this.cbATMID.Name = "cbATMID";
             this.cbATMID.Size = new System.Drawing.Size(140, 21);
             this.cbATMID.TabIndex = 4;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(483, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(47, 13);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "ATM ID:";
+            // 
+            // dtpDenNgay
+            // 
+            this.dtpDenNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDenNgay.Location = new System.Drawing.Point(353, 16);
+            this.dtpDenNgay.Name = "dtpDenNgay";
+            this.dtpDenNgay.Size = new System.Drawing.Size(88, 20);
+            this.dtpDenNgay.TabIndex = 2;
+            // 
+            // dtpTuNgay
+            // 
+            this.dtpTuNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTuNgay.Location = new System.Drawing.Point(168, 16);
+            this.dtpTuNgay.Name = "dtpTuNgay";
+            this.dtpTuNgay.Size = new System.Drawing.Size(88, 20);
+            this.dtpTuNgay.TabIndex = 0;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(291, 19);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(56, 13);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Đến ngày:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(113, 19);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(49, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Từ ngày:";
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Location = new System.Drawing.Point(716, 42);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.TabIndex = 4;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // frmKiemQuy
             // 
@@ -1117,5 +1139,6 @@
         private System.Windows.Forms.DateTimePicker dtpDenNgay;
         private System.Windows.Forms.ComboBox cbATMID;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button btnXoa;
     }
 }
