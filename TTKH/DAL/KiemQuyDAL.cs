@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AGRIBANKHD.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,6 +19,13 @@ namespace AGRIBANKHD.DAL
             return db.dt("DV_DSNHANVIEN_MACN", Params);
         }
 
-
+        public static DataTable DV_ATM_MACN()
+        {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[]{
+                new SqlParameter("@macn", Thong_tin_dang_nhap.ma_cn)
+            };
+            return db.dt("DV_ATM_MACN", Params);
+        }
     }
 }

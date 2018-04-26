@@ -86,9 +86,9 @@
             this.txtFIMIEnd100 = new System.Windows.Forms.TextBox();
             this.txtFIMIEnd50 = new System.Windows.Forms.TextBox();
             this.txtTimeFIMIEnd = new System.Windows.Forms.MaskedTextBox();
-            this.txtFIMIStart500 = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtFIMIStart200 = new System.Windows.Forms.TextBox();
+            this.txtFIMIStart500 = new System.Windows.Forms.TextBox();
             this.txtFIMIStart100 = new System.Windows.Forms.TextBox();
             this.txtFIMIStart50 = new System.Windows.Forms.TextBox();
             this.txtTimeFIMIStart = new System.Windows.Forms.MaskedTextBox();
@@ -107,6 +107,13 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.saveFileKiemQuy = new System.Windows.Forms.SaveFileDialog();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
+            this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
+            this.label26 = new System.Windows.Forms.Label();
+            this.cbATMID = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -120,6 +127,7 @@
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox14.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -130,10 +138,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(13, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(797, 70);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thành phần kiểm quỹ";
             // 
@@ -195,10 +203,10 @@
             this.groupBox2.Controls.Add(this.txtThuaThieu);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 409);
+            this.groupBox2.Location = new System.Drawing.Point(12, 459);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(798, 151);
-            this.groupBox2.TabIndex = 50;
+            this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nguyên nhân sai lệch, cách khắc phục";
             // 
@@ -271,10 +279,10 @@
             // btnLuu
             // 
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(366, 566);
+            this.btnLuu.Location = new System.Drawing.Point(366, 616);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(98, 33);
-            this.btnLuu.TabIndex = 3;
+            this.btnLuu.TabIndex = 100;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -297,10 +305,10 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(344, 89);
+            this.groupBox4.Location = new System.Drawing.Point(344, 141);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(466, 112);
-            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "IPCAS (VND)";
             // 
@@ -443,10 +451,10 @@
             this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 207);
+            this.groupBox5.Location = new System.Drawing.Point(12, 257);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(798, 196);
-            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Số dư trên FIMI và kết quả kiểm đếm thực tế";
             // 
@@ -458,7 +466,7 @@
             this.groupBox9.Location = new System.Drawing.Point(300, 19);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(326, 173);
-            this.groupBox9.TabIndex = 5;
+            this.groupBox9.TabIndex = 6;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Đếm thực tế (Đơn vị: Số tờ)";
             // 
@@ -495,6 +503,7 @@
             this.txtDemLoaiThuHoi500.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiThuHoi500.TabIndex = 35;
             this.txtDemLoaiThuHoi500.Text = "0";
+            this.txtDemLoaiThuHoi500.Leave += new System.EventHandler(this.txtDemLoaiThuHoi500_Leave);
             // 
             // txtDemLoaiThuHoi200
             // 
@@ -635,13 +644,12 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.groupBox8);
-            this.groupBox6.Controls.Add(this.txtFIMIStart500);
             this.groupBox6.Controls.Add(this.groupBox7);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(85, 19);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(207, 173);
-            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "FIMI (Đơn vị: Số tờ)";
             // 
@@ -705,19 +713,10 @@
             this.txtTimeFIMIEnd.TabIndex = 19;
             this.txtTimeFIMIEnd.ValidatingType = typeof(System.DateTime);
             // 
-            // txtFIMIStart500
-            // 
-            this.txtFIMIStart500.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFIMIStart500.Location = new System.Drawing.Point(13, 141);
-            this.txtFIMIStart500.Name = "txtFIMIStart500";
-            this.txtFIMIStart500.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFIMIStart500.Size = new System.Drawing.Size(78, 20);
-            this.txtFIMIStart500.TabIndex = 18;
-            this.txtFIMIStart500.Text = "0";
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.txtFIMIStart200);
+            this.groupBox7.Controls.Add(this.txtFIMIStart500);
             this.groupBox7.Controls.Add(this.txtFIMIStart100);
             this.groupBox7.Controls.Add(this.txtFIMIStart50);
             this.groupBox7.Controls.Add(this.txtTimeFIMIStart);
@@ -737,6 +736,16 @@
             this.txtFIMIStart200.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIStart200.TabIndex = 17;
             this.txtFIMIStart200.Text = "0";
+            // 
+            // txtFIMIStart500
+            // 
+            this.txtFIMIStart500.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFIMIStart500.Location = new System.Drawing.Point(6, 122);
+            this.txtFIMIStart500.Name = "txtFIMIStart500";
+            this.txtFIMIStart500.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtFIMIStart500.Size = new System.Drawing.Size(78, 20);
+            this.txtFIMIStart500.TabIndex = 18;
+            this.txtFIMIStart500.Text = "0";
             // 
             // txtFIMIStart100
             // 
@@ -817,10 +826,10 @@
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 89);
+            this.groupBox3.Location = new System.Drawing.Point(12, 141);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(326, 112);
-            this.groupBox3.TabIndex = 52;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Giao dịch thẻ quốc tế/NAPAS";
             // 
@@ -908,11 +917,79 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Tiền kỳ trước hạch toán kỳ này:";
             // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.cbATMID);
+            this.groupBox14.Controls.Add(this.label26);
+            this.groupBox14.Controls.Add(this.dtpDenNgay);
+            this.groupBox14.Controls.Add(this.dtpTuNgay);
+            this.groupBox14.Controls.Add(this.label25);
+            this.groupBox14.Controls.Add(this.label24);
+            this.groupBox14.Location = new System.Drawing.Point(13, 13);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(797, 46);
+            this.groupBox14.TabIndex = 0;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Chu kỳ kiểm quỹ";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(113, 19);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(49, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Từ ngày:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(291, 19);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(56, 13);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "Đến ngày:";
+            // 
+            // dtpTuNgay
+            // 
+            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTuNgay.Location = new System.Drawing.Point(168, 16);
+            this.dtpTuNgay.Name = "dtpTuNgay";
+            this.dtpTuNgay.Size = new System.Drawing.Size(88, 20);
+            this.dtpTuNgay.TabIndex = 0;
+            // 
+            // dtpDenNgay
+            // 
+            this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDenNgay.Location = new System.Drawing.Point(353, 16);
+            this.dtpDenNgay.Name = "dtpDenNgay";
+            this.dtpDenNgay.Size = new System.Drawing.Size(88, 20);
+            this.dtpDenNgay.TabIndex = 2;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(483, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(47, 13);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "ATM ID:";
+            // 
+            // cbATMID
+            // 
+            this.cbATMID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbATMID.FormattingEnabled = true;
+            this.cbATMID.Location = new System.Drawing.Point(536, 16);
+            this.cbATMID.Name = "cbATMID";
+            this.cbATMID.Size = new System.Drawing.Size(140, 21);
+            this.cbATMID.TabIndex = 4;
+            // 
             // frmKiemQuy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 608);
+            this.ClientSize = new System.Drawing.Size(820, 661);
+            this.Controls.Add(this.groupBox14);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -923,6 +1000,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKiemQuy";
             this.Text = "Lập biên bản kiểm quỹ";
+            this.Load += new System.EventHandler(this.frmKiemQuy_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -940,13 +1018,14 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1031,5 +1110,12 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.SaveFileDialog saveFileKiemQuy;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DateTimePicker dtpTuNgay;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DateTimePicker dtpDenNgay;
+        private System.Windows.Forms.ComboBox cbATMID;
+        private System.Windows.Forms.Label label26;
     }
 }
