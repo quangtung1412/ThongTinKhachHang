@@ -26,6 +26,8 @@ namespace AGRIBANKHD.DAL
         }
 
 
+
+
         // <summary> 
         // Close the connection to the database. 
         // </ Summary> 

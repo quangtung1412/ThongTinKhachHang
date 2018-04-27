@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AGRIBANKHD")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("BUSINESS SUPPORT SOFTWARE")]
+[assembly: AssemblyDescription("PHẦM MỀM HỖ TRỢ NGHIỆP VỤ")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AGRIBANKHD")]
+[assembly: AssemblyCompany("AGRIBANKHD")]
+[assembly: AssemblyProduct("BSS")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

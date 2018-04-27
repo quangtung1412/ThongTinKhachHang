@@ -81,6 +81,7 @@
     <Compile Include="BUS\UserBUS.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DAL\chinhanhDAL.cs" />
+    <Compile Include="DAL\DangNhapDAL.cs" />
     <Compile Include="DAL\DataAccess.cs" />
     <Compile Include="DAL\ErrorMessageDAL.cs" />
     <Compile Include="DAL\KiemQuyDAL.cs" />

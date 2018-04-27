@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKiemQuy));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.txtCanBoKiemQuy = new System.Windows.Forms.TextBox();
             this.cbCanBo = new System.Windows.Forms.ComboBox();
@@ -114,7 +115,6 @@
             this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -146,6 +146,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thành phần kiểm quỹ";
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Location = new System.Drawing.Point(716, 44);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.TabIndex = 4;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -236,7 +247,7 @@
             // txtNguyenNhan
             // 
             this.txtNguyenNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNguyenNhan.Location = new System.Drawing.Point(119, 15);
+            this.txtNguyenNhan.Location = new System.Drawing.Point(156, 47);
             this.txtNguyenNhan.Multiline = true;
             this.txtNguyenNhan.Name = "txtNguyenNhan";
             this.txtNguyenNhan.Size = new System.Drawing.Size(636, 45);
@@ -269,6 +280,8 @@
             this.txtThuaThieu.Name = "txtThuaThieu";
             this.txtThuaThieu.Size = new System.Drawing.Size(100, 20);
             this.txtThuaThieu.TabIndex = 36;
+            this.txtThuaThieu.Text = "0";
+            this.txtThuaThieu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label10
             // 
@@ -318,29 +331,38 @@
             // 
             // txtTimeIPCAS3
             // 
+            this.txtTimeIPCAS3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeIPCAS3.Location = new System.Drawing.Point(173, 83);
             this.txtTimeIPCAS3.Mask = "00:00";
             this.txtTimeIPCAS3.Name = "txtTimeIPCAS3";
             this.txtTimeIPCAS3.Size = new System.Drawing.Size(43, 20);
             this.txtTimeIPCAS3.TabIndex = 11;
+            this.txtTimeIPCAS3.Text = "1200";
+            this.txtTimeIPCAS3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTimeIPCAS3.ValidatingType = typeof(System.DateTime);
             // 
             // txtTimeIPCAS2
             // 
+            this.txtTimeIPCAS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeIPCAS2.Location = new System.Drawing.Point(173, 57);
             this.txtTimeIPCAS2.Mask = "00:00";
             this.txtTimeIPCAS2.Name = "txtTimeIPCAS2";
             this.txtTimeIPCAS2.Size = new System.Drawing.Size(43, 20);
             this.txtTimeIPCAS2.TabIndex = 8;
+            this.txtTimeIPCAS2.Text = "1200";
+            this.txtTimeIPCAS2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTimeIPCAS2.ValidatingType = typeof(System.DateTime);
             // 
             // txtTimeIPCAS1
             // 
+            this.txtTimeIPCAS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimeIPCAS1.Location = new System.Drawing.Point(173, 31);
             this.txtTimeIPCAS1.Mask = "00:00";
             this.txtTimeIPCAS1.Name = "txtTimeIPCAS1";
             this.txtTimeIPCAS1.Size = new System.Drawing.Size(43, 20);
             this.txtTimeIPCAS1.TabIndex = 5;
+            this.txtTimeIPCAS1.Text = "1200";
+            this.txtTimeIPCAS1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTimeIPCAS1.ValidatingType = typeof(System.DateTime);
             // 
             // label8
@@ -401,6 +423,8 @@
             this.txtSoDuIPCAS3.Name = "txtSoDuIPCAS3";
             this.txtSoDuIPCAS3.Size = new System.Drawing.Size(75, 20);
             this.txtSoDuIPCAS3.TabIndex = 12;
+            this.txtSoDuIPCAS3.Text = "0";
+            this.txtSoDuIPCAS3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtSoDuIPCAS2
             // 
@@ -409,6 +433,8 @@
             this.txtSoDuIPCAS2.Name = "txtSoDuIPCAS2";
             this.txtSoDuIPCAS2.Size = new System.Drawing.Size(75, 20);
             this.txtSoDuIPCAS2.TabIndex = 9;
+            this.txtSoDuIPCAS2.Text = "0";
+            this.txtSoDuIPCAS2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -426,6 +452,8 @@
             this.txtSoDuIPCAS1.Name = "txtSoDuIPCAS1";
             this.txtSoDuIPCAS1.Size = new System.Drawing.Size(75, 20);
             this.txtSoDuIPCAS1.TabIndex = 6;
+            this.txtSoDuIPCAS1.Text = "0";
+            this.txtSoDuIPCAS1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -715,6 +743,8 @@
             this.txtTimeFIMIEnd.Name = "txtTimeFIMIEnd";
             this.txtTimeFIMIEnd.Size = new System.Drawing.Size(32, 20);
             this.txtTimeFIMIEnd.TabIndex = 19;
+            this.txtTimeFIMIEnd.Text = "1200";
+            this.txtTimeFIMIEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTimeFIMIEnd.ValidatingType = typeof(System.DateTime);
             // 
             // groupBox7
@@ -776,6 +806,8 @@
             this.txtTimeFIMIStart.Name = "txtTimeFIMIStart";
             this.txtTimeFIMIStart.Size = new System.Drawing.Size(32, 20);
             this.txtTimeFIMIStart.TabIndex = 14;
+            this.txtTimeFIMIStart.Text = "1200";
+            this.txtTimeFIMIStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTimeFIMIStart.ValidatingType = typeof(System.DateTime);
             // 
             // label22
@@ -874,6 +906,8 @@
             this.txtNAPAS3.Name = "txtNAPAS3";
             this.txtNAPAS3.Size = new System.Drawing.Size(117, 20);
             this.txtNAPAS3.TabIndex = 4;
+            this.txtNAPAS3.Text = "0";
+            this.txtNAPAS3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtNAPAS2
             // 
@@ -882,6 +916,8 @@
             this.txtNAPAS2.Name = "txtNAPAS2";
             this.txtNAPAS2.Size = new System.Drawing.Size(117, 20);
             this.txtNAPAS2.TabIndex = 3;
+            this.txtNAPAS2.Text = "0";
+            this.txtNAPAS2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtNAPAS1
             // 
@@ -890,6 +926,8 @@
             this.txtNAPAS1.Name = "txtNAPAS1";
             this.txtNAPAS1.Size = new System.Drawing.Size(117, 20);
             this.txtNAPAS1.TabIndex = 2;
+            this.txtNAPAS1.Text = "0";
+            this.txtNAPAS1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label17
             // 
@@ -994,17 +1032,6 @@
             this.label24.Size = new System.Drawing.Size(49, 13);
             this.label24.TabIndex = 0;
             this.label24.Text = "Từ ngày:";
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(716, 42);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 4;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // frmKiemQuy
             // 

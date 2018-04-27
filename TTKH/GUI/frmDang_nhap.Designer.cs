@@ -153,6 +153,7 @@
             this.Name = "frmDang_nhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm hỗ trợ nghiệp vụ 1.2.3 - Agribank tỉnh Hải Dương - Đăng nhập";
+            this.Shown += new System.EventHandler(this.frmDang_nhap_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxTru_so_Agribank_HD)).EndInit();

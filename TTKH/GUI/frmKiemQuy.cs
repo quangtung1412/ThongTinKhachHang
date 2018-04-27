@@ -10,6 +10,7 @@ using AGRIBANKHD.Entities;
 using AGRIBANKHD.DAL;
 using AGRIBANKHD.Utilities;
 using System.Threading;
+using System.Globalization;
 namespace AGRIBANKHD.GUI
 {
     public partial class frmKiemQuy : Form
@@ -19,11 +20,18 @@ namespace AGRIBANKHD.GUI
         List<User> users, usersKiemQuy;
         List<string> listNguon, listDich;
 
-        int fimiCE50, fimiCE100, fimiCE200, fimiCE500, fimiCETong,
+        DateTime tuNgay, denNgay, timeTCO, timeCO, timeCI, timeSC, timeCE;
+
+        string tpKiemQuy = "";
+
+        int qtTienTHT, qtMonCHT, qtTienCHT,
+            soDuTCO, soDuCO, soDuCI,
+            fimiSC50, fimiSC100, fimiSC200, fimiSC500,
+            fimiCE50, fimiCE100, fimiCE200, fimiCE500, fimiCETong,
             demB50, demB100, demB200, demB500,
             demCC50, demCC100, demCC200, demCC500,
             demCL50, demCL100, demCL200, demCL500,
-            demTong;
+            demTong, thuaThieu;
 
         public frmKiemQuy()
         {
@@ -80,6 +88,7 @@ namespace AGRIBANKHD.GUI
                 if (c == users[cbCanBo.SelectedIndex]) return;
             usersKiemQuy.Add(users[cbCanBo.SelectedIndex]);
             txtCanBoKiemQuy.Text += users[cbCanBo.SelectedIndex].tennv + "; ";
+            tpKiemQuy += users[cbCanBo.SelectedIndex].manv + ",";
         }
 
 
@@ -101,8 +110,10 @@ namespace AGRIBANKHD.GUI
 
             listDich.Add("<TU_NGAY>");
             listNguon.Add(dtpTuNgay.Value.ToString("dd/MM/yyyy"));
+            tuNgay = dtpTuNgay.Value;
             listDich.Add("<DEN_NGAY>");
             listNguon.Add(dtpDenNgay.Value.ToString("dd/MM/yyyy"));
+            denNgay = dtpDenNgay.Value;
 
             listDich.Add("<ATM_ID>");
             listNguon.Add(cbATMID.SelectedItem.ToString());
@@ -115,8 +126,16 @@ namespace AGRIBANKHD.GUI
                 //string gt = "Bà: ";
                 //if (c.gioiTinh)
                 //    gt = "Ông: ";
-                hoTen += "- " + c.tennv + "\n";
-                chucVu += "- " + c.chucvu + "\n";
+                if (c == usersKiemQuy[usersKiemQuy.Count - 1])
+                {
+                    hoTen += "- " + c.tennv;
+                    chucVu += "- " + c.chucvu;
+                }
+                else
+                {
+                    hoTen += "- " + c.tennv + "\n";
+                    chucVu += "- " + c.chucvu + "\n";
+                }
             }
 
             listDich.Add("<HO_TEN>");
@@ -126,24 +145,33 @@ namespace AGRIBANKHD.GUI
 
             //GD Quoc te/NAPAS
             listDich.Add("<TIEN_GDTQT_THT>");
+            qtTienTHT = Convert.ToInt32(txtNAPAS1.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtNAPAS1.Text));
             listDich.Add("<MON_GDTQT_CHT>");
+            qtMonCHT = Convert.ToInt32(txtNAPAS2.Text);
             listNguon.Add(txtNAPAS2.Text);
-            listDich.Add("<TIEN_GQTQT_CHT>");
+            listDich.Add("<TIEN_GDTQT_CHT>");
+            qtTienCHT = Convert.ToInt32(txtNAPAS3.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtNAPAS3.Text));
 
             //IPCAS
             listDich.Add("<T_CO>");
+            timeTCO = DateTime.ParseExact(txtTimeIPCAS1.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeIPCAS1.Text);
             listDich.Add("<CO>");
+            timeCO = DateTime.ParseExact(txtTimeIPCAS2.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeIPCAS2.Text);
             listDich.Add("<CI>");
+            timeCI = DateTime.ParseExact(txtTimeIPCAS3.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeIPCAS3.Text);
             listDich.Add("<DU_T_CO>");
+            soDuTCO = Convert.ToInt32(txtSoDuIPCAS1.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtSoDuIPCAS1.Text));
             listDich.Add("<DU_CO>");
+            soDuCO = Convert.ToInt32(txtSoDuIPCAS2.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtSoDuIPCAS2.Text));
             listDich.Add("<DU_CI>");
+            soDuCI = Convert.ToInt32(txtSoDuIPCAS3.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtSoDuIPCAS3.Text));
             listDich.Add("<GC1>");
             listNguon.Add(txtGhiChuIPCAS1.Text);
@@ -156,14 +184,19 @@ namespace AGRIBANKHD.GUI
 
             //STARTING CASH
             listDich.Add("<TIME_SC>"); //TIME
+            timeSC = DateTime.ParseExact(txtTimeFIMIStart.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeFIMIStart.Text);
             listDich.Add("<FIMI_SC50>"); //SO TO
+            fimiSC50 = Convert.ToInt32(txtFIMIStart50.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIStart50.Text));
             listDich.Add("<FIMI_SC100>");
+            fimiSC100 = Convert.ToInt32(txtFIMIStart100.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIStart100.Text));
             listDich.Add("<FIMI_SC200>");
+            fimiSC200 = Convert.ToInt32(txtFIMIStart200.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIStart200.Text));
             listDich.Add("<FIMI_SC500>");
+            fimiSC500 = Convert.ToInt32(txtFIMIStart500.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIStart500.Text));
             listDich.Add("<FIMI_SC_TONG>");
             listNguon.Add(CommonMethods.ThemDauPhay(
@@ -193,14 +226,19 @@ namespace AGRIBANKHD.GUI
 
             //CASH END
             listDich.Add("<TIME_CE>"); //TIME
+            timeCE = DateTime.ParseExact(txtTimeFIMIEnd.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeFIMIEnd.Text);
             listDich.Add("<FIMI_CE50>");//SO TO
+            fimiCE50 = Convert.ToInt32(txtFIMIEnd50.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIEnd50.Text));
             listDich.Add("<FIMI_CE100>");
+            fimiCE100 = Convert.ToInt32(txtFIMIEnd100.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIEnd100.Text));
             listDich.Add("<FIMI_CE200>");
+            fimiCE200 = Convert.ToInt32(txtFIMIEnd200.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIEnd200.Text));
             listDich.Add("<FIMI_CE500>");
+            fimiCE500 = Convert.ToInt32(txtFIMIEnd500.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtFIMIEnd500.Text));
             listDich.Add("<FIMI_CE_TONG>");
             listNguon.Add(CommonMethods.ThemDauPhay(
@@ -231,12 +269,16 @@ namespace AGRIBANKHD.GUI
 
             //HOP TIEN CHINH
             listDich.Add("<B50>");
+            demB50 = Convert.ToInt32(txtDemChinh50.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemChinh50.Text));
             listDich.Add("<B100>");
+            demB100 = Convert.ToInt32(txtDemChinh100.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemChinh100.Text));
             listDich.Add("<B200>");
+            demB200 = Convert.ToInt32(txtDemChinh200.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemChinh200.Text));
             listDich.Add("<B500>");
+            demB500 = Convert.ToInt32(txtDemChinh500.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemChinh500.Text));
             listDich.Add("<BTONG>");
             listNguon.Add(CommonMethods.ThemDauPhay((
@@ -248,12 +290,16 @@ namespace AGRIBANKHD.GUI
 
             //HOP TIEN LOAI
             listDich.Add("<C_NC50>"); //NGAN CHINH
+            demCC50 = Convert.ToInt32(txtDemLoaiChinh50.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiChinh50.Text));
             listDich.Add("<C_NC100>");
+            demCC100 = Convert.ToInt32(txtDemLoaiChinh100.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiChinh100.Text));
             listDich.Add("<C_NC200>");
+            demCC200 = Convert.ToInt32(txtDemLoaiChinh200.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiChinh200.Text));
             listDich.Add("<C_NC500>");
+            demCC500 = Convert.ToInt32(txtDemLoaiChinh500.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiChinh500.Text));
             listDich.Add("<C_NCTONG>");
             listNguon.Add(CommonMethods.ThemDauPhay((
@@ -264,12 +310,16 @@ namespace AGRIBANKHD.GUI
                ));
 
             listDich.Add("<C_TH50>");//NGAN THU HOI
+            demCL50 = Convert.ToInt32(txtDemLoaiThuHoi50.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiThuHoi50.Text));
             listDich.Add("<C_TH100>");
+            demCL100 = Convert.ToInt32(txtDemLoaiThuHoi100.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiThuHoi100.Text));
             listDich.Add("<C_TH200>");
+            demCL200 = Convert.ToInt32(txtDemLoaiThuHoi200.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiThuHoi200.Text));
             listDich.Add("<C_TH500>");
+            demCL500 = Convert.ToInt32(txtDemLoaiThuHoi500.Text);
             listNguon.Add(CommonMethods.ThemDauPhay(txtDemLoaiThuHoi500.Text));
             listDich.Add("<C_THTONG>");
             listNguon.Add(CommonMethods.ThemDauPhay((
@@ -316,9 +366,9 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(CommonMethods.ChuyenSoSangChu(tong.ToString()));
 
             //KET LUAN
-            int tienThuaThieu = Math.Abs(tong - cashEnd);
+            thuaThieu = Math.Abs(tong - cashEnd);
             listDich.Add("<TIEN_THUA_THIEU>");
-            listNguon.Add(CommonMethods.ThemDauPhay(tienThuaThieu.ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay(thuaThieu.ToString()));
             listDich.Add("<NGUYEN_NHAN>");
             listNguon.Add(txtNguyenNhan.Text);
             listDich.Add("<HUONG_XL>");
@@ -355,11 +405,59 @@ namespace AGRIBANKHD.GUI
         private void btnLuu_Click(object sender, EventArgs e)
         {
             //Luu CSDL
-
-
-
-            //Tao file
             KhoiTaoKiemQuy();
+            try
+            {
+                KiemQuyDAL.DV_INSERT_KIEMQUY(
+                    tuNgay,
+                    denNgay,
+                    cbATMID.SelectedItem.ToString(),
+                    tpKiemQuy,
+                    qtTienTHT,
+                    qtMonCHT,
+                    qtTienCHT,
+                    timeTCO,
+                    timeCO,
+                    timeCI,
+                    soDuTCO,
+                    soDuCO,
+                    soDuCI,
+                    txtGhiChuIPCAS1.Text,
+                    txtGhiChuIPCAS2.Text,
+                    txtGhiChuIPCAS3.Text,
+                    timeSC,
+                    timeCE,
+                    fimiSC50,
+                    fimiSC100,
+                    fimiSC200,
+                    fimiSC500,
+                    fimiCE50,
+                    fimiCE100,
+                    fimiCE200,
+                    fimiCE500,
+                    demB50,
+                    demB100,
+                    demB200,
+                    demB500,
+                    demCC50,
+                    demCC100,
+                    demCC200,
+                    demCC500,
+                    demCL50,
+                    demCL100,
+                    demCL200,
+                    demCL500,
+                    thuaThieu,
+                    txtNguyenNhan.Text,
+                    txtKhacPhuc.Text
+                    );
+            }
+            catch
+            {
+                ErrorMessageDAL.DataAccessError();
+                return;
+            }
+            //Tao file
             Thread th = new Thread(TaoFileKiemQuy);
             th.Start();
         }
@@ -412,7 +510,9 @@ namespace AGRIBANKHD.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            txtCanBoKiemQuy.Text = "";
+            usersKiemQuy.Clear();
+            tpKiemQuy = "";
         }
 
     
