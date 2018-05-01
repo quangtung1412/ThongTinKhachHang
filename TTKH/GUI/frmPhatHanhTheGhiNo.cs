@@ -631,7 +631,10 @@ namespace AGRIBANKHD.GUI
             ttchung_nguon.Add(DateTime.Now.Month.ToString());
             ttchung_nguon.Add(DateTime.Now.Year.ToString());
             ttchung_nguon.Add(DateTime.Now.ToString("dd/MM/yyyy"));
-            ttchung_nguon.Add(PhatHanhTheGhiNoDAL.LayTenPhongBan(Thong_tin_dang_nhap.ma_pb));
+            if (Thong_tin_dang_nhap.hs)
+                ttchung_nguon.Add(Thong_tin_dang_nhap.ten_cn);
+            else
+                ttchung_nguon.Add(Thong_tin_dang_nhap.tenPb);
             ttchung_nguon.Add(txtCMT.Text);
             ttchung_nguon.Add(txtHoTen.Text);
             ttchung_nguon.Add(txtTimKiem.Text);

@@ -13,11 +13,14 @@ namespace AGRIBANKHD.Utilities
         public static string ten_dang_nhap;
         public static string mat_khau;
         public static string ho_ten;
+        public static string maNV;
         public static string chuc_vu;
         public static bool admin;
         public static string dia_chi_cn;
         public static string mst_cn;
         public static string ma_pb;
+        public static string tenPb;
+        public static bool hs;
         //public static string chuc_vu;
     }
 }

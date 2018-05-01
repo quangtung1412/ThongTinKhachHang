@@ -156,27 +156,5 @@ namespace AGRIBANKHD.DAL
             return dt;
         }
 
-
-        public static string LayTenPhongBan(string maPb)
-        {
-            try
-            {
-                DataAccess db = new DataAccess();
-                SqlParameter[] Params = new SqlParameter[]{
-                    new SqlParameter("@mapb", maPb)
-                };
-                DataTable dt = db.dt("DV_LAYTENPHONGBAN", Params);
-                if (dt.Rows.Count > 0)
-                {
-                    return dt.Rows[0]["TENPB"].ToString();
-                }
-                return Thong_tin_dang_nhap.ten_cn;
-            }
-            catch
-            {
-                return "";
-            }
-        }
-
     }
 }

@@ -391,8 +391,7 @@ namespace AGRIBANKHD.GUI
             {
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileLocation, "Tạo file thành công");
                 Thread.Sleep(500);
-                OpenFileWord(saveFileKiemQuy.FileName);
-
+                OpenFileWord(saveFileLocation);
             }
         }
         void OpenFileWord(string fileLocation)

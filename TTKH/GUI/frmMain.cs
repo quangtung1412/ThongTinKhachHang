@@ -33,7 +33,7 @@ namespace AGRIBANKHD.GUI
             {
                 testToolStripMenuItem.Visible = false;
             }
-
+            Text = "PHẦN MỀM HỖ TRỢ NGHIỆP VỤ - v" + Application.ProductVersion + " - AGRIBANKHD - MAIN";
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,5 +115,115 @@ namespace AGRIBANKHD.GUI
             frm.Show();
             frm.BringToFront();
         }
+
+        private void tiếpQuỹToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmTiepQuy))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmTiepQuy frm = new frmTiepQuy();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
+
+        private void mẫu01ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmPhatHanhTheGhiNo))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmPhatHanhTheGhiNo frm = new frmPhatHanhTheGhiNo();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
+
+        private void mẫu08THEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmThanhLapToVanChuyen))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmThanhLapToVanChuyen frm = new frmThanhLapToVanChuyen();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
+
+        private void mẫu49THEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmTiepQuy))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmTiepQuy frm = new frmTiepQuy();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
+
+        private void mẫuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmKiemQuy))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmKiemQuy frm = new frmKiemQuy();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
+
+        private void quảnLýThẻToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            bool isAlive = false;
+            foreach (var c in this.MdiChildren)
+            {
+                if (c.GetType() == typeof(frmQuanLyThe))
+                {
+                    isAlive = true;
+                    break;
+                }
+            }
+            if (isAlive) return;
+            frmQuanLyThe frm = new frmQuanLyThe();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+        }
+
+
     }
 }

@@ -173,8 +173,11 @@ namespace AGRIBANKHD.GUI
                 Thong_tin_dang_nhap.dia_chi_cn = cn.dia_chi;
                 Thong_tin_dang_nhap.ten_cn_day_du = cn.ten_cn_day_du;
                 Thong_tin_dang_nhap.ho_ten = userDt.Rows[0]["TENNV"].ToString();
+                Thong_tin_dang_nhap.maNV = userDt.Rows[0]["MANV"].ToString();
                 Thong_tin_dang_nhap.chuc_vu = userDt.Rows[0]["CHUCVU"].ToString();
                 Thong_tin_dang_nhap.ma_pb = userDt.Rows[0]["MAPB"].ToString();
+                Thong_tin_dang_nhap.tenPb = userDt.Rows[0]["TENPB"].ToString();
+                Thong_tin_dang_nhap.hs = Convert.ToBoolean(userDt.Rows[0]["HS"].ToString());
                 this.DialogResult = DialogResult.OK;
                 this.Dispose();           
             }
