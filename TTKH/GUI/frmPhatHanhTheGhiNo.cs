@@ -150,7 +150,7 @@ namespace AGRIBANKHD.GUI
             //Thong tin chung
             txtNgayCap.Text = kh.ngay_cap.ToString("dd/MM/yyyy");
             txtCMT.Text = kh.cmt;
-            txtNoiCap.Text = kh.noi_cap;
+            txtNoiCap.Text = PhatHanhTheGhiNoDAL.DV_GET_NOICAPCMND(kh.noi_cap);
             txtMaKH.Text = kh.ma_KH;
             txtHoTen.Text = kh.ho_ten;
             txtNgaySinh.Text = kh.ngay_sinh.ToString("dd/MM/yyyy");
@@ -190,9 +190,10 @@ namespace AGRIBANKHD.GUI
                     cbSoTK.SelectedIndex = 0;
                 }
                 else
-                    MessageBox.Show("Khách hàng chưa có số tài khoản!\nLiên hệ bộ phận Kế toán để có thêm thông tin!", "Thông báo", MessageBoxButtons.OK);
-                if (cbSoTK.Items.Count > 1)
-                    cbSoTK.Enabled = true;
+                {
+                    MessageBox.Show("Khách hàng chưa có số tài khoản!\nHãy điền vào số tài khoản!", "Thông báo", MessageBoxButtons.OK);
+                    cbSoTK.Focus();
+                }
             }
             catch {
                 DAL.ErrorMessageDAL.DataAccessError();
@@ -510,10 +511,23 @@ namespace AGRIBANKHD.GUI
             }
         }
 
+        void LuuSoTK()
+        {
+            try
+            {
+                PhatHanhTheGhiNoDAL.DV_UPDATE_SOTK(txtMaKH.Text, cbSoTK.Text);
+            }
+            catch
+            {
+                ErrorMessageDAL.DataAccessError();
+            }
+        }
+
         //Luu ho so
         private void btnLuuHoSo_Click(object sender, EventArgs e)
         {
             KhoiTaoTTChung();
+            LuuSoTK();
             //Phat hanh moi the ghi no
             switch (tCtrDichVu.SelectedIndex)
             {
@@ -1165,5 +1179,216 @@ namespace AGRIBANKHD.GUI
                     return s;
             }
         }
+
+        private void btnLayTTKH_Click(object sender, EventArgs e)
+        {
+            if (openFileTTKH.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string fileName = openFileTTKH.FileName;
+                DataTable dt = CommonMethods.read_excel(fileName);
+                if (dt.Rows.Count == 0 || dt == null)
+                {
+                    MessageBox.Show("File không có dữ liệu");
+                    return;
+                }
+                if (dt.Rows[0][7].ToString() == "Cá nhân")
+                {
+                    layTTKH(dt);
+                }
+                txtTimKiem.Focus();
+            }
+        }
+
+        private void layTTKH(System.Data.DataTable dt_temp)
+        {
+            System.Data.DataTable dt_temp2 = new System.Data.DataTable();
+            dt_temp2.Columns.AddRange
+            (
+                new DataColumn[39] 
+                { 
+                    new DataColumn("MAKH", typeof(string)),
+                    new DataColumn("HOTEN", typeof(string)),
+                    new DataColumn("DIACHI1", typeof(string)),
+                    new DataColumn("DIACHI2", typeof(string)),
+                    new DataColumn("DIENTHOAI1", typeof(string)),
+                    new DataColumn("DIENTHOAI2", typeof(string)),
+                    new DataColumn("EMAIL", typeof(string)),
+                    new DataColumn("CMND", typeof(string)),
+                    new DataColumn("NGAYCAP", typeof(string)),
+                    new DataColumn("NOICAP", typeof(string)),
+                    new DataColumn("NGAYSINH", typeof(string)),
+                    new DataColumn("GIOITINH", typeof(bool)),
+                    new DataColumn("LINHVUC", typeof(string)),
+                    new DataColumn("WEBSITE", typeof(string)),
+                    new DataColumn("GPDK", typeof(string)),
+                    new DataColumn("QDTL", typeof(string)),
+                    new DataColumn("MST", typeof(string)),
+                    new DataColumn("LOAIKH", typeof(int)),
+                    new DataColumn("THUNHAP", typeof(decimal)),
+                    new DataColumn("SOTHICH", typeof(string)),
+                    new DataColumn("MANV", typeof(string)),
+                    new DataColumn("NHGIAODICH", typeof(string)),
+                    new DataColumn("GHICHU", typeof(string)),
+                    new DataColumn("MACN", typeof(string)),
+                    new DataColumn("TINHTRANG", typeof(bool)),
+                    new DataColumn("CTLOAIKH", typeof(string)),
+                    new DataColumn("TINH", typeof(string)),
+                    new DataColumn("HUYEN", typeof(string)),
+                    new DataColumn("XA", typeof(string)),
+                    new DataColumn("LOAIKH_IPCAS", typeof(string)),
+                    new DataColumn("NGAYKETHON", typeof(string)),
+                    new DataColumn("NGAYTHANHLAP", typeof(string)),
+                    new DataColumn("NGAYTAO", typeof(string)),
+                    new DataColumn("DOITUONGKH", typeof(string)),
+                    new DataColumn("DOITUONGDN", typeof(string)),
+                    new DataColumn("VONDAUTU", typeof(decimal)),
+                    new DataColumn("SOLAODONG", typeof(decimal)),
+                    new DataColumn("DSXNK", typeof(decimal)),
+                    new DataColumn("NGAYTLNGANH", typeof(string))
+                }
+            );
+            DataRow dr;
+
+            //Định dạng ngày tháng theo dạng en-US cho hàm convert.todatetie
+            IFormatProvider culture = new System.Globalization.CultureInfo("en-US", true);
+
+            for (int i = 0; i < dt_temp.Rows.Count; i++)
+            {
+                try
+                {
+                    if (dt_temp.Rows[i][0].ToString() != null && dt_temp.Rows[i][0].ToString().Substring(0, 4) == Thong_tin_dang_nhap.ma_cn)
+                    {
+
+                        String ngaycap, ngaysinh, didong;
+                        String hoten = dt_temp.Rows[i][4].ToString().Replace(",", "-").Replace("'", "-");
+                        String diachi1 = dt_temp.Rows[i][22].ToString().Replace(",", "-").Replace("'", "-");
+                        String diachi2 = dt_temp.Rows[i][23].ToString().Replace(",", "-").Replace("'", "-");
+                        didong = dt_temp.Rows[i][9].ToString();
+                        ngaysinh = dt_temp.Rows[i][12].ToString().Trim();
+                        if (ngaysinh != "")
+                        {
+                            //định dạng mm/dd/yyy
+                            ngaysinh = ngaysinh.Substring(4, 2) + "/" + ngaysinh.Substring(6, 2) + "/" + ngaysinh.Substring(0, 4);
+                        }
+                        else
+                        {
+                            //định dạng mm/dd/yyy
+                            ngaysinh = "01/01/1900";
+                        }
+                        String gt = dt_temp.Rows[i][10].ToString();
+                        Int16 gioitinh;
+                        if (gt == "Nam" || gt == "Male" || gt == "nam")
+                        {
+                            gioitinh = 1;
+                        }
+                        else
+                        {
+                            gioitinh = 0;
+                        }
+                        Int16 loaikh = 1;
+                        String ngaytao = DateTime.Now.ToString("MM") + "/" + DateTime.Now.ToString("dd") + "/" + DateTime.Now.ToString("yyyy");
+
+                        dr = dt_temp2.NewRow();
+                        dr["MAKH"] = dt_temp.Rows[i][0].ToString();
+                        dr["HOTEN"] = hoten;
+                        dr["DIACHI1"] = diachi1;
+                        dr["DIACHI2"] = diachi2;
+                        dr["DIENTHOAI1"] = didong;
+                        dr["DIENTHOAI2"] = "";
+                        dr["EMAIL"] = "";
+                        if (dt_temp.Rows[i][14].ToString() != "")
+                        {
+                            //Khách hàng sử dụng chứng minh nhân dân
+                            dr["CMND"] = dt_temp.Rows[i][14].ToString();
+                            ngaycap = dt_temp.Rows[i][34].ToString().Trim();
+                            if (ngaycap != "")
+                            {
+                                //định dạng mm/dd/yyy
+                                ngaycap = ngaycap.Substring(4, 2) + "/" + ngaycap.Substring(6, 2) + "/" + ngaycap.Substring(0, 4);
+                            }
+                            else
+                            {
+                                //định dạng mm/dd/yyy
+                                ngaycap = "01/01/1900";
+                            }
+                            dr["NGAYCAP"] = ngaycap;
+                            dr["NOICAP"] = dt_temp.Rows[i][33].ToString();
+                        }
+                        else if (dt_temp.Rows[i][15].ToString() != "")
+                        {
+                            //Khách hàng sử dụng hộ chiếu
+                            dr["CMND"] = dt_temp.Rows[i][15].ToString();
+                            ngaycap = dt_temp.Rows[i][36].ToString().Trim();
+                            if (ngaycap != "")
+                            {
+                                //định dạng mm/dd/yyy
+                                ngaycap = ngaycap.Substring(4, 2) + "/" + ngaycap.Substring(6, 2) + "/" + ngaycap.Substring(0, 4);
+                            }
+                            else
+                            {
+                                //định dạng mm/dd/yyy
+                                ngaycap = "01/01/1900";
+                            }
+                            dr["NGAYCAP"] = ngaycap;
+                            dr["NOICAP"] = dt_temp.Rows[i][35].ToString();
+                        }
+                        else
+                        {
+                            dr["CMND"] = "";
+                            dr["NGAYCAP"] = "01/01/1900";
+                            dr["NOICAP"] = "";
+                        }
+                        //dr["CMND"] = dt_temp.Rows[i][14].ToString();
+                        //dr["NGAYCAP"] = ngaycap;
+                        //dr["NOICAP"] = dt_temp.Rows[i][33].ToString();
+                        dr["NGAYSINH"] = ngaysinh;
+                        dr["GIOITINH"] = Convert.ToBoolean(gioitinh);
+                        dr["LINHVUC"] = "";
+                        dr["WEBSITE"] = "";
+                        dr["GPDK"] = dt_temp.Rows[i][31].ToString();
+                        dr["QDTL"] = dt_temp.Rows[i][30].ToString();
+                        dr["MST"] = dt_temp.Rows[i][45].ToString();
+                        dr["LOAIKH"] = loaikh;
+                        dr["THUNHAP"] = 0;
+                        dr["SOTHICH"] = "";
+                        dr["MANV"] = "";
+                        dr["NHGIAODICH"] = "";
+                        dr["GHICHU"] = "";
+                        dr["MACN"] = dt_temp.Rows[i][0].ToString().Substring(0, 4);
+                        dr["TINHTRANG"] = true;
+                        dr["CTLOAIKH"] = dt_temp.Rows[i][8].ToString();
+                        dr["TINH"] = dt_temp.Rows[i][46].ToString();
+                        dr["HUYEN"] = dt_temp.Rows[i][47].ToString();
+                        dr["XA"] = dt_temp.Rows[i][48].ToString();
+                        dr["LOAIKH_IPCAS"] = dt_temp.Rows[i][7].ToString(); // "Cá nhân"
+                        dr["NGAYKETHON"] = "01/01/1900";
+                        dr["NGAYTHANHLAP"] = "01/01/1900";
+                        dr["NGAYTAO"] = ngaytao;
+                        dr["DOITUONGKH"] = "14";
+                        dr["DOITUONGDN"] = "";
+                        dr["VONDAUTU"] = 0;
+                        dr["SOLAODONG"] = 0;
+                        dr["DSXNK"] = 0;
+                        dr["NGAYTLNGANH"] = "01/01/1900";
+                        dt_temp2.Rows.Add(dr);
+                    }
+                }
+                catch
+                { }
+            }
+            //Xóa các dòng có cùng mã khách hàng
+            dt_temp2 = CommonMethods.RemoveDuplicateRows(dt_temp2, "MAKH");
+
+            //Nhập thông tin vào bảng KHACHHANG
+            if (PhatHanhTheGhiNoDAL.UPDATE_KHACHHANG(dt_temp2, Thong_tin_dang_nhap.ten_dang_nhap))
+            {
+                MessageBox.Show("Hoàn thành nhập thông tin khách hàng.");
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra khi nhập thông tin khách hàng.");
+            }
+        }
+
     }
 }

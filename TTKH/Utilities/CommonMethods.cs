@@ -5,28 +5,26 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using System.IO;
-
-//using Microsoft.Office.Interop.Word;
-//using Microsoft.Office.Core;
 using System.Reflection;
 using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
-
 using Novacode;
-
 using AGRIBANKHD.Properties;
-
 using AGRIBANKHD.DAL;
 using System.Data.SqlClient;
+using System.Data;
+using System.Collections;
+using ExcelDataReader;
 
 namespace AGRIBANKHD.Utilities
 {
     class CommonMethods
     {
-        private static string server_add = "127.0.0.1";
+        //private static string server_add = "127.0.0.1";
 
-        //private static string server_add = "10.14.0.12";
+        private static string server_add = "10.14.0.12";
         //Xóa dữ liệu toàn bộ các textbox
         public static void ClearTextBoxes(Control control, string[] name_of_textbox)
         {
@@ -675,5 +673,66 @@ namespace AGRIBANKHD.Utilities
                 return goal;
             }
         }
+
+        public static DataTable RemoveDuplicateRows(DataTable dTable, string colName)
+        {
+            Hashtable hTable = new Hashtable();
+            ArrayList duplicateList = new ArrayList();
+
+            //Add list of all the unique item value to hashtable, which stores combination of key, value pair.
+            //And add duplicate item value in arraylist.
+            foreach (DataRow drow in dTable.Rows)
+            {
+                if (hTable.Contains(drow[colName]))
+                    duplicateList.Add(drow);
+                else
+                    hTable.Add(drow[colName], string.Empty);
+            }
+
+            //Removing a list of duplicate items from datatable.
+            foreach (DataRow dRow in duplicateList)
+                dTable.Rows.Remove(dRow);
+
+            //Datatable which contains unique records will be return as output.
+            return dTable;
+        }
+
+        public static DataTable read_excel(string excel_path)
+        {
+            DataTable dt = new DataTable();
+            var file = new FileInfo(excel_path);
+            if (File.Exists(excel_path))
+            {
+                using (
+                var stream = File.Open(excel_path, FileMode.Open, FileAccess.Read))
+                {
+                    IExcelDataReader reader;
+
+                    if (file.Extension.Equals(".xls") || file.Extension.Equals(".XLS"))
+                        reader = ExcelDataReader.ExcelReaderFactory.CreateBinaryReader(stream);
+                    else if (file.Extension.Equals(".xlsx") || file.Extension.Equals(".XLSX"))
+                        reader = ExcelDataReader.ExcelReaderFactory.CreateOpenXmlReader(stream);
+                    else
+                        throw new Exception("Invalid FileName");
+
+                    //// reader.IsFirstRowAsColumnNames
+                    var conf = new ExcelDataSetConfiguration
+                    {
+                        ConfigureDataTable = _ => new ExcelDataTableConfiguration
+                        {
+                            UseHeaderRow = true
+                        }
+                    };
+
+                    var dataSet = reader.AsDataSet(conf);
+                    dt = dataSet.Tables[0];
+                }
+            }
+            else dt = null;
+
+            return dt;
+        }
+
+
     }
 }

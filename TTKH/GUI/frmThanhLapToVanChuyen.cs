@@ -122,7 +122,7 @@ namespace AGRIBANKHD.GUI
         {
             saveFileTLTVC.Filter = "Word Documents|*.docx";
 
-            string subFolder = @"BienBanTiepQuy\";
+            string subFolder = @"ThanhLapToVanChuyenDacBiet\";
             if (!CommonMethods.SubFolderExist(subFolder))
                 CommonMethods.CreateSubFolder(subFolder);
 

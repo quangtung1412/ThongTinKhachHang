@@ -341,6 +341,7 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>BSS.exe</td><td>{92E71E56-80B2-416F-A0C5-476E39F416D2}</td><td>INSTALLDIR</td><td>2</td><td/><td>bss.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BSS_UPDATE.exe</td><td>{B0B30F2C-515A-4392-B3D8-2571F435A80D}</td><td>INSTALLDIR</td><td>2</td><td/><td>bss_update.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1050,6 +1051,7 @@
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>INSTALLDIR</td><td>BSS.exe</td></row>
+		<row><td>INSTALLDIR</td><td>BSS_UPDATE.exe</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1864,6 +1866,7 @@
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>BSS.exe</td></row>
+		<row><td>AlwaysInstall</td><td>BSS_UPDATE.exe</td></row>
 	</table>
 
 	<table name="File">
@@ -1879,6 +1882,7 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>bss.exe</td><td>BSS.exe</td><td>BSS.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe</td><td>1</td><td/></row>
+		<row><td>bss_update.exe</td><td>BSS_UPDATE.exe</td><td>BSS_UP~1.EXE|BSS_UPDATE.exe</td><td>0</td><td/><td/><td/><td>1</td><td>F:\Work\Agribank\ThongTinKhachHang\BSS_UPDATE\bin\Release\BSS_UPDATE.exe</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2021,6 +2025,7 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>BSS.exe</td><td/><td/><td>_41A7BB2F_3016_48F4_B3B9_419D4CAFB921_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BSS_UPDATE.exe</td><td/><td/><td>_24F1C26E_CF02_4AB7_A3A2_B128A4FF03D9_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">

@@ -55,6 +55,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\DocX.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader">
+      <HintPath>packages\ExcelDataReader.3.4.0\lib\net20\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet">
+      <HintPath>packages\ExcelDataReader.DataSet.3.4.0\lib\net20\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -226,20 +235,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Word_template\DV\BIEN_BAN_KIEM_QUY.docx" />
+    <None Include="Word_template\DV\GIAY_DE_NGHI_TIEP_QUY.docx" />
     <None Include="Word_template\DV\GIAY_HEN.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Word_template\DV\HOP_DONG.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Word_template\DV\Mau 49 Giay de nghi tiep quy ATM.docx" />
+    <None Include="Word_template\DV\HOP_DONG.docx" />
     <None Include="Word_template\DV\PHAT_HANH_LAI.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Word_template\DV\PHAT_HANH_MOI.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Word_template\DV\QĐ thanh lap to van chuyen tien theo 4106.doc" />
+    <None Include="Word_template\DV\QD_THANH_LAP_TO_VAN_CHUYEN_DAC_BIET.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

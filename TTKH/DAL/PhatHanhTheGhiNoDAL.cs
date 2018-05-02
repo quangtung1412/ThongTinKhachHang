@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
 using AGRIBANKHD.Utilities;
+using System.Windows.Forms;
 
 namespace AGRIBANKHD.DAL
 {
@@ -156,5 +157,56 @@ namespace AGRIBANKHD.DAL
             return dt;
         }
 
+        public static bool UPDATE_KHACHHANG(DataTable dt, string nguoicapnhat)
+        {
+            int count = 0;
+            int count1 = 0;
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[] 
+            {
+                 new SqlParameter("@tblKHACHHANG", dt)
+             };
+            try
+            {
+                count = db.cmdExecNonQueryProc("UPDATE_KHACHHANG_TEMP", Params);
+                try
+                {
+                    SqlParameter[] Params2 = new SqlParameter[] 
+                    {
+                         new SqlParameter("@nguoicapnhat", nguoicapnhat)
+                    };
+                    count1 = db.cmdExecNonQueryProc("UPDATE_KHACHHANG", Params2);
+                }
+                catch (Exception ex1)
+                {
+                    MessageBox.Show(ex1.Message);
+                }
+            }
+            catch (Exception ex2)
+            {
+                MessageBox.Show(ex2.Message);
+            }
+
+            return count1 != 0;
+        }
+
+        public static void DV_UPDATE_SOTK(string maKH, string soTK)
+        {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[]{
+                new SqlParameter("@makh", maKH),
+                new SqlParameter("@soTK", soTK)
+            };
+            db.dt("DV_UPDATE_SOTK", Params);
+        }
+
+        public static string DV_GET_NOICAPCMND(string ma)
+        {
+            DataAccess db = new DataAccess();
+            SqlParameter[] Params = new SqlParameter[]{
+                new SqlParameter("@ma", ma)
+            };
+            return db.dt("DV_GET_NOICAPCMND", Params).Rows[0]["NOICAP"].ToString();
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhatHanhTheGhiNo));
             this.gbThongTinKH = new System.Windows.Forms.GroupBox();
+            this.btnLayTTKH = new System.Windows.Forms.Button();
             this.txtMaKH = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.cbTimKiem = new System.Windows.Forms.ComboBox();
@@ -130,6 +131,7 @@
             this.saveFilePhatHanhLai = new System.Windows.Forms.SaveFileDialog();
             this.saveFileHopDong = new System.Windows.Forms.SaveFileDialog();
             this.saveFileGiayHen = new System.Windows.Forms.SaveFileDialog();
+            this.openFileTTKH = new System.Windows.Forms.OpenFileDialog();
             this.gbThongTinKH.SuspendLayout();
             this.tCtrDichVu.SuspendLayout();
             this.tpPhatHanhTheGhiNo.SuspendLayout();
@@ -145,6 +147,7 @@
             // 
             // gbThongTinKH
             // 
+            this.gbThongTinKH.Controls.Add(this.btnLayTTKH);
             this.gbThongTinKH.Controls.Add(this.txtMaKH);
             this.gbThongTinKH.Controls.Add(this.label14);
             this.gbThongTinKH.Controls.Add(this.cbTimKiem);
@@ -180,6 +183,17 @@
             this.gbThongTinKH.TabStop = false;
             this.gbThongTinKH.Text = "Thông tin khách hàng";
             // 
+            // btnLayTTKH
+            // 
+            this.btnLayTTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLayTTKH.Location = new System.Drawing.Point(529, 15);
+            this.btnLayTTKH.Name = "btnLayTTKH";
+            this.btnLayTTKH.Size = new System.Drawing.Size(129, 23);
+            this.btnLayTTKH.TabIndex = 34;
+            this.btnLayTTKH.Text = "Lấy TTKH từ file";
+            this.btnLayTTKH.UseVisualStyleBackColor = true;
+            this.btnLayTTKH.Click += new System.EventHandler(this.btnLayTTKH_Click);
+            // 
             // txtMaKH
             // 
             this.txtMaKH.Enabled = false;
@@ -214,7 +228,6 @@
             // 
             // cbSoTK
             // 
-            this.cbSoTK.Enabled = false;
             this.cbSoTK.FormattingEnabled = true;
             this.cbSoTK.Location = new System.Drawing.Point(378, 49);
             this.cbSoTK.Name = "cbSoTK";
@@ -1254,6 +1267,10 @@
             this.btnLuuHoSo.UseVisualStyleBackColor = true;
             this.btnLuuHoSo.Click += new System.EventHandler(this.btnLuuHoSo_Click);
             // 
+            // openFileTTKH
+            // 
+            this.openFileTTKH.FileName = "openFileDialog1";
+            // 
             // frmPhatHanhTheGhiNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1392,5 +1409,7 @@
         private System.Windows.Forms.ComboBox cbTimKiem;
         private System.Windows.Forms.TextBox txtMaKH;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnLayTTKH;
+        private System.Windows.Forms.OpenFileDialog openFileTTKH;
     }
 }

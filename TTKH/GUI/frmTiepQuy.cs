@@ -120,7 +120,7 @@ namespace AGRIBANKHD.GUI
 
             listDich.Add("<ATM_ID>");
             listNguon.Add(cbATMID.SelectedItem.ToString());
-            listDich.Add("DIA_DIEM_ATM");
+            listDich.Add("<DIA_DIEM_ATM>");
             try
             {
                 listNguon.Add(TiepQuyDAL.DV_GET_DIADIEM_ATM(cbATMID.SelectedItem.ToString()));
