@@ -146,7 +146,6 @@ D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\Icons\ms_icon_144x144_kHe_icon.ic
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\Images\Tru_so_Agribank.jpg
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\Images\Tru_so_Agribank_HD.JPG
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\Word_template\DV\GIAY_HEN.docx
-D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\Word_template\DV\HOP_DONG.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\Word_template\DV\PHAT_HANH_LAI.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\Word_template\DV\PHAT_HANH_MOI.docx
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe
@@ -198,3 +197,7 @@ F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.Properties.Resour
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.csproj.GenerateResource.Cache
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.exe
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.pdb
+D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.DataSet.dll
+D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.dll
+D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.xml
+D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.DataSet.xml

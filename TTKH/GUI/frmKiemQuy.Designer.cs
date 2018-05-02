@@ -275,6 +275,7 @@
             // 
             // txtThuaThieu
             // 
+            this.txtThuaThieu.Enabled = false;
             this.txtThuaThieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThuaThieu.Location = new System.Drawing.Point(156, 17);
             this.txtThuaThieu.Name = "txtThuaThieu";
@@ -425,6 +426,7 @@
             this.txtSoDuIPCAS3.TabIndex = 12;
             this.txtSoDuIPCAS3.Text = "0";
             this.txtSoDuIPCAS3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSoDuIPCAS3.TextChanged += new System.EventHandler(this.txtSoDuIPCAS3_TextChanged);
             // 
             // txtSoDuIPCAS2
             // 
@@ -435,6 +437,7 @@
             this.txtSoDuIPCAS2.TabIndex = 9;
             this.txtSoDuIPCAS2.Text = "0";
             this.txtSoDuIPCAS2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSoDuIPCAS2.TextChanged += new System.EventHandler(this.txtSoDuIPCAS2_TextChanged);
             // 
             // label5
             // 
@@ -454,6 +457,7 @@
             this.txtSoDuIPCAS1.TabIndex = 6;
             this.txtSoDuIPCAS1.Text = "0";
             this.txtSoDuIPCAS1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSoDuIPCAS1.TextChanged += new System.EventHandler(this.txtSoDuIPCAS1_TextChanged);
             // 
             // label4
             // 
@@ -535,6 +539,7 @@
             this.txtDemLoaiThuHoi500.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiThuHoi500.TabIndex = 35;
             this.txtDemLoaiThuHoi500.Text = "0";
+            this.txtDemLoaiThuHoi500.TextChanged += new System.EventHandler(this.txtDemLoaiThuHoi500_TextChanged);
             this.txtDemLoaiThuHoi500.Leave += new System.EventHandler(this.txtDemLoaiThuHoi500_Leave);
             // 
             // txtDemLoaiThuHoi200
@@ -545,6 +550,8 @@
             this.txtDemLoaiThuHoi200.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiThuHoi200.TabIndex = 34;
             this.txtDemLoaiThuHoi200.Text = "0";
+            this.txtDemLoaiThuHoi200.TextChanged += new System.EventHandler(this.txtDemLoaiThuHoi200_TextChanged);
+            this.txtDemLoaiThuHoi200.Leave += new System.EventHandler(this.txtDemLoaiThuHoi200_Leave);
             // 
             // txtDemLoaiThuHoi100
             // 
@@ -554,6 +561,8 @@
             this.txtDemLoaiThuHoi100.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiThuHoi100.TabIndex = 33;
             this.txtDemLoaiThuHoi100.Text = "0";
+            this.txtDemLoaiThuHoi100.TextChanged += new System.EventHandler(this.txtDemLoaiThuHoi100_TextChanged);
+            this.txtDemLoaiThuHoi100.Leave += new System.EventHandler(this.txtDemLoaiThuHoi100_Leave);
             // 
             // txtDemLoaiThuHoi50
             // 
@@ -563,6 +572,8 @@
             this.txtDemLoaiThuHoi50.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiThuHoi50.TabIndex = 32;
             this.txtDemLoaiThuHoi50.Text = "0";
+            this.txtDemLoaiThuHoi50.TextChanged += new System.EventHandler(this.txtDemLoaiThuHoi50_TextChanged);
+            this.txtDemLoaiThuHoi50.Leave += new System.EventHandler(this.txtDemLoaiThuHoi50_Leave);
             // 
             // groupBox12
             // 
@@ -585,6 +596,8 @@
             this.txtDemLoaiChinh500.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiChinh500.TabIndex = 31;
             this.txtDemLoaiChinh500.Text = "0";
+            this.txtDemLoaiChinh500.TextChanged += new System.EventHandler(this.txtDemLoaiChinh500_TextChanged);
+            this.txtDemLoaiChinh500.Leave += new System.EventHandler(this.txtDemLoaiChinh500_Leave);
             // 
             // txtDemLoaiChinh200
             // 
@@ -594,6 +607,8 @@
             this.txtDemLoaiChinh200.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiChinh200.TabIndex = 30;
             this.txtDemLoaiChinh200.Text = "0";
+            this.txtDemLoaiChinh200.TextChanged += new System.EventHandler(this.txtDemLoaiChinh200_TextChanged);
+            this.txtDemLoaiChinh200.Leave += new System.EventHandler(this.txtDemLoaiChinh200_Leave);
             // 
             // txtDemLoaiChinh100
             // 
@@ -603,6 +618,8 @@
             this.txtDemLoaiChinh100.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiChinh100.TabIndex = 29;
             this.txtDemLoaiChinh100.Text = "0";
+            this.txtDemLoaiChinh100.TextChanged += new System.EventHandler(this.txtDemLoaiChinh100_TextChanged);
+            this.txtDemLoaiChinh100.Leave += new System.EventHandler(this.txtDemLoaiChinh100_Leave);
             // 
             // txtDemLoaiChinh50
             // 
@@ -612,6 +629,8 @@
             this.txtDemLoaiChinh50.Size = new System.Drawing.Size(78, 20);
             this.txtDemLoaiChinh50.TabIndex = 28;
             this.txtDemLoaiChinh50.Text = "0";
+            this.txtDemLoaiChinh50.TextChanged += new System.EventHandler(this.txtDemLoaiChinh50_TextChanged);
+            this.txtDemLoaiChinh50.Leave += new System.EventHandler(this.txtDemLoaiChinh50_Leave);
             // 
             // groupBox11
             // 
@@ -635,6 +654,8 @@
             this.txtDemChinh200.Size = new System.Drawing.Size(78, 20);
             this.txtDemChinh200.TabIndex = 26;
             this.txtDemChinh200.Text = "0";
+            this.txtDemChinh200.TextChanged += new System.EventHandler(this.txtDemChinh200_TextChanged);
+            this.txtDemChinh200.Leave += new System.EventHandler(this.txtDemChinh200_Leave);
             // 
             // txtDemChinh500
             // 
@@ -644,6 +665,8 @@
             this.txtDemChinh500.Size = new System.Drawing.Size(78, 20);
             this.txtDemChinh500.TabIndex = 27;
             this.txtDemChinh500.Text = "0";
+            this.txtDemChinh500.TextChanged += new System.EventHandler(this.txtDemChinh500_TextChanged);
+            this.txtDemChinh500.Leave += new System.EventHandler(this.txtDemChinh500_Leave);
             // 
             // txtDemChinh100
             // 
@@ -653,6 +676,8 @@
             this.txtDemChinh100.Size = new System.Drawing.Size(78, 20);
             this.txtDemChinh100.TabIndex = 25;
             this.txtDemChinh100.Text = "0";
+            this.txtDemChinh100.TextChanged += new System.EventHandler(this.txtDemChinh100_TextChanged);
+            this.txtDemChinh100.Leave += new System.EventHandler(this.txtDemChinh100_Leave);
             // 
             // txtDemChinh50
             // 
@@ -662,6 +687,8 @@
             this.txtDemChinh50.Size = new System.Drawing.Size(78, 20);
             this.txtDemChinh50.TabIndex = 24;
             this.txtDemChinh50.Text = "0";
+            this.txtDemChinh50.TextChanged += new System.EventHandler(this.txtDemChinh50_TextChanged);
+            this.txtDemChinh50.Leave += new System.EventHandler(this.txtDemChinh50_Leave);
             // 
             // label23
             // 
@@ -708,6 +735,7 @@
             this.txtFIMIEnd500.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIEnd500.TabIndex = 23;
             this.txtFIMIEnd500.Text = "0";
+            this.txtFIMIEnd500.TextChanged += new System.EventHandler(this.txtFIMIEnd500_TextChanged);
             // 
             // txtFIMIEnd200
             // 
@@ -717,6 +745,7 @@
             this.txtFIMIEnd200.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIEnd200.TabIndex = 22;
             this.txtFIMIEnd200.Text = "0";
+            this.txtFIMIEnd200.TextChanged += new System.EventHandler(this.txtFIMIEnd200_TextChanged);
             // 
             // txtFIMIEnd100
             // 
@@ -726,6 +755,7 @@
             this.txtFIMIEnd100.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIEnd100.TabIndex = 21;
             this.txtFIMIEnd100.Text = "0";
+            this.txtFIMIEnd100.TextChanged += new System.EventHandler(this.txtFIMIEnd100_TextChanged);
             // 
             // txtFIMIEnd50
             // 
@@ -735,6 +765,7 @@
             this.txtFIMIEnd50.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIEnd50.TabIndex = 20;
             this.txtFIMIEnd50.Text = "0";
+            this.txtFIMIEnd50.TextChanged += new System.EventHandler(this.txtFIMIEnd50_TextChanged);
             // 
             // txtTimeFIMIEnd
             // 
@@ -770,6 +801,7 @@
             this.txtFIMIStart200.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIStart200.TabIndex = 17;
             this.txtFIMIStart200.Text = "0";
+            this.txtFIMIStart200.TextChanged += new System.EventHandler(this.txtFIMIStart200_TextChanged);
             // 
             // txtFIMIStart500
             // 
@@ -780,6 +812,7 @@
             this.txtFIMIStart500.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIStart500.TabIndex = 18;
             this.txtFIMIStart500.Text = "0";
+            this.txtFIMIStart500.TextChanged += new System.EventHandler(this.txtFIMIStart500_TextChanged);
             // 
             // txtFIMIStart100
             // 
@@ -789,6 +822,7 @@
             this.txtFIMIStart100.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIStart100.TabIndex = 16;
             this.txtFIMIStart100.Text = "0";
+            this.txtFIMIStart100.TextChanged += new System.EventHandler(this.txtFIMIStart100_TextChanged);
             // 
             // txtFIMIStart50
             // 
@@ -798,6 +832,7 @@
             this.txtFIMIStart50.Size = new System.Drawing.Size(78, 20);
             this.txtFIMIStart50.TabIndex = 15;
             this.txtFIMIStart50.Text = "0";
+            this.txtFIMIStart50.TextChanged += new System.EventHandler(this.txtFIMIStart50_TextChanged);
             // 
             // txtTimeFIMIStart
             // 
@@ -908,6 +943,7 @@
             this.txtNAPAS3.TabIndex = 4;
             this.txtNAPAS3.Text = "0";
             this.txtNAPAS3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNAPAS3.TextChanged += new System.EventHandler(this.txtNAPAS3_TextChanged);
             // 
             // txtNAPAS2
             // 
@@ -918,6 +954,7 @@
             this.txtNAPAS2.TabIndex = 3;
             this.txtNAPAS2.Text = "0";
             this.txtNAPAS2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNAPAS2.TextChanged += new System.EventHandler(this.txtNAPAS2_TextChanged);
             // 
             // txtNAPAS1
             // 
@@ -928,6 +965,7 @@
             this.txtNAPAS1.TabIndex = 2;
             this.txtNAPAS1.Text = "0";
             this.txtNAPAS1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNAPAS1.TextChanged += new System.EventHandler(this.txtNAPAS1_TextChanged);
             // 
             // label17
             // 
