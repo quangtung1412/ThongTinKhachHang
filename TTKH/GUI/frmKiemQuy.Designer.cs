@@ -1018,7 +1018,7 @@
             this.cbATMID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbATMID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbATMID.FormattingEnabled = true;
-            this.cbATMID.Location = new System.Drawing.Point(536, 16);
+            this.cbATMID.Location = new System.Drawing.Point(543, 16);
             this.cbATMID.Name = "cbATMID";
             this.cbATMID.Size = new System.Drawing.Size(140, 21);
             this.cbATMID.TabIndex = 4;
@@ -1027,7 +1027,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(483, 19);
+            this.label26.Location = new System.Drawing.Point(490, 19);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(47, 13);
             this.label26.TabIndex = 3;
@@ -1035,27 +1035,30 @@
             // 
             // dtpDenNgay
             // 
+            this.dtpDenNgay.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtpDenNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDenNgay.Location = new System.Drawing.Point(353, 16);
+            this.dtpDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDenNgay.Location = new System.Drawing.Point(343, 16);
             this.dtpDenNgay.Name = "dtpDenNgay";
-            this.dtpDenNgay.Size = new System.Drawing.Size(88, 20);
+            this.dtpDenNgay.Size = new System.Drawing.Size(132, 20);
             this.dtpDenNgay.TabIndex = 2;
             // 
             // dtpTuNgay
             // 
+            this.dtpTuNgay.CustomFormat = "hh:mm dd/MM/yyyy";
             this.dtpTuNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTuNgay.Location = new System.Drawing.Point(168, 16);
+            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTuNgay.Location = new System.Drawing.Point(135, 16);
             this.dtpTuNgay.Name = "dtpTuNgay";
-            this.dtpTuNgay.Size = new System.Drawing.Size(88, 20);
+            this.dtpTuNgay.Size = new System.Drawing.Size(131, 20);
             this.dtpTuNgay.TabIndex = 0;
+            this.dtpTuNgay.Value = new System.DateTime(2018, 5, 3, 0, 0, 0, 0);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(291, 19);
+            this.label25.Location = new System.Drawing.Point(281, 19);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(56, 13);
             this.label25.TabIndex = 1;
@@ -1065,7 +1068,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(113, 19);
+            this.label24.Location = new System.Drawing.Point(80, 19);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(49, 13);
             this.label24.TabIndex = 0;

@@ -341,7 +341,7 @@
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>BSS.exe</td><td>{92E71E56-80B2-416F-A0C5-476E39F416D2}</td><td>INSTALLDIR</td><td>2</td><td/><td>bss.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>BSS_UPDATE.exe</td><td>{B0B30F2C-515A-4392-B3D8-2571F435A80D}</td><td>INSTALLDIR</td><td>2</td><td/><td>bss_update.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>BSS_UPDATE.exe</td><td>{36BCE89D-97B3-4D40-BDCF-E0D2BB5AED69}</td><td>INSTALLDIR</td><td>2</td><td/><td>bss_update.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -2025,7 +2025,7 @@
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
 		<row><td>BSS.exe</td><td/><td/><td>_41A7BB2F_3016_48F4_B3B9_419D4CAFB921_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>BSS_UPDATE.exe</td><td/><td/><td>_24F1C26E_CF02_4AB7_A3A2_B128A4FF03D9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>BSS_UPDATE.exe</td><td/><td/><td>_276EC587_DFE3_440A_A7BA_B0B450455BFC_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3431,6 +3431,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>LAUNCH~1.EXE|Launch AGRIBANKHD.exe</td><td>0</td><td/><td>1378267985</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>LAUNCH~1.EXE|Launch Business Support Software (BSS).exe</td><td>0</td><td/><td>1512481896</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>BSS.exe</td><td>0</td><td/><td>1512451432</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>LAUNCH~1.EXE|Launch BSS_UPDATE.exe</td><td>0</td><td/><td>447131213</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>1378274097</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>1378274097</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>1378274097</td></row>
@@ -3840,9 +3841,10 @@
 		<col def="I2">ISIconIndex</col>
 		<row><td>AGRIBANKHD.exe1_C7D7048FB1BB482EAABF1ED2BC7BECE7.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\AGRIBANKHD.exe</td><td>0</td></row>
 		<row><td>AGRIBANKHD.exe_158436DCF08D4B4F879B5EC1CCD6CB7A.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\AGRIBANKHD.exe</td><td>0</td></row>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;VSSolutionFolder&gt;\TTKH\Icons\ms_icon_144x144_kHe_icon.ico</td><td>0</td></row>
 		<row><td>BSS.exe1_835B83F8603A46BBB348EB189A3806BC.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe</td><td>0</td></row>
 		<row><td>BSS.exe_D74D6B28177C4E459CCE3001735E3274.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe</td><td>0</td></row>
+		<row><td>BSS_UPDATE.exe_9E11C0A82A20423E91C9EC05CF0883E2.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\BSS_UPDATE\bin\Release\BSS_UPDATE.exe</td><td>0</td></row>
 		<row><td>Business_Support_S_C1B0319B2A734253AE9B779B6FAA71F5.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Business Support Software (BSS).exe</td><td>0</td></row>
 		<row><td>Business_Support_S_E64EBFBE460F433493FA1141AC4B5A1F.exe</td><td/><td>F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Business Support Software (BSS).exe</td><td>0</td></row>
 	</table>
@@ -3977,7 +3979,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{BD3CDE62-D770-465A-B9F0-657455246768}</td></row>
 		<row><td>ISUSSignature</td><td>{AB11F59E-F985-4F03-A390-9E52C324F7CE}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewRelease,viewProject,viewAppFiles,viewShortcuts,viewSystemSearch</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewRelease,viewProject,viewAppFiles,viewShortcuts,viewSystemSearch,viewISToday</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4429,6 +4431,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
 		<row><td>BSS.exe</td><td>BSS.exe</td><td/><td>bss</td><td>2</td></row>
+		<row><td>BSS_UPDATE.exe</td><td>BSS_UPDATE.exe</td><td/><td>bss</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4516,6 +4519,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="I4">ISAttributes</col>
 		<row><td>BSS.exe</td><td>bss</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>BSS.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>BSS.exe_D74D6B28177C4E459CCE3001735E3274.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>BSS.exe1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>BSS.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>BSS.exe1_835B83F8603A46BBB348EB189A3806BC.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>BSS_UPDATE.exe</td><td>bss</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>BSS_UPDATE.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>BSS_UPDATE.exe_9E11C0A82A20423E91C9EC05CF0883E2.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

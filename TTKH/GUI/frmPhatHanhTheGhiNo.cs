@@ -987,7 +987,10 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = true;
+            ap.Visible = false;
+            document.PrintOut();
+            document.Close();
+            ap.Quit();
         }
 
         void CheckedListBoxToString(CheckedListBox clb, List<string> lNguon)

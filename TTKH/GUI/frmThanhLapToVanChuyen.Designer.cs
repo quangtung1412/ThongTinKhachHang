@@ -614,6 +614,7 @@
             this.txtBangSo.Name = "txtBangSo";
             this.txtBangSo.Size = new System.Drawing.Size(100, 20);
             this.txtBangSo.TabIndex = 3;
+            this.txtBangSo.TextChanged += new System.EventHandler(this.txtBangSo_TextChanged);
             // 
             // label12
             // 

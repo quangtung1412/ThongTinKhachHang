@@ -87,7 +87,7 @@ namespace BSS_UPDATE
             //string user_ftp = "khach";
             //string pass_ftp = "123456a@";
 
-            string ftp_path = "ftp://10.14.0.19/_DIENTOAN/SETUP/BSS_UPDATE/";
+            string ftp_path = "ftp://10.14.0.19/NHAN%20BAO%20CAO/DIENTOAN/BSS_UPDATE/";
             string user_ftp = "hduong";
             string pass_ftp = "9frgd";
             FtpWebRequest ftpRequest = (FtpWebRequest)WebRequest.Create(ftp_path);

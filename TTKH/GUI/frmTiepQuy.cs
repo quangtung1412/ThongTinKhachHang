@@ -49,10 +49,18 @@ namespace AGRIBANKHD.GUI
 
         void GetNumber()
         {
-            soTo50 = Convert.ToInt32(txt50.Text);
-            soTo100 = Convert.ToInt32(txt100.Text);
-            soTo200 = Convert.ToInt32(txt200.Text);
-            soTo500 = Convert.ToInt32(txt500.Text);
+            if (string.IsNullOrEmpty(txt50.Text))
+                txt50.Text = "0";
+            if (string.IsNullOrEmpty(txt100.Text))
+                txt100.Text = "0";
+            if (string.IsNullOrEmpty(txt200.Text))
+                txt200.Text = "0";
+            if (string.IsNullOrEmpty(txt500.Text))
+                txt500.Text = "0";
+            soTo50 = Convert.ToInt32(XoaDauPhay(txt50.Text));
+            soTo100 = Convert.ToInt32(XoaDauPhay(txt100.Text));
+            soTo200 = Convert.ToInt32(XoaDauPhay(txt200.Text));
+            soTo500 = Convert.ToInt32(XoaDauPhay(txt500.Text));
             tt50 = soTo50 * 50000;
             tt100 = soTo100 * 100000;
             tt200 = soTo200 * 200000;
@@ -188,7 +196,60 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = true;
+            ap.Visible = false;
+            document.PrintOut();
+            document.Close();
+            ap.Quit();
+        }
+
+        string XoaDauPhay(string s)
+        {
+            return s.Replace(",", "");
+        }
+
+        public void TachSo(TextBox luong)
+        {
+            string txt, txt1;
+            txt1 = luong.Text.Replace(",", "");
+            txt = "";
+            int n = txt1.Length;
+            int dem = 0;
+            for (int i = n - 1; i >= 0; i--)
+            {
+                if (dem == 2 && i != 0)
+                {
+                    txt = "," + txt1.Substring(i, 1) + txt;
+                    dem = 0;
+                }
+                else
+                {
+                    txt = txt1.Substring(i, 1) + txt;
+                    dem += 1;
+                }
+            }
+            luong.Text = txt;
+            luong.SelectionStart = luong.Text.Length;
+        }
+
+
+        private void txt50_TextChanged(object sender, EventArgs e)
+        {
+            TachSo(txt50);
+        }
+
+        private void txt100_TextChanged(object sender, EventArgs e)
+        {
+            TachSo(txt100);
+        }
+
+        private void txt200_TextChanged(object sender, EventArgs e)
+        {
+            TachSo(txt200);
+        }
+
+        private void txt500_TextChanged(object sender, EventArgs e)
+        {
+            TachSo(txt500);
         }
     }
 }

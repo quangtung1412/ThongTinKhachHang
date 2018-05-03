@@ -173,9 +173,6 @@ F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Images\Tru_so_Agribank_HD.JP
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Word_template\DV\GIAY_HEN.docx
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Word_template\DV\PHAT_HANH_LAI.docx
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\Word_template\DV\PHAT_HANH_MOI.docx
-F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe.config
-F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe
-F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.pdb
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\DocX.dll
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.DataSet.dll
 F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.dll
@@ -195,9 +192,12 @@ F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmKiemQuy.re
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.GUI.frmTiepQuy.resources
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.Properties.Resources.resources
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.csproj.GenerateResource.Cache
-F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.exe
-F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.pdb
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.DataSet.dll
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.dll
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.xml
 D:\Agribank\ThongTinKhachHang\TTKH\bin\Release\ExcelDataReader.DataSet.xml
+F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe.config
+F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.exe
+F:\Work\Agribank\ThongTinKhachHang\TTKH\bin\Release\BSS.pdb
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.exe
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.pdb

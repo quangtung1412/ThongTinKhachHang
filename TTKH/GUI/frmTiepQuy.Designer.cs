@@ -146,6 +146,7 @@
             this.txt500.TabIndex = 7;
             this.txt500.Text = "0";
             this.txt500.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt500.TextChanged += new System.EventHandler(this.txt500_TextChanged);
             this.txt500.Leave += new System.EventHandler(this.txt500_Leave);
             // 
             // label6
@@ -165,6 +166,7 @@
             this.txt200.TabIndex = 5;
             this.txt200.Text = "0";
             this.txt200.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt200.TextChanged += new System.EventHandler(this.txt200_TextChanged);
             this.txt200.Leave += new System.EventHandler(this.txt200_Leave);
             // 
             // label5
@@ -184,6 +186,7 @@
             this.txt100.TabIndex = 3;
             this.txt100.Text = "0";
             this.txt100.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt100.TextChanged += new System.EventHandler(this.txt100_TextChanged);
             this.txt100.Leave += new System.EventHandler(this.txt100_Leave);
             // 
             // label4
@@ -203,6 +206,7 @@
             this.txt50.TabIndex = 1;
             this.txt50.Text = "0";
             this.txt50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt50.TextChanged += new System.EventHandler(this.txt50_TextChanged);
             this.txt50.Leave += new System.EventHandler(this.txt50_Leave);
             // 
             // label3

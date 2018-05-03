@@ -24,7 +24,7 @@ namespace AGRIBANKHD.GUI
 
         string tpKiemQuy = "";
 
-        int qtTienTHT, qtMonCHT, qtTienCHT,
+        Int64 qtTienTHT, qtMonCHT, qtTienCHT,
             soDuTCO, soDuCO, soDuCI,
             fimiSC50, fimiSC100, fimiSC200, fimiSC500,
             fimiCE50, fimiCE100, fimiCE200, fimiCE500, fimiCETong,
@@ -109,10 +109,10 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(DateTime.Now.Year.ToString());
 
             listDich.Add("<TU_NGAY>");
-            listNguon.Add(dtpTuNgay.Value.ToString("dd/MM/yyyy"));
+            listNguon.Add(dtpTuNgay.Value.ToString("hh")+"h"+dtpTuNgay.Value.ToString("mm")+" ngày "+ dtpTuNgay.Value.ToString("dd/MM/yyyy"));
             tuNgay = dtpTuNgay.Value;
             listDich.Add("<DEN_NGAY>");
-            listNguon.Add(dtpDenNgay.Value.ToString("dd/MM/yyyy"));
+            listNguon.Add(dtpDenNgay.Value.ToString("hh") + "h" + dtpDenNgay.Value.ToString("mm") + " ngày " + dtpDenNgay.Value.ToString("dd/MM/yyyy"));
             denNgay = dtpDenNgay.Value;
 
             listDich.Add("<ATM_ID>");
@@ -145,13 +145,13 @@ namespace AGRIBANKHD.GUI
 
             //GD Quoc te/NAPAS
             listDich.Add("<TIEN_GDTQT_THT>");
-            qtTienTHT = Convert.ToInt32(XoaDauPhay(txtNAPAS1.Text));
+            qtTienTHT = Convert.ToInt64(XoaDauPhay(txtNAPAS1.Text));
             listNguon.Add(txtNAPAS1.Text);
             listDich.Add("<MON_GDTQT_CHT>");
-            qtMonCHT = Convert.ToInt32(XoaDauPhay(txtNAPAS2.Text));
+            qtMonCHT = Convert.ToInt64(XoaDauPhay(txtNAPAS2.Text));
             listNguon.Add(txtNAPAS2.Text);
             listDich.Add("<TIEN_GDTQT_CHT>");
-            qtTienCHT = Convert.ToInt32(XoaDauPhay(txtNAPAS3.Text));
+            qtTienCHT = Convert.ToInt64(XoaDauPhay(txtNAPAS3.Text));
             listNguon.Add(txtNAPAS3.Text);
 
             //IPCAS
@@ -165,13 +165,13 @@ namespace AGRIBANKHD.GUI
             timeCI = DateTime.ParseExact(txtTimeIPCAS3.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeIPCAS3.Text);
             listDich.Add("<DU_T_CO>");
-            soDuTCO = Convert.ToInt32(XoaDauPhay(txtSoDuIPCAS1.Text));
+            soDuTCO = Convert.ToInt64(XoaDauPhay(txtSoDuIPCAS1.Text));
             listNguon.Add(txtSoDuIPCAS1.Text);
             listDich.Add("<DU_CO>");
-            soDuCO = Convert.ToInt32(XoaDauPhay(txtSoDuIPCAS2.Text));
+            soDuCO = Convert.ToInt64(XoaDauPhay(txtSoDuIPCAS2.Text));
             listNguon.Add(txtSoDuIPCAS2.Text);
             listDich.Add("<DU_CI>");
-            soDuCI = Convert.ToInt32(XoaDauPhay(txtSoDuIPCAS3.Text));
+            soDuCI = Convert.ToInt64(XoaDauPhay(txtSoDuIPCAS3.Text));
             listNguon.Add(txtSoDuIPCAS3.Text);
             listDich.Add("<GC1>");
             listNguon.Add(txtGhiChuIPCAS1.Text);
@@ -187,40 +187,40 @@ namespace AGRIBANKHD.GUI
             timeSC = DateTime.ParseExact(txtTimeFIMIStart.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeFIMIStart.Text);
             listDich.Add("<FIMI_SC50>"); //SO TO
-            fimiSC50 = Convert.ToInt32(XoaDauPhay(txtFIMIStart50.Text));
+            fimiSC50 = Convert.ToInt64(XoaDauPhay(txtFIMIStart50.Text));
             listNguon.Add(txtFIMIStart50.Text);
             listDich.Add("<FIMI_SC100>");
-            fimiSC100 = Convert.ToInt32(XoaDauPhay(txtFIMIStart100.Text));
+            fimiSC100 = Convert.ToInt64(XoaDauPhay(txtFIMIStart100.Text));
             listNguon.Add(txtFIMIStart100.Text);
             listDich.Add("<FIMI_SC200>");
-            fimiSC200 = Convert.ToInt32(XoaDauPhay(txtFIMIStart200.Text));
+            fimiSC200 = Convert.ToInt64(XoaDauPhay(txtFIMIStart200.Text));
             listNguon.Add(txtFIMIStart200.Text);
             listDich.Add("<FIMI_SC500>");
-            fimiSC500 = Convert.ToInt32(XoaDauPhay(txtFIMIStart500.Text));
+            fimiSC500 = Convert.ToInt64(XoaDauPhay(txtFIMIStart500.Text));
             listNguon.Add(txtFIMIStart500.Text);
             listDich.Add("<FIMI_SC_TONG>");
             listNguon.Add(CommonMethods.ThemDauPhay(
-            (Convert.ToInt32(XoaDauPhay(txtFIMIStart50.Text)) +
-            Convert.ToInt32(XoaDauPhay(txtFIMIStart100.Text)) +
-            Convert.ToInt32(XoaDauPhay(txtFIMIStart200.Text)) +
-            Convert.ToInt32(XoaDauPhay(txtFIMIStart500.Text))
+            (Convert.ToInt64(XoaDauPhay(txtFIMIStart50.Text)) +
+            Convert.ToInt64(XoaDauPhay(txtFIMIStart100.Text)) +
+            Convert.ToInt64(XoaDauPhay(txtFIMIStart200.Text)) +
+            Convert.ToInt64(XoaDauPhay(txtFIMIStart500.Text))
             ).ToString()
             ));
 
             listDich.Add("<FIMI_SC_TT50>");// THANH TIEN
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIStart50.Text)) * 50000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIStart50.Text)) * 50000).ToString()));
             listDich.Add("<FIMI_SC_TT100>");
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIStart100.Text)) * 100000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIStart100.Text)) * 100000).ToString()));
             listDich.Add("<FIMI_SC_TT200>");
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIStart200.Text)) * 200000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIStart200.Text)) * 200000).ToString()));
             listDich.Add("<FIMI_SC_TT500>");
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIStart500.Text)) * 500000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIStart500.Text)) * 500000).ToString()));
             listDich.Add("<FIMI_SC_TT_TONG>");
             listNguon.Add(CommonMethods.ThemDauPhay((
-            Convert.ToInt32(XoaDauPhay(txtFIMIStart50.Text)) * 50000 +
-            Convert.ToInt32(XoaDauPhay(txtFIMIStart100.Text)) * 100000 +
-            Convert.ToInt32(XoaDauPhay(txtFIMIStart200.Text)) * 200000 +
-            Convert.ToInt32(XoaDauPhay(txtFIMIStart500.Text)) * 500000
+            Convert.ToInt64(XoaDauPhay(txtFIMIStart50.Text)) * 50000 +
+            Convert.ToInt64(XoaDauPhay(txtFIMIStart100.Text)) * 100000 +
+            Convert.ToInt64(XoaDauPhay(txtFIMIStart200.Text)) * 200000 +
+            Convert.ToInt64(XoaDauPhay(txtFIMIStart500.Text)) * 500000
             ).ToString()
             ));
 
@@ -229,40 +229,40 @@ namespace AGRIBANKHD.GUI
             timeCE = DateTime.ParseExact(txtTimeFIMIEnd.Text, "hh:mm", CultureInfo.InvariantCulture);
             listNguon.Add(txtTimeFIMIEnd.Text);
             listDich.Add("<FIMI_CE50>");//SO TO
-            fimiCE50 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text));
+            fimiCE50 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text));
             listNguon.Add(txtFIMIEnd50.Text);
             listDich.Add("<FIMI_CE100>");
-            fimiCE100 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd100.Text));
+            fimiCE100 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd100.Text));
             listNguon.Add(txtFIMIEnd100.Text);
             listDich.Add("<FIMI_CE200>");
-            fimiCE200 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd200.Text));
+            fimiCE200 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd200.Text));
             listNguon.Add(txtFIMIEnd200.Text);
             listDich.Add("<FIMI_CE500>");
-            fimiCE500 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd500.Text));
+            fimiCE500 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd500.Text));
             listNguon.Add(txtFIMIEnd500.Text);
             listDich.Add("<FIMI_CE_TONG>");
             listNguon.Add(CommonMethods.ThemDauPhay(
-            (Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text)) +
-            Convert.ToInt32(XoaDauPhay(txtFIMIEnd100.Text)) +
-            Convert.ToInt32(XoaDauPhay(txtFIMIEnd200.Text)) +
-            Convert.ToInt32(XoaDauPhay(txtFIMIEnd500.Text))
+            (Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text)) +
+            Convert.ToInt64(XoaDauPhay(txtFIMIEnd100.Text)) +
+            Convert.ToInt64(XoaDauPhay(txtFIMIEnd200.Text)) +
+            Convert.ToInt64(XoaDauPhay(txtFIMIEnd500.Text))
             ).ToString()
             ));
 
             listDich.Add("<FIMI_CE_TT50>");
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text)) * 50000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text)) * 50000).ToString()));
             listDich.Add("<FIMI_CE_TT100>");
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text)) * 100000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text)) * 100000).ToString()));
             listDich.Add("<FIMI_CE_TT200>");
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text)) * 200000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text)) * 200000).ToString()));
             listDich.Add("<FIMI_CE_TT500>");
-            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text)) * 500000).ToString()));
+            listNguon.Add(CommonMethods.ThemDauPhay((Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text)) * 500000).ToString()));
             listDich.Add("<FIMI_CE_TT_TONG>");
-            int cashEnd = 
-            Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text)) * 50000 +
-            Convert.ToInt32(XoaDauPhay(txtFIMIEnd100.Text)) * 100000 +
-            Convert.ToInt32(XoaDauPhay(txtFIMIEnd200.Text)) * 200000 +
-            Convert.ToInt32(XoaDauPhay(txtFIMIEnd500.Text)) * 500000;
+            long cashEnd = 
+            Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text)) * 50000 +
+            Convert.ToInt64(XoaDauPhay(txtFIMIEnd100.Text)) * 100000 +
+            Convert.ToInt64(XoaDauPhay(txtFIMIEnd200.Text)) * 200000 +
+            Convert.ToInt64(XoaDauPhay(txtFIMIEnd500.Text)) * 500000;
             listNguon.Add(CommonMethods.ThemDauPhay(cashEnd.ToString()));
             
 
@@ -270,106 +270,106 @@ namespace AGRIBANKHD.GUI
 
             //HOP TIEN CHINH
             listDich.Add("<B50>");
-            demB50 = Convert.ToInt32(XoaDauPhay(txtDemChinh50.Text));
+            demB50 = Convert.ToInt64(XoaDauPhay(txtDemChinh50.Text));
             listNguon.Add(txtDemChinh50.Text);
             listDich.Add("<B100>");
-            demB100 = Convert.ToInt32(XoaDauPhay(txtDemChinh100.Text));
+            demB100 = Convert.ToInt64(XoaDauPhay(txtDemChinh100.Text));
             listNguon.Add(txtDemChinh100.Text);
             listDich.Add("<B200>");
-            demB200 = Convert.ToInt32(XoaDauPhay(txtDemChinh200.Text));
+            demB200 = Convert.ToInt64(XoaDauPhay(txtDemChinh200.Text));
             listNguon.Add(txtDemChinh200.Text);
             listDich.Add("<B500>");
-            demB500 = Convert.ToInt32(XoaDauPhay(txtDemChinh500.Text));
+            demB500 = Convert.ToInt64(XoaDauPhay(txtDemChinh500.Text));
             listNguon.Add(txtDemChinh500.Text);
             listDich.Add("<BTONG>");
             listNguon.Add(CommonMethods.ThemDauPhay((
-                Convert.ToInt32(XoaDauPhay(txtDemChinh50.Text)) +
-                Convert.ToInt32(XoaDauPhay(txtDemChinh100.Text)) +
-                Convert.ToInt32(XoaDauPhay(txtDemChinh200.Text)) +
-                Convert.ToInt32(XoaDauPhay(txtDemChinh500.Text))).ToString()
+                Convert.ToInt64(XoaDauPhay(txtDemChinh50.Text)) +
+                Convert.ToInt64(XoaDauPhay(txtDemChinh100.Text)) +
+                Convert.ToInt64(XoaDauPhay(txtDemChinh200.Text)) +
+                Convert.ToInt64(XoaDauPhay(txtDemChinh500.Text))).ToString()
                 ));
 
             //HOP TIEN LOAI
             listDich.Add("<C_NC50>"); //NGAN CHINH
-            demCC50 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh50.Text));
+            demCC50 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh50.Text));
             listNguon.Add(txtDemLoaiChinh50.Text);
             listDich.Add("<C_NC100>");
-            demCC100 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh100.Text));
+            demCC100 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh100.Text));
             listNguon.Add(txtDemLoaiChinh100.Text);
             listDich.Add("<C_NC200>");
-            demCC200 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh200.Text));
+            demCC200 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh200.Text));
             listNguon.Add(txtDemLoaiChinh200.Text);
             listDich.Add("<C_NC500>");
-            demCC500 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh500.Text));
+            demCC500 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh500.Text));
             listNguon.Add(txtDemLoaiChinh500.Text);
             listDich.Add("<C_NCTONG>");
             listNguon.Add(CommonMethods.ThemDauPhay((
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh50.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh100.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh200.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh500.Text))).ToString()
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh50.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh100.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh200.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh500.Text))).ToString()
                ));
 
             listDich.Add("<C_TH50>");//NGAN THU HOI
-            demCL50 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi50.Text));
+            demCL50 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi50.Text));
             listNguon.Add(txtDemLoaiThuHoi50.Text);
             listDich.Add("<C_TH100>");
-            demCL100 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi100.Text));
+            demCL100 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi100.Text));
             listNguon.Add(txtDemLoaiThuHoi100.Text);
             listDich.Add("<C_TH200>");
-            demCL200 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi200.Text));
+            demCL200 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi200.Text));
             listNguon.Add(txtDemLoaiThuHoi200.Text);
             listDich.Add("<C_TH500>");
-            demCL500 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi500.Text));
+            demCL500 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi500.Text));
             listNguon.Add(txtDemLoaiThuHoi500.Text);
             listDich.Add("<C_THTONG>");
             listNguon.Add(CommonMethods.ThemDauPhay((
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi50.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi100.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi200.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi500.Text))).ToString()
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi50.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi100.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi200.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi500.Text))).ToString()
                ));
 
             //TONG TIEN
             listDich.Add("<TONG50>");
-            int tong50 =
-                (Convert.ToInt32(XoaDauPhay(txtDemChinh50.Text)) +
-                Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh50.Text)) +
-                Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi50.Text))) * 50000;
+            long tong50 =
+                (Convert.ToInt64(XoaDauPhay(txtDemChinh50.Text)) +
+                Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh50.Text)) +
+                Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi50.Text))) * 50000;
             listNguon.Add(CommonMethods.ThemDauPhay(tong50.ToString()));
 
             listDich.Add("<TONG100>");
-            int tong100 = (
-                Convert.ToInt32(XoaDauPhay(txtDemChinh100.Text)) +
-                Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh100.Text)) +
-                Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi100.Text))) * 100000;
+            long tong100 = (
+                Convert.ToInt64(XoaDauPhay(txtDemChinh100.Text)) +
+                Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh100.Text)) +
+                Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi100.Text))) * 100000;
             listNguon.Add(CommonMethods.ThemDauPhay(tong100.ToString()));
 
             listDich.Add("<TONG200>");
-            int tong200 = (
-               Convert.ToInt32(XoaDauPhay(txtDemChinh200.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh200.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi200.Text))) * 200000;
+            long tong200 = (
+               Convert.ToInt64(XoaDauPhay(txtDemChinh200.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh200.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi200.Text))) * 200000;
             listNguon.Add(CommonMethods.ThemDauPhay(tong200.ToString()));
 
             listDich.Add("<TONG500>");
-            int tong500 = (
-               Convert.ToInt32(XoaDauPhay(txtDemChinh500.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh500.Text)) +
-               Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi500.Text))) * 500000;
+            long tong500 = (
+               Convert.ToInt64(XoaDauPhay(txtDemChinh500.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh500.Text)) +
+               Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi500.Text))) * 500000;
             listNguon.Add(CommonMethods.ThemDauPhay(tong500.ToString()));
 
             listDich.Add("<TONG>");
-            int tong = tong50 + tong100 + tong200 + tong500;
+            long tong = tong50 + tong100 + tong200 + tong500;
             listNguon.Add(CommonMethods.ThemDauPhay(tong.ToString()));
 
             listDich.Add("<TONG_BANGCHU>");
-            listNguon.Add(CommonMethods.ChuyenSoSangChu(tong.ToString()));
+            listNguon.Add(CommonMethods.FirstCharToUpper(CommonMethods.ChuyenSoSangChu(tong.ToString())));
 
             //KET LUAN
             thuaThieu = Math.Abs(tong - cashEnd);
             listDich.Add("<TIEN_THUA_THIEU>");
-            listNguon.Add(CommonMethods.ChuyenSoSangChu(thuaThieu.ToString()));
+            listNguon.Add(txtThuaThieu.Text);
             listDich.Add("<NGUYEN_NHAN>");
             listNguon.Add(txtNguyenNhan.Text);
             listDich.Add("<HUONG_XL>");
@@ -399,7 +399,17 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = true;
+            ap.Visible = false;
+            try
+            {
+                document.PrintOut();
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
+            }
+            document.Close();
+            ap.Quit();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -469,27 +479,60 @@ namespace AGRIBANKHD.GUI
 
         void TinhChenhLech()
         {
-            fimiCE50 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd50.Text));
-            fimiCE100 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd100.Text));
-            fimiCE200 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd200.Text));
-            fimiCE500 = Convert.ToInt32(XoaDauPhay(txtFIMIEnd500.Text));
+            if (string.IsNullOrEmpty(txtFIMIEnd50.Text))
+                txtFIMIStart50.Text = "0";
+            if (string.IsNullOrEmpty(txtFIMIEnd100.Text))
+                txtFIMIStart100.Text = "0";
+            if (string.IsNullOrEmpty(txtFIMIEnd200.Text))
+                txtFIMIStart200.Text = "0";
+            if (string.IsNullOrEmpty(txtFIMIEnd500.Text))
+                txtFIMIStart500.Text = "0";
+
+            fimiCE50 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd50.Text));
+            fimiCE100 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd100.Text));
+            fimiCE200 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd200.Text));
+            fimiCE500 = Convert.ToInt64(XoaDauPhay(txtFIMIEnd500.Text));
 
             fimiCETong = (fimiCE50 + fimiCE100 * 2 + fimiCE200 * 4 + fimiCE500 * 10) * 50000;
 
-            demB50 = Convert.ToInt32(XoaDauPhay(txtDemChinh50.Text));
-            demB100 = Convert.ToInt32(XoaDauPhay(txtDemChinh100.Text));
-            demB200 = Convert.ToInt32(XoaDauPhay(txtDemChinh200.Text));
-            demB500 = Convert.ToInt32(XoaDauPhay(txtDemChinh500.Text));
+            if (string.IsNullOrEmpty(txtDemChinh50.Text))
+                txtDemChinh50.Text = "0";
+            if (string.IsNullOrEmpty(txtDemChinh100.Text))
+                txtDemChinh100.Text = "0";
+            if (string.IsNullOrEmpty(txtDemChinh200.Text))
+                txtDemChinh200.Text = "0";
+            if (string.IsNullOrEmpty(txtDemChinh500.Text))
+                txtDemChinh500.Text = "0";
+            demB50 = Convert.ToInt64(XoaDauPhay(txtDemChinh50.Text));
+            demB100 = Convert.ToInt64(XoaDauPhay(txtDemChinh100.Text));
+            demB200 = Convert.ToInt64(XoaDauPhay(txtDemChinh200.Text));
+            demB500 = Convert.ToInt64(XoaDauPhay(txtDemChinh500.Text));
 
-            demCC50 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh50.Text));
-            demCC100 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh100.Text));
-            demCC200 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh200.Text));
-            demCC500 = Convert.ToInt32(XoaDauPhay(txtDemLoaiChinh500.Text));
+            if (string.IsNullOrEmpty(txtDemLoaiChinh50.Text))
+                txtDemLoaiChinh50.Text = "0";
+            if (string.IsNullOrEmpty(txtDemLoaiChinh100.Text))
+                txtDemLoaiChinh100.Text = "0";
+            if (string.IsNullOrEmpty(txtDemLoaiChinh200.Text))
+                txtDemLoaiChinh200.Text = "0";
+            if (string.IsNullOrEmpty(txtDemLoaiChinh500.Text))
+                txtDemLoaiChinh500.Text = "0";
+            demCC50 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh50.Text));
+            demCC100 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh100.Text));
+            demCC200 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh200.Text));
+            demCC500 = Convert.ToInt64(XoaDauPhay(txtDemLoaiChinh500.Text));
 
-            demCL50 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi50.Text));
-            demCL100 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi100.Text));
-            demCL200 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi200.Text));
-            demCL500 = Convert.ToInt32(XoaDauPhay(txtDemLoaiThuHoi500.Text));
+            if (string.IsNullOrEmpty(txtDemLoaiThuHoi50.Text))
+                txtDemLoaiThuHoi50.Text = "0";
+            if (string.IsNullOrEmpty(txtDemLoaiThuHoi100.Text))
+                txtDemLoaiThuHoi100.Text = "0";
+            if (string.IsNullOrEmpty(txtDemLoaiThuHoi200.Text))
+                txtDemLoaiThuHoi200.Text = "0";
+            if (string.IsNullOrEmpty(txtDemLoaiThuHoi500.Text))
+                txtDemLoaiThuHoi500.Text = "0";
+            demCL50 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi50.Text));
+            demCL100 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi100.Text));
+            demCL200 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi200.Text));
+            demCL500 = Convert.ToInt64(XoaDauPhay(txtDemLoaiThuHoi500.Text));
 
             demTong = 50000 * (
                 (demB50 + demCC50 + demCL50) +
@@ -548,7 +591,8 @@ namespace AGRIBANKHD.GUI
 
         string XoaDauPhay(string s)
         {
-            return s.Replace(",", "");
+            string s2 = s.Replace(",", "");
+            return s2;
         }
        
 

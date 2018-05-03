@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace AGRIBANKHD.GUI
 {
@@ -56,54 +57,57 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(DateTime.Now.Month.ToString());
             listDich.Add("<NAM>");
             listNguon.Add(DateTime.Now.Year.ToString());
-            listDich.Add("<TO_VAN_CHUYEN>");
             //To van chuyen
-            string toVanChuyen = "";
             int index = 0;
+            listDich.Add("<TO_TRUONG>");
             if (cbToTruong.SelectedItem != null)
             {
                 index++;
                 var u = users[cbToTruong.SelectedIndex];
                 string gt = "Ông";
                 if(!u.gioiTinh) gt = "Bà";
-                toVanChuyen += index+". "+ gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDToTruong.Text + " Ngày cấp: " + txtNgayCapToTruong.Text +
-                    " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Tổ trưởng;\n";
+                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDToTruong.Text + " Ngày cấp: " + txtNgayCapToTruong.Text +
+                    " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Tổ trưởng;");
             }
+
+            listDich.Add("<GIAM_SAT_1>");
             if (cbGiamSat1.SelectedItem != null)
             {
                 index++;
                 var u = users[cbGiamSat1.SelectedIndex];
                 string gt = "Ông";
                 if (!u.gioiTinh) gt = "Bà";
-                toVanChuyen += index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat1.Text + " Ngày cấp: " + txtNgayCapGiamSat1.Text +
-                    " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Giám sát;\n";
+                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat1.Text + " Ngày cấp: " + txtNgayCapGiamSat1.Text +
+                    " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Giám sát;");
             }
+
+            listDich.Add("<GIAM_SAT_2>");
             if (cbGiamSat2.SelectedItem != null)
             {
                 index++;
                 var u = users[cbGiamSat2.SelectedIndex];
                 string gt = "Ông";
                 if (!u.gioiTinh) gt = "Bà";
-                toVanChuyen += index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat2.Text + " Ngày cấp: " + txtNgayCapGiamSat2.Text +
-                    " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Giám sát;\n";
+                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat2.Text + " Ngày cấp: " + txtNgayCapGiamSat2.Text +
+                    " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Giám sát;");
             }
             //Lai xe
             index++;
-            toVanChuyen += index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
-                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Lái xe;\n";
+            listDich.Add("<LAI_XE>");
+            listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Lái xe;");
             //Bao ve
             index++;
-            toVanChuyen += index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
-                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Lái xe;";
-
-            listNguon.Add(toVanChuyen);
+            listDich.Add("<BAO_VE>");
+            listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Bảo vệ;");
 
             listDich.Add("<HANG_DAC_BIET>");
             listNguon.Add(txtLoaiHang.Text);
             listDich.Add("<BANG_SO>");
             listNguon.Add(txtBangSo.Text);
             listDich.Add("<BANG_CHU>");
-            listNguon.Add(CommonMethods.ChuyenSoSangChu(txtBangSo.Text));
+            listNguon.Add(CommonMethods.ChuyenSoSangChu(XoaDauPhay(txtBangSo.Text)));
             listDich.Add("<SL_AN_CHI>");
             listNguon.Add(txtAnChi.Text);
             listDich.Add("<SL_BI_NIEM_PHONG>");
@@ -143,7 +147,10 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = true;
+            ap.Visible = false;
+            document.PrintOut();
+            document.Close();
+            ap.Quit();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -153,6 +160,39 @@ namespace AGRIBANKHD.GUI
             th.Start();
         }
 
+        public void TachSo(TextBox luong)
+        {
+            string txt, txt1;
+            txt1 = luong.Text.Replace(",", "");
+            txt = "";
+            int n = txt1.Length;
+            int dem = 0;
+            for (int i = n - 1; i >= 0; i--)
+            {
+                if (dem == 2 && i != 0)
+                {
+                    txt = "," + txt1.Substring(i, 1) + txt;
+                    dem = 0;
+                }
+                else
+                {
+                    txt = txt1.Substring(i, 1) + txt;
+                    dem += 1;
+                }
+            }
+            luong.Text = txt;
+            luong.SelectionStart = luong.Text.Length;
+        }
+
+        string XoaDauPhay(string s)
+        {
+            return s.Replace(",", "");
+        }
+
+        private void txtBangSo_TextChanged(object sender, EventArgs e)
+        {
+            TachSo(txtBangSo);
+        }
 
     }
 }
