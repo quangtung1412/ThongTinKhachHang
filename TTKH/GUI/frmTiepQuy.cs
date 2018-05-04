@@ -143,7 +143,7 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(txtTenCanBo.Text);
 
             listDich.Add("<PHONG>");
-            listNguon.Add(Thong_tin_dang_nhap.tenPb);
+            listNguon.Add(Thong_tin_dang_nhap.tenPb + "" + Thong_tin_dang_nhap.ten_cn);
 
             //So to tiep quy
             listDich.Add("<SO_TO_50>");
@@ -168,7 +168,7 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(CommonMethods.ThemDauPhay(tong.ToString()));
 
             listDich.Add("<TONG_TIEN_CHU>");
-            listNguon.Add(CommonMethods.ChuyenSoSangChu(tong.ToString()));
+            listNguon.Add(CommonMethods.FirstCharToUpper(CommonMethods.ChuyenSoSangChu(tong.ToString())));
         }
 
         void TaoFileTiepQuy()
@@ -196,10 +196,18 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = false;
-            document.PrintOut();
-            document.Close();
-            ap.Quit();
+            //ap.Visible = false;
+            //try
+            //{
+            //    document.PrintOut();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
+            //}
+            //document.Close();
+            //ap.Quit();
+            ap.Visible = true;
         }
 
         string XoaDauPhay(string s)

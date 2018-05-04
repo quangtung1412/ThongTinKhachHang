@@ -11,6 +11,8 @@ using AGRIBANKHD.DAL;
 using AGRIBANKHD.Utilities;
 using System.Threading;
 using System.Globalization;
+using Word = Microsoft.Office.Interop.Word;
+
 namespace AGRIBANKHD.GUI
 {
     public partial class frmKiemQuy : Form
@@ -87,7 +89,9 @@ namespace AGRIBANKHD.GUI
             foreach (var c in usersKiemQuy)
                 if (c == users[cbCanBo.SelectedIndex]) return;
             usersKiemQuy.Add(users[cbCanBo.SelectedIndex]);
-            txtCanBoKiemQuy.Text += users[cbCanBo.SelectedIndex].tennv + "; ";
+            string chucDanh = " (Trưởng ban)";
+            if (usersKiemQuy.Count > 1) chucDanh = " (Thành viên)";
+            txtCanBoKiemQuy.Text += users[cbCanBo.SelectedIndex].tennv + chucDanh + "; ";
             tpKiemQuy += users[cbCanBo.SelectedIndex].manv + ",";
         }
 
@@ -118,30 +122,7 @@ namespace AGRIBANKHD.GUI
             listDich.Add("<ATM_ID>");
             listNguon.Add(cbATMID.SelectedItem.ToString());
             
-            //THANH PHAN KIEM QUY
-            string hoTen = "";
-            string chucVu = "";
-            foreach (var c in usersKiemQuy)
-            {
-                //string gt = "Bà: ";
-                //if (c.gioiTinh)
-                //    gt = "Ông: ";
-                if (c == usersKiemQuy[usersKiemQuy.Count - 1])
-                {
-                    hoTen += "- " + c.tennv;
-                    chucVu += "- " + c.chucvu;
-                }
-                else
-                {
-                    hoTen += "- " + c.tennv + "\n";
-                    chucVu += "- " + c.chucvu + "\n";
-                }
-            }
-
-            listDich.Add("<HO_TEN>");
-            listNguon.Add(hoTen);
-            listDich.Add("<CHUC_VU>");
-            listNguon.Add(chucVu);
+            
 
             //GD Quoc te/NAPAS
             listDich.Add("<TIEN_GDTQT_THT>");
@@ -395,21 +376,49 @@ namespace AGRIBANKHD.GUI
                 OpenFileWord(saveFileLocation);
             }
         }
+
+        void PutStringIntoTable(Word.Document doc)
+        {
+            object oMissing = System.Reflection.Missing.Value;
+            Word.Table tb = doc.Tables[2];
+            for (int i = 0; i < usersKiemQuy.Count; i++)
+            {
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                string hoTen = "- "+ usersKiemQuy[i].tennv;
+                string chucVu = "- "+usersKiemQuy[i].chucvu + " " + Thong_tin_dang_nhap.tenPb;
+                if (usersKiemQuy[i].chucvu == "Giám đốc" || usersKiemQuy[i].chucvu == "Phó Giám đốc")
+                    chucVu = "- " + usersKiemQuy[i].chucvu + " " + Thong_tin_dang_nhap.ten_cn;
+                else if (usersKiemQuy[i].chucvu == "Nhân viên") chucVu = "- " + "Cán bộ nghiệp vụ thẻ";
+                string chucDanh = "- " + "Giám sát";
+                if (usersKiemQuy[i] == usersKiemQuy[0])
+                    chucDanh = "- " + "Trưởng ban";
+
+                tb.Rows[i + 1].Cells[1].Range.Text = hoTen;
+                tb.Rows[i + 1].Cells[2].Range.Text = chucVu;
+                tb.Rows[i + 1].Cells[3].Range.Text = chucDanh;
+                if (i != usersKiemQuy.Count - 1)
+                    tb.Rows.Add(oMissing);
+
+            }
+        }
+
         void OpenFileWord(string fileLocation)
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = false;
-            try
-            {
-                document.PrintOut();
-            }
-            catch
-            {
-                MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
-            }
-            document.Close();
-            ap.Quit();
+            PutStringIntoTable(document);
+            //ap.Visible = false;
+            //try
+            //{
+            //    document.PrintOut();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
+            //}
+            //document.Close();
+            //ap.Quit();
+            ap.Visible = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

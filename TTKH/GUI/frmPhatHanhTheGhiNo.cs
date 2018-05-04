@@ -157,6 +157,7 @@ namespace AGRIBANKHD.GUI
             txtSoDienThoai.Text = kh.dien_thoai;
             txtEmail.Text = kh.email;
             txtDiaChi.Text = kh.dia_chi;
+            txtQuocTich.Text = "Việt Nam";
 
             //Thong tin ben B
             txtHoTen_BenB.Text = kh.ho_ten;
@@ -186,7 +187,6 @@ namespace AGRIBANKHD.GUI
                 }
                 if (cbSoTK.Items.Count > 0)
                 {
-                    SetTabControlStatus(true);
                     cbSoTK.SelectedIndex = 0;
                 }
                 else
@@ -194,6 +194,7 @@ namespace AGRIBANKHD.GUI
                     MessageBox.Show("Khách hàng chưa có số tài khoản!\nHãy điền vào số tài khoản!", "Thông báo", MessageBoxButtons.OK);
                     cbSoTK.Focus();
                 }
+                SetTabControlStatus(true);
             }
             catch {
                 DAL.ErrorMessageDAL.DataAccessError();
@@ -223,12 +224,12 @@ namespace AGRIBANKHD.GUI
         void ClearAllTextBox() {
             txtNgayCap.Text = "";
             txtNoiCap.Text = "";
-            //txtMaKH.Text="";
             txtCMT.Text = "";
             txtHoTen.Text = "";
             txtQuocTich.Text = "";
             cbSoTK.SelectedItem = null;
             cbSoTK.Items.Clear();
+            cbSoTK.Text = "";
             txtNgaySinh.Text = "";
             txtEmail.Text = "";
             txtDiaChi.Text = "";
@@ -659,7 +660,7 @@ namespace AGRIBANKHD.GUI
             ttchung_nguon.Add(txtNgayCap.Text);
             ttchung_nguon.Add(txtNoiCap.Text);
             ttchung_nguon.Add(txtQuocTich.Text);
-            ttchung_nguon.Add(cbSoTK.SelectedText);
+            ttchung_nguon.Add(cbSoTK.Text);
 
             ttchung_dich.Add("<NGAY>");
             ttchung_dich.Add("<THANG>");
@@ -869,6 +870,9 @@ namespace AGRIBANKHD.GUI
             hop_dong_dich.Add("<CHI_NHANH_0>");
             hop_dong_nguon.Add(Thong_tin_dang_nhap.ten_cn.ToUpper());
 
+            hop_dong_dich.Add("<SO_HD>");
+            hop_dong_nguon.Add(txtSoHD.Text);
+
             //Ben A
             hop_dong_dich.Add("<DAI_DIEN>");
             hop_dong_nguon.Add(cbNguoiDaiDien_BenA.SelectedItem.ToString());
@@ -953,7 +957,7 @@ namespace AGRIBANKHD.GUI
             {
                 Thread.Sleep(500);
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileLocation, "Tạo file thành công");
-                OpenFileWord(saveFilePhatHanhLai.FileName);
+                OpenFileWord(saveFileLocation);
             }
 
         }
@@ -978,7 +982,7 @@ namespace AGRIBANKHD.GUI
             {
                 MessageBox.Show("File đã được tạo tại đường dẫn: " + saveFileLocation, "Tạo file thành công");
                 Thread.Sleep(500);
-                OpenFileWord(saveFileHopDong.FileName);
+                OpenFileWord(saveFileLocation);
 
             }
         }
@@ -987,10 +991,18 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = false;
-            document.PrintOut();
-            document.Close();
-            ap.Quit();
+            //ap.Visible = false;
+            //try
+            //{
+            //    document.PrintOut();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
+            //}
+            //document.Close();
+            //ap.Quit();
+            ap.Visible = true;
         }
 
         void CheckedListBoxToString(CheckedListBox clb, List<string> lNguon)

@@ -79,10 +79,6 @@
             this.txtBienSo = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtNoiDen = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtBiNiemPhong = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtAnChi = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBangSo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -195,42 +191,42 @@
             this.txtCMNDToTruong.Location = new System.Drawing.Point(246, 43);
             this.txtCMNDToTruong.Name = "txtCMNDToTruong";
             this.txtCMNDToTruong.Size = new System.Drawing.Size(73, 20);
-            this.txtCMNDToTruong.TabIndex = 36;
+            this.txtCMNDToTruong.TabIndex = 2;
             // 
             // txtCMNDGiamSat2
             // 
             this.txtCMNDGiamSat2.Location = new System.Drawing.Point(246, 96);
             this.txtCMNDGiamSat2.Name = "txtCMNDGiamSat2";
             this.txtCMNDGiamSat2.Size = new System.Drawing.Size(73, 20);
-            this.txtCMNDGiamSat2.TabIndex = 35;
+            this.txtCMNDGiamSat2.TabIndex = 10;
             // 
             // txtCMNDGiamSat1
             // 
             this.txtCMNDGiamSat1.Location = new System.Drawing.Point(246, 70);
             this.txtCMNDGiamSat1.Name = "txtCMNDGiamSat1";
             this.txtCMNDGiamSat1.Size = new System.Drawing.Size(73, 20);
-            this.txtCMNDGiamSat1.TabIndex = 34;
+            this.txtCMNDGiamSat1.TabIndex = 6;
             // 
             // txtCMNDBaoVe
             // 
             this.txtCMNDBaoVe.Location = new System.Drawing.Point(246, 148);
             this.txtCMNDBaoVe.Name = "txtCMNDBaoVe";
             this.txtCMNDBaoVe.Size = new System.Drawing.Size(73, 20);
-            this.txtCMNDBaoVe.TabIndex = 33;
+            this.txtCMNDBaoVe.TabIndex = 18;
             // 
             // txtCMNDLaiXe
             // 
             this.txtCMNDLaiXe.Location = new System.Drawing.Point(246, 122);
             this.txtCMNDLaiXe.Name = "txtCMNDLaiXe";
             this.txtCMNDLaiXe.Size = new System.Drawing.Size(73, 20);
-            this.txtCMNDLaiXe.TabIndex = 32;
+            this.txtCMNDLaiXe.TabIndex = 14;
             // 
             // txtNoiCapToTruong
             // 
             this.txtNoiCapToTruong.Location = new System.Drawing.Point(511, 43);
             this.txtNoiCapToTruong.Name = "txtNoiCapToTruong";
             this.txtNoiCapToTruong.Size = new System.Drawing.Size(240, 20);
-            this.txtNoiCapToTruong.TabIndex = 31;
+            this.txtNoiCapToTruong.TabIndex = 4;
             // 
             // label23
             // 
@@ -247,7 +243,7 @@
             this.txtNgayCapToTruong.Mask = "00/00/0000";
             this.txtNgayCapToTruong.Name = "txtNgayCapToTruong";
             this.txtNgayCapToTruong.Size = new System.Drawing.Size(64, 20);
-            this.txtNgayCapToTruong.TabIndex = 29;
+            this.txtNgayCapToTruong.TabIndex = 3;
             this.txtNgayCapToTruong.ValidatingType = typeof(System.DateTime);
             // 
             // label24
@@ -264,7 +260,7 @@
             this.txtNoiCapGiamSat2.Location = new System.Drawing.Point(511, 96);
             this.txtNoiCapGiamSat2.Name = "txtNoiCapGiamSat2";
             this.txtNoiCapGiamSat2.Size = new System.Drawing.Size(240, 20);
-            this.txtNoiCapGiamSat2.TabIndex = 27;
+            this.txtNoiCapGiamSat2.TabIndex = 12;
             // 
             // label19
             // 
@@ -281,7 +277,7 @@
             this.txtNgayCapGiamSat2.Mask = "00/00/0000";
             this.txtNgayCapGiamSat2.Name = "txtNgayCapGiamSat2";
             this.txtNgayCapGiamSat2.Size = new System.Drawing.Size(64, 20);
-            this.txtNgayCapGiamSat2.TabIndex = 25;
+            this.txtNgayCapGiamSat2.TabIndex = 11;
             this.txtNgayCapGiamSat2.ValidatingType = typeof(System.DateTime);
             // 
             // label20
@@ -298,7 +294,7 @@
             this.txtNoiCapGiamSat1.Location = new System.Drawing.Point(511, 70);
             this.txtNoiCapGiamSat1.Name = "txtNoiCapGiamSat1";
             this.txtNoiCapGiamSat1.Size = new System.Drawing.Size(240, 20);
-            this.txtNoiCapGiamSat1.TabIndex = 23;
+            this.txtNoiCapGiamSat1.TabIndex = 8;
             // 
             // label21
             // 
@@ -315,7 +311,7 @@
             this.txtNgayCapGiamSat1.Mask = "00/00/0000";
             this.txtNgayCapGiamSat1.Name = "txtNgayCapGiamSat1";
             this.txtNgayCapGiamSat1.Size = new System.Drawing.Size(64, 20);
-            this.txtNgayCapGiamSat1.TabIndex = 21;
+            this.txtNgayCapGiamSat1.TabIndex = 7;
             this.txtNgayCapGiamSat1.ValidatingType = typeof(System.DateTime);
             // 
             // label22
@@ -332,7 +328,7 @@
             this.txtNoiCapBaoVe.Location = new System.Drawing.Point(511, 148);
             this.txtNoiCapBaoVe.Name = "txtNoiCapBaoVe";
             this.txtNoiCapBaoVe.Size = new System.Drawing.Size(240, 20);
-            this.txtNoiCapBaoVe.TabIndex = 19;
+            this.txtNoiCapBaoVe.TabIndex = 20;
             // 
             // label8
             // 
@@ -349,7 +345,7 @@
             this.txtNgayCapBaoVe.Mask = "00/00/0000";
             this.txtNgayCapBaoVe.Name = "txtNgayCapBaoVe";
             this.txtNgayCapBaoVe.Size = new System.Drawing.Size(64, 20);
-            this.txtNgayCapBaoVe.TabIndex = 17;
+            this.txtNgayCapBaoVe.TabIndex = 19;
             this.txtNgayCapBaoVe.ValidatingType = typeof(System.DateTime);
             // 
             // label9
@@ -366,7 +362,7 @@
             this.txtHoTenBaoVe.Location = new System.Drawing.Point(71, 148);
             this.txtHoTenBaoVe.Name = "txtHoTenBaoVe";
             this.txtHoTenBaoVe.Size = new System.Drawing.Size(121, 20);
-            this.txtHoTenBaoVe.TabIndex = 15;
+            this.txtHoTenBaoVe.TabIndex = 17;
             // 
             // label10
             // 
@@ -382,7 +378,7 @@
             this.txtNoiCapLaiXe.Location = new System.Drawing.Point(511, 122);
             this.txtNoiCapLaiXe.Name = "txtNoiCapLaiXe";
             this.txtNoiCapLaiXe.Size = new System.Drawing.Size(240, 20);
-            this.txtNoiCapLaiXe.TabIndex = 13;
+            this.txtNoiCapLaiXe.TabIndex = 16;
             // 
             // label7
             // 
@@ -399,8 +395,9 @@
             this.txtNgayCapLaiXe.Mask = "00/00/0000";
             this.txtNgayCapLaiXe.Name = "txtNgayCapLaiXe";
             this.txtNgayCapLaiXe.Size = new System.Drawing.Size(64, 20);
-            this.txtNgayCapLaiXe.TabIndex = 11;
+            this.txtNgayCapLaiXe.TabIndex = 15;
             this.txtNgayCapLaiXe.ValidatingType = typeof(System.DateTime);
+            this.txtNgayCapLaiXe.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtNgayCapLaiXe_MaskInputRejected);
             // 
             // label6
             // 
@@ -416,7 +413,7 @@
             this.txtHoTenLaiXe.Location = new System.Drawing.Point(71, 122);
             this.txtHoTenLaiXe.Name = "txtHoTenLaiXe";
             this.txtHoTenLaiXe.Size = new System.Drawing.Size(121, 20);
-            this.txtHoTenLaiXe.TabIndex = 9;
+            this.txtHoTenLaiXe.TabIndex = 13;
             // 
             // label5
             // 
@@ -442,7 +439,7 @@
             this.cbGiamSat2.Location = new System.Drawing.Point(71, 97);
             this.cbGiamSat2.Name = "cbGiamSat2";
             this.cbGiamSat2.Size = new System.Drawing.Size(121, 21);
-            this.cbGiamSat2.TabIndex = 6;
+            this.cbGiamSat2.TabIndex = 9;
             // 
             // label3
             // 
@@ -459,7 +456,7 @@
             this.cbGiamSat1.Location = new System.Drawing.Point(71, 70);
             this.cbGiamSat1.Name = "cbGiamSat1";
             this.cbGiamSat1.Size = new System.Drawing.Size(121, 21);
-            this.cbGiamSat1.TabIndex = 4;
+            this.cbGiamSat1.TabIndex = 5;
             // 
             // cbToTruong
             // 
@@ -467,7 +464,7 @@
             this.cbToTruong.Location = new System.Drawing.Point(71, 43);
             this.cbToTruong.Name = "cbToTruong";
             this.cbToTruong.Size = new System.Drawing.Size(121, 21);
-            this.cbToTruong.TabIndex = 3;
+            this.cbToTruong.TabIndex = 1;
             // 
             // label2
             // 
@@ -483,7 +480,7 @@
             this.txtSo.Location = new System.Drawing.Point(71, 17);
             this.txtSo.Name = "txtSo";
             this.txtSo.Size = new System.Drawing.Size(121, 20);
-            this.txtSo.TabIndex = 1;
+            this.txtSo.TabIndex = 0;
             // 
             // label1
             // 
@@ -502,10 +499,6 @@
             this.groupBox2.Controls.Add(this.txtBienSo);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.txtNoiDen);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.txtBiNiemPhong);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.txtAnChi);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtBangSo);
             this.groupBox2.Controls.Add(this.label12);
@@ -513,7 +506,7 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Location = new System.Drawing.Point(13, 195);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(757, 202);
+            this.groupBox2.Size = new System.Drawing.Size(757, 151);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nội dung";
@@ -521,7 +514,7 @@
             // dtpNgayThucHien
             // 
             this.dtpNgayThucHien.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayThucHien.Location = new System.Drawing.Point(145, 174);
+            this.dtpNgayThucHien.Location = new System.Drawing.Point(145, 122);
             this.dtpNgayThucHien.Name = "dtpNgayThucHien";
             this.dtpNgayThucHien.Size = new System.Drawing.Size(100, 20);
             this.dtpNgayThucHien.TabIndex = 15;
@@ -529,24 +522,24 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 176);
+            this.label18.Location = new System.Drawing.Point(6, 124);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 13);
             this.label18.TabIndex = 14;
-            this.label18.Text = "7. Ngày thực hiện:";
+            this.label18.Text = "5. Ngày thực hiện:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 150);
+            this.label17.Location = new System.Drawing.Point(6, 98);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(71, 13);
             this.label17.TabIndex = 12;
-            this.label17.Text = "6. Biến số xe:";
+            this.label17.Text = "4. Biến số xe:";
             // 
             // txtBienSo
             // 
-            this.txtBienSo.Location = new System.Drawing.Point(145, 147);
+            this.txtBienSo.Location = new System.Drawing.Point(145, 95);
             this.txtBienSo.Name = "txtBienSo";
             this.txtBienSo.Size = new System.Drawing.Size(100, 20);
             this.txtBienSo.TabIndex = 11;
@@ -554,50 +547,18 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 124);
+            this.label16.Location = new System.Drawing.Point(6, 72);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(60, 13);
             this.label16.TabIndex = 10;
-            this.label16.Text = "5. Nơi đến:";
+            this.label16.Text = "3. Nơi đến:";
             // 
             // txtNoiDen
             // 
-            this.txtNoiDen.Location = new System.Drawing.Point(145, 121);
+            this.txtNoiDen.Location = new System.Drawing.Point(145, 69);
             this.txtNoiDen.Name = "txtNoiDen";
             this.txtNoiDen.Size = new System.Drawing.Size(606, 20);
             this.txtNoiDen.TabIndex = 9;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 98);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(133, 13);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "3. Số lượng bì niêm phong:";
-            // 
-            // txtBiNiemPhong
-            // 
-            this.txtBiNiemPhong.Location = new System.Drawing.Point(145, 95);
-            this.txtBiNiemPhong.Name = "txtBiNiemPhong";
-            this.txtBiNiemPhong.Size = new System.Drawing.Size(100, 20);
-            this.txtBiNiemPhong.TabIndex = 7;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 72);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 13);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "2. Số lượng ấn chỉ:";
-            // 
-            // txtAnChi
-            // 
-            this.txtAnChi.Location = new System.Drawing.Point(145, 69);
-            this.txtAnChi.Name = "txtAnChi";
-            this.txtAnChi.Size = new System.Drawing.Size(100, 20);
-            this.txtAnChi.TabIndex = 5;
             // 
             // label13
             // 
@@ -643,7 +604,7 @@
             // btnLuu
             // 
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(357, 403);
+            this.btnLuu.Location = new System.Drawing.Point(352, 352);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 32);
             this.btnLuu.TabIndex = 3;
@@ -655,7 +616,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 443);
+            this.ClientSize = new System.Drawing.Size(782, 396);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -702,10 +663,6 @@
         private System.Windows.Forms.TextBox txtBienSo;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtNoiDen;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtBiNiemPhong;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtAnChi;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBangSo;
         private System.Windows.Forms.Label label12;

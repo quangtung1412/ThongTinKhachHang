@@ -48,7 +48,7 @@ namespace AGRIBANKHD.GUI
             listDich.Clear();
 
             listDich.Add("<CHI_NHANH>");
-            listNguon.Add(Thong_tin_dang_nhap.ten_cn);
+            listNguon.Add(Thong_tin_dang_nhap.ten_cn.ToUpper());
             listDich.Add("<SO>");
             listNguon.Add(txtSo.Text);
             listDich.Add("<NGAY>");
@@ -66,8 +66,11 @@ namespace AGRIBANKHD.GUI
                 var u = users[cbToTruong.SelectedIndex];
                 string gt = "Ông";
                 if(!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
                 listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDToTruong.Text + " Ngày cấp: " + txtNgayCapToTruong.Text +
-                    " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Tổ trưởng;");
+                    " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Tổ trưởng;");
             }
 
             listDich.Add("<GIAM_SAT_1>");
@@ -77,8 +80,11 @@ namespace AGRIBANKHD.GUI
                 var u = users[cbGiamSat1.SelectedIndex];
                 string gt = "Ông";
                 if (!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
                 listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat1.Text + " Ngày cấp: " + txtNgayCapGiamSat1.Text +
-                    " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Giám sát;");
+                    " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
             }
 
             listDich.Add("<GIAM_SAT_2>");
@@ -88,8 +94,11 @@ namespace AGRIBANKHD.GUI
                 var u = users[cbGiamSat2.SelectedIndex];
                 string gt = "Ông";
                 if (!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
                 listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat2.Text + " Ngày cấp: " + txtNgayCapGiamSat2.Text +
-                    " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + Thong_tin_dang_nhap.ten_cn + "; Chức danh: Giám sát;");
+                    " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
             }
             //Lai xe
             index++;
@@ -107,11 +116,7 @@ namespace AGRIBANKHD.GUI
             listDich.Add("<BANG_SO>");
             listNguon.Add(txtBangSo.Text);
             listDich.Add("<BANG_CHU>");
-            listNguon.Add(CommonMethods.ChuyenSoSangChu(XoaDauPhay(txtBangSo.Text)));
-            listDich.Add("<SL_AN_CHI>");
-            listNguon.Add(txtAnChi.Text);
-            listDich.Add("<SL_BI_NIEM_PHONG>");
-            listNguon.Add(txtBiNiemPhong.Text);
+            listNguon.Add(CommonMethods.FirstCharToUpper(CommonMethods.ChuyenSoSangChu(XoaDauPhay(txtBangSo.Text))));
             listDich.Add("<DIA_CHI_CN>");
             listNguon.Add(Thong_tin_dang_nhap.dia_chi_cn);
             listDich.Add("<NOI_DEN>");
@@ -147,10 +152,18 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            ap.Visible = false;
-            document.PrintOut();
-            document.Close();
-            ap.Quit();
+            //ap.Visible = false;
+            //try
+            //{
+            //    document.PrintOut();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
+            //}
+            //document.Close();
+            //ap.Quit();
+            ap.Visible = true;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -192,6 +205,11 @@ namespace AGRIBANKHD.GUI
         private void txtBangSo_TextChanged(object sender, EventArgs e)
         {
             TachSo(txtBangSo);
+        }
+
+        private void txtNgayCapLaiXe_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
 
     }

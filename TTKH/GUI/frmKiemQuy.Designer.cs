@@ -112,9 +112,9 @@
             this.cbATMID = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
-            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -999,10 +999,10 @@
             // 
             // groupBox14
             // 
+            this.groupBox14.Controls.Add(this.dtpTuNgay);
             this.groupBox14.Controls.Add(this.cbATMID);
             this.groupBox14.Controls.Add(this.label26);
             this.groupBox14.Controls.Add(this.dtpDenNgay);
-            this.groupBox14.Controls.Add(this.dtpTuNgay);
             this.groupBox14.Controls.Add(this.label25);
             this.groupBox14.Controls.Add(this.label24);
             this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1043,17 +1043,6 @@
             this.dtpDenNgay.Size = new System.Drawing.Size(132, 20);
             this.dtpDenNgay.TabIndex = 2;
             // 
-            // dtpTuNgay
-            // 
-            this.dtpTuNgay.CustomFormat = "hh:mm dd/MM/yyyy";
-            this.dtpTuNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTuNgay.Location = new System.Drawing.Point(135, 16);
-            this.dtpTuNgay.Name = "dtpTuNgay";
-            this.dtpTuNgay.Size = new System.Drawing.Size(131, 20);
-            this.dtpTuNgay.TabIndex = 0;
-            this.dtpTuNgay.Value = new System.DateTime(2018, 5, 3, 0, 0, 0, 0);
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -1073,6 +1062,16 @@
             this.label24.Size = new System.Drawing.Size(49, 13);
             this.label24.TabIndex = 0;
             this.label24.Text = "Từ ngày:";
+            // 
+            // dtpTuNgay
+            // 
+            this.dtpTuNgay.CustomFormat = "hh:mm dd/MM/yyyy";
+            this.dtpTuNgay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTuNgay.Location = new System.Drawing.Point(135, 16);
+            this.dtpTuNgay.Name = "dtpTuNgay";
+            this.dtpTuNgay.Size = new System.Drawing.Size(132, 20);
+            this.dtpTuNgay.TabIndex = 1;
             // 
             // frmKiemQuy
             // 
@@ -1202,11 +1201,11 @@
         private System.Windows.Forms.SaveFileDialog saveFileKiemQuy;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.DateTimePicker dtpTuNgay;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DateTimePicker dtpDenNgay;
         private System.Windows.Forms.ComboBox cbATMID;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.DateTimePicker dtpTuNgay;
     }
 }

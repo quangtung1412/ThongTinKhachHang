@@ -19,14 +19,16 @@ namespace AGRIBANKHD.GUI
     {
         //CanbotindungBUS cbbus = new CanbotindungBUS();
         UserBUS userBus = new UserBUS();
-        public Version curVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+        public string curVersion = Application.ProductVersion;
+        //public Version curVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
         //string curVersion = Application.ProductVersion;
         private bool Kiemtracapnhat()
         {
             bool has_update = false;
+            string newVersion = "";
             // in newVersion variable we will store the  
             // version info from xml file  
-            Version newVersion = null;
+            //Version newVersion = null;
             // and in this variable we will put the url we  
             // would like to open so that the user can  
             // download the new version  
@@ -85,8 +87,8 @@ namespace AGRIBANKHD.GUI
                 //    }
                 //}
 
-                string newV = DangNhapDAL.DV_GET_CURRENT_APP_VERSION(Application.ProductName);
-                newVersion = new Version(newV);
+                newVersion = DangNhapDAL.DV_GET_CURRENT_APP_VERSION(Application.ProductName);
+                //newVersion = new Version(newV);
             }
             catch (Exception)
             {
@@ -124,7 +126,7 @@ namespace AGRIBANKHD.GUI
         public frmDang_nhap()
         {
             InitializeComponent();
-            Text = "PHẦN MỀM HỖ TRỢ NGHIỆP VỤ - v" + Application.ProductVersion + " - AGRIBANKHD - ĐĂNG NHẬP";
+            Text = "PHẦN MỀM HỖ TRỢ NGHIỆP VỤ - v" + curVersion + " - AGRIBANKHD - ĐĂNG NHẬP";
             //List<Chinhanh> dschinhanh = new List<Chinhanh>();
             //dschinhanh = AGRIBANKHD.BUS.ChinhanhBUS.DanhsachCN();
             this.AcceptButton = btnDang_nhap;

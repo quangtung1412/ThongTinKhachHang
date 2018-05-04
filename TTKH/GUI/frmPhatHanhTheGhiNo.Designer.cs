@@ -132,6 +132,8 @@
             this.saveFileHopDong = new System.Windows.Forms.SaveFileDialog();
             this.saveFileGiayHen = new System.Windows.Forms.SaveFileDialog();
             this.openFileTTKH = new System.Windows.Forms.OpenFileDialog();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtSoHD = new System.Windows.Forms.TextBox();
             this.gbThongTinKH.SuspendLayout();
             this.tCtrDichVu.SuspendLayout();
             this.tpPhatHanhTheGhiNo.SuspendLayout();
@@ -309,7 +311,6 @@
             // 
             // txtQuocTich
             // 
-            this.txtQuocTich.Enabled = false;
             this.txtQuocTich.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuocTich.Location = new System.Drawing.Point(638, 103);
             this.txtQuocTich.Name = "txtQuocTich";
@@ -979,6 +980,8 @@
             // 
             // tpHopDong
             // 
+            this.tpHopDong.Controls.Add(this.txtSoHD);
+            this.tpHopDong.Controls.Add(this.label15);
             this.tpHopDong.Controls.Add(this.groupBox1);
             this.tpHopDong.Controls.Add(this.gbBenA);
             this.tpHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1003,16 +1006,16 @@
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.txtDiaChi_BenB);
             this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Location = new System.Drawing.Point(3, 122);
+            this.groupBox1.Location = new System.Drawing.Point(3, 147);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(780, 116);
-            this.groupBox1.TabIndex = 15;
+            this.groupBox1.Size = new System.Drawing.Size(780, 88);
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bên B";
             // 
             // txtNgayDeNghi_BenB
             // 
-            this.txtNgayDeNghi_BenB.Location = new System.Drawing.Point(118, 90);
+            this.txtNgayDeNghi_BenB.Location = new System.Drawing.Point(118, 64);
             this.txtNgayDeNghi_BenB.Mask = "00/00/0000";
             this.txtNgayDeNghi_BenB.Name = "txtNgayDeNghi_BenB";
             this.txtNgayDeNghi_BenB.Size = new System.Drawing.Size(150, 20);
@@ -1024,7 +1027,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(6, 93);
+            this.label19.Location = new System.Drawing.Point(6, 67);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(74, 13);
             this.label19.TabIndex = 16;
@@ -1033,7 +1036,7 @@
             // txtNgayCap_BenB
             // 
             this.txtNgayCap_BenB.Enabled = false;
-            this.txtNgayCap_BenB.Location = new System.Drawing.Point(371, 65);
+            this.txtNgayCap_BenB.Location = new System.Drawing.Point(371, 39);
             this.txtNgayCap_BenB.Mask = "00/00/0000";
             this.txtNgayCap_BenB.Name = "txtNgayCap_BenB";
             this.txtNgayCap_BenB.Size = new System.Drawing.Size(150, 20);
@@ -1044,7 +1047,7 @@
             // txtNoiCap_BenB
             // 
             this.txtNoiCap_BenB.Enabled = false;
-            this.txtNoiCap_BenB.Location = new System.Drawing.Point(624, 65);
+            this.txtNoiCap_BenB.Location = new System.Drawing.Point(624, 39);
             this.txtNoiCap_BenB.Name = "txtNoiCap_BenB";
             this.txtNoiCap_BenB.Size = new System.Drawing.Size(150, 20);
             this.txtNoiCap_BenB.TabIndex = 5;
@@ -1053,7 +1056,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(571, 68);
+            this.label18.Location = new System.Drawing.Point(571, 42);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 13);
             this.label18.TabIndex = 12;
@@ -1063,7 +1066,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(306, 68);
+            this.label17.Location = new System.Drawing.Point(306, 42);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(56, 13);
             this.label17.TabIndex = 10;
@@ -1090,7 +1093,7 @@
             // txtCMT_BenB
             // 
             this.txtCMT_BenB.Enabled = false;
-            this.txtCMT_BenB.Location = new System.Drawing.Point(118, 65);
+            this.txtCMT_BenB.Location = new System.Drawing.Point(118, 39);
             this.txtCMT_BenB.Name = "txtCMT_BenB";
             this.txtCMT_BenB.Size = new System.Drawing.Size(150, 20);
             this.txtCMT_BenB.TabIndex = 3;
@@ -1100,7 +1103,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(7, 68);
+            this.label21.Location = new System.Drawing.Point(7, 42);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(49, 13);
             this.label21.TabIndex = 6;
@@ -1109,16 +1112,16 @@
             // txtDiaChi_BenB
             // 
             this.txtDiaChi_BenB.Enabled = false;
-            this.txtDiaChi_BenB.Location = new System.Drawing.Point(118, 39);
+            this.txtDiaChi_BenB.Location = new System.Drawing.Point(371, 13);
             this.txtDiaChi_BenB.Name = "txtDiaChi_BenB";
-            this.txtDiaChi_BenB.Size = new System.Drawing.Size(656, 20);
+            this.txtDiaChi_BenB.Size = new System.Drawing.Size(403, 20);
             this.txtDiaChi_BenB.TabIndex = 2;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(7, 42);
+            this.label25.Location = new System.Drawing.Point(308, 16);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(43, 13);
             this.label25.TabIndex = 0;
@@ -1138,10 +1141,10 @@
             this.gbBenA.Controls.Add(this.txtDienThoai_BenA);
             this.gbBenA.Controls.Add(this.label10);
             this.gbBenA.Controls.Add(this.label9);
-            this.gbBenA.Location = new System.Drawing.Point(3, 3);
+            this.gbBenA.Location = new System.Drawing.Point(3, 25);
             this.gbBenA.Name = "gbBenA";
             this.gbBenA.Size = new System.Drawing.Size(780, 116);
-            this.gbBenA.TabIndex = 0;
+            this.gbBenA.TabIndex = 1;
             this.gbBenA.TabStop = false;
             this.gbBenA.Text = "Bên A";
             // 
@@ -1271,6 +1274,22 @@
             // 
             this.openFileTTKH.FileName = "openFileDialog1";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(84, 13);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Hợp đồng số:";
+            // 
+            // txtSoHD
+            // 
+            this.txtSoHD.Location = new System.Drawing.Point(121, 6);
+            this.txtSoHD.Name = "txtSoHD";
+            this.txtSoHD.Size = new System.Drawing.Size(150, 20);
+            this.txtSoHD.TabIndex = 0;
+            // 
             // frmPhatHanhTheGhiNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1298,6 +1317,7 @@
             this.gbThongTinThe1.ResumeLayout(false);
             this.gbThongTinThe1.PerformLayout();
             this.tpHopDong.ResumeLayout(false);
+            this.tpHopDong.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbBenA.ResumeLayout(false);
@@ -1411,5 +1431,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnLayTTKH;
         private System.Windows.Forms.OpenFileDialog openFileTTKH;
+        private System.Windows.Forms.TextBox txtSoHD;
+        private System.Windows.Forms.Label label15;
     }
 }
