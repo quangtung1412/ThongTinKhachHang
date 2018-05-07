@@ -47,8 +47,10 @@ namespace AGRIBANKHD.GUI
             listNguon.Clear();
             listDich.Clear();
 
-            listDich.Add("<CHI_NHANH>");
+            listDich.Add("<CHI_NHANH_0>");
             listNguon.Add(Thong_tin_dang_nhap.ten_cn.ToUpper());
+            listDich.Add("<CHI_NHANH>");
+            listNguon.Add(Thong_tin_dang_nhap.ten_cn);
             listDich.Add("<SO>");
             listNguon.Add(txtSo.Text);
             listDich.Add("<NGAY>");
