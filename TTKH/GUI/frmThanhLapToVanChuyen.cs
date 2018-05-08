@@ -61,8 +61,11 @@ namespace AGRIBANKHD.GUI
             //To van chuyen
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
+=======
+>>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
 =======
 >>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
             int index = 0;
@@ -118,6 +121,9 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
                 " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Bảo vệ;");
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
+=======
 >>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
 =======
 >>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
@@ -163,6 +169,7 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             ap.Visible = true;
@@ -252,6 +259,22 @@ namespace AGRIBANKHD.GUI
             document.Save();
         }
 
+=======
+            //ap.Visible = false;
+            //try
+            //{
+            //    document.PrintOut();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
+            //}
+            //document.Close();
+            //ap.Quit();
+            ap.Visible = true;
+        }
+
+>>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
 =======
             //ap.Visible = false;
             //try
