@@ -59,15 +59,6 @@ namespace AGRIBANKHD.GUI
             listDich.Add("<NAM>");
             listNguon.Add(DateTime.Now.Year.ToString());
             //To van chuyen
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            
-=======
-=======
->>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
-=======
->>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
             int index = 0;
             listDich.Add("<TO_TRUONG>");
             if (cbToTruong.SelectedItem != null)
@@ -120,13 +111,6 @@ namespace AGRIBANKHD.GUI
             listDich.Add("<BAO_VE>");
             listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
                 " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Bảo vệ;");
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
-=======
->>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
-=======
->>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
 
             listDich.Add("<HANG_DAC_BIET>");
             listNguon.Add(txtLoaiHang.Text);
@@ -169,9 +153,6 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             ap.Visible = true;
         }
 
