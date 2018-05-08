@@ -533,15 +533,15 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(6, 98);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(138, 13);
+            this.label17.Size = new System.Drawing.Size(71, 13);
             this.label17.TabIndex = 12;
-            this.label17.Text = "4. Phương tiện vận chuyển:";
+            this.label17.Text = "4. Biến số xe:";
             // 
             // txtBienSo
             // 
             this.txtBienSo.Location = new System.Drawing.Point(145, 95);
             this.txtBienSo.Name = "txtBienSo";
-            this.txtBienSo.Size = new System.Drawing.Size(307, 20);
+            this.txtBienSo.Size = new System.Drawing.Size(100, 20);
             this.txtBienSo.TabIndex = 11;
             // 
             // label16

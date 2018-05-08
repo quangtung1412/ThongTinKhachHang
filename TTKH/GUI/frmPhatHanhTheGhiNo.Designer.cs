@@ -100,8 +100,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tpHopDong = new System.Windows.Forms.TabPage();
-            this.txtSoHD = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNgayDeNghi_BenB = new System.Windows.Forms.MaskedTextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -134,6 +132,8 @@
             this.saveFileHopDong = new System.Windows.Forms.SaveFileDialog();
             this.saveFileGiayHen = new System.Windows.Forms.SaveFileDialog();
             this.openFileTTKH = new System.Windows.Forms.OpenFileDialog();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtSoHD = new System.Windows.Forms.TextBox();
             this.gbThongTinKH.SuspendLayout();
             this.tCtrDichVu.SuspendLayout();
             this.tpPhatHanhTheGhiNo.SuspendLayout();
@@ -532,7 +532,6 @@
             this.txtHMGD_Moi.Name = "txtHMGD_Moi";
             this.txtHMGD_Moi.Size = new System.Drawing.Size(123, 20);
             this.txtHMGD_Moi.TabIndex = 6;
-            this.txtHMGD_Moi.TextChanged += new System.EventHandler(this.txtHMGD_Moi_TextChanged);
             this.txtHMGD_Moi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHMGD_Moi_KeyPress);
             // 
             // lbHanMucGiaoDich
@@ -791,7 +790,6 @@
             this.txtHMGD_Lai.Name = "txtHMGD_Lai";
             this.txtHMGD_Lai.Size = new System.Drawing.Size(123, 20);
             this.txtHMGD_Lai.TabIndex = 6;
-            this.txtHMGD_Lai.TextChanged += new System.EventHandler(this.txtHMGD_Lai_TextChanged);
             this.txtHMGD_Lai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHMGD_Lai_KeyPress);
             // 
             // label2
@@ -993,22 +991,6 @@
             this.tpHopDong.TabIndex = 2;
             this.tpHopDong.Text = "Hợp đồng phát hành thẻ";
             this.tpHopDong.UseVisualStyleBackColor = true;
-            // 
-            // txtSoHD
-            // 
-            this.txtSoHD.Location = new System.Drawing.Point(121, 6);
-            this.txtSoHD.Name = "txtSoHD";
-            this.txtSoHD.Size = new System.Drawing.Size(150, 20);
-            this.txtSoHD.TabIndex = 0;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 13);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "Hợp đồng số:";
             // 
             // groupBox1
             // 
@@ -1291,6 +1273,22 @@
             // openFileTTKH
             // 
             this.openFileTTKH.FileName = "openFileDialog1";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(84, 13);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "Hợp đồng số:";
+            // 
+            // txtSoHD
+            // 
+            this.txtSoHD.Location = new System.Drawing.Point(121, 6);
+            this.txtSoHD.Name = "txtSoHD";
+            this.txtSoHD.Size = new System.Drawing.Size(150, 20);
+            this.txtSoHD.TabIndex = 0;
             // 
             // frmPhatHanhTheGhiNo
             // 

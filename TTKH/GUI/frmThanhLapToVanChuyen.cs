@@ -48,10 +48,8 @@ namespace AGRIBANKHD.GUI
             listNguon.Clear();
             listDich.Clear();
 
-            listDich.Add("<CHI_NHANH_0>");
-            listNguon.Add(Thong_tin_dang_nhap.ten_cn.ToUpper());
             listDich.Add("<CHI_NHANH>");
-            listNguon.Add(Thong_tin_dang_nhap.ten_cn);
+            listNguon.Add(Thong_tin_dang_nhap.ten_cn.ToUpper());
             listDich.Add("<SO>");
             listNguon.Add(txtSo.Text);
             listDich.Add("<NGAY>");
@@ -61,7 +59,62 @@ namespace AGRIBANKHD.GUI
             listDich.Add("<NAM>");
             listNguon.Add(DateTime.Now.Year.ToString());
             //To van chuyen
+<<<<<<< HEAD
             
+=======
+            int index = 0;
+            listDich.Add("<TO_TRUONG>");
+            if (cbToTruong.SelectedItem != null)
+            {
+                index++;
+                var u = users[cbToTruong.SelectedIndex];
+                string gt = "Ông";
+                if(!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
+                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDToTruong.Text + " Ngày cấp: " + txtNgayCapToTruong.Text +
+                    " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Tổ trưởng;");
+            }
+
+            listDich.Add("<GIAM_SAT_1>");
+            if (cbGiamSat1.SelectedItem != null)
+            {
+                index++;
+                var u = users[cbGiamSat1.SelectedIndex];
+                string gt = "Ông";
+                if (!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
+                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat1.Text + " Ngày cấp: " + txtNgayCapGiamSat1.Text +
+                    " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
+            }
+
+            listDich.Add("<GIAM_SAT_2>");
+            if (cbGiamSat2.SelectedItem != null)
+            {
+                index++;
+                var u = users[cbGiamSat2.SelectedIndex];
+                string gt = "Ông";
+                if (!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
+                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat2.Text + " Ngày cấp: " + txtNgayCapGiamSat2.Text +
+                    " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
+            }
+            //Lai xe
+            index++;
+            listDich.Add("<LAI_XE>");
+            listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Lái xe;");
+            //Bao ve
+            index++;
+            listDich.Add("<BAO_VE>");
+            listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Bảo vệ;");
+>>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
 
             listDich.Add("<HANG_DAC_BIET>");
             listNguon.Add(txtLoaiHang.Text);
@@ -73,7 +126,7 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(Thong_tin_dang_nhap.dia_chi_cn);
             listDich.Add("<NOI_DEN>");
             listNguon.Add(txtNoiDen.Text);
-            listDich.Add("<PHUONG_TIEN>");
+            listDich.Add("<BIEN_SO>");
             listNguon.Add(txtBienSo.Text);
             listDich.Add("<NGAY_THUC_HIEN>");
             listNguon.Add(dtpNgayThucHien.Value.ToString("dd/MM/yyyy"));
@@ -104,6 +157,7 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
+<<<<<<< HEAD
             ap.Visible = true;
         }
 
@@ -191,6 +245,22 @@ namespace AGRIBANKHD.GUI
             document.Save();
         }
 
+=======
+            //ap.Visible = false;
+            //try
+            //{
+            //    document.PrintOut();
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
+            //}
+            //document.Close();
+            //ap.Quit();
+            ap.Visible = true;
+        }
+
+>>>>>>> parent of 9ad0dcc... Merge branch 'master' of https://github.com/quangtung1412/ThongTinKhachHang
         private void btnLuu_Click(object sender, EventArgs e)
         {
             KhoiTaoTLTVC();

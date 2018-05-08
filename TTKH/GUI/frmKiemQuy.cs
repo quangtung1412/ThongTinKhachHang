@@ -61,21 +61,20 @@ namespace AGRIBANKHD.GUI
         {
             users = new List<User>();
             usersKiemQuy = new List<User>();
-            DataTable dt = new DataTable();
+
             try
             {
-                dt = KiemQuyDAL.DV_DSNhanVien_MaCN(Thong_tin_dang_nhap.ma_cn);
+                DataTable dt = KiemQuyDAL.DV_DSNhanVien_MaCN(Thong_tin_dang_nhap.ma_cn);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    var u = new User(dt.Rows[i]);
+                    users.Add(u);
+                    cbCanBo.Items.Add(u.tennv);
+                }
             }
             catch
             {
                 ErrorMessageDAL.DataAccessError();
-            }
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                var u = new User(dt.Rows[i]);
-                users.Add(u);
-                cbCanBo.Items.Add(u.tennv);
             }
         }
 
