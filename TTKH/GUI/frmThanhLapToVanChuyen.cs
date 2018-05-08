@@ -60,58 +60,58 @@ namespace AGRIBANKHD.GUI
             listDich.Add("<NAM>");
             listNguon.Add(DateTime.Now.Year.ToString());
             //To van chuyen
-            int index = 0;
-            listDich.Add("<TO_TRUONG>");
-            if (cbToTruong.SelectedItem != null)
-            {
-                index++;
-                var u = users[cbToTruong.SelectedIndex];
-                string gt = "Ông";
-                if(!u.gioiTinh) gt = "Bà";
-                string pb = Thong_tin_dang_nhap.ten_cn;
-                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
-                    pb = Thong_tin_dang_nhap.tenPb;
-                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDToTruong.Text + " Ngày cấp: " + txtNgayCapToTruong.Text +
-                    " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Tổ trưởng;");
-            }
+            //int index = 0;
+            //listDich.Add("<TO_TRUONG>");
+            //if (cbToTruong.SelectedItem != null)
+            //{
+            //    index++;
+            //    var u = users[cbToTruong.SelectedIndex];
+            //    string gt = "Ông";
+            //    if(!u.gioiTinh) gt = "Bà";
+            //    string pb = Thong_tin_dang_nhap.ten_cn;
+            //    if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+            //        pb = Thong_tin_dang_nhap.tenPb;
+            //    listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDToTruong.Text + " Ngày cấp: " + txtNgayCapToTruong.Text +
+            //        " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Tổ trưởng;");
+            //}
 
-            listDich.Add("<GIAM_SAT_1>");
-            if (cbGiamSat1.SelectedItem != null)
-            {
-                index++;
-                var u = users[cbGiamSat1.SelectedIndex];
-                string gt = "Ông";
-                if (!u.gioiTinh) gt = "Bà";
-                string pb = Thong_tin_dang_nhap.ten_cn;
-                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
-                    pb = Thong_tin_dang_nhap.tenPb;
-                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat1.Text + " Ngày cấp: " + txtNgayCapGiamSat1.Text +
-                    " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
-            }
+            //listDich.Add("<GIAM_SAT_1>");
+            //if (cbGiamSat1.SelectedItem != null)
+            //{
+            //    index++;
+            //    var u = users[cbGiamSat1.SelectedIndex];
+            //    string gt = "Ông";
+            //    if (!u.gioiTinh) gt = "Bà";
+            //    string pb = Thong_tin_dang_nhap.ten_cn;
+            //    if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+            //        pb = Thong_tin_dang_nhap.tenPb;
+            //    listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat1.Text + " Ngày cấp: " + txtNgayCapGiamSat1.Text +
+            //        " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
+            //}
 
-            listDich.Add("<GIAM_SAT_2>");
-            if (cbGiamSat2.SelectedItem != null)
-            {
-                index++;
-                var u = users[cbGiamSat2.SelectedIndex];
-                string gt = "Ông";
-                if (!u.gioiTinh) gt = "Bà";
-                string pb = Thong_tin_dang_nhap.ten_cn;
-                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
-                    pb = Thong_tin_dang_nhap.tenPb;
-                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat2.Text + " Ngày cấp: " + txtNgayCapGiamSat2.Text +
-                    " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
-            }
-            //Lai xe
-            index++;
-            listDich.Add("<LAI_XE>");
-            listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
-                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Lái xe;");
-            //Bao ve
-            index++;
-            listDich.Add("<BAO_VE>");
-            listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
-                " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Bảo vệ;");
+            //listDich.Add("<GIAM_SAT_2>");
+            //if (cbGiamSat2.SelectedItem != null)
+            //{
+            //    index++;
+            //    var u = users[cbGiamSat2.SelectedIndex];
+            //    string gt = "Ông";
+            //    if (!u.gioiTinh) gt = "Bà";
+            //    string pb = Thong_tin_dang_nhap.ten_cn;
+            //    if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+            //        pb = Thong_tin_dang_nhap.tenPb;
+            //    listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat2.Text + " Ngày cấp: " + txtNgayCapGiamSat2.Text +
+            //        " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
+            //}
+            ////Lai xe
+            //index++;
+            //listDich.Add("<LAI_XE>");
+            //listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+            //    " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Lái xe;");
+            ////Bao ve
+            //index++;
+            //listDich.Add("<BAO_VE>");
+            //listNguon.Add(index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+            //    " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Bảo vệ;");
 
             listDich.Add("<HANG_DAC_BIET>");
             listNguon.Add(txtLoaiHang.Text);
@@ -123,7 +123,7 @@ namespace AGRIBANKHD.GUI
             listNguon.Add(Thong_tin_dang_nhap.dia_chi_cn);
             listDich.Add("<NOI_DEN>");
             listNguon.Add(txtNoiDen.Text);
-            listDich.Add("<BIEN_SO>");
+            listDich.Add("<PHUONG_TIEN>");
             listNguon.Add(txtBienSo.Text);
             listDich.Add("<NGAY_THUC_HIEN>");
             listNguon.Add(dtpNgayThucHien.Value.ToString("dd/MM/yyyy"));
@@ -154,18 +154,85 @@ namespace AGRIBANKHD.GUI
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
             Microsoft.Office.Interop.Word.Document document = ap.Documents.Open(fileLocation);
-            //ap.Visible = false;
-            //try
-            //{
-            //    document.PrintOut();
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Vui lòng kiểm tra máy in!", "Thông báo", MessageBoxButtons.OK);
-            //}
-            //document.Close();
-            //ap.Quit();
+            PutStringIntoTable(document);
             ap.Visible = true;
+        }
+
+        void PutStringIntoTable(Word.Document doc)
+        {
+            object oMissing = System.Reflection.Missing.Value;
+            Word.Table tb = doc.Tables[2];
+
+            int index = 0;
+            string toTruong = "";
+            string giamSat1 = "";
+            string giamSat2 = "";
+            string laiXe = "";
+            string baoVe = "";
+            if (cbToTruong.SelectedItem != null)
+            {
+                index++;
+                var u = users[cbToTruong.SelectedIndex];
+                string gt = "Ông";
+                if (!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
+                toTruong = index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDToTruong.Text + " Ngày cấp: " + txtNgayCapToTruong.Text +
+                    " Nơi cấp: " + txtNoiCapToTruong.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Tổ trưởng;";
+                tb.Rows[index].Cells[1].Range.Text = toTruong;
+            }
+
+            if (cbGiamSat1.SelectedItem != null)
+            {
+                tb.Rows.Add(oMissing);
+                index++;
+                var u = users[cbGiamSat1.SelectedIndex];
+                string gt = "Ông";
+                if (!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
+                giamSat1 = index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat1.Text + " Ngày cấp: " + txtNgayCapGiamSat1.Text +
+                    " Nơi cấp: " + txtNoiCapGiamSat1.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;";
+                tb.Rows[index].Cells[1].Range.Text = giamSat1;
+            }
+
+            listDich.Add("<GIAM_SAT_2>");
+            if (cbGiamSat2.SelectedItem != null)
+            {
+                tb.Rows.Add(oMissing);
+                index++;
+                var u = users[cbGiamSat2.SelectedIndex];
+                string gt = "Ông";
+                if (!u.gioiTinh) gt = "Bà";
+                string pb = Thong_tin_dang_nhap.ten_cn;
+                if (u.chucvu != "Giám đốc" && u.chucvu != "Phó Giám đốc")
+                    pb = Thong_tin_dang_nhap.tenPb;
+                listNguon.Add(index + ". " + gt + ": " + u.tennv + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDGiamSat2.Text + " Ngày cấp: " + txtNgayCapGiamSat2.Text +
+                    " Nơi cấp: " + txtNoiCapGiamSat2.Text + "; Chức vụ: " + u.chucvu + " " + pb + "; Chức danh: Giám sát;");
+                tb.Rows[index].Cells[1].Range.Text = giamSat2;
+            }
+            //Lai xe
+            if (!string.IsNullOrEmpty(txtHoTenLaiXe.Text))
+            {
+                tb.Rows.Add(oMissing);
+                index++;
+                listDich.Add("<LAI_XE>");
+                laiXe = index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+                    " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Lái xe;";
+                tb.Rows[index].Cells[1].Range.Text = laiXe;
+            }
+            //Bao ve
+            if (!string.IsNullOrEmpty(txtHoTenBaoVe.Text))
+            {
+                tb.Rows.Add(oMissing);
+                index++;
+                listDich.Add("<BAO_VE>");
+                baoVe = index + ". " + "Ông/Bà: " + txtHoTenLaiXe.Text + ", Số hộ chiếu/CMND/CCCD: " + txtCMNDLaiXe.Text +
+                    " Ngày cấp: " + txtNgayCapLaiXe.Text + ",Nơi cấp: " + txtNoiCapLaiXe.Text + ";Chức danh: Bảo vệ;";
+                tb.Rows[index].Cells[1].Range.Text = baoVe;
+            }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
