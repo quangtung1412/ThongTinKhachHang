@@ -201,3 +201,4 @@ F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.Properties.Resour
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.csproj.GenerateResource.Cache
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.exe
 F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\BSS.pdb
+F:\Work\Agribank\ThongTinKhachHang\TTKH\obj\Release\AGRIBANKHD.csprojResolveAssemblyReference.cache

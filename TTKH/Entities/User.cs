@@ -110,6 +110,7 @@ namespace AGRIBANKHD.Entities
             this._ghichu = row["GHICHU"].ToString();
             this._mapb = row["MAPB"].ToString();
             this._kichhoat = Convert.ToBoolean(row["KICHHOAT"].ToString());
+            this._gioiTinh = Convert.ToBoolean(row["GIOITINH"].ToString());
         }
 
         public User(string[] user)
